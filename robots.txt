@@ -1,0 +1,9 @@
+# robots.txt para guardianos.es
+User-agent: *
+Allow: /
+
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+Sitemap: https://guardianos.es/sitemap.xml
