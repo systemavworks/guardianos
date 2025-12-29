@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Auditorías técnicas de Android, recuperación de datos y protección digital ética para menores en Sevilla. Sin Google. Sin rastreo. Sin compromisos.">
+  <title>guardianos | auditorías Android · recuperación forense · Sevilla</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- ... TU CSS ESTÁ PERFECTO — LO MANTENEMOS IGUAL ... -->
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">🛡️ guardianos</div>
+      <ul class="nav-links">
+        <li><a href="#auditorias">Auditorías</a></li>
+        <li><a href="#recuperacion">Recuperación</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Auditorías Éticas de Android para Menores</h1>
+      <p>
+        Análisis técnico-profesional de dispositivos móviles: <strong>permisos, rastreadores, apps ocultas y riesgos reales</strong>.  
+        Sin vigilancia invasiva. Sin cloud. Sin Google. Solo transparencia y control local.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contacto" class="btn btn-primary">📞 Solicitar Auditoría (Sevilla)</a>
+        <a href="#auditorias" class="btn btn-secondary">Cómo funciona</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-badges">
+    <div class="container">
+      <div class="badges-grid">
+        <div class="badge">
+          <span class="badge-icon">🔍</span>
+          <div>
+            <strong>Auditoría Técnica</strong><br>
+            No solo "mirar apps"
+          </div>
+        </div>
+        <div class="badge">
+          <span class="badge-icon">💾</span>
+          <div>
+            <strong>Recuperación Forense</strong><br>
+            Datos tras borrado o fallo
+          </div>
+        </div>
+        <div class="badge">
+          <span class="badge-icon">👨‍💻</span>
+          <div>
+            <strong>Victor Shift</strong><br>
+            Experto en ciberseguridad
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="auditorias">
+    <div class="container">
+      <div class="section-header">
+        <h2>¿Qué hacemos en una <strong>Auditoría Android</strong>?</h2>
+        <p>
+          Un análisis profundo, <strong>sin root ni intervención destructiva</strong>, que revela lo que las apps no muestran.
+        </p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">📊</span>
+          <h3>Análisis de Permisos</h3>
+          <p>Detectamos apps con permisos excesivos (ej. linterna que accede a contactos).</p>
+          <ul class="feature-list">
+            <li>Uso de <code>adb</code> para listar permisos reales</li>
+            <li>Cruce con bases de apps conocidas por tracking</li>
+            <li>Informe de riesgo (bajo/medio/alto)</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <span class="feature-icon">🕵️</span>
+          <h3>Rastreadores Ocultos</h3>
+          <p>Identificamos SDKs de publicidad y analytics que se ejecutan en segundo plano.</p>
+          <ul class="feature-list">
+            <li>Detección de Firebase, AppLovin, Adjust, etc.</li>
+            <li>Análisis de tráfico DNS con <code>tcpdump</code></li>
+            <li>Mapa de terceros con los que se comunica el dispositivo</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <span class="feature-icon">📱</span>
+          <h3>Configuración del Sistema</h3>
+          <p>Revisión de la integridad del bootloader, SELinux, y posibles vulnerabilidades.</p>
+          <ul class="feature-list">
+            <li>Estado del bootloader (desbloqueado/bloqueado)</li>
+            <li>Versión de Android y parches de seguridad</li>
+            <li>Configuración de cifrado (FBE, FDE)</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <span class="feature-icon">📁</span>
+          <h3>Apps Instaladas</h3>
+          <p>Lista completa, incluyendo apps de sistema y paquetes ocultos.</p>
+          <ul class="feature-list">
+            <li><code>pm list packages -f</code> + análisis manual</li>
+            <li>Detección de apps falsas o modificadas</li>
+            <li>Recomendaciones de eliminación segura</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <span class="feature-icon">📧</span>
+          <h3>Configuración de Comunicación</h3>
+          <p>Privacidad en apps esenciales: Signal, SimpleX, correo PGP, etc.</p>
+          <ul class="feature-list">
+            <li>Verificación de seguridad en Signal</li>
+            <li>Configuración de correo cifrado (Delta Chat/Thunderbird)</li>
+            <li>Alternativas a WhatsApp/Telegram</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <span class="feature-icon">📄</span>
+          <h3>Entregable</h3>
+          <p>Informe técnico claro, sin jerga inútil, para tomar decisiones informadas.</p>
+          <ul class="feature-list">
+            <li>PDF de 3-5 páginas</li>
+            <li>Riesgos priorizados</li>
+            <li>Pasos concretos para mitigar</li>
+            <li>Sin publicidad ni upsells</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="recuperacion" class="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Recuperación Forense de Datos</h2>
+        <p>
+          ¿Se borraron fotos, mensajes o contactos? ¿El dispositivo no arranca?  
+          Trabajamos con métodos no invasivos y éticos para recuperar lo esencial.
+        </p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <div class="service-content">
+          <h3>📱 Recuperación en Dispositivos Funcionales</h3>
+          <p>Extraemos datos de apps (WhatsApp, Telegram*, SMS, contactos, fotos) sin root, usando métodos forenses aceptados.</p>
+          <p><strong>*Solo si hay copia local o caché accesible (sin violar E2E).</strong></p>
+          <p><em>Incluye: análisis de particiones lógicas, extracción de SQLite, verificación de integridad.</em></p>
+        </div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <div class="service-content">
+          <h3>💻 Recuperación en PCs/Portátiles</h3>
+          <p>Recuperamos documentos, fotos, historial y claves tras fallos de sistema, borrado accidental o ataques.</p>
+          <p><em>Usamos <code>ddrescue</code>, <code>photorec</code>, análisis de MFT/INODE, y montaje forense de imágenes.</em></p>
+        </div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <div class="service-content">
+          <h3>⚠️ Casos Especiales</h3>
+          <p>Dispositivos con pantalla rota, agua, o bloqueo persistente. Evaluación gratuita de viabilidad.</p>
+          <p><em>No prometemos lo imposible: si los datos están cifrados sin clave, no se pueden recuperar — y te lo diremos con claridad.</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <h2>Nuestros Servicios</h2>
+        <p>Diseñados para familias en Sevilla, con enfoque en acción local y educación digital</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <div class="service-content">
+          <h3>🔍 Auditoría Express (2h)</h3>
+          <p>Análisis técnico del dispositivo Android de tu hijo: permisos, rastreadores, apps riesgosas y configuración del sistema.</p>
+          <p><strong>Entregable:</strong> Informe en PDF + sesión de 30 min para explicar hallazgos y acciones.</p>
+          <p>📍 <em>Presencial en Sevilla (zona centro/sur) o remoto con tu supervisión.</em></p>
+        </div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <div class="service-content">
+          <h3>🎓 Talleres para Colegios – <em>vuelta al cole 2026</em></h3>
+          <p>Charlas prácticas para padres y profesores: <strong>"Ciberseguridad ética para menores: sin espiar, sin prohibir"</strong>.</p>
+          <p><strong>Contenido:</strong> Riesgos reales de TikTok/Instagram, configuración práctica de LineageOS/e/OS, alternativas éticas, y cómo hablar de privacidad con adolescentes.</p>
+          <p>📅 <em>Disponible desde enero de 2026.</em></p>
+        </div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <div class="service-content">
+          <h3>🛡️ Configuración Segura (post-auditoría)</h3>
+          <p>Implementamos las recomendaciones del informe: desinstalación segura, configuración de DNS (AdGuard/Pi-hole), apps de código abierto (Signal, NewPipe, Simple Gallery), y cifrado de comunicaciones.</p>
+          <p><strong>Énfasis:</strong> Autonomía del menor, sin vigilancia parental invasiva.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ... Tu sección de vídeo se mantiene (genial para engagement) ... -->
+
+  <section id="precios">
+    <div class="container">
+      <div class="section-header">
+        <h2>Transparencia Total</h2>
+        <p>Sin letras pequeñas. Sin sorpresas. Precios en € (IVA incluido).</p>
+      </div>
+      
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Auditoría Express</h3>
+            <div class="price">75€</div>
+            <small style="display:block; margin-top:0.5rem; color:var(--text-secondary)">2 horas técnicas</small>
+          </div>
+          <ul class="pricing-features">
+            <li>Análisis de permisos y rastreadores</li>
+            <li>Revisión de apps instaladas</li>
+            <li>Configuración del sistema</li>
+            <li>Informe PDF de 3-5 páginas</li>
+            <li>Sesión explicativa (30 min)</li>
+            <li>📍 Presencial en Sevilla</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary" style="width: 100%;">Reservar</a>
+        </div>
+        
+        <div class="pricing-card featured">
+          <div class="pricing-header">
+            <h3>Auditoría + Configuración</h3>
+            <div class="price">195€</div>
+            <small style="display:block; margin-top:0.5rem; color:var(--text-secondary)">4-5 horas totales</small>
+          </div>
+          <ul class="pricing-features">
+            <li>Todo lo de Auditoría Express</li>
+            <li>Configuración segura del dispositivo</li>
+            <li>Instalación de apps éticas</li>
+            <li>Filtrado DNS local (AdGuard)</li>
+            <li>Cifrado de comunicaciones</li>
+            <li>Educación para el menor</li>
+            <li>Soporte 30 días</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary" style="width: 100%;">Más Valor</a>
+        </div>
+        
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Talleres Escolares</h3>
+            <div class="price">120€/sesión</div>
+            <small style="display:block; margin-top:0.5rem; color:var(--text-secondary)">Hasta 40 personas</small>
+          </div>
+          <ul class="pricing-features">
+            <li>Charla presencial 90 min</li>
+            <li>Material en PDF incluido</li>
+            <li>Demostraciones en vivo</li>
+            <li>Sesión de preguntas técnicas</li>
+            <li>Para AMPAs y profesores</li>
+            <li>Disponible desde enero 2026</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary" style="width: 100%;">Consultar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <div class="container">
+      <h2>¿Hablamos?</h2>
+      <p style="font-size: 1.2rem; margin: 1.5rem 0;">
+        Soy un experto independiente en ciberseguridad, basado en Sevilla.  
+        Trabajo con ética, transparencia y sin compromisos con grandes plataformas.
+      </p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-item-icon">📧</span>
+          <div>
+            <strong>Email</strong><br>
+            <a href="mailto:systemavworks@gmail.com" style="color:white">systemavworks@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">📱</span>
+          <div>
+            <strong>Teléfono</strong><br>
+            [Tu teléfono aquí]
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">📍</span>
+          <div>
+            <strong>Ubicación</strong><br>
+            Sevilla, España (presencial)
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>guardianos</h4>
+          <p>Victor Shift · Protección digital ética para menores.  
+          Sin Google. Sin rastreo. Sin cloud.</p>
+        </div>
+        <!-- ... resto del footer igual ... -->
+        <div class="footer-section">
+          <h4>Ética</h4>
+          <ul>
+            <li>✅ Sin datos en la nube</li>
+            <li>✅ Sin trackers ni analytics</li>
+            <li>✅ Código abierto recomendado</li>
+            <li>✅ Transparencia total</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 guardianos · Sevilla — Hecho con respeto y terminal 🖥️</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
