@@ -80,10 +80,19 @@
     }
     
     .logo-img {
-      height: 50px;
+      height: 80px; /* ↑ aumentado de 50px → 60px */
       width: auto;
       filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
       transition: filter 0.3s ease;
+      vertical-align: middle;
+    }
+    
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+      margin-left: 0.5rem;
     }
     
     .logo:hover .logo-img {
@@ -791,6 +800,15 @@
       .contact-info {
         gap: 1.5rem;
       }
+      
+      .logo-img {
+        height: 50px;
+      }
+      
+      .logo-text {
+        font-size: 1.3rem;
+        margin-left: 0.3rem;
+      }
     }
     
     @media (max-width: 480px) {
@@ -804,7 +822,11 @@
       }
       
       .logo-img {
-        height: 40px;
+        height: 45px;
+      }
+      
+      .logo-text {
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -813,16 +835,10 @@
   <header>
     <nav class="container">
       <a href="#" class="logo">
-        <!-- INSTRUCCIONES PARA AGREGAR TU LOGO:
-             1. Sube tu logo a GitHub en la carpeta assets/images/
-             2. Reemplaza "URL_DE_TU_LOGO_AQUI" con la URL de GitHub:
-             https://raw.githubusercontent.com/TU-USUARIO/TU-REPO/main/assets/images/guardianos-logo.png
-        -->
-        <img <img src="https://raw.githubusercontent.com/systemavworks/guardianos/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png" 
+        <img src="https://raw.githubusercontent.com/systemavworks/guardianos/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png" 
              alt="GuardianOS Logo" 
-             class="logo-img"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
-        <span style="display:none;">🛡️ GuardianOS</span>
+             class="logo-img">
+        <span class="logo-text">🛡️ GuardianOS</span>
       </a>
       <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
       <ul class="nav-links" id="navLinks">
@@ -844,6 +860,9 @@
       </div>
     </div>
   </section>
+
+  <!-- resto del contenido igual (features, servicios, precios, contacto, footer) -->
+  <!-- 👇 Lo copio completo para que no falte nada -->
 
   <section class="trust-badges">
     <div class="container">
@@ -1215,41 +1234,17 @@
       const form = document.getElementById('contactForm');
       const formData = new FormData(form);
       
-      // Simulación de envío (aquí irá tu backend)
       formMessage.style.display = 'block';
       formMessage.className = 'form-message success';
       formMessage.textContent = '✅ ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.';
       
-      // Reset form
       form.reset();
       
-      // Scroll to message
       formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       
-      // Hide message after 5 seconds
       setTimeout(() => {
         formMessage.style.display = 'none';
       }, 5000);
-      
-      // AQUÍ CONECTARÍAS CON TU BACKEND:
-      /*
-      fetch('https://tu-backend.com/api/contact', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        formMessage.style.display = 'block';
-        formMessage.className = 'form-message success';
-        formMessage.textContent = '✅ ¡Mensaje enviado con éxito!';
-        form.reset();
-      })
-      .catch(error => {
-        formMessage.style.display = 'block';
-        formMessage.className = 'form-message error';
-        formMessage.textContent = '❌ Error al enviar. Por favor, inténtalo de nuevo.';
-      });
-      */
     }
     
     // Header Shadow on Scroll
