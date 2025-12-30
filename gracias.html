@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✅ ¡Gracias! - GuardianOS</title>
+  <meta http-equiv="refresh" content="5;url=https://guardianos.es">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --bg-main: #0f1c2e;
+      --text-primary: #e2e8f0;
+      --text-secondary: #94a3b8;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-main);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .logo {
+      height: 70px;
+      margin-bottom: 2rem;
+      filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.3));
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 0.2s forwards;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      line-height: 1.6;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 0.4s forwards;
+    }
+    
+    .countdown {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 0.6s forwards;
+    }
+    
+    .shield {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 0.3s forwards;
+    }
+  </style>
+</head>
+<body>
+  <img 
+    src="https://raw.githubusercontent.com/systemavworks/guardianos/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png" 
+    alt="GuardianOS – Protección Digital Ética"
+    class="logo"
+  >
+  
+  <div class="shield">🛡️</div>
+  <h1>¡Gracias por confiar en GuardianOS!</h1>
+  <p>Hemos recibido tu solicitud y nos pondremos en contacto contigo en menos de 24 horas.<br>Proteger a los menores es una responsabilidad que tomamos muy en serio.</p>
+  
+  <p class="countdown">Redirigiendo a la web en <strong id="counter">5</strong> segundos…</p>
+
+  <script>
+    // Contador visual (mejora UX)
+    let sec = 5;
+    const counter = document.getElementById('counter');
+    const interval = setInterval(() => {
+      sec--;
+      counter.textContent = sec;
+      if (sec <= 0) clearInterval(interval);
+    }, 1000);
+  </script>
+</body>
+</html>
