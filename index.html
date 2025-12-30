@@ -44,6 +44,31 @@
       margin: 0 auto;
       padding: 0 2rem;
     }
+
+    /* Watermark de logo en fondo */
+body::before {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80vw;
+  height: 80vh;
+  background-image: url('https://raw.githubusercontent.com/systemavworks/guardianos/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.03;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Desactivar en móvil para mejor rendimiento y legibilidad */
+@media (max-width: 768px) {
+  body::before {
+    display: none;
+  }
+}
     
     /* Header / Navigation */
     header {
