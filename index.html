@@ -1097,71 +1097,62 @@ body::before {
     </div>
   </section>
 
-  <section id="contacto" class="contact-form-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Solicita Tu Consulta Gratuita</h2>
-        <p>Déjanos tus datos y nos pondremos en contacto contigo en menos de 24 horas</p>
-      </div>
-      
-      <div class="form-container">
-        <div id="formMessage" class="form-message"></div>
-        
-        <form 
-          id="contactForm"
-          action="https://formspree.io/f/xdaoraeo"
-          method="POST"
-        >
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nombre">Nombre completo *</label>
-              <input type="text" id="nombre" name="nombre" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="_replyto" required>
-            </div>
-          </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label for="telefono">Teléfono *</label>
-              <input type="tel" id="telefono" name="telefono" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="servicio">Servicio de interés *</label>
-              <select id="servicio" name="servicio" required>
-                <option value="">Selecciona un servicio</option>
-                <option value="auditoria">Auditoría Express (49€)</option>
-                <option value="configuracion">Configuración Completa (149€)</option>
-                <option value="taller">Taller para Colegios</option>
-                <option value="consulta">Consulta General</option>
-              </select>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="mensaje">Cuéntanos tu situación</label>
-            <textarea id="mensaje" name="mensaje" placeholder="Ej: Tengo un hijo de 12 años con móvil Android y me preocupa su seguridad online..."></textarea>
-          </div>
-
-          <!-- Campos ocultos para Formspree -->
-          <input type="hidden" name="_subject" value="📧 Nueva solicitud desde guardianos.es">
-          <input type="hidden" name="_next" value="https://guardianos.es/gracias.html">
-          <div style="display:none;">
-            <input type="text" name="_gotcha">
-          </div>
-          
-          <div class="form-submit">
-            <button type="submit" class="btn btn-primary">📧 Enviar Solicitud</button>
-          </div>
-        </form>
-      </div>
+  <form 
+  id="contactForm"
+  action="https://formsubmit.co/el/sidile"
+  method="POST"
+>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="nombre">Nombre completo *</label>
+      <input type="text" id="nombre" name="nombre" required>
     </div>
-  </section>
+    
+    <div class="form-group">
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-group">
+      <label for="telefono">Teléfono *</label>
+      <input type="tel" id="telefono" name="telefono" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="servicio">Servicio de interés *</label>
+      <select id="servicio" name="servicio" required>
+        <option value="">Selecciona un servicio</option>
+        <option value="auditoria">Auditoría Express (49€)</option>
+        <option value="configuracion">Configuración Completa (149€)</option>
+        <option value="taller">Taller para Colegios</option>
+        <option value="consulta">Consulta General</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="mensaje">Cuéntanos tu situación</label>
+    <textarea id="mensaje" name="mensaje" placeholder="Ej: Tengo un hijo de 12 años con móvil Android y me preocupa su seguridad online..."></textarea>
+  </div>
 
+  <!-- ✅ Campos especiales de FormSubmit -->
+  <input type="hidden" name="_subject" value="📧 Nueva solicitud desde guardianos.es">
+  <input type="hidden" name="_next" value="https://guardianos.es/gracias.html">
+  <input type="hidden" name="_language" value="es">
+  <input type="hidden" name="_captcha" value="false"> <!-- o "true" si quieres CAPTCHA -->
+
+  <!-- 🛡️ Honeypot anti-spam -->
+  <div style="display:none;">
+    <input type="text" name="_honey">
+  </div>
+  
+  <div class="form-submit">
+    <button type="submit" class="btn btn-primary">📧 Enviar Solicitud</button>
+  </div>
+</form>
+        
   <section class="contact">
     <div class="container">
       <h2>¿Prefieres contactarnos directamente?</h2>
