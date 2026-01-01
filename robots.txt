@@ -7,3 +7,8 @@ Disallow: /tmp/
 Disallow: /private/
 
 Sitemap: https://guardianos.es/sitemap.xml
+
+User-agent: *
+Disallow: /aviso-legal.html
+Disallow: /politica-privacidad.html
+Disallow: /terminos.html
