@@ -484,42 +484,43 @@
     }
     
     /* Contact Form Section */
-    #contacto {
+    .contact-form-section {
       background: var(--bg-card);
       padding: 5rem 0;
     }
-
+    
     .form-container {
-      max-width: 520px;
+      max-width: 700px;
       margin: 0 auto;
-      padding: 2rem 1.5rem;
+      background: var(--bg-elevated);
+      padding: 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
     }
     
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
+    .form-group {
+      margin-bottom: 1.5rem;
     }
     
     .form-group label {
       display: block;
-      font-size: 0.85rem;
-      margin-bottom: 0.3rem;
-      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+      font-weight: 500;
     }
     
     .form-group input,
     .form-group select,
     .form-group textarea {
       width: 100%;
-      padding: 0.5rem 0.75rem;
-      font-size: 0.9rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border: 2px solid var(--border);
+      border-radius: 0.5rem;
+      background: var(--bg-card);
       color: var(--text-primary);
       font-family: 'Inter', sans-serif;
+      font-size: 1rem;
       transition: all 0.3s ease;
     }
     
@@ -532,8 +533,139 @@
     }
     
     .form-group textarea {
-      min-height: 100px;
+      min-height: 150px;
       resize: vertical;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    
+    .form-submit {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
+    .form-message {
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      display: none;
+    }
+    
+    .form-message.success {
+      background: rgba(34, 197, 94, 0.2);
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      color: #86efac;
+    }
+    
+    .form-message.error {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      color: #fca5a5;
+    }
+    
+    /* ✅ Pricing Section — TU versión original, intacta */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .pricing-card {
+      background: var(--bg-card);
+      border: 2px solid var(--border);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+    
+    .pricing-card.featured {
+      border-color: var(--primary);
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
+      background: var(--bg-elevated);
+    }
+    
+    .pricing-card.featured::before {
+      content: 'MÁS POPULAR';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+      border-color: var(--primary);
+    }
+    
+    .pricing-card.featured:hover {
+      transform: scale(1.05) translateY(-10px);
+    }
+    
+    .pricing-header {
+      margin-bottom: 2rem;
+    }
+    
+    .pricing-header h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+    
+    .price {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .price span {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+    }
+    
+    .pricing-features {
+      list-style: none;
+      margin: 2rem 0;
+      text-align: left;
+    }
+    
+    .pricing-features li {
+      padding: 0.75rem 0;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: all 0.3s ease;
+    }
+    
+    .pricing-card:hover .pricing-features li {
+      color: var(--text-primary);
+    }
+    
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--secondary);
+      font-weight: bold;
+      font-size: 1.2rem;
     }
     
     /* Contact Section */
@@ -541,7 +673,6 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       text-align: center;
-      padding: 4rem 0;
     }
     
     .contact h2 {
@@ -624,14 +755,14 @@
       color: rgba(255, 255, 255, 0.6);
     }
     
-    /* Trust Logos Section */
+    /* Trust & Tech Logos */
     .trust-logos-section {
       padding: 2rem 0;
       background: var(--bg-card);
       border-top: 1px solid var(--border);
     }
-
-    /* Responsive */
+    
+    /* ✅ Responsive — tu versión original */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2rem;
@@ -678,8 +809,16 @@
         font-size: 2rem;
       }
       
+      .pricing-card.featured {
+        transform: scale(1);
+      }
+      
       .form-row {
         grid-template-columns: 1fr;
+      }
+      
+      .form-container {
+        padding: 2rem 1.5rem;
       }
       
       .container {
@@ -901,6 +1040,7 @@
     </div>
   </section>
 
+  <!-- ✅ Precios — TU versión original, intacta -->
   <section id="precios">
     <div class="container">
       <div class="section-header">
@@ -962,8 +1102,8 @@
     </div>
   </section>
 
-  <!-- ✅ SECCIÓN DE CONTACTO CON FORMULARIO FUNCIONAL -->
-  <section id="contacto">
+  <!-- ✅ Contacto — ahora con id="contacto" y formulario corregido -->
+  <section id="contacto" class="contact-form-section">
     <div class="container">
       <div class="section-header">
         <h2>¿Hablamos?</h2>
@@ -972,41 +1112,41 @@
       <div class="form-container">
         <form id="contactForm">
           <div class="form-row">
-            <div>
-              <label for="nombre">Nombre *</label>
+            <div class="form-group">
+              <label for="nombre">Nombre completo *</label>
               <input type="text" id="nombre" name="nombre" required>
             </div>
-            <div>
+            <div class="form-group">
               <label for="email">Email *</label>
               <input type="email" id="email" name="email" required>
             </div>
           </div>
-
+          
           <div class="form-row">
-            <div>
+            <div class="form-group">
               <label for="telefono">Teléfono *</label>
               <input type="tel" id="telefono" name="telefono" required>
             </div>
-            <div>
-              <label for="servicio">Servicio *</label>
+            <div class="form-group">
+              <label for="servicio">Servicio de interés *</label>
               <select id="servicio" name="servicio" required
                 style="
                   width: 100%;
-                  padding: 0.5rem 0.75rem;
-                  font-size: 0.9rem;
-                  border: 1px solid var(--border);
-                  border-radius: 6px;
-                  background: rgba(255,255,255,0.05);
+                  padding: 1rem;
+                  font-size: 1rem;
+                  border: 2px solid var(--border);
+                  border-radius: 0.5rem;
+                  background: var(--bg-card);
                   color: var(--text-primary);
                   -webkit-appearance: none;
                   -moz-appearance: none;
                   appearance: none;
-                  background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 24 24%22 width%3D%2216%22 height%3D%2216%22 fill%3D%22%2394a3b8%22%3E%3Cpath d%3D%22M7 10l5 5 5-5z%22%2F%3E%3C%2Fsvg%3E');
+                  background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 24 24%22%3E%3Cpath d%3D%22M7 10l5 5 5-5z%22%2F%3E%3C%2Fsvg%3E');
                   background-repeat: no-repeat;
-                  background-position: right 0.75rem center;
+                  background-position: right 1rem center;
                   background-size: 16px;
                 ">
-                <option value="" disabled selected>Selecciona</option>
+                <option value="">Selecciona un servicio</option>
                 <option value="Auditoría Express (49€)">Auditoría Express (49€)</option>
                 <option value="Configuración Completa (149€)">Configuración Completa (149€)</option>
                 <option value="Taller para Colegios">Taller para Colegios</option>
@@ -1014,19 +1154,15 @@
               </select>
             </div>
           </div>
-
-          <div>
+          
+          <div class="form-group">
             <label for="mensaje">Cuéntanos tu situación</label>
-            <textarea id="mensaje" name="mensaje" rows="3"
-                      placeholder="Ej: Tengo un hijo de 12 años con Samsung A11 y uso WhatsApp…"></textarea>
+            <textarea id="mensaje" name="mensaje" placeholder="Ej: Tengo un hijo de 12 años con móvil Android y me preocupa su seguridad online..."></textarea>
           </div>
 
-          <button type="submit"
-                  style="width: 100%; padding: 0.7rem; background: var(--primary); color: white; border: none; border-radius: 6px; font-weight: 600; font-size: 1rem; cursor: pointer; margin-top: 0.75rem; transition: background 0.2s;"
-                  onmouseover="this.style.background='#2563eb'" 
-                  onmouseout="this.style.background=var(--primary).toString()">
-            🛡️ Enviar solicitud (a info@guardianos.es)
-          </button>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">📧 Enviar Solicitud</button>
+          </div>
         </form>
       </div>
     </div>
@@ -1062,7 +1198,7 @@
     </div>
   </section>
 
-  <!-- Trust & Tech Logos -->
+  <!-- Trust Logos — como antes -->
   <section class="trust-logos-section">
     <div class="container">
       <div style="text-align: center; margin-bottom: 1.5rem;">
