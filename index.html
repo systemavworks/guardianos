@@ -1120,13 +1120,29 @@ body::before {
     <div>
       <label for="servicio" style="display:block; font-size:0.85rem; margin-bottom:0.3rem; color:#94a3b8;">Servicio *</label>
       <select id="servicio" name="servicio" required
-              style="width:100%; padding:0.5rem 0.75rem; font-size:0.9rem; border:1px solid #334155; border-radius:6px; background:rgba(255,255,255,0.05); color:#e2e8f0;">
-        <option value="">Selecciona</option>
-        <option value="Auditoría Express (49€)">Auditoría Express (49€)</option>
-        <option value="Configuración Completa (149€)">Configuración Completa (149€)</option>
-        <option value="Taller para Colegios">Taller para Colegios</option>
-        <option value="Consulta General">Consulta General</option>
-      </select>
+        style="
+          width:100%; 
+          padding:0.5rem 0.75rem; 
+          font-size:0.9rem; 
+          border:1px solid #334155; 
+          border-radius:6px; 
+          background:rgba(255,255,255,0.05); 
+          color:#e2e8f0; 
+          /* ✅ Forzar color en menú desplegable */
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' fill='%2394a3b8'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E\");
+          background-repeat: no-repeat;
+          background-position: right 0.75rem center;
+          background-size: 16px;
+        ">
+  <option value="" disabled selected style="color:#64748b !important;">Selecciona</option>
+  <option value="Auditoría Express (49€)" style="background:#0f1c2e; color:#e2e8f0;">Auditoría Express (49€)</option>
+  <option value="Configuración Completa (149€)" style="background:#0f1c2e; color:#e2e8f0;">Configuración Completa (149€)</option>
+  <option value="Taller para Colegios" style="background:#0f1c2e; color:#e2e8f0;">Taller para Colegios</option>
+  <option value="Consulta General" style="background:#0f1c2e; color:#e2e8f0;">Consulta General</option>
+</select>
     </div>
   </div>
 
