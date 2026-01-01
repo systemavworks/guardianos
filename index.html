@@ -46,29 +46,29 @@
     }
 
     /* Watermark de logo en fondo */
-body::before {
-  content: '';
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 120vw;
-  height: 120vh;
-  background-image: url('https://raw.githubusercontent.com/systemavworks/guardianos/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.08;
-  transform: translate(-50%, -50%) rotate(-0deg);
-  pointer-events: none;
-  z-index: -1;
-}
+    body::before {
+      content: '';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 120vw;
+      height: 120vh;
+      background-image: url('https://raw.githubusercontent.com/systemavworks/guardianos/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.08;
+      transform: translate(-50%, -50%) rotate(-0deg);
+      pointer-events: none;
+      z-index: -1;
+    }
 
-/* Desactivar en móvil para mejor rendimiento y legibilidad */
-@media (max-width: 768px) {
-  body::before {
-    display: none;
-  }
-}
+    /* Desactivar en móvil para mejor rendimiento y legibilidad */
+    @media (max-width: 768px) {
+      body::before {
+        display: none;
+      }
+    }
     
     /* Header / Navigation */
     header {
@@ -105,7 +105,7 @@ body::before {
     }
     
     .logo-img {
-      height: 80px; /* ↑ aumentado de 50px → 60px */
+      height: 80px;
       width: auto;
       filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
       transition: filter 0.3s ease;
@@ -484,43 +484,42 @@ body::before {
     }
     
     /* Contact Form Section */
-    .contact-form-section {
+    #contacto {
       background: var(--bg-card);
       padding: 5rem 0;
     }
-    
+
     .form-container {
-      max-width: 700px;
+      max-width: 520px;
       margin: 0 auto;
-      background: var(--bg-elevated);
-      padding: 3rem;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--border);
+      padding: 2rem 1.5rem;
     }
     
-    .form-group {
-      margin-bottom: 1.5rem;
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
     }
     
     .form-group label {
       display: block;
-      margin-bottom: 0.5rem;
-      color: var(--text-primary);
-      font-weight: 500;
+      font-size: 0.85rem;
+      margin-bottom: 0.3rem;
+      color: var(--text-secondary);
     }
     
     .form-group input,
     .form-group select,
     .form-group textarea {
       width: 100%;
-      padding: 1rem;
-      border: 2px solid var(--border);
-      border-radius: 0.5rem;
-      background: var(--bg-card);
+      padding: 0.5rem 0.75rem;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
       color: var(--text-primary);
       font-family: 'Inter', sans-serif;
-      font-size: 1rem;
       transition: all 0.3s ease;
     }
     
@@ -533,139 +532,8 @@ body::before {
     }
     
     .form-group textarea {
-      min-height: 150px;
+      min-height: 100px;
       resize: vertical;
-    }
-    
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-    
-    .form-submit {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    
-    .form-message {
-      padding: 1rem;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-      display: none;
-    }
-    
-    .form-message.success {
-      background: rgba(34, 197, 94, 0.2);
-      border: 1px solid rgba(34, 197, 94, 0.5);
-      color: #86efac;
-    }
-    
-    .form-message.error {
-      background: rgba(239, 68, 68, 0.2);
-      border: 1px solid rgba(239, 68, 68, 0.5);
-      color: #fca5a5;
-    }
-    
-    /* Pricing Section */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    
-    .pricing-card {
-      background: var(--bg-card);
-      border: 2px solid var(--border);
-      border-radius: 1rem;
-      padding: 2.5rem;
-      text-align: center;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-    }
-    
-    .pricing-card.featured {
-      border-color: var(--primary);
-      transform: scale(1.05);
-      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
-      background: var(--bg-elevated);
-    }
-    
-    .pricing-card.featured::before {
-      content: 'MÁS POPULAR';
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-      padding: 0.5rem 1.5rem;
-      border-radius: 2rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    
-    .pricing-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
-      border-color: var(--primary);
-    }
-    
-    .pricing-card.featured:hover {
-      transform: scale(1.05) translateY(-10px);
-    }
-    
-    .pricing-header {
-      margin-bottom: 2rem;
-    }
-    
-    .pricing-header h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--text-primary);
-    }
-    
-    .price {
-      font-size: 3rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .price span {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-    }
-    
-    .pricing-features {
-      list-style: none;
-      margin: 2rem 0;
-      text-align: left;
-    }
-    
-    .pricing-features li {
-      padding: 0.75rem 0;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      transition: all 0.3s ease;
-    }
-    
-    .pricing-card:hover .pricing-features li {
-      color: var(--text-primary);
-    }
-    
-    .pricing-features li::before {
-      content: '✓';
-      color: var(--secondary);
-      font-weight: bold;
-      font-size: 1.2rem;
     }
     
     /* Contact Section */
@@ -673,6 +541,7 @@ body::before {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       text-align: center;
+      padding: 4rem 0;
     }
     
     .contact h2 {
@@ -755,6 +624,13 @@ body::before {
       color: rgba(255, 255, 255, 0.6);
     }
     
+    /* Trust Logos Section */
+    .trust-logos-section {
+      padding: 2rem 0;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .hero h1 {
@@ -802,16 +678,8 @@ body::before {
         font-size: 2rem;
       }
       
-      .pricing-card.featured {
-        transform: scale(1);
-      }
-      
       .form-row {
         grid-template-columns: 1fr;
-      }
-      
-      .form-container {
-        padding: 2rem 1.5rem;
       }
       
       .container {
@@ -885,9 +753,6 @@ body::before {
       </div>
     </div>
   </section>
-
-  <!-- resto del contenido igual (features, servicios, precios, contacto, footer) -->
-  <!-- 👇 Lo copio completo para que no falte nada -->
 
   <section class="trust-badges">
     <div class="container">
@@ -1096,119 +961,77 @@ body::before {
       </div>
     </div>
   </section>
-<!-- ✅ Formulario compacto – GuardianOS | Endpoint: https://formspree.io/f/xdaoraeo -->
-<form id="contactForm" style="max-width:520px; margin:0 auto;">
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:0.75rem;">
-    <div>
-      <label for="nombre" style="display:block; font-size:0.85rem; margin-bottom:0.3rem; color:#94a3b8;">Nombre *</label>
-      <input type="text" id="nombre" name="nombre" required
-             style="width:100%; padding:0.5rem 0.75rem; font-size:0.9rem; border:1px solid #334155; border-radius:6px; background:rgba(255,255,255,0.05); color:#e2e8f0;">
+
+  <!-- ✅ SECCIÓN DE CONTACTO CON FORMULARIO FUNCIONAL -->
+  <section id="contacto">
+    <div class="container">
+      <div class="section-header">
+        <h2>¿Hablamos?</h2>
+        <p>Estamos aquí para ayudarte a proteger lo más importante</p>
+      </div>
+      <div class="form-container">
+        <form id="contactForm">
+          <div class="form-row">
+            <div>
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div>
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="telefono">Teléfono *</label>
+              <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div>
+              <label for="servicio">Servicio *</label>
+              <select id="servicio" name="servicio" required
+                style="
+                  width: 100%;
+                  padding: 0.5rem 0.75rem;
+                  font-size: 0.9rem;
+                  border: 1px solid var(--border);
+                  border-radius: 6px;
+                  background: rgba(255,255,255,0.05);
+                  color: var(--text-primary);
+                  -webkit-appearance: none;
+                  -moz-appearance: none;
+                  appearance: none;
+                  background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 24 24%22 width%3D%2216%22 height%3D%2216%22 fill%3D%22%2394a3b8%22%3E%3Cpath d%3D%22M7 10l5 5 5-5z%22%2F%3E%3C%2Fsvg%3E');
+                  background-repeat: no-repeat;
+                  background-position: right 0.75rem center;
+                  background-size: 16px;
+                ">
+                <option value="" disabled selected>Selecciona</option>
+                <option value="Auditoría Express (49€)">Auditoría Express (49€)</option>
+                <option value="Configuración Completa (149€)">Configuración Completa (149€)</option>
+                <option value="Taller para Colegios">Taller para Colegios</option>
+                <option value="Consulta General">Consulta General</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="mensaje">Cuéntanos tu situación</label>
+            <textarea id="mensaje" name="mensaje" rows="3"
+                      placeholder="Ej: Tengo un hijo de 12 años con Samsung A11 y uso WhatsApp…"></textarea>
+          </div>
+
+          <button type="submit"
+                  style="width: 100%; padding: 0.7rem; background: var(--primary); color: white; border: none; border-radius: 6px; font-weight: 600; font-size: 1rem; cursor: pointer; margin-top: 0.75rem; transition: background 0.2s;"
+                  onmouseover="this.style.background='#2563eb'" 
+                  onmouseout="this.style.background=var(--primary).toString()">
+            🛡️ Enviar solicitud (a info@guardianos.es)
+          </button>
+        </form>
+      </div>
     </div>
-    <div>
-      <label for="email" style="display:block; font-size:0.85rem; margin-bottom:0.3rem; color:#94a3b8;">Email *</label>
-      <input type="email" id="email" name="email" required
-             style="width:100%; padding:0.5rem 0.75rem; font-size:0.9rem; border:1px solid #334155; border-radius:6px; background:rgba(255,255,255,0.05); color:#e2e8f0;">
-    </div>
-  </div>
+  </section>
 
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:0.75rem;">
-    <div>
-      <label for="telefono" style="display:block; font-size:0.85rem; margin-bottom:0.3rem; color:#94a3b8;">Teléfono *</label>
-      <input type="tel" id="telefono" name="telefono" required
-             style="width:100%; padding:0.5rem 0.75rem; font-size:0.9rem; border:1px solid #334155; border-radius:6px; background:rgba(255,255,255,0.05); color:#e2e8f0;">
-    </div>
-    <div>
-      <label for="servicio" style="display:block; font-size:0.85rem; margin-bottom:0.3rem; color:#94a3b8;">Servicio *</label>
-      <select id="servicio" name="servicio" required
-        style="
-          width:100%; 
-          padding:0.5rem 0.75rem; 
-          font-size:0.9rem; 
-          border:1px solid #334155; 
-          border-radius:6px; 
-          background:rgba(255,255,255,0.05); 
-          color:#e2e8f0; 
-          /* ✅ Forzar color en menú desplegable */
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' fill='%2394a3b8'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E\");
-          background-repeat: no-repeat;
-          background-position: right 0.75rem center;
-          background-size: 16px;
-        ">
-  <option value="" disabled selected style="color:#64748b !important;">Selecciona</option>
-  <option value="Auditoría Express (49€)" style="background:#0f1c2e; color:#e2e8f0;">Auditoría Express (49€)</option>
-  <option value="Configuración Completa (149€)" style="background:#0f1c2e; color:#e2e8f0;">Configuración Completa (149€)</option>
-  <option value="Taller para Colegios" style="background:#0f1c2e; color:#e2e8f0;">Taller para Colegios</option>
-  <option value="Consulta General" style="background:#0f1c2e; color:#e2e8f0;">Consulta General</option>
-</select>
-    </div>
-  </div>
-
-  <div style="margin-bottom:0.75rem;">
-    <label for="mensaje" style="display:block; font-size:0.85rem; margin-bottom:0.3rem; color:#94a3b8;">Cuéntanos tu situación</label>
-    <textarea id="mensaje" name="mensaje" rows="3"
-              placeholder="Ej: Tengo un hijo de 12 años con Samsung A11 y uso WhatsApp…"
-              style="width:100%; padding:0.5rem 0.75rem; font-size:0.9rem; border:1px solid #334155; border-radius:6px; background:rgba(255,255,255,0.05); color:#e2e8f0; resize:vertical;"></textarea>
-  </div>
-
-  <button type="submit"
-          style="width:100%; padding:0.7rem; background:#3b82f6; color:white; border:none; border-radius:6px; font-weight:600; font-size:1rem; cursor:pointer; transition:background 0.2s;"
-          onmouseover="this.style.background='#2563eb'" 
-          onmouseout="this.style.background='#3b82f6'">
-    🛡️ Enviar solicitud (a info@guardianos.es)
-  </button>
-</form>
-
-<!-- ✅ Script: envía a Formspree + redirige a gracias.html tras éxito -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const btn = form.querySelector('button[type="submit"]');
-    const origText = btn.innerHTML;
-    btn.disabled = true;
-    btn.innerHTML = '📡 Enviando…';
-
-    const data = {
-      nombre: form.nombre.value,
-      email: form.email.value,
-      telefono: form.telefono.value,
-      servicio: form.servicio.value,
-      mensaje: form.mensaje.value,
-      _subject: "📩 Nueva solicitud – guardianos.es",
-      _replyto: form.email.value
-    };
-
-    fetch('https://formspree.io/f/xdaoraeo', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(json => {
-      if (json.ok) {
-        window.location.href = 'gracias.html';  // ✅ TU página personalizada
-      } else {
-        alert('⚠️ ' + (json.error || 'Intenta de nuevo o escríbenos a info@guardianos.es'));
-        btn.disabled = false;
-        btn.innerHTML = origText;
-      }
-    })
-    .catch(() => {
-      alert('❌ Error de red. ¿Podrías escribirnos directamente a info@guardianos.es?');
-      btn.disabled = false;
-      btn.innerHTML = origText;
-    });
-  });
-});
-</script>
-        
   <section class="contact">
     <div class="container">
       <h2>¿Prefieres contactarnos directamente?</h2>
@@ -1234,6 +1057,48 @@ document.addEventListener('DOMContentLoaded', function() {
             <strong>Ubicación</strong><br>
             Sevilla, España
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust & Tech Logos -->
+  <section class="trust-logos-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <h3 style="color: var(--text-primary); font-weight: 600; font-size: 1.25rem;">
+          🛡️ Confiamos en estándares abiertos, éticos y verificables
+        </h3>
+        <p style="color: var(--text-secondary); max-width: 600px; margin: 0.5rem auto; font-size: 0.95rem;">
+          Tecnología transparente. Sin backdoors. Sin tracking. Código abierto siempre que sea posible.
+        </p>
+      </div>
+
+      <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem;">
+        <div style="text-align: center; max-width: 120px;">
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🧩</div>
+          <div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">Código Abierto</div>
+          <div style="font-size: 0.75rem; color: var(--text-secondary);">Auditable y comunitario</div>
+        </div>
+        <div style="text-align: center; max-width: 120px;">
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">👀🚫</div>
+          <div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">Sin Vigilancia</div>
+          <div style="font-size: 0.75rem; color: var(--text-secondary);">Control sin espiar</div>
+        </div>
+        <div style="text-align: center; max-width: 120px;">
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🔐</div>
+          <div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">E2E Segura</div>
+          <div style="font-size: 0.75rem; color: var(--text-secondary);">Solo tú y el receptor</div>
+        </div>
+        <div style="text-align: center; max-width: 120px;">
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🇪🇺</div>
+          <div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">GDPR+LOPD</div>
+          <div style="font-size: 0.75rem; color: var(--text-secondary);">Cumplimiento legal</div>
+        </div>
+        <div style="text-align: center; max-width: 120px;">
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🤖</div>
+          <div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">Android Ético</div>
+          <div style="font-size: 0.75rem; color: var(--text-secondary);">LineageOS • e/OS • Calyx</div>
         </div>
       </div>
     </div>
@@ -1281,56 +1146,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <p>© 2025 GuardianOS – Protección que crece contigo.</p>
       </div>
     </div>
-    <!-- Trust & Tech Logos – antes del footer -->
-<section class="trust-logos-section" style="padding: 2rem 0; background: var(--bg-card); border-top: 1px solid var(--border);">
-  <div class="container">
-    <div style="text-align: center; margin-bottom: 1.5rem;">
-      <h3 style="color: var(--text-primary); font-weight: 600; font-size: 1.25rem;">
-        🛡️ Confiamos en estándares abiertos, éticos y verificables
-      </h3>
-      <p style="color: var(--text-secondary); max-width: 600px; margin: 0.5rem auto; font-size: 0.95rem;">
-        Tecnología transparente. Sin backdoors. Sin tracking. Código abierto siempre que sea posible.
-      </p>
-    </div>
-
-    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem;">
-      <!-- 1. Open Source -->
-      <div style="text-align: center; max-width: 120px;">
-        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🧩</div>
-        <div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">Código Abierto</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary);">Auditable y comunitario</div>
-      </div>
-
-      <!-- 2. Sin Vigilancia -->
-      <div style="text-align: center; max-width: 120px;">
-        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">👀🚫</div>
-        <div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">Sin Vigilancia</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary);">Control sin espiar</div>
-      </div>
-
-      <!-- 3. Encriptación E2E -->
-      <div style="text-align: center; max-width: 120px;">
-        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🔐</div>
-        <div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">E2E Segura</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary);">Solo tú y el receptor</div>
-      </div>
-
-      <!-- 4. GDPR / LOPD-GDD -->
-      <div style="text-align: center; max-width: 120px;">
-        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🇪🇺</div>
-        <div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">GDPR+LOPD</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary);">Cumplimiento legal</div>
-      </div>
-
-      <!-- 5. Android Seguro -->
-      <div style="text-align: center; max-width: 120px;">
-        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🤖</div>
-        <div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">Android Ético</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary);">LineageOS • e/OS • Calyx</div>
-      </div>
-    </div>
-  </div>
-</section>
   </footer>
 
   <script>
@@ -1355,6 +1170,7 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth',
             block: 'start'
           });
+          closeMobileMenu();
         }
       });
     });
@@ -1367,6 +1183,52 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         header.style.boxShadow = '0 1px 3px rgba(59, 130, 246, 0.2)';
       }
+    });
+
+    // ✅ Formulario: envío a Formspree + redirección a gracias.html
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      if (!form) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const btn = form.querySelector('button[type="submit"]');
+        const origText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '📡 Enviando…';
+
+        const data = {
+          nombre: form.nombre.value,
+          email: form.email.value,
+          telefono: form.telefono.value,
+          servicio: form.servicio.value,
+          mensaje: form.mensaje.value,
+          _subject: "📩 Nueva solicitud – guardianos.es",
+          _replyto: form.email.value
+        };
+
+        fetch('https://formspree.io/f/xdaoraeo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(json => {
+          if (json.ok) {
+            window.location.href = 'gracias.html';
+          } else {
+            alert('⚠️ ' + (json.error || 'Intenta de nuevo o escríbenos a info@guardianos.es'));
+            btn.disabled = false;
+            btn.innerHTML = origText;
+          }
+        })
+        .catch(() => {
+          alert('❌ Error de red. ¿Podrías escribirnos directamente a info@guardianos.es?');
+          btn.disabled = false;
+          btn.innerHTML = origText;
+        });
+      });
     });
   </script>
 </body>
