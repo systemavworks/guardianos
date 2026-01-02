@@ -10,3 +10,6 @@ Canonical: https://guardianos.es/.well-known/security.txt
 Policy: https://guardianos.es/politica-seguridad.pdf
 Hiring: https://guardianos.es/trabaja-con-nosotros.html
 Expires: 2026-07-01T23:59:59+02:00
+Encryption: https://guardianos.es/pgp-key.txt
+# Fingerprint de la clave maestra (ed25519)
+# 8D5D 2148 485D BFD3 1BFC  3DDB 2F50 61C4 7E2B F14F
