@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Términos de Servicio — GuardianOS</title>
+  <meta name="description" content="Condiciones de uso de los servicios de GuardianOS">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -13,17 +14,19 @@
       --text-secondary: #94a3b8;
       --primary: #3b82f6;
       --border: #1e3a5f;
+      --success: #10b981;
+      --warning: #f59e0b;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg-main);
       color: var(--text-primary);
-      line-height: 1.6;
+      line-height: 1.7;
       padding: 2rem 1rem;
     }
     .container {
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto;
     }
     header {
@@ -40,6 +43,7 @@
       color: var(--primary);
       font-weight: 700;
       font-size: 1.4rem;
+      margin-bottom: 1rem;
     }
     .logo img {
       height: 40px;
@@ -52,8 +56,10 @@
     }
     h2 {
       font-size: 1.4rem;
-      margin: 1.8rem 0 1rem;
+      margin: 2rem 0 1rem;
       color: var(--text-primary);
+      border-left: 4px solid var(--primary);
+      padding-left: 1rem;
     }
     h3 {
       font-size: 1.1rem;
@@ -67,7 +73,41 @@
     }
     ul { padding-left: 1.5rem; }
     li { margin-bottom: 0.6rem; }
-    .highlight { color: var(--primary); font-weight: 600; }
+    .highlight { 
+      color: var(--primary); 
+      font-weight: 600; 
+    }
+    strong {
+      color: var(--text-primary);
+    }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .info-box {
+      background: var(--bg-card);
+      border-left: 4px solid var(--primary);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    .warning-box {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 4px solid var(--warning);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    .success-box {
+      background: rgba(16, 185, 129, 0.1);
+      border-left: 4px solid var(--success);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
     .footer {
       margin-top: 3rem;
       text-align: center;
@@ -81,6 +121,33 @@
       text-decoration: none;
     }
     .footer a:hover { text-decoration: underline; }
+    .last-updated {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-style: italic;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: var(--bg-card);
+    }
+    th, td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
+      font-weight: 600;
+    }
+    td {
+      color: var(--text-secondary);
+    }
   </style>
 </head>
 <body>
@@ -91,70 +158,234 @@
         🛡️ GuardianOS
       </a>
       <h1>Términos y Condiciones de Servicio</h1>
-      <p>Transparencia total. Sin letra pequeña. Solo compromiso ético.</p>
+      <p>Transparencia total. Sin letra pequeña. Compromiso ético en cada palabra.</p>
     </header>
 
     <main>
-      <p>Los siguientes términos regulan la prestación de servicios por <strong>GuardianOS S.L.</strong> (CIF B45658292A).</p>
+      <p>Los siguientes términos regulan la prestación de servicios profesionales de <strong>GuardianOS</strong>. Al solicitar cualquier servicio, el cliente acepta expresamente estas condiciones.</p>
 
-      <h2>1. Aceptación</h2>
-      <p>Al solicitar un servicio (auditoría, configuración, taller), aceptas estos términos.</p>
+      <div class="success-box">
+        <p><strong>💡 Principios fundamentales de GuardianOS:</strong></p>
+        <ul>
+          <li>✅ <strong>Privacidad por defecto</strong>: No recopilamos datos personales innecesarios</li>
+          <li>✅ <strong>Transparencia técnica</strong>: Explicamos cada proceso en lenguaje claro</li>
+          <li>✅ <strong>Software libre preferente</strong>: Priorizamos herramientas auditables</li>
+          <li>✅ <strong>Ética profesional</strong>: Tu confianza es nuestro activo más valioso</li>
+        </ul>
+      </div>
+
+      <h2>1. Aceptación de los términos</h2>
+      <p>El uso de los servicios de GuardianOS implica la aceptación plena y sin reservas de estos términos. Si no estás de acuerdo con alguna cláusula, por favor <strong>no contrates el servicio</strong> y contáctanos para resolver dudas en <a href="mailto:info@guardianos.es">info@guardianos.es</a>.</p>
 
       <h2>2. Servicios ofrecidos</h2>
+      
+      <h3>2.1 Auditoría Express de Seguridad</h3>
       <ul>
-        <li><strong>Auditoría Express</strong>: Análisis técnico no invasivo del dispositivo. Entrega de informe en PDF (3 páginas).</li>
-        <li><strong>Configuración Ética</strong>: Modificación de ajustes de privacidad, instalación de apps seguras, eliminación de metadatos.</li>
-        <li><strong>Talleres</strong>: Charlas presenciales o virtuales para grupos (máx. 50 personas).</li>
-      </ul>
-
-      <h2>3. Condiciones técnicas</h2>
-      <ul>
-        <li>Requiere <strong>acceso físico o remoto al dispositivo</strong> (con ADB autorizado por el cliente).</li>
-        <li><strong>No se realiza root</strong> salvo petición expresa y por escrito.</li>
-        <li>No nos hacemos responsables de daños derivados de:
+        <li><strong>Alcance</strong>: Análisis técnico no invasivo del dispositivo Android</li>
+        <li><strong>Duración</strong>: Aprox. 30-45 minutos</li>
+        <li><strong>Entregables</strong>: Informe en PDF (3-5 páginas) con:
           <ul>
-            <li>Firmware modificado previamente</li>
-            <li>Dispositivos bloqueados por fabricante</li>
-            <li>Uso posterior por el cliente de apps/ajustes inseguros</li>
+            <li>Lista de aplicaciones instaladas y nivel de riesgo</li>
+            <li>Permisos peligrosos detectados</li>
+            <li>Recomendaciones de configuración</li>
+            <li>Puntuación de seguridad global</li>
           </ul>
         </li>
       </ul>
 
-      <h2>4. Pago y facturación</h2>
+      <h3>2.2 Configuración Ética de Privacidad</h3>
       <ul>
-        <li>Pago anticipado del <span class="highlight">50%</span> para reservar cita.</li>
-        <li>Resto al finalizar el servicio.</li>
-        <li>Factura electrónica en PDF con todos los datos fiscales.</li>
+        <li><strong>Alcance</strong>: Modificación de ajustes del sistema operativo y aplicaciones</li>
+        <li><strong>Incluye</strong>:
+          <ul>
+            <li>Eliminación de aplicaciones preinstaladas innecesarias (bloatware)</li>
+            <li>Configuración de controles parentales éticos (sin espionaje)</li>
+            <li>Instalación de apps seguras (F-Droid, Signal, etc.)</li>
+            <li>Limpieza de metadatos de fotos y documentos</li>
+          </ul>
+        </li>
+        <li><strong>Duración</strong>: 1-2 horas (según dispositivo)</li>
       </ul>
 
-      <h2>5. Propiedad intelectual del informe</h2>
+      <h3>2.3 Talleres Educativos</h3>
       <ul>
-        <li>El informe de auditoría es propiedad del cliente.</li>
-        <li>GuardianOS S.L. se reserva el derecho a usar <span class="highlight">datos anonimizados y agregados</span> para mejorar sus servicios (nunca identificables).</li>
+        <li><strong>Formato</strong>: Presencial o virtual (máx. 50 personas)</li>
+        <li><strong>Duración</strong>: 1.5 - 2 horas</li>
+        <li><strong>Temáticas</strong>:
+          <ul>
+            <li>"Primeros pasos seguros en redes sociales" (familias)</li>
+            <li>"Privacidad digital sin paranoia" (adolescentes)</li>
+            <li>"Control parental ético" (AMPAs)</li>
+          </ul>
+        </li>
       </ul>
 
-      <h2>6. Confidencialidad</h2>
+      <h2>3. Condiciones técnicas y requisitos previos</h2>
+
+      <h3>3.1 Acceso al dispositivo</h3>
+      <div class="warning-box">
+        <p><strong>⚠️ Importante</strong>: Para realizar la auditoría o configuración, necesitamos:</p>
+        <ul>
+          <li><strong>Acceso físico al dispositivo</strong> (preferente), o</li>
+          <li><strong>Acceso remoto autorizado</strong> mediante ADB (Android Debug Bridge)</li>
+        </ul>
+        <p>El cliente debe proporcionar las credenciales de desbloqueo (PIN, patrón, huella) durante el servicio. Estas <strong>no se registran ni almacenan</strong>.</p>
+      </div>
+
+      <h3>3.2 Limitaciones técnicas</h3>
+      <p>GuardianOS <strong>no se hace responsable</strong> de:</p>
       <ul>
-        <li>Todo el personal se obliga a <span class="highlight">NDA (acuerdo de confidencialidad)</span>.</li>
-        <li>No se almacenan capturas de pantalla, listas de contactos, ni mensajes personales.</li>
+        <li>Dispositivos con firmware modificado previamente (ROM custom sin nuestra supervisión)</li>
+        <li>Smartphones bloqueados por operadora o fabricante (carrier lock, FRP lock)</li>
+        <li>Pérdida de garantía derivada de desbloqueo de bootloader (se advierte previamente)</li>
+        <li>Incompatibilidades de aplicaciones tras eliminar servicios de Google (se informa caso por caso)</li>
       </ul>
 
-      <h2>7. Cancelaciones</h2>
+      <h3>3.3 Política sobre root y modificaciones del sistema</h3>
+      <div class="info-box">
+        <p><strong>Por defecto, NO realizamos root</strong> de dispositivos. Si el cliente solicita expresamente esta modificación:</p>
+        <ul>
+          <li>Se requerirá <span class="highlight">autorización por escrito</span> (email válido)</li>
+          <li>Se advertirá sobre posible pérdida de garantía del fabricante</li>
+          <li>Se explicarán los riesgos de seguridad si no se gestiona correctamente</li>
+        </ul>
+      </div>
+
+      <h2>4. Protección de datos y RGPD</h2>
+      <p>El tratamiento de datos personales durante la prestación del servicio se rige por nuestra <a href="/politica-privacidad.html">Política de Privacidad</a>. Resumen de compromisos:</p>
+      
+      <table>
+        <tr>
+          <th>Dato</th>
+          <th>Uso</th>
+          <th>Conservación</th>
+        </tr>
+        <tr>
+          <td>Nombre y email</td>
+          <td>Contacto y facturación</td>
+          <td>Mientras dure la relación comercial + obligaciones legales (6 años fiscales)</td>
+        </tr>
+        <tr>
+          <td>Lista de apps instaladas</td>
+          <td>Generación del informe de auditoría</td>
+          <td>No se almacena. Solo figura en el PDF entregado al cliente</td>
+        </tr>
+        <tr>
+          <td>Capturas de pantalla del dispositivo</td>
+          <td>Ninguno. <strong>Nunca se realizan</strong></td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>Estadísticas agregadas (ej: "el 80% de auditorías detecta apps de riesgo X")</td>
+          <td>Mejora del servicio</td>
+          <td>Datos 100% anonimizados</td>
+        </tr>
+      </table>
+
+      <h2>5. Pago, facturación y precios</h2>
+
+      <h3>5.1 Métodos de pago aceptados</h3>
       <ul>
-        <li>Hasta 48h antes: <span class="highlight">100% reembolso</span>.</li>
-        <li>Menos de 48h: <span class="highlight">50% retenido</span> como gestión.</li>
-        <li>Por causas técnicas imputables a GuardianOS: <span class="highlight">100% reembolso + 1h taller gratis</span>.</li>
+        <li>💳 Transferencia bancaria (preferente)</li>
+        <li>💳 Bizum (solo para servicios inferiores a 100€)</li>
+        <li>💳 PayPal (comisión adicional del 3%)</li>
       </ul>
 
-      <h2>8. Ley aplicable y jurisdicción</h2>
+      <h3>5.2 Condiciones de pago</h3>
       <ul>
-        <li>Legislación española.</li>
-        <li>Para cualquier disputa, las partes se someten a los <span class="highlight">Juzgados y Tribunales de Sevilla</span>.</li>
+        <li><strong>Auditoría Express</strong>: Pago completo al finalizar el servicio</li>
+        <li><strong>Configuración Ética</strong>: 50% anticipo para reservar + 50% al entregar el dispositivo</li>
+        <li><strong>Talleres</strong>: 100% anticipo con 7 días de antelación</li>
       </ul>
 
-      <p style="margin-top: 2rem; font-style: italic; color: var(--text-secondary);">
-        Última actualización: 2 de enero de 2026
-      </p>
+      <h3>5.3 Facturación</h3>
+      <p>Todas las facturas se emiten en formato electrónico (PDF) y se envían por email en un plazo máximo de 5 días hábiles. Incluyen todos los datos fiscales requeridos por la normativa española.</p>
+
+      <h2>6. Propiedad del informe de auditoría</h2>
+      <ul>
+        <li>El informe de auditoría es <span class="highlight">propiedad exclusiva del cliente</span></li>
+        <li>GuardianOS no conserva copias del informe tras su entrega</li>
+        <li>El cliente puede solicitar reenvío del PDF en un plazo de 30 días (sin coste adicional)</li>
+        <li>GuardianOS puede utilizar <strong>datos agregados y anonimizados</strong> para estadísticas internas (nunca identificables personalmente)</li>
+      </ul>
+
+      <h2>7. Confidencialidad y secreto profesional</h2>
+      <div class="success-box">
+        <p><strong>🔒 Compromiso de confidencialidad</strong>:</p>
+        <ul>
+          <li>Todo el personal firma acuerdos de confidencialidad (NDA)</li>
+          <li>No se almacenan capturas de pantalla, mensajes, ni listas de contactos</li>
+          <li>Los datos observados durante el servicio <strong>no se comparten con terceros</strong> bajo ningún concepto</li>
+          <li>Únicamente se divulga información si existe obligación legal (requerimiento judicial)</li>
+        </ul>
+      </div>
+
+      <h2>8. Cancelaciones y reembolsos</h2>
+      
+      <table>
+        <tr>
+          <th>Momento de cancelación</th>
+          <th>Reembolso</th>
+        </tr>
+        <tr>
+          <td>Más de 48 horas antes</td>
+          <td><span class="highlight">100% reembolso</span></td>
+        </tr>
+        <tr>
+          <td>Entre 24-48 horas antes</td>
+          <td><span class="highlight">50% reembolso</span> (50% retenido como gastos de gestión)</td>
+        </tr>
+        <tr>
+          <td>Menos de 24 horas o no presentación</td>
+          <td><span class="highlight">0% reembolso</span></td>
+        </tr>
+        <tr>
+          <td>Cancelación por GuardianOS (causa técnica)</td>
+          <td><span class="highlight">100% reembolso + 1h taller gratis</span></td>
+        </tr>
+      </table>
+
+      <h2>9. Limitación de responsabilidad</h2>
+      <p>GuardianOS actúa con la máxima diligencia profesional, pero <strong>no garantiza</strong>:</p>
+      <ul>
+        <li>La inviolabilidad absoluta del dispositivo tras la configuración (ningún sistema es 100% seguro)</li>
+        <li>Que el usuario no modifique posteriormente los ajustes recomendados</li>
+        <li>Compatibilidad futura con actualizaciones del sistema operativo o apps de terceros</li>
+      </ul>
+      
+      <p>La responsabilidad de GuardianOS queda limitada al importe abonado por el servicio contratado, salvo en casos de dolo o negligencia grave.</p>
+
+      <h2>10. Derechos del consumidor</h2>
+      <p>Conforme a la Ley General para la Defensa de los Consumidores y Usuarios (Real Decreto Legislativo 1/2007):</p>
+      <ul>
+        <li>El cliente tiene derecho a recibir información clara y comprensible sobre el servicio</li>
+        <li>Puede presentar reclamaciones ante la Junta Arbitral de Consumo de su comunidad autónoma</li>
+        <li>Tiene acceso a la plataforma europea ODR: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a></li>
+      </ul>
+
+      <h2>11. Modificación de los términos</h2>
+      <p>GuardianOS se reserva el derecho a modificar estos términos en cualquier momento. Los cambios se notificarán por email a los clientes activos y se publicarán en esta página con 15 días de antelación.</p>
+      <p>Los servicios ya contratados se regirán por los términos vigentes en el momento de la contratación.</p>
+
+      <h2>12. Legislación aplicable y jurisdicción</h2>
+      <ul>
+        <li><strong>Ley aplicable</strong>: Legislación española</li>
+        <li><strong>Jurisdicción</strong>: En caso de disputa, las partes se someten a los Juzgados y Tribunales de <span class="highlight">Sevilla (España)</span></li>
+        <li><strong>Idioma</strong>: Estos términos se rigen por la versión en español. Cualquier traducción tiene carácter informativo</li>
+      </ul>
+
+      <h2>13. Contacto y resolución de dudas</h2>
+      <p>Si tienes preguntas sobre estos términos:</p>
+      <ul>
+        <li>📧 <strong>Email</strong>: <a href="mailto:info@guardianos.es">info@guardianos.es</a></li>
+        <li>🌐 <strong>Web</strong>: <a href="https://guardianos.es">https://guardianos.es</a></li>
+      </ul>
+      <p>Respondemos en un plazo máximo de 48 horas laborables.</p>
+
+      <div class="last-updated">
+        <p><strong>Última actualización</strong>: 4 de enero de 2026</p>
+        <p>Versión: 2.0</p>
+      </div>
     </main>
 
     <div class="footer">
@@ -163,7 +394,7 @@
         <a href="/aviso-legal.html">Aviso Legal</a> | 
         <a href="/politica-privacidad.html">Política de Privacidad</a>
       </p>
-      <p>© 2026 GuardianOS S.L. — Protección que crece contigo.</p>
+      <p>© 2026 GuardianOS — Protección que crece contigo</p>
     </div>
   </div>
 </body>
