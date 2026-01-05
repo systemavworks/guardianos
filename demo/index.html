@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GuardianOS Demo — Auditoría de Seguridad para Menores</title>
+  <meta name="description" content="Prueba interactiva de GuardianOS: detecta apps peligrosas, malware y configuraciones inseguras en Android. Protección digital ética para menores.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+  <img src="/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png" alt="GuardianOS" width="120" style="margin-bottom:16px;">
+  <style>
+    :root {
+      --bg: #0F1C2E;
+      --surface: #1A2332;
+      --primary: #3B82F6;
+      --critical: #EF4444;
+      --high: #F97316;
+      --medium: #EAB308;
+      --low: #22C55E;
+      --text: #E2E8F0;
+      --text-secondary: #94A3B8;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      padding: 30px 0;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #60A5FA, #3B82F6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 20px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex: 1;
+      min-width: 180px;
+    }
+    button:hover {
+      background: #2563EB;
+      transform: translateY(-2px);
+    }
+    button:disabled {
+      background: #64748B;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .status {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 1.1rem;
+      min-height: 28px;
+    }
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .app-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .app-item {
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-left: 4px solid var(--low);
+    }
+    .app-item.critical { border-left-color: var(--critical); background: #2C1A1A; }
+    .app-item.high { border-left-color: var(--high); background: #2C1F15; }
+    .app-item.medium { border-left-color: var(--medium); background: #2C2515; }
+    .app-item:hover {
+      transform: translateX(4px);
+    }
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .app-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .risk-badge {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+    .critical .risk-badge { background: var(--critical); color: white; }
+    .high .risk-badge { background: var(--high); color: white; }
+    .medium .risk-badge { background: var(--medium); color: #1E293B; }
+    .low .risk-badge { background: var(--low); color: #0F172A; }
+    .findings {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .finding {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 6px;
+    }
+    .finding::before {
+      content: "⚠️";
+      margin-right: 6px;
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .summary-item {
+      text-align: center;
+      padding: 16px;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 8px;
+    }
+    .summary-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .summary-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #334155;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    .malware-alert {
+      background: rgba(239, 68, 68, 0.15);
+      border-left: 4px solid var(--critical);
+      padding: 12px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+    }
+    .malware-alert::before {
+      content: "🚨";
+      margin-right: 10px;
+      font-size: 1.4rem;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .controls { flex-direction: column; }
+      button { min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>GuardianOS</h1>
+      <p class="subtitle">Auditoría avanzada de privacidad y seguridad para dispositivos Android de menores. Sin instalar nada. Sin enviar datos.</p>
+    </header>
+
+    <div class="card">
+      <h2>Simulación de Auditoría</h2>
+      <p style="color:var(--text-secondary); margin: 12px 0;">
+        Esta demo muestra cómo funciona GuardianOS en un dispositivo real. Los datos son ficticios y educativos.
+      </p>
+
+      <div class="controls">
+        <button id="btnQuick">Modo Rápido (3s)</button>
+        <button id="btnFull">Modo Completo (8s)</button>
+      </div>
+
+      <div class="status" id="status"></div>
+
+      <div id="results" style="display:none;">
+        <div class="summary">
+          <div class="summary-item">
+            <div class="summary-value" id="totalApps">0</div>
+            <div class="summary-label">Apps analizadas</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-value" style="color:var(--critical);" id="criticalCount">0</div>
+            <div class="summary-label">Críticas</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-value" style="color:var(--high);" id="highCount">0</div>
+            <div class="summary-label">Alto riesgo</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-value" id="malwareCount">0</div>
+            <div class="summary-label">Malware</div>
+          </div>
+        </div>
+
+        <div class="malware-alert" id="malwareAlert" style="display:none;">
+          <div><strong>FIRMA DE MALWARE DETECTADA</strong><br>App "Free VPN Pro" coincide con muestra conocida de spyware.</div>
+        </div>
+
+        <h3 style="margin: 24px 0 16px;">Aplicaciones</h3>
+        <div class="app-list" id="appList"></div>
+
+        <button id="btnPdf" style="margin-top: 20px;">📥 Descargar Informe PDF</button>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>🛡️ GuardianOS — Protección digital ética para menores</p>
+      <p><a href="https://guardianos.es" style="color:var(--primary); text-decoration: none;">https://guardianos.es</a> · info@guardianos.es</p>
+      <p style="margin-top: 8px;">© GuardianOS s.l. · CIF 45658292A</p>
+    </div>
+  </div>
+
+  <script>
+    const APPS = [
+      {
+        name: "WhatsApp",
+        pkg: "com.whatsapp",
+        risk: "medium",
+        score: 45,
+        findings: [
+          "Acceso a contactos y almacenamiento",
+          "Solicita permiso de ubicación aproximada"
+        ],
+        source: "Google Play"
+      },
+      {
+        name: "TikTok",
+        pkg: "com.zhiliaoapp.musically",
+        risk: "critical",
+        score: 88,
+        findings: [
+          "Permisos excesivos: micrófono, cámara, ubicación, contactos, SMS",
+          "Patrón de spyware: cámara + audio + ubicación",
+          "Origen: Play Store, pero con comportamiento agresivo"
+        ],
+        source: "Google Play"
+      },
+      {
+        name: "Free VPN Pro",
+        pkg: "com.free.vpn.pro.mod",
+        risk: "critical",
+        score: 92,
+        findings: [
+          "🚨 FIRMA DE MALWARE DETECTADA",
+          "Certificado coincide con spyware 'AgentSmith'",
+          "Capacidades de administrador",
+          "APK modificado tras instalación"
+        ],
+        source: "Desconocido",
+        malware: true
+      },
+      {
+        name: "Galería",
+        pkg: "com.android.gallery3d",
+        risk: "low",
+        score: 12,
+        findings: [
+          "Solo solicita acceso a fotos y almacenamiento"
+        ],
+        source: "Sistema"
+      },
+      {
+        name: "YouTube Kids",
+        pkg: "com.google.android.apps.youtube.kids",
+        risk: "medium",
+        score: 52,
+        findings: [
+          "Solicita ID de publicidad y estadísticas de uso",
+          "Conexión continua a servidores de Google"
+        ],
+        source: "Google Play"
+      }
+    ];
+
+    const btnQuick = document.getElementById('btnQuick');
+    const btnFull = document.getElementById('btnFull');
+    const btnPdf = document.getElementById('btnPdf');
+    const statusEl = document.getElementById('status');
+    const resultsEl = document.getElementById('results');
+    const appListEl = document.getElementById('appList');
+    const totalAppsEl = document.getElementById('totalApps');
+    const criticalCountEl = document.getElementById('criticalCount');
+    const highCountEl = document.getElementById('highCount');
+    const malwareCountEl = document.getElementById('malwareCount');
+    const malwareAlertEl = document.getElementById('malwareAlert');
+
+    function setStatus(text) {
+      statusEl.innerHTML = text;
+    }
+
+    function simulateAudit(duration) {
+      btnQuick.disabled = true;
+      btnFull.disabled = true;
+      setStatus(`<span class="spinner"></span> Auditando dispositivo...`);
+      
+      setTimeout(() => {
+        renderResults();
+        btnQuick.disabled = false;
+        btnFull.disabled = false;
+        setStatus('✅ Auditoría completada');
+      }, duration);
+    }
+
+    function renderResults() {
+      const critical = APPS.filter(a => a.risk === 'critical').length;
+      const high = APPS.filter(a => a.risk === 'high').length;
+      const malware = APPS.filter(a => a.malware).length;
+
+      totalAppsEl.textContent = APPS.length;
+      criticalCountEl.textContent = critical;
+      highCountEl.textContent = high;
+      malwareCountEl.textContent = malware;
+
+      if (malware > 0) {
+        malwareAlertEl.style.display = 'flex';
+      } else {
+        malwareAlertEl.style.display = 'none';
+      }
+
+      appListEl.innerHTML = APPS.map(app => `
+        <div class="app-item ${app.risk}" onclick="showDetail('${app.pkg}')">
+          <div class="app-header">
+            <div class="app-name">${app.name}</div>
+            <span class="risk-badge">${app.risk.toUpperCase()}</span>
+          </div>
+          <div>Paquete: ${app.pkg}</div>
+          <div style="font-size:0.9rem; color:var(--text-secondary);">Origen: ${app.source} • ${app.score}/100</div>
+          ${app.findings.length > 0 ? `
+            <div class="findings">
+              ${app.findings.slice(0, 2).map(f => `<div class="finding">${f}</div>`).join('')}
+              ${app.findings.length > 2 ? `<div class="finding">+${app.findings.length - 2} hallazgos más</div>` : ''}
+            </div>
+          ` : ''}
+        </div>
+      `).join('');
+
+      resultsEl.style.display = 'block';
+    }
+
+    function showDetail(pkg) {
+      const app = APPS.find(a => a.pkg === pkg);
+      if (!app) return;
+
+      const detail = `
+        <div class="card" style="position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; width:90%; max-width:600px; max-height:80vh; overflow:auto; background:var(--surface);">
+          <h3>${app.name}</h3>
+          <p><strong>Paquete:</strong> ${app.pkg}</p>
+          <p><strong>Versión:</strong> 2.23.15</p>
+          <p><strong>Origen:</strong> ${app.source}</p>
+          <p><strong>Riesgo:</strong> <span class="risk-badge ${app.risk}">${app.risk.toUpperCase()} (${app.score}/100)</span></p>
+          
+          <h4 style="margin:20px 0 12px;">Hallazgos (${app.findings.length})</h4>
+          ${app.findings.map(f => `<div class="finding">${f}</div>`).join('')}
+          
+          <div style="margin-top:24px; display:flex; gap:10px;">
+            <button onclick="closeDetail()">Cerrar</button>
+            <button style="background:#10B981;" onclick="downloadPdf('${app.name}')">📥 Exportar PDF</button>
+          </div>
+        </div>
+        <div onclick="closeDetail()" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:999;"></div>
+      `;
+      document.body.insertAdjacentHTML('beforeend', detail);
+    }
+
+    function closeDetail() {
+      const overlay = document.querySelector('div[onclick="closeDetail()"]');
+      const card = document.querySelector('.card[style*="fixed"]');
+      if (overlay) overlay.remove();
+      if (card) card.remove();
+    }
+
+    function downloadPdf(appName) {
+      closeDetail();
+      alert(`✅ Informe PDF de "${appName}" generado y descargado.\n\nEn la app real, este PDF incluye:\n• Huellas de malware detectadas\n• Recomendaciones personalizadas\n• QR para soporte en guardianos.es`);
+    }
+
+    btnQuick.addEventListener('click', () => simulateAudit(3000));
+    btnFull.addEventListener('click', () => simulateAudit(8000));
+    btnPdf.addEventListener('click', () => {
+      alert(`✅ Informe global descargado.\n\nNombre: guardianos_report_global.pdf\nTamaño: 248 KB\n\nContenido:\n• Resumen ejecutivo\n• Listado de apps críticas\n• Recomendaciones para padres\n• Código QR para soporte profesional`);
+    });
+  </script>
+</body>
+</html>
