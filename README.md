@@ -2,7 +2,7 @@
 ### Protección digital ética para menores  
 
 <a href="https://guardianos.es">
-  <img src="https://guardianos.es/logo.png" alt="GuardianOS Logo" width="180" style="display: block; margin: 1em auto;">
+  <img src="https://github.com/systemavworks/guardianos/blob/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png" alt="GuardianOS Logo" width="180" style="display: block; margin: 1em auto;">
 </a>
 
 **GuardianOS** es una iniciativa de ciberseguridad centrada en la protección digital de menores en entornos Android. No somos una app más: somos un compromiso con la **soberanía digital, la privacidad por diseño y la educación tecnológica responsable**.
