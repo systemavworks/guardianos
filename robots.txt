@@ -2,15 +2,10 @@
 User-agent: *
 Allow: /
 
-# Bloquear rutas técnicas sensibles
+# Bloquear solo rutas técnicas sensibles
 Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /private/
-
-# Excluir páginas legales de indexación (opcional, pero común)
-Disallow: /aviso-legal.html
-Disallow: /politica-privacidad.html
-Disallow: /terminos.html
 
 # Sitemap
 Sitemap: https://guardianos.es/sitemap.xml
