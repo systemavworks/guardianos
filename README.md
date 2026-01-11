@@ -1,5 +1,5 @@
 # GuardianOS  
-### Protección digital ética para menores  
+### Protección digital ética en dispositivos móviles para menores. Proteger tu privacidad y la de tus hijos/as  
 
 <a href="https://guardianos.es">
   <img src="https://github.com/systemavworks/guardianos/blob/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png" alt="GuardianOS Logo" width="180" style="display: block; margin: 1em auto;">
@@ -18,7 +18,7 @@
 - ✅ **Privacidad por defecto**: sin trackers, sin nube centralizada, sin perfiles.
 - ✅ **Código transparente**: donde sea posible, priorizamos software libre y auditables.
 - ✅ **Educación, no vigilancia**: herramientas para familias, no para controlar menores.
-- ✅ **dGoogled**: promovemos alternativas éticas (Signal, NewPipe, Firefox Focus, etc.).
+- ✅ **deGoogled**: promovemos alternativas éticas (Signal, NewPipe, Firefox Focus, etc.).
 - ✅ **Enfoque técnico riguroso**: criptografía moderna, análisis de riesgos, pentesting.
 
 > 🔎 *"Protegemos a menores no aislandolos del mundo digital, sino equipándolos para navegarlo con criterio."*
