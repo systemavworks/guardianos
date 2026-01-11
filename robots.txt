@@ -1,11 +1,39 @@
 # robots.txt para guardianos.es
+# Última actualización: enero 2026
+
+# Bloqueo general para todos los user-agents (permite todo por defecto)
 User-agent: *
 Allow: /
 
-# Bloquear solo rutas técnicas sensibles
+# Bloquear rutas técnicas sensibles
 Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /private/
+
+# Bloquear explícitamente bots conocidos de IA y scraping agresivo
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
 
 # Sitemap
 Sitemap: https://guardianos.es/sitemap.xml
