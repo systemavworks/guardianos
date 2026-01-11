@@ -1,7 +1,6 @@
 # robots.txt para guardianos.es
 # Última actualización: enero 2026
 
-# Bloqueo general para todos los user-agents (permite todo por defecto)
 User-agent: *
 Allow: /
 
@@ -9,6 +8,7 @@ Allow: /
 Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /private/
+Disallow: /cdn-cgi/
 
 # Bloquear explícitamente bots conocidos de IA y scraping agresivo
 User-agent: Amazonbot
