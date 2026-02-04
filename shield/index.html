@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ========== SCHEMA.ORG STRUCTURED DATA ========== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "GuardianOS Shield",
+      "alternateName": "guardianos-shield",
+      "description": "Aplicación open-source de control parental 100% DeGoogled para Android. Filtrado DNS local, VPN transparente y perfiles parentales sin rastreo ni analytics. Compatible con entornos deGoogled (LineageOS, /e/ OS).",
+      "operatingSystem": "Android 12+",
+      "applicationCategory": "ParentalControlSoftware",
+      "applicationSubCategory": "SecurityApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      "url": "https://guardianos.es/shield",
+      "downloadUrl": "https://github.com/systemavworks/guardianos-shield/releases/latest/download/GuardianOS_Shield_debug.apk",
+      "softwareVersion": "1.0.0-alpha",
+      "fileSize": "8.5MB",
+      "author": {
+        "@type": "Person",
+        "name": "Víctor Shift Lara",
+        "jobTitle": "Digital Sovereignty Engineer",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "GuardianOS",
+          "url": "https://guardianos.es",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "",
+            "postalCode": "41000",
+            "addressLocality": "Sevilla",
+            "addressRegion": "Andalucía",
+            "addressCountry": "ES"
+          }
+        }
+      },
+      "logo": "https://raw.githubusercontent.com/systemavworks/guardianos/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png",
+      "screenshot": "https://guardianos.es/shield/assets/screenshots/main.png",
+      "featureList": "Filtrado DNS Local, VPN Transparente, Perfiles Parentales con PIN, Estadísticas en Tiempo Real, Navegador Seguro Integrado, Bloqueo de Apps Sensibles, Sin Analytics ni Tracking, 100% Open Source",
+      "license": "https://github.com/systemavworks/guardianos-shield/blob/main/LICENSE",
+      "isAccessibleForFree": true,
+      "inLanguage": "es-ES"
+    }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuardianOS Shield – Control Parental 100% DeGoogled | guardianos.es</title>
+    <meta name="description" content="GuardianOS Shield - Control parental open-source sin rastreo ni analytics. Filtrado DNS local y VPN transparente para Android. 100% privado, 100% tuyo.">
+    <meta name="keywords" content="control parental Android, app privacidad menores, GuardianOS Shield, filtrado DNS, VPN local, DeGoogled, open source, Victor Shift, Sevilla">
+    <link rel="canonical" href="https://guardianos.es/shield/" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="msapplication-TileColor" content="#3b82f6">
+    <meta name="theme-color" content="#3b82f6">
+
+    <style>
+        /* ========== VARIABLES - MISMO DISEÑO guardianos.es ========== */
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1e40af;
+            --secondary: #06b6d4;
+            --accent: #8b5cf6;
+            --pink: #ec4899;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #0a1628;
+            --bg-main: #0f1c2e;
+            --bg-card: #1a2332;
+            --bg-elevated: #1e2937;
+            --white: #ffffff;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --border: #1e3a5f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-main);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ========== WATERMARK DE LOGO EN FONDO ========== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 120vw;
+            height: 120vh;
+            background-image: url('https://raw.githubusercontent.com/systemavworks/guardianos/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.08;
+            transform: translate(-50%, -50%) rotate(-0deg);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            body::before {
+                display: none;
+            }
+        }
+
+        /* ========== HEADER / NAVIGATION ========== */
+        header {
+            background: rgba(15, 28, 46, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(59, 130, 246, 0.2);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+            transition: filter 0.3s ease;
+            vertical-align: middle;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
+        .logo:hover .logo-img {
+            filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--secondary);
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: linear-gradient(135deg, #0f1c2e 0%, #1e3a5f 50%, #2d5a8c 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-50px) scale(1.05); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* ========== FEATURES SECTION ========== */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+            border-color: var(--primary);
+            background: var(--bg-elevated);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== SCREENSHOTS ========== */
+        .screenshots {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .screenshot-card {
+            background: var(--bg-elevated);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            border: 1px solid var(--border);
+        }
+
+        .screenshot-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .screenshot-img {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #2196f3 0%, #1a237e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 14px;
+            text-align: center;
+            padding: 1.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .screenshot-caption {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .screenshot-caption h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .screenshot-caption p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ========== DOWNLOAD SECTION ========== */
+        .download {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .download h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .download p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .download-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem 2.5rem;
+            border-radius: 2rem;
+            margin: 1.5rem 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .download-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .download-meta-item {
+            text-align: center;
+        }
+
+        .download-meta-value {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .download-meta-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 700px;
+            margin: 2rem auto 0;
+            text-align: left;
+        }
+
+        .instructions h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .instructions ol {
+            margin-left: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .instructions li {
+            margin-bottom: 0.75rem;
+        }
+
+        /* ========== COMPATIBILITY ========== */
+        .compatibility {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .compat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .compat-item {
+            padding: 2rem;
+            border-radius: 1rem;
+            background: var(--bg-elevated);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .compat-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .compat-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .compat-item.success .compat-icon {
+            color: #22c55e;
+        }
+
+        .compat-item.warning .compat-icon {
+            color: #f59e0b;
+        }
+
+        .compat-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .compat-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* ========== CTA ========== */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-dark), var(--accent));
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 0.5rem 0;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(15, 28, 46, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                transition: left 0.3s ease;
+                border-right: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .download-meta {
+                gap: 1.5rem;
+            }
+
+            .logo-img {
+                height: 45px;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .btn {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER ========== -->
+    <header>
+        <nav class="container">
+            <a href="https://guardianos.es" class="logo">
+                <img src="https://raw.githubusercontent.com/systemavworks/guardianos/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png"
+                    alt="GuardianOS Logo"
+                    class="logo-img">
+                <span class="logo-text">🛡️ GuardianOS</span>
+            </a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#caracteristicas" onclick="closeMobileMenu()">Características</a></li>
+                <li><a href="#capturas" onclick="closeMobileMenu()">Capturas</a></li>
+                <li><a href="#descargar" onclick="closeMobileMenu()">Descargar</a></li>
+                <li><a href="#compatibilidad" onclick="closeMobileMenu()">Compatibilidad</a></li>
+                <li><a href="https://guardianos.es" onclick="closeMobileMenu()">← Volver</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-badges">
+                <span class="badge">🔒 100% Privado</span>
+                <span class="badge">🚫 Sin Rastreo</span>
+                <span class="badge">🇪🇸 Desarrollado en Andalucia,España</span>
+                <span class="badge">✨ Open Source</span>
+            </div>
+            <h1>Control Parental sin Comprometer la Privacidad</h1>
+            <p>GuardianOS Shield protege a tus hijos del contenido inapropiado con filtrado DNS local y VPN transparente. Sin analytics, sin tracking, sin datos personales.</p>
+            <div class="hero-buttons">
+                <a href="#descargar" class="btn btn-primary">⬇️ Descargar APK</a>
+                <a href="#caracteristicas" class="btn btn-secondary">✨ Características</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FEATURES ========== -->
+    <section id="caracteristicas">
+        <div class="container">
+            <div class="section-header">
+                <h2>Características Principales</h2>
+                <p>Todo el poder de protección sin sacrificar tu privacidad</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>Filtrado DNS Local</h3>
+                    <p>Bloquea contenido inapropiado a nivel de red con listas de bloqueo integradas y actualizables. Todo procesado localmente, sin enviar datos a internet.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🔐</span>
+                    <h3>VPN Transparente</h3>
+                    <p>Modo avanzado con VPN local que no corta el tráfico de internet. Compatible con Android 12, 13, 14 y 15. Sin ralentización perceptible.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">👨‍👩‍👧‍👦</span>
+                    <h3>Perfiles Parentales</h3>
+                    <p>Crea perfiles con PIN de seguridad, horarios de uso y restricciones personalizadas por usuario. Control total sin invadir la privacidad.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h3>Estadísticas en Tiempo Real</h3>
+                    <p>Monitoriza el uso, dominios bloqueados y actividad de apps sensibles. Todo almacenado localmente en tu dispositivo, nunca en la nube.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🌐</span>
+                    <h3>Navegador Seguro Integrado</h3>
+                    <p>Navegador web con filtros adicionales para mayor protección durante la navegación. Sin rastreadores, sin cookies de terceros.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🚫</span>
+                    <h3>Bloqueo de Apps Sensibles</h3>
+                    <p>Restringe el acceso a apps específicas según horarios y perfiles configurados. WhatsApp, Instagram, TikTok y más bajo control parental.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SCREENSHOTS ========== -->
+    <section id="capturas" class="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>Capturas de Pantalla</h2>
+                <p>Interfaz moderna y funcional con Material Design 3</p>
+            </div>
+
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <div class="screenshot-img">
+                        📱 [Screenshot: Pantalla Principal con estadísticas y estado de protección]
+                    </div>
+                    <div class="screenshot-caption">
+                        <h4>Pantalla Principal</h4>
+                        <p>Panel de control con estado de protección y resumen de actividad</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <div class="screenshot-img">
+                        📱 [Screenshot: Configuración de Control Parental con PIN y horarios]
+                    </div>
+                    <div class="screenshot-caption">
+                        <h4>Control Parental</h4>
+                        <p>Configura PIN, horarios de uso y restricciones por perfil</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <div class="screenshot-img">
+                        📱 [Screenshot: Estadísticas de dominios bloqueados y uso de apps]
+                    </div>
+                    <div class="screenshot-caption">
+                        <h4>Estadísticas</h4>
+                        <p>Visualiza dominios bloqueados, tiempo de uso y actividad</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <div class="screenshot-img">
+                        📱 [Screenshot: Navegador Seguro con filtros activos]
+                    </div>
+                    <div class="screenshot-caption">
+                        <h4>Navegador Seguro</h4>
+                        <p>Navegación protegida con filtros DNS integrados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DOWNLOAD ========== -->
+    <section id="descargar" class="download">
+        <div class="container">
+            <h2>⬇️ Descarga GuardianOS Shield</h2>
+            <p>Protege a tus hijos hoy mismo. Instalación rápida y sencilla.</p>
+            
+            <a href="https://github.com/systemavworks/guardianos-shield/releases/latest/download/GuardianOS_Shield_debug.apk" class="btn btn-primary" style="margin: 2rem 0; font-size: 1.25rem; padding: 1.25rem 3rem;">
+                📲 Descargar APK (Versión Alpha)
+            </a>
+
+            <div class="download-badge">
+                🆓 Gratuito • 🔓 Open Source • 📦 20.4 MB
+            </div>
+
+            <div class="download-meta">
+                <div class="download-meta-item">
+                    <span class="download-meta-value">100%</span>
+                    <span class="download-meta-label">Sin Rastreo</span>
+                </div>
+                <div class="download-meta-item">
+                    <span class="download-meta-value">0</span>
+                    <span class="download-meta-label">Permisos Innecesarios</span>
+                </div>
+                <div class="download-meta-item">
+                    <span class="download-meta-value">Apache 2.0</span>
+                    <span class="download-meta-label">Licencia Libre</span>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h3>📝 Instrucciones de Instalación</h3>
+                <ol>
+                    <li>Descarga el APK haciendo clic en el botón de arriba</li>
+                    <li>Activa "Orígenes desconocidos" en Ajustes → Seguridad</li>
+                    <li>Instala la aplicación y abre GuardianOS Shield</li>
+                    <li>Configura tu primer perfil parental y activa la protección</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== COMPATIBILITY ========== -->
+    <section id="compatibilidad" class="compatibility">
+        <div class="container">
+            <div class="section-header">
+                <h2>Compatibilidad</h2>
+                <p>Probado y funcionando en múltiples dispositivos y versiones de Android</p>
+            </div>
+
+            <div class="compat-grid">
+                <div class="compat-item success">
+                    <span class="compat-icon">✅</span>
+                    <h4>Android 12</h4>
+                    <p>OPPO A53s - Estable</p>
+                </div>
+
+                <div class="compat-item success">
+                    <span class="compat-icon">✅</span>
+                    <h4>Android 15</h4>
+                    <p>OPPO A80 - Estable</p>
+                </div>
+
+                <div class="compat-item warning">
+                    <span class="compat-icon">⚠️</span>
+                    <h4>LineageOS</h4>
+                    <p>Motorola G34 - En test</p>
+                </div>
+
+                <div class="compat-item">
+                    <span class="compat-icon">📱</span>
+                    <h4>Requisitos</h4>
+                    <p>Android 12+ (API 31)</p>
+                </div>
+
+                <div class="compat-item">
+                    <span class="compat-icon">🔒</span>
+                    <h4>Permisos</h4>
+                    <p>VPN, Estadísticas de uso</p>
+                </div>
+
+                <div class="compat-item">
+                    <span class="compat-icon">🌐</span>
+                    <h4>Arquitecturas</h4>
+                    <p>ARM64, ARMv7, x86_64</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--bg-elevated); border-radius: 1rem; border: 1px solid var(--border);">
+                <h3 style="color: var(--text-primary); margin-bottom: 1rem;">¿Tu dispositivo no está listado?</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">GuardianOS Shield está en fase alpha. Si encuentras algún problema, por favor reporta en GitHub:</p>
+                <a href="https://github.com/systemavworks/guardianos-shield/issues" target="_blank" class="btn btn-secondary">
+                    🐛 Reportar Issue
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="cta">
+        <div class="container">
+            <h2>🛡️ Protege a tus Hijos sin Rastrearlos</h2>
+            <p>La mayoría de apps de control parental recopilan datos de tus hijos para vendérselos a terceros. GuardianOS Shield es diferente: 100% local, 100% privado, 100% tuyo.</p>
+            <a href="#descargar" class="btn btn-primary" style="font-size: 1.25rem; padding: 1.25rem 3rem;">
+                🚀 Comenzar Ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>GuardianOS Shield</h4>
+                    <p>Control parental 100% DeGoogled sin rastreo ni analytics. Filtrado DNS local y VPN transparente para Android. Compromiso con la privacidad.</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                        <strong>Victor Shift</strong><br>
+                        Digital Sovereignty Engineer<br>
+                        Founder, guardianos<br>
+                        🔒 Privacy-by-Design | Android Audits | dGoogled Futures 🌿
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#caracteristicas">Características</a></li>
+                        <li><a href="#capturas">Capturas</a></li>
+                        <li><a href="#descargar">Descargar</a></li>
+                        <li><a href="#compatibilidad">Compatibilidad</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Proyecto</h4>
+                    <ul>
+                        <li><a href="https://github.com/systemavworks/guardianos-shield" target="_blank">GitHub Repository</a></li>
+                        <li><a href="https://github.com/systemavworks/guardianos-shield/releases" target="_blank">Última Versión</a></li>
+                        <li><a href="https://github.com/systemavworks/guardianos-shield/issues" target="_blank">Reportar Bug</a></li>
+                        <li><a href="https://guardianos.es" target="_blank">guardianos.es</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Tecnología</h4>
+                    <ul>
+                        <li><span>Kotlin 2.0.21</span></li>
+                        <li><span>Jetpack Compose</span></li>
+                        <li><span>Room Database</span></li>
+                        <li><span>Local VPN Service</span></li>
+                        <li><span>DNS Filtering</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 GuardianOS - Sistema de Protección Digital. Todos los derechos reservados.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                    Desarrollado con ❤️ en Andalucía, España | Licencia Apache 2.0 | 100% Open Source
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    closeMobileMenu();
+                }
+            });
+        });
+
+        // Header Shadow on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(59, 130, 246, 0.3)';
+            } else {
+                header.style.boxShadow = '0 1px 3px rgba(59, 130, 246, 0.2)';
+            }
+        });
+
+        // Download button click tracking (local only)
+        const downloadBtn = document.querySelector('.btn[href*="apk"]');
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', function() {
+                console.log('📥 APK descargado - GuardianOS Shield v1.0.0-alpha');
+            });
+        }
+    </script>
+</body>
+</html>
