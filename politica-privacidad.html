@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Política de Privacidad — GuardianOS App</title>
+  <title>Política de Privacidad — GuardianOS Shield</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -28,104 +28,105 @@
     }
     header {
       text-align: center;
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 1.4rem;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid var(--border);
     }
     h1 {
-      font-size: 2rem;
-      margin: 1rem 0;
-      color: var(--primary);
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     h2 {
-      font-size: 1.4rem;
-      margin: 1.8rem 0 1rem;
-      color: var(--text-primary);
+      color: var(--primary);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
     }
     h3 {
-      font-size: 1.1rem;
-      margin: 1.2rem 0 0.6rem;
-      color: var(--primary);
+      color: var(--text-primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
     }
-    p, ul, li {
+    p {
       margin-bottom: 1rem;
-      font-size: 1rem;
       color: var(--text-secondary);
     }
-    ul { padding-left: 1.5rem; }
-    li { margin-bottom: 0.6rem; }
-    .highlight { 
-      color: var(--primary); 
-      font-weight: 600; 
-      background: rgba(59, 130, 246, 0.1);
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
     }
-    .info-box {
-      background: rgba(59, 130, 246, 0.1);
-      border-left: 4px solid var(--primary);
-      padding: 1rem;
-      margin: 1.5rem 0;
-      border-radius: 0 4px 4px 0;
-    }
-    .warning { 
-      background: rgba(236, 72, 153, 0.1); 
-      border-left: 4px solid #ec4899; 
-      padding: 1rem;
-      margin: 1.5rem 0;
-      border-radius: 0 4px 4px 0;
+    li {
+      margin-bottom: 0.5rem;
     }
     .success {
       background: rgba(34, 197, 94, 0.1);
       border-left: 4px solid #22c55e;
       padding: 1rem;
       margin: 1.5rem 0;
-      border-radius: 0 4px 4px 0;
+      border-radius: 4px;
+    }
+    .warning {
+      background: rgba(234, 179, 8, 0.1);
+      border-left: 4px solid #eab308;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    .info-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    .highlight {
+      background: rgba(59, 130, 246, 0.2);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+    code {
+      background: var(--bg-card);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
     }
     .footer {
-      margin-top: 3rem;
-      text-align: center;
-      padding-top: 1.5rem;
+      margin-top: 4rem;
+      padding-top: 2rem;
       border-top: 1px solid var(--border);
-      font-size: 0.9rem;
+      text-align: center;
       color: var(--text-secondary);
+      font-size: 0.9rem;
     }
     .footer a {
       color: var(--primary);
       text-decoration: none;
     }
-    .footer a:hover { text-decoration: underline; }
-    code {
-      background: var(--bg-card);
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      color: var(--primary);
+    .footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="logo">
-        🛡️ GuardianOS
-      </div>
-      <h1>Política de Privacidad</h1>
-      <p>Tu privacidad es nuestra prioridad. Esta app NO envía datos fuera de tu dispositivo.</p>
+      <h1>🛡️ Política de Privacidad</h1>
+      <p style="font-size: 1.2rem; color: var(--text-secondary); margin-top: 1rem;">GuardianOS Shield — Control Parental</p>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">Protección infantil con filtrado DNS y monitoreo de apps. Todos los datos permanecen en tu dispositivo.</p>
     </header>
 
     <main>
       <div class="success">
-        <strong>✓ Privacidad garantizada:</strong> GuardianOS funciona 100% offline. Todos los análisis se realizan localmente en tu dispositivo. No hay servidores, no hay seguimiento, no hay recopilación de datos.
+        <strong>✓ Privacidad garantizada:</strong> GuardianOS Shield almacena todos los datos localmente en tu dispositivo. No hay servidores externos ni seguimiento de terceros. El filtrado DNS usa CleanBrowsing pero NO inspecciona el contenido del tráfico.
       </div>
 
       <h2>1. Información General</h2>
@@ -134,140 +135,192 @@
       <p><strong>Web:</strong> <a href="https://guardianos.es" style="color: var(--primary);">https://guardianos.es</a></p>
 
       <h2>2. Datos que accede la app</h2>
-      <p>GuardianOS necesita acceder a cierta información de tu dispositivo para realizar las auditorías de seguridad. <span class="highlight">Toda esta información permanece en tu dispositivo</span>.</p>
+      <p>GuardianOS Shield necesita acceder a cierta información de tu dispositivo para proporcionar control parental efectivo. <span class="highlight">Toda esta información permanece en tu dispositivo</span>.</p>
 
       <h3>📱 Información del dispositivo</h3>
       <ul>
-        <li><strong>Modelo y fabricante</strong> (ej: Samsung Galaxy S21)</li>
-        <li><strong>Versión de Android</strong> (ej: Android 13)</li>
-        <li><strong>Nivel de API</strong> del sistema</li>
-        <li><strong>Parche de seguridad</strong> instalado</li>
+        <li><strong>Modelo y fabricante</strong> (para optimización de servicios)</li>
+        <li><strong>Versión de Android</strong> (compatibilidad de funciones)</li>
+        <li><strong>Estado de batería</strong> (excluir de optimizaciones)</li>
       </ul>
 
       <h3>📦 Lista de aplicaciones instaladas</h3>
       <ul>
         <li>Nombre de las aplicaciones</li>
         <li>Nombre del paquete (package name)</li>
-        <li>Versión de cada app</li>
-        <li>Permisos solicitados por cada app</li>
-        <li>Si es app del sistema o de terceros</li>
+        <li>Tiempos de uso de cada app (UsageStats)</li>
+        <li>Apps detectadas en primer plano (para bloqueo parental)</li>
       </ul>
 
-      <h3>🔒 Estado de seguridad</h3>
+      <h3>🌐 Consultas DNS bloqueadas</h3>
       <ul>
-        <li>Si el dispositivo tiene bloqueo de pantalla activado</li>
-        <li>Si el dispositivo tiene root</li>
+        <li>Dominios bloqueados por filtro (ej: sitio-adulto.com)</li>
+        <li>Fecha y hora del intento de acceso</li>
+        <li>Categoría del bloqueo (adulto, redes sociales, malware)</li>
+        <li><strong>NO se almacena:</strong> Contenido de páginas, credenciales, tráfico cifrado</li>
       </ul>
 
-      <h2>3. ¿Cómo usamos estos datos?</h2>
-      
-      <div class="info-box">
-        <strong>Procesamiento 100% local:</strong>
-        <ul style="margin-top: 0.5rem;">
-          <li>Los datos se analizan únicamente en tu dispositivo</li>
-          <li>Se calculan puntuaciones de riesgo basadas en permisos</li>
-          <li>Se generan informes PDF que TÚ decides si compartir</li>
-          <li><strong>Ningún dato se envía a servidores de GuardianOS ni terceros</strong></li>
+      <h3>🔒 Configuración de control parental</h3>
+      <ul>
+        <li>PIN parental (encriptado con AndroidKeyStore)</li>
+        <li>Horarios de uso permitidos</li>
+        <li>Nivel de restricción configurado</li>
+        <li>Apps marcadas como sensibles por padres</li>
+      </ul>
+
+      <h2>3. Qué NO hacemos con tus datos</h2>
+      <div class="success">
+        <ul>
+          <li><strong>NO enviamos datos a servidores externos</strong> (excepto DNS a CleanBrowsing)</li>
+          <li><strong>NO vendemos información</strong></li>
+          <li><strong>NO compartimos con terceros</strong></li>
+          <li><strong>NO inspeccionamos contenido de tráfico HTTPS</strong></li>
+          <li><strong>NO rastreamos ubicación</strong></li>
+          <li><strong>NO accedemos a mensajes, fotos o archivos personales</strong></li>
         </ul>
       </div>
 
       <h2>4. Almacenamiento de datos</h2>
-      <p>Los únicos datos que se guardan son:</p>
+      <p>Los datos se guardan localmente:</p>
       <ul>
-        <li><strong>Informes PDF temporales:</strong> Se almacenan en la caché de la app (<code>/cache</code>) y se eliminan automáticamente cuando Android lo necesita o cuando desinstalas la app.</li>
-        <li><strong>Sin base de datos:</strong> No mantenemos historial de auditorías ni guardamos información entre sesiones.</li>
+        <li><strong>Base de datos Room:</strong> Historial de sitios bloqueados, perfiles de usuario, configuración (almacenado en <code>/data/data/com.guardianos.shield/databases/</code>)</li>
+        <li><strong>DataStore encriptado:</strong> Configuración de la app y estado de servicios</li>
+        <li><strong>EncryptedSharedPreferences:</strong> PIN parental hasheado con SHA-256 y encriptado con AES256-GCM</li>
+        <li><strong>Retención:</strong> Logs de DNS se eliminan automáticamente después de 30 días (configurable)</li>
       </ul>
 
-      <h2>5. Compartir información</h2>
-      <p>GuardianOS te permite <strong>exportar informes en PDF</strong>. Cuando usas esta función:</p>
+      <h2>5. Filtrado DNS con CleanBrowsing</h2>
+      <div class="info-box">
+        <p><strong>¿Qué es CleanBrowsing?</strong></p>
+        <p>CleanBrowsing es un servicio de DNS público que filtra contenido inapropiado. GuardianOS Shield redirige consultas DNS a sus servidores (185.228.168.168) cuando el modo VPN está activo.</p>
+        <p><strong>Datos enviados a CleanBrowsing:</strong></p>
+        <ul style="margin-top: 0.5rem;">
+          <li>Nombres de dominio consultados (ej: google.com, facebook.com)</li>
+          <li>Dirección IP del dispositivo (temporal, para responder la consulta)</li>
+        </ul>
+        <p><strong>Política de CleanBrowsing:</strong> <a href="https://cleanbrowsing.org/privacy" style="color: var(--primary);" target="_blank">https://cleanbrowsing.org/privacy</a></p>
+        <p><strong>Importante:</strong> CleanBrowsing NO puede ver el contenido cifrado de tus conexiones HTTPS. Solo ve los nombres de dominio.</p>
+      </div>
+
+      <h2>6. Exportar estadísticas</h2>
+      <p>GuardianOS Shield permite exportar informes en CSV/JSON:</p>
       <ul>
-        <li>Se genera un PDF con el resultado de la auditoría</li>
-        <li><strong>TÚ decides</strong> con quién compartirlo (email, WhatsApp, etc.)</li>
+        <li>Se genera un archivo con las estadísticas de la app</li>
+        <li><strong>TÚ decides</strong> con quién compartirlo (email, Drive, etc.)</li>
         <li>Usamos el sistema de compartir de Android</li>
-        <li>El PDF se elimina de la caché tras compartirlo o cuando Android lo necesita</li>
+        <li>Los archivos exportados contienen datos sensibles de uso de apps</li>
       </ul>
 
       <div class="warning">
-        ⚠️ <strong>Importante:</strong> Si compartes un informe PDF, este contendrá información sobre las apps instaladas en tu dispositivo. Comparte solo con personas de confianza.
+        ⚠️ <strong>Importante:</strong> Si compartes un informe CSV/JSON, este contendrá información sobre apps usadas y sitios bloqueados. Comparte solo con personas de confianza.
       </div>
 
-      <h2>6. Permisos solicitados</h2>
+      <h2>7. Permisos solicitados</h2>
       <p>La app solicita los siguientes permisos de Android:</p>
 
       <h3>🔍 QUERY_ALL_PACKAGES</h3>
-      <p><strong>¿Para qué?</strong> Permite listar todas las aplicaciones instaladas para realizar la auditoría de seguridad.</p>
-      <p><strong>Justificación:</strong> Es esencial para la funcionalidad principal de la app (analizar la seguridad de las apps instaladas).</p>
+      <p><strong>¿Para qué?</strong> Permite listar todas las aplicaciones instaladas para monitoreo de control parental.</p>
+      <p><strong>Justificación:</strong> Esencial para detectar y bloquear apps sensibles según la configuración de padres/tutores.</p>
 
-      <h3>📄 Acceso a almacenamiento (si aplica)</h3>
-      <p><strong>¿Para qué?</strong> Solo para guardar temporalmente los PDFs generados antes de compartirlos.</p>
+      <h3>📊 PACKAGE_USAGE_STATS</h3>
+      <p><strong>¿Para qué?</strong> Permite detectar qué app está en primer plano y medir tiempos de uso.</p>
+      <p><strong>Justificación:</strong> Necesario para aplicar horarios de uso y bloquear apps fuera del horario permitido.</p>
 
-      <h2>7. Sin conexión a Internet</h2>
-      <div class="success">
-        <strong>✓ Funcionamiento offline:</strong>
+      <h3>🔒 BIND_VPN_SERVICE</h3>
+      <p><strong>¿Para qué?</strong> Permite crear un túnel VPN local para interceptar consultas DNS.</p>
+      <p><strong>Justificación:</strong> Es el mecanismo que permite el filtrado DNS sin inspeccionar el tráfico de datos.</p>
+      <p><strong>Aclaración:</strong> La VPN es local, NO redirige tu tráfico a servidores remotos. Solo redirige DNS a CleanBrowsing.</p>
+
+      <h3>🔔 POST_NOTIFICATIONS (Android 13+)</h3>
+      <p><strong>¿Para qué?</strong> Mostrar notificaciones cuando se bloquea un sitio o app.</p>
+
+      <h3>🔋 REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</h3>
+      <p><strong>¿Para qué?</strong> Evitar que el sistema mate los servicios de monitoreo en segundo plano.</p>
+      <p><strong>Justificación:</strong> Necesario para protección continua sin interrupciones.</p>
+
+      <h2>8. Conexión a Internet</h2>
+      <div class="info-box">
+        <p><strong>GuardianOS Shield usa Internet solo para:</strong></p>
         <ul style="margin-top: 0.5rem;">
-          <li>GuardianOS NO requiere conexión a Internet</li>
-          <li>NO hay servidores backend</li>
-          <li>NO hay analytics ni seguimiento</li>
-          <li>NO usamos Firebase, Google Analytics ni servicios similares</li>
+          <li>✅ Consultas DNS a CleanBrowsing (cuando VPN activo)</li>
+          <li>✅ Futuras actualizaciones de listas de bloqueo (opcional)</li>
+        </ul>
+        <p><strong>NO usamos Internet para:</strong></p>
+        <ul style="margin-top: 0.5rem;">
+          <li>❌ Enviar estadísticas de uso</li>
+          <li>❌ Analytics o seguimiento de usuarios</li>
+          <li>❌ Publicidad</li>
+          <li>❌ Sincronización en la nube</li>
         </ul>
       </div>
 
-      <h2>8. Terceros y servicios externos</h2>
-      <p><strong>No hay terceros involucrados.</strong> La app no integra:</p>
+      <h2>9. Terceros y servicios externos</h2>
+      <p><strong>Servicios externos utilizados:</strong></p>
       <ul>
-        <li>❌ Servicios de analytics (Google Analytics, Firebase, etc.)</li>
+        <li><strong>CleanBrowsing DNS:</strong> Filtrado de contenido (ver sección 5)</li>
+      </ul>
+      <p><strong>NO integrados:</strong></p>
+      <ul>
+        <li>❌ Google Analytics / Firebase Analytics</li>
         <li>❌ Redes publicitarias</li>
         <li>❌ SDKs de redes sociales</li>
-        <li>❌ Servicios de crash reporting</li>
-        <li>❌ Servicios en la nube</li>
+        <li>❌ Servicios de crash reporting externos</li>
       </ul>
 
-      <h2>9. Seguridad</h2>
-      <p>Implementamos medidas técnicas apropiadas:</p>
+      <h2>10. Niños y menores</h2>
+      <p>GuardianOS Shield está diseñado específicamente para proteger a menores bajo la supervisión de padres/tutores. Dado que:</p>
       <ul>
-        <li>Los PDFs temporales se almacenan en área privada de la app</li>
-        <li>Solo la app tiene acceso a estos archivos</li>
-        <li>Se eliminan automáticamente al desinstalar la app</li>
-        <li>No hay transmisión de datos por red</li>
-      </ul>
-
-      <h2>10. Menores de edad</h2>
-      <p>Esta app puede ser usada por menores bajo supervisión de sus padres/tutores. Dado que:</p>
-      <ul>
-        <li>No recopilamos datos personales</li>
+        <li>Los datos permanecen en el dispositivo local</li>
         <li>No hay registro ni cuentas de usuario</li>
-        <li>Funciona completamente offline</li>
+        <li>Los padres controlan completamente la configuración</li>
       </ul>
-      <p>No es necesario consentimiento parental especial, aunque recomendamos que los padres supervisen el uso de cualquier herramienta de seguridad.</p>
+      <p>Cumplimos con COPPA (Children's Online Privacy Protection Act) y RGPD en lo relativo a protección de menores.</p>
 
       <h2>11. Tus derechos (RGPD)</h2>
-      <p>Aunque no recopilamos datos personales, tienes derecho a:</p>
+      <p>Bajo el RGPD, tienes derecho a:</p>
       <ul>
-        <li><strong>Información:</strong> Esta política explica todo nuestro tratamiento</li>
-        <li><strong>Acceso:</strong> Todos los datos están en tu dispositivo</li>
-        <li><strong>Supresión:</strong> Desinstala la app para eliminar todos los datos</li>
-        <li><strong>Contacto:</strong> info@guardianos.es para cualquier duda</li>
+        <li><strong>Acceso:</strong> Todos los datos están en tu dispositivo (base de datos local)</li>
+        <li><strong>Rectificación:</strong> Modifica configuración desde la app</li>
+        <li><strong>Supresión:</strong> Usa "Limpiar historial" en Configuración o desinstala la app</li>
+        <li><strong>Portabilidad:</strong> Exporta tus datos en CSV/JSON</li>
+        <li><strong>Oposición:</strong> Desactiva funciones específicas en Configuración</li>
+        <li><strong>Contacto:</strong> info@guardianos.es para cualquier solicitud</li>
       </ul>
 
-      <h2>12. Cambios en esta política</h2>
-      <p>Podemos actualizar esta política ocasionalmente. Te notificaremos cambios significativos mediante actualización de la app con nota en la descripción de Play Store.</p>
+      <h2>12. Seguridad de los datos</h2>
+      <p>Medidas de seguridad implementadas:</p>
+      <ul>
+        <li><strong>Encriptación:</strong> PIN parental con AES256-GCM + SHA-256</li>
+        <li><strong>Almacenamiento local:</strong> Datos no salen del dispositivo</li>
+        <li><strong>Sin backups en la nube:</strong> <code>allowBackup="false"</code> en AndroidManifest</li>
+        <li><strong>Código abierto:</strong> Disponible en <a href="https://github.com/systemavworks/guardianos-shield" style="color: var(--primary);">GitHub</a> para auditoría pública</li>
+      </ul>
 
-      <h2>13. Contacto</h2>
+      <h2>13. Cambios en esta política</h2>
+      <p>Podemos actualizar esta política ocasionalmente. Te notificaremos cambios significativos mediante:</p>
+      <ul>
+        <li>Actualización de la app con nota en Play Store</li>
+        <li>Notificación in-app al abrir la aplicación</li>
+        <li>Publicación en https://guardianos.es/politica-privacidad</li>
+      </ul>
+
+      <h2>14. Contacto</h2>
       <p>Para cualquier pregunta sobre privacidad:</p>
       <ul>
         <li><strong>Email:</strong> <a href="mailto:info@guardianos.es" style="color: var(--primary);">info@guardianos.es</a></li>
         <li><strong>Web:</strong> <a href="https://guardianos.es" style="color: var(--primary);">https://guardianos.es</a></li>
-        <li><strong>Asunto:</strong> "Privacidad GuardianOS App"</li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/systemavworks/guardianos-shield" style="color: var(--primary);">github.com/systemavworks/guardianos-shield</a></li>
+        <li><strong>Asunto:</strong> "Privacidad GuardianOS Shield"</li>
       </ul>
       <p>Responderemos en menos de 10 días hábiles.</p>
 
       <div class="info-box" style="margin-top: 2rem;">
-        <p style="margin: 0;"><strong>Resumen ejecutivo:</strong> GuardianOS analiza la seguridad de tu dispositivo Android 100% offline. No hay servidores, no hay seguimiento, no hay recopilación de datos. Tu privacidad está garantizada.</p>
+        <p style="margin: 0;"><strong>Resumen ejecutivo:</strong> GuardianOS Shield es una app de control parental que almacena todos los datos localmente en tu dispositivo. Solo usa CleanBrowsing DNS para filtrado de contenido, sin inspeccionar tráfico cifrado. No hay servidores propios, no hay seguimiento de terceros, no hay venta de datos. Tu privacidad y la de tus hijos está garantizada.</p>
       </div>
 
       <p style="margin-top: 2rem; font-style: italic; color: var(--text-secondary);">
         <strong>Última actualización:</strong> 5 de Febrero de 2026<br>
-        <strong>Versión de la política:</strong> 1.0 (App móvil)
+        <strong>Versión de la política:</strong> 1.1 (GuardianOS Shield)
       </p>
     </main>
 
