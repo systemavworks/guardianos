@@ -1741,7 +1741,7 @@ color: var(--text-primary);
 -webkit-appearance: none;
 -moz-appearance: none;
 appearance: none;
-background-image: url('image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 24 24%22%3E%3Cpath d%3D%22M7 10l5 5 5-5z%22%2F%3E%3C%2Fsvg%3E');
+background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 24 24%22%3E%3Cpath d%3D%22M7 10l5 5 5-5z%22%2F%3E%3C%2Fsvg%3E');
 background-repeat: no-repeat;
 background-position: right 1rem center;
 background-size: 16px;
@@ -1944,16 +1944,14 @@ document.getElementById('transfer-form').style.display = 'block';
 // Stripe Checkout
 function openStripeCheckout() {
 // Redirige a Stripe Checkout
-// Necesitas crear un producto en Stripe Dashboard y obtener el ID
-const stripe = Stripe('pk_live_51QJXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'); // ← TU PUBLIC KEY LIVE
-// Crear sesión de checkout
+const stripe = Stripe('pk_live_51Sywp0F3dv15Qwb6cePQYzBIHXwr1lwLBBNOFtlTciqR2i5l1EWVJKafgYjDjs0I9vcAGXsfKTQQeiDk7XtyN7kq004IOAaUlI');
 fetch('https://api.guardianos.es/create-checkout-session', {
 method: 'POST',
 headers: {
 'Content-Type': 'application/json',
 },
 body: JSON.stringify({
-priceId: 'price_1QJXXXXXXXXXXXXXXXXXXXXXX', // ← TU PRICE ID
+priceId: 'price_1Syxk0F3dv15Qwb61IFhJBCb',
 successUrl: 'https://guardianos.es/gracias-pro.html?session_id={CHECKOUT_SESSION_ID}',
 cancelUrl: 'https://guardianos.es/pro',
 })
