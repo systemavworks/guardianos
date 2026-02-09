@@ -70,6 +70,15 @@ letter-spacing: 3px;
 color: var(--text-primary);
 font-weight: bold;
 }
+.redirect-info {
+background: rgba(59, 130, 246, 0.1);
+border-left: 4px solid var(--primary);
+padding: 1rem;
+border-radius: 0 0.5rem 0.5rem 0;
+margin: 1.5rem 0;
+font-size: 0.95rem;
+color: var(--text-secondary);
+}
 .steps {
 text-align: left;
 margin-top: 2rem;
@@ -114,6 +123,16 @@ cursor: pointer;
 transform: translateY(-3px);
 box-shadow: 0 10px 30px rgba(139, 92, 246, 0.5);
 }
+.countdown {
+display: inline-block;
+background: rgba(59, 130, 246, 0.2);
+color: white;
+padding: 0.5rem 1rem;
+border-radius: 2rem;
+font-weight: bold;
+margin-top: 0.5rem;
+font-size: 0.9rem;
+}
 </style>
 </head>
 <body>
@@ -124,6 +143,14 @@ box-shadow: 0 10px 30px rgba(139, 92, 246, 0.5);
 
 <div class="code-box" id="codeDisplay">
 ⏳ Generando tu código...
+</div>
+
+<div class="redirect-info">
+🔄 Redirigiendo a la página principal en <span id="countdown" class="countdown">5</span> segundos...
+<br>
+<small style="color: var(--text-secondary); display: block; margin-top: 0.5rem;">
+¿No quieres esperar? Haz clic en el botón de abajo.
+</small>
 </div>
 
 <div class="steps">
@@ -146,7 +173,7 @@ box-shadow: 0 10px 30px rgba(139, 92, 246, 0.5);
 </div>
 </div>
 
-<a href="https://guardianos.es" class="btn">Volver al inicio</a>
+<a href="https://guardianos.es" class="btn" id="redirectBtn">Volver al inicio</a>
 </div>
 
 <script>
@@ -163,6 +190,26 @@ const num2 = Math.floor(Math.random() * 9000) + 1000;
 const num3 = (num1 + num2) % 10000;
 return `GUAR-${num1}-${num2}-${num3.toString().padStart(4, '0')}`;
 }
+
+// Redirección automática después de 5 segundos
+let countdown = 5;
+const countdownElement = document.getElementById('countdown');
+const redirectBtn = document.getElementById('redirectBtn');
+
+const countdownInterval = setInterval(() => {
+countdown--;
+countdownElement.textContent = countdown;
+
+if (countdown <= 0) {
+clearInterval(countdownInterval);
+window.location.href = 'https://guardianos.es';
+}
+}, 1000);
+
+// Si el usuario hace clic en el botón, cancelar la redirección automática
+redirectBtn.addEventListener('click', () => {
+clearInterval(countdownInterval);
+});
 </script>
 </body>
 </html>
