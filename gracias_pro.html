@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Gracias! | GuardianOS PRO</title>
+<style>
+:root {
+--primary: #3b82f6;
+--secondary: #8b5cf6;
+--accent: #10b981;
+--dark: #0f172a;
+--bg-card: #1e293b;
+--text-primary: #e2e8f0;
+--text-secondary: #94a3b8;
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Inter', sans-serif;
+background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+color: var(--text-primary);
+padding: 4rem 2rem;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.container {
+max-width: 600px;
+background: var(--bg-card);
+border-radius: 1rem;
+padding: 3rem;
+text-align: center;
+box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+border: 2px solid var(--secondary);
+}
+.success-icon {
+font-size: 5rem;
+margin-bottom: 1.5rem;
+color: var(--accent);
+animation: bounce 1s ease;
+}
+@keyframes bounce {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-20px); }
+}
+h1 {
+font-size: 2rem;
+margin-bottom: 1rem;
+color: white;
+}
+p {
+color: var(--text-secondary);
+margin-bottom: 1.5rem;
+line-height: 1.6;
+}
+.code-box {
+background: rgba(139, 92, 246, 0.1);
+border: 2px dashed var(--secondary);
+border-radius: 0.75rem;
+padding: 1.5rem;
+margin: 1.5rem 0;
+font-family: 'Courier New', monospace;
+font-size: 1.3rem;
+letter-spacing: 3px;
+color: var(--text-primary);
+font-weight: bold;
+}
+.steps {
+text-align: left;
+margin-top: 2rem;
+}
+.step {
+display: flex;
+margin-bottom: 1rem;
+align-items: flex-start;
+}
+.step-number {
+background: var(--secondary);
+color: white;
+width: 28px;
+height: 28px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+font-size: 0.9rem;
+margin-right: 1rem;
+flex-shrink: 0;
+}
+.step-content {
+color: var(--text-secondary);
+line-height: 1.6;
+}
+.btn {
+display: inline-block;
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+color: white;
+padding: 1rem 2rem;
+text-decoration: none;
+border-radius: 0.75rem;
+font-weight: 600;
+margin-top: 1.5rem;
+transition: all 0.3s ease;
+border: none;
+cursor: pointer;
+}
+.btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 10px 30px rgba(139, 92, 246, 0.5);
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="success-icon">✅</div>
+<h1>¡Pago completado con éxito!</h1>
+<p>Tu versión GuardianOS PRO ha sido activada. En breve recibirás tu código de activación por email.</p>
+
+<div class="code-box" id="codeDisplay">
+⏳ Generando tu código...
+</div>
+
+<div class="steps">
+<h3 style="color: white; margin-bottom: 1rem; text-align: left;">Próximos pasos:</h3>
+<div class="step">
+<div class="step-number">1</div>
+<div class="step-content">Revisa tu bandeja de entrada (y spam) en los próximos minutos</div>
+</div>
+<div class="step">
+<div class="step-number">2</div>
+<div class="step-content">Abre GuardianOS en tu móvil y ve a "Activación PRO"</div>
+</div>
+<div class="step">
+<div class="step-number">3</div>
+<div class="step-content">Introduce el código GUAR-XXXX-XXXX-XXXX que recibirás por email</div>
+</div>
+<div class="step">
+<div class="step-number">4</div>
+<div class="step-content">¡Disfruta de todas las funciones PRO!</div>
+</div>
+</div>
+
+<a href="https://guardianos.es" class="btn">Volver al inicio</a>
+</div>
+
+<script>
+// Simular generación de código (en producción, esto vendría del servidor)
+setTimeout(() => {
+const code = generateFakeCode();
+document.getElementById('codeDisplay').textContent = code;
+document.getElementById('codeDisplay').style.color = 'var(--accent)';
+}, 2000);
+
+function generateFakeCode() {
+const num1 = Math.floor(Math.random() * 9000) + 1000;
+const num2 = Math.floor(Math.random() * 9000) + 1000;
+const num3 = (num1 + num2) % 10000;
+return `GUAR-${num1}-${num2}-${num3.toString().padStart(4, '0')}`;
+}
+</script>
+</body>
+</html>
