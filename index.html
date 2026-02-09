@@ -975,6 +975,9 @@ cursor: pointer;
 width: 100%;
 box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
 transition: all 0.3s ease;
+text-decoration: none;
+display: inline-block;
+text-align: center;
 }
 .stripe-button:hover {
 transform: translateY(-2px);
@@ -1601,12 +1604,13 @@ Gratuito • Open Source • 100% Privado • Sin Analytics • Compatibilidad A
 <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
 Tarjeta • Google Pay • Apple Pay
 </p>
+</div>
 <div style="text-align: center;">
-<a href="https://buy.stripe.co/3cI5kDc6t1Y1aZO6FW00001"
-   class="stripe-button"
-   style="display: inline-block; text-decoration: none; color: white;>
-💳 Pagar con Tarjeta / Google Pay - 9,99€
+<a href="https://buy.stripe.com/3cI5kDc6t1Y1aZO6FW00001" 
+   class="stripe-button">
+  💳 Pagar con Tarjeta / Google Pay - 9,99€
 </a>
+</div>
 </div>
 <!-- Bizum Form -->
 <div id="bizum-form" class="bizum-form">
@@ -1748,7 +1752,7 @@ background-size: 16px;
 ">
 <option value="">Selecciona un servicio</option>
 <option value="Auditoría Express (49€)">Auditoría Express (49€)</option>
-<option value="Configuración Completa (Desde 79€)">Configuración Completa (Desde 89€)</option>
+<option value="Configuración Completa (Desde 89€)">Configuración Completa (Desde 89€)</option>
 <option value="Taller para Colegios">Taller para Colegios</option>
 <option value="GuardianOS Shield App">GuardianOS Shield App</option>
 <option value="GuardianOS PRO App">GuardianOS PRO App</option>
@@ -1884,8 +1888,6 @@ Founder, guardianos<br>
 </div>
 </div>
 </footer>
-<!-- Stripe.js -->
-<script src="https://js.stripe.com/v3/"></script>
 <script>
 // Mobile Menu Toggle
 function toggleMobileMenu() {
@@ -1940,31 +1942,6 @@ document.getElementById('bizum-form').style.display = 'block';
 document.getElementById('method-transfer').classList.add('active');
 document.getElementById('transfer-form').style.display = 'block';
 }
-}
-// Stripe Checkout
-function openStripeCheckout() {
-// Redirige a Stripe Checkout
-const stripe = Stripe('pk_live_51Sywp0F3dv15Qwb6cePQYzBIHXwr1lwLBBNOFtlTciqR2i5l1EWVJKafgYjDjs0I9vcAGXsfKTQQeiDk7XtyN7kq004IOAaUlI');
-fetch('https://api.guardianos.es/create-checkout-session', {
-method: 'POST',
-headers: {
-'Content-Type': 'application/json',
-},
-body: JSON.stringify({
-priceId: 'price_1Syxk0F3dv15Qwb61IFhJBCb',
-successUrl: 'https://guardianos.es/gracias-pro.html?session_id={CHECKOUT_SESSION_ID}',
-cancelUrl: 'https://guardianos.es/pro',
-})
-})
-.then(response => response.json())
-.then(data => {
-// Redirigir a Stripe Checkout
-return stripe.redirectToCheckout({ sessionId: data.sessionId });
-})
-.catch(error => {
-console.error('Error:', error);
-alert('Error al iniciar el pago. Por favor, inténtalo de nuevo o contacta con info@guardianos.es');
-});
 }
 // Inicializar con Stripe seleccionado por defecto
 window.onload = function() {
