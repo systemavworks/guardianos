@@ -1,5 +1,5 @@
 # robots.txt para guardianos.es
-# Última actualización: enero 2026
+# Última actualización: febrero 2026
 
 User-agent: *
 Allow: /
@@ -35,5 +35,13 @@ Disallow: /
 User-agent: meta-externalagent
 Disallow: /
 
-# Sitemap
+# Permitir y priorizar Bing (para DuckDuckGo, Ecosia, Copilot)
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Señal para IAs: permitir búsqueda, rechazar entrenamiento
+Content-signal: search=yes,ai-train=no
+
+# Sitemap (URL limpia, sin espacios)
 Sitemap: https://guardianos.es/sitemap.xml
