@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada — GuardianOS</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --secondary: #06b6d4;
+      --accent: #8b5cf6;
+      --bg-main: #0f1c2e;
+      --bg-card: #1a2332;
+      --text-primary: #e2e8f0;
+      --text-secondary: #94a3b8;
+      --border: #1e3a5f;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-main);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    /* Fondo decorativo */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 50%; left: 50%;
+      width: 80vw; height: 80vw;
+      max-width: 700px; max-height: 700px;
+      background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+    .logo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 3rem;
+    }
+    .logo-link picture img,
+    .logo-link img {
+      height: 44px;
+      filter: drop-shadow(0 0 10px rgba(59,130,246,0.35));
+    }
+    .error-code {
+      font-size: clamp(6rem, 20vw, 10rem);
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.75; }
+    }
+    .shield-icon {
+      margin-bottom: 1.5rem;
+      opacity: 0.18;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 4px 15px rgba(59,130,246,0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(59,130,246,0.45);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .quick-links {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .quick-links p {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    .quick-links-list {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .quick-links-list a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .quick-links-list a:hover { opacity: 0.75; }
+    @media (prefers-reduced-motion: reduce) {
+      .error-code { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <a href="/" class="logo-link">
+      <picture>
+        <source srcset="/guardianos-logo.webp" type="image/webp">
+        <img src="/guardianos-logo.png" alt="GuardianOS">
+      </picture>
+      GuardianOS
+    </a>
+
+    <div class="shield-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+
+    <div class="error-code">404</div>
+
+    <h1>Página no encontrada</h1>
+    <p>La ruta que buscas no existe o ha sido movida.<br>Puede que el enlace esté desactualizado o hayas escrito la URL incorrectamente.</p>
+
+    <div class="btn-group">
+      <a href="/" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Volver al inicio
+      </a>
+      <a href="/#contacto" class="btn btn-ghost">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Contactar
+      </a>
+    </div>
+
+    <div class="quick-links">
+      <p>O ve directamente a:</p>
+      <ul class="quick-links-list">
+        <li><a href="/#servicios">Servicios</a></li>
+        <li><a href="/#precios">Precios</a></li>
+        <li><a href="/shield/">GuardianOS Shield</a></li>
+        <li><a href="/#app">App GuardianOS</a></li>
+        <li><a href="/aviso-legal.html">Aviso Legal</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

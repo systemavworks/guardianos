@@ -844,9 +844,10 @@
     <header>
         <nav class="container">
             <a href="https://guardianos.es" class="logo">
-                <img src="/guardianos-logo.png"
-                    alt="GuardianOS Logo"
-                    class="logo-img">
+                <picture>
+                <source srcset="/guardianos-logo.webp" type="image/webp">
+                <img src="/guardianos-logo.png" alt="GuardianOS Logo" class="logo-img">
+                </picture>
                 <span class="logo-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> GuardianOS</span>
             </a>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false">☰</button>
@@ -988,6 +989,10 @@
                 📲 Descargar APK (Versión 1.1.0 Release)
             </a>
 
+            <a href="https://github.com/systemavworks/guardianos-shield" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;">
+                <img src="https://img.shields.io/github/stars/systemavworks/guardianos-shield?style=social&label=GitHub%20Stars" alt="GitHub stars de GuardianOS Shield" loading="lazy" width="130" height="20">
+            </a>
+
             <div class="download-badge">
                 🆓 Gratuito • 🔓 Open Source • 📦 7,66 MB
             </div>
@@ -1086,6 +1091,104 @@
             </div>
         </div>
     </section>
+
+    <!-- ========== FAQ ========== -->
+    <section id="faq" style="padding:5rem 0;background:var(--bg-card,#1a2332);">
+        <div class="container">
+            <div style="text-align:center;margin-bottom:3rem;">
+                <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:0.75rem;">Preguntas Frecuentes</h2>
+                <p style="color:var(--text-secondary,#94a3b8);font-size:1.1rem;">Todo lo que necesitas saber sobre GuardianOS Shield</p>
+            </div>
+            <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:1rem;">
+
+                <details style="background:var(--bg-elevated,#1e2937);border:1px solid var(--border,#1e3a5f);border-radius:1rem;overflow:hidden;">
+                    <summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary,#e2e8f0);">
+                        ¿Necesita root GuardianOS Shield?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary,#94a3b8);line-height:1.7;margin:0;">No. GuardianOS Shield funciona en cualquier Android 12+ sin root. Usa la API VPN de Android para el filtrado DNS de forma completamente local.</p>
+                </details>
+
+                <details style="background:var(--bg-elevated,#1e2937);border:1px solid var(--border,#1e3a5f);border-radius:1rem;overflow:hidden;">
+                    <summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary,#e2e8f0);">
+                        ¿Qué servidor DNS usa CleanBrowsing?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary,#94a3b8);line-height:1.7;margin:0;">Shield usa CleanBrowsing Family Filter (185.228.168.168) de forma predeterminada. El usuario puede personalizar el servidor DNS desde los ajustes avanzados de la app.</p>
+                </details>
+
+                <details style="background:var(--bg-elevated,#1e2937);border:1px solid var(--border,#1e3a5f);border-radius:1rem;overflow:hidden;">
+                    <summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary,#e2e8f0);">
+                        ¿Puede el menor desactivar la VPN o desinstalar la app?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary,#94a3b8);line-height:1.7;margin:0;">No sin el PIN parental. El perfil de seguridad protege la desactivación de la VPN y la desinstalación de la app mediante un PIN de 6 dígitos que solo conoce el tutor.</p>
+                </details>
+
+                <details style="background:var(--bg-elevated,#1e2937);border:1px solid var(--border,#1e3a5f);border-radius:1rem;overflow:hidden;">
+                    <summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary,#e2e8f0);">
+                        ¿Se envían datos a internet?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary,#94a3b8);line-height:1.7;margin:0;">No. Shield no tiene ningún backend, analytics ni telemetría. Todo funciona localmente en el dispositivo. Puedes verificarlo auditando el código fuente en GitHub.</p>
+                </details>
+
+                <details style="background:var(--bg-elevated,#1e2937);border:1px solid var(--border,#1e3a5f);border-radius:1rem;overflow:hidden;">
+                    <summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary,#e2e8f0);">
+                        ¿Es compatible con entornos deGoogled (LineageOS, /e/OS)?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary,#94a3b8);line-height:1.7;margin:0;">Sí. Shield está diseñado desde cero para funcionar en entornos deGoogled. No depende de los servicios de Google Play ni de ninguna librería propietaria.</p>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CHANGELOG ========== -->
+    <section id="changelog" style="padding:5rem 0;background:var(--bg-main,#0f1c2e);">
+        <div class="container">
+            <div style="text-align:center;margin-bottom:3rem;">
+                <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:0.75rem;">Historial de versiones</h2>
+                <p style="color:var(--text-secondary,#94a3b8);font-size:1.1rem;">Transparencia total en cada actualización</p>
+            </div>
+            <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:2rem;">
+
+                <div style="background:var(--bg-card,#1a2332);border:1px solid var(--border,#1e3a5f);border-radius:1rem;padding:2rem;position:relative;">
+                    <span style="position:absolute;top:1.5rem;right:1.5rem;background:linear-gradient(135deg,#3b82f6,#06b6d4);color:white;font-size:0.75rem;font-weight:700;padding:0.25rem 0.75rem;border-radius:2rem;">LATEST</span>
+                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+                        <span style="font-size:1.1rem;font-weight:700;color:var(--text-primary,#e2e8f0);">v1.1.0 Release</span>
+                        <span style="color:var(--text-secondary,#94a3b8);font-size:0.85rem;">— Febrero 2026</span>
+                    </div>
+                    <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;">
+                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Perfiles parentales con PIN de 6 dígitos</li>
+                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Estadísticas de bloqueo en tiempo real</li>
+                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Protección frente a desinstalación</li>
+                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Soporte Android 12, 13 y 14</li>
+                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Tamaño reducido: 7,66 MB</li>
+                    </ul>
+                </div>
+
+                <div style="background:var(--bg-card,#1a2332);border:1px solid var(--border,#1e3a5f);border-radius:1rem;padding:2rem;">
+                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+                        <span style="font-size:1.1rem;font-weight:700;color:var(--text-primary,#e2e8f0);">v1.0.0 &mdash; Lanzamiento inicial</span>
+                        <span style="color:var(--text-secondary,#94a3b8);font-size:0.85rem;">— Enero 2026</span>
+                    </div>
+                    <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;">
+                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#3b82f6;">✓</span> Filtrado DNS local con VPN transparente</li>
+                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#3b82f6;">✓</span> Integración con CleanBrowsing Family Filter</li>
+                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#3b82f6;">✓</span> Sin tracking, sin analytics, sin cloud</li>
+                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#3b82f6;">✓</span> 100% Open Source — Apache 2.0</li>
+                    </ul>
+                </div>
+
+                <div style="text-align:center;">
+                    <a href="https://github.com/systemavworks/guardianos-shield/releases" target="_blank" rel="noopener" style="color:var(--primary,#3b82f6);font-size:0.95rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;">Ver todas las versiones en GitHub <svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/><polyline points='15 3 21 3 21 9'/><line x1='10' y1='14' x2='21' y2='3'/></svg></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>details[open] .faq-chevron { transform: rotate(180deg); } details summary::-webkit-details-marker { display:none; }</style>
 
     <!-- ========== CTA ========== -->
     <section class="cta">
