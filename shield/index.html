@@ -41,7 +41,7 @@
           }
         }
       },
-      "logo": "https://raw.githubusercontent.com/systemavworks/guardianos/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png",
+"logo": "https://guardianos.es/guardianos-logo.png",
       "screenshot": "https://guardianos.es/shield/assets/screenshots/main.png",
       "featureList": "Filtrado DNS Local, VPN Transparente, Perfiles Parentales con PIN, Estadísticas en Tiempo Real, Navegador Seguro Integrado, Bloqueo de Apps Sensibles, Sin Analytics ni Tracking, 100% Open Source",
       "license": "https://github.com/systemavworks/guardianos-shield/blob/main/LICENSE",
@@ -117,7 +117,7 @@
             left: 50%;
             width: 120vw;
             height: 120vh;
-            background-image: url('https://raw.githubusercontent.com/systemavworks/guardianos/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png');
+            background-image: url('/guardianos-logo.png');
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
@@ -805,12 +805,12 @@
     <header>
         <nav class="container">
             <a href="https://guardianos.es" class="logo">
-                <img src="https://raw.githubusercontent.com/systemavworks/guardianos/main/Gemini_Generated_Image_7ll1oa7ll1oa7ll1.png"
+                <img src="/guardianos-logo.png"
                     alt="GuardianOS Logo"
                     class="logo-img">
                 <span class="logo-text">🛡️ GuardianOS</span>
             </a>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#caracteristicas" onclick="closeMobileMenu()">Características</a></li>
                 <li><a href="#capturas" onclick="closeMobileMenu()">Capturas</a></li>
