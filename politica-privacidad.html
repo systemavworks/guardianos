@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Política de Privacidad — GuardianOS Shield</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -20,7 +22,7 @@
       background: var(--bg-main);
       color: var(--text-primary);
       line-height: 1.6;
-      padding: 2rem 1rem;
+      padding: 5rem 1rem 2rem;
     }
     .container {
       max-width: 800px;
@@ -114,9 +116,62 @@
     .footer a:hover {
       text-decoration: underline;
     }
+    /* Sticky navigation */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(15,28,46,0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .site-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .site-nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .site-nav-logo img {
+      height: 36px;
+      filter: drop-shadow(0 0 8px rgba(59,130,246,0.3));
+    }
+    .site-nav-back {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .site-nav-back:hover { color: var(--primary); text-decoration: none; }
+    /* Scroll-reveal */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 </head>
 <body>
+  <nav class="site-nav" aria-label="Navegación principal">
+    <div class="site-nav-inner">
+      <a href="/shield/" class="site-nav-logo">
+        <img src="/guardianos-logo.png" alt="GuardianOS">
+        GuardianOS Shield
+      </a>
+      <a href="/shield/" class="site-nav-back">← Volver a Shield</a>
+    </div>
+  </nav>
   <div class="container">
     <header>
       <h1>🛡️ Política de Privacidad</h1>
@@ -332,5 +387,14 @@
       <p>© 2026 GuardianOS — Tu seguridad, tu control.</p>
     </div>
   </div>
+  <script>
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('h2, h3, .info-box, .success, .warning').forEach(el => {
+      el.classList.add('reveal');
+      revealObserver.observe(el);
+    });
+  </script>
 </body>
 </html>
