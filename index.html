@@ -1231,6 +1231,233 @@ font-size: 1.2rem;
 font-size: 2rem;
 }
 }
+
+/* ===== INLINE SVG ICONS ===== */
+.feature-icon {
+width: 3.2rem; height: 3.2rem;
+background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(139,92,246,0.15));
+border: 1px solid rgba(59,130,246,0.3);
+border-radius: 0.875rem;
+display: flex; align-items: center; justify-content: center;
+margin-bottom: 1.25rem;
+color: var(--primary);
+transition: background 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
+flex-shrink: 0;
+}
+.feature-icon svg {
+width: 1.5rem; height: 1.5rem;
+stroke: currentColor; fill: none;
+stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.feature-card:hover .feature-icon {
+background: linear-gradient(135deg, rgba(59,130,246,0.28), rgba(139,92,246,0.28));
+border-color: var(--primary);
+transform: scale(1.08) rotate(0deg);
+}
+.badge-icon {
+width: 2.8rem; height: 2.8rem;
+background: rgba(59,130,246,0.12);
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+color: var(--primary); flex-shrink: 0;
+}
+.badge-icon svg {
+width: 1.2rem; height: 1.2rem;
+stroke: currentColor; fill: none;
+stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.contact-item-icon {
+width: 2.8rem; height: 2.8rem;
+background: rgba(255,255,255,0.15);
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.contact-item-icon svg {
+width: 1.2rem; height: 1.2rem;
+stroke: white; fill: none;
+stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.nav-icon {
+display: inline-flex; align-items: center; gap: 0.35rem;
+}
+.nav-icon svg {
+width: 0.9rem; height: 0.9rem;
+stroke: currentColor; fill: none;
+stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.mobile-menu-btn svg { width: 1.4rem; height: 1.4rem; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; }
+.btn svg { width: 1rem; height: 1rem; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; margin-right: 0.3rem; }
+
+/* ===== STATS SECTION ===== */
+.stats-section {
+background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(139,92,246,0.06));
+border-top: 1px solid var(--border);
+border-bottom: 1px solid var(--border);
+padding: 3rem 0;
+}
+.stats-grid {
+display: grid; grid-template-columns: repeat(4, 1fr);
+gap: 1.5rem; text-align: center;
+}
+.stat-item { padding: 1rem 0.5rem; }
+.stat-number {
+font-size: 2.6rem; font-weight: 800;
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+line-height: 1.1; margin-bottom: 0.3rem;
+}
+.stat-label { color: var(--text-secondary); font-size: 0.85rem; font-weight: 500; line-height: 1.4; }
+@media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.32s; }
+.reveal-d5 { transition-delay: 0.40s; }
+.reveal-d6 { transition-delay: 0.48s; }
+
+/* ===== HOW IT WORKS ===== */
+.how-it-works { background: var(--bg-card); padding: 5rem 0; border-bottom: 1px solid var(--border); }
+.steps-grid {
+display: grid; grid-template-columns: repeat(3,1fr);
+gap: 3rem; margin-top: 3.5rem; position: relative;
+}
+.steps-grid::before {
+content: ''; position: absolute;
+top: 2.35rem; left: 22%; right: 22%;
+height: 2px;
+background: linear-gradient(90deg, var(--primary), var(--accent));
+opacity: 0.35;
+}
+.step-item { text-align: center; }
+.step-number {
+width: 4.7rem; height: 4.7rem;
+background: linear-gradient(135deg, var(--primary), var(--accent));
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+margin: 0 auto 1.5rem; position: relative; z-index: 1;
+box-shadow: 0 4px 20px rgba(59,130,246,0.4);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.step-number svg { width: 1.8rem; height: 1.8rem; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.step-item:hover .step-number { transform: scale(1.1); box-shadow: 0 8px 30px rgba(59,130,246,0.6); }
+.step-tag {
+display: inline-block;
+background: rgba(59,130,246,0.1);
+border: 1px solid rgba(59,130,246,0.3);
+border-radius: 2rem;
+color: var(--primary);
+font-size: 0.72rem; font-weight: 700;
+padding: 0.2rem 0.7rem;
+margin-bottom: 0.75rem;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+}
+.step-item h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
+.step-item p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
+@media (max-width: 768px) { .steps-grid { grid-template-columns: 1fr; gap: 2rem; } .steps-grid::before { display: none; } }
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-section { background: var(--bg-main); padding: 5rem 0; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 2rem; margin-top: 3rem; }
+.testimonial-card {
+background: var(--bg-card);
+border: 1px solid var(--border);
+border-radius: 1rem; padding: 2rem;
+transition: all 0.35s ease; position: relative;
+}
+.testimonial-card:hover { border-color: var(--primary); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(59,130,246,0.2); }
+.testimonial-quote { font-size: 3.5rem; font-family: Georgia, serif; line-height: 0.8; color: var(--primary); opacity: 0.22; margin-bottom: 0.75rem; user-select: none; }
+.testimonial-stars { color: #fbbf24; font-size: 0.9rem; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+.testimonial-text { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.75; font-style: italic; margin-bottom: 1.5rem; }
+.testimonial-author { display: flex; align-items: center; gap: 0.875rem; }
+.testimonial-avatar {
+width: 2.75rem; height: 2.75rem; border-radius: 50%;
+background: linear-gradient(135deg, var(--primary), var(--accent));
+display: flex; align-items: center; justify-content: center;
+font-weight: 700; font-size: 0.95rem; color: white; flex-shrink: 0;
+}
+.testimonial-name { font-weight: 600; color: var(--text-primary); font-size: 0.9rem; }
+.testimonial-role { font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.1rem; }
+
+/* ===== TERMINAL HERO ===== */
+.terminal-card {
+max-width: 500px; margin: 2.5rem auto 0;
+background: #0d1117; border-radius: 0.875rem;
+border: 1px solid rgba(59,130,246,0.22);
+overflow: hidden;
+box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 50px rgba(59,130,246,0.07);
+text-align: left;
+}
+.terminal-titlebar {
+background: #161b22; padding: 0.65rem 1rem;
+display: flex; align-items: center; gap: 0.4rem;
+border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.terminal-dot { width: 0.65rem; height: 0.65rem; border-radius: 50%; }
+.terminal-dot.red    { background: #ff5f57; }
+.terminal-dot.yellow { background: #febc2e; }
+.terminal-dot.green  { background: #28c840; }
+.terminal-wintitle { margin-left: 0.5rem; color: rgba(255,255,255,0.3); font-size: 0.74rem; font-family: 'SF Mono','Fira Code','Consolas',monospace; }
+.terminal-body {
+padding: 1.2rem 1.5rem;
+font-family: 'SF Mono','Fira Code','Consolas',monospace;
+font-size: 0.8rem; line-height: 1.9; min-height: 160px;
+}
+.t-prompt { color: #58a6ff; }
+.t-ok     { color: #3fb950; }
+.t-warn   { color: #d29922; }
+.t-info   { color: #8b949e; }
+.t-cursor {
+display: inline-block; width: 0.45rem; height: 0.9em;
+background: #58a6ff; vertical-align: text-bottom;
+animation: cur-blink 1s step-end infinite;
+}
+@keyframes cur-blink { from,to{opacity:1} 50%{opacity:0} }
+
+/* ===== TOAST ===== */
+.toast-container { position: fixed; bottom: 1.5rem; right: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; z-index: 9999; pointer-events: none; }
+.toast {
+background: var(--bg-elevated); border: 1px solid var(--border);
+border-radius: 0.75rem; padding: 0.9rem 1.1rem;
+display: flex; align-items: flex-start; gap: 0.75rem;
+min-width: 260px; max-width: 360px;
+box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+transform: translateX(110%);
+transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+pointer-events: all; font-size: 0.88rem; color: var(--text-primary); line-height: 1.4;
+}
+.toast.show { transform: translateX(0); }
+.toast-success { border-left: 3px solid #10b981; }
+.toast-error   { border-left: 3px solid #ef4444; }
+.toast-warning { border-left: 3px solid #f59e0b; }
+.toast-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.05rem; }
+.toast-msg  { flex: 1; }
+
+/* ===== STICKY MOBILE CTA ===== */
+.sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 800; padding: 0.65rem 1rem; background: rgba(15,28,46,0.97); border-top: 1px solid var(--border); backdrop-filter: blur(12px); gap: 0.6rem; }
+@media (max-width: 768px) {
+  .sticky-cta { display: flex; }
+  .sticky-cta .btn { flex: 1; text-align: center; font-size: 0.82rem; padding: 0.65rem 0.4rem; }
+  body { padding-bottom: 3.5rem; }
+}
+
+/* ===== ACTIVE NAV ===== */
+.nav-links a.active { color: var(--primary); }
+.nav-links a.active::after { width: 100%; }
+
+/* ===== SUBMIT SPINNER ===== */
+@keyframes spin-btn { to { transform: rotate(360deg); } }
+.btn-spinner { display: inline-block; width: 0.9rem; height: 0.9rem; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin-btn 0.65s linear infinite; vertical-align: middle; margin-right: 0.4rem; }
+
+/* ===== PREFERS REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
 </style>
 </head>
 <body>
@@ -1242,13 +1469,13 @@ alt="GuardianOS Logo"
 class="logo-img">
 <span class="logo-text">🛡️ GuardianOS</span>
 </a>
-<button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false">☰</button>
+<button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
 <ul class="nav-links" id="navLinks">
-<li><a href="#app" onclick="closeMobileMenu()">📱 App GuardianOS</a></li>
-<li><a href="#servicios" onclick="closeMobileMenu()">Servicios Profesionales</a></li>
+<li><a href="#app" onclick="closeMobileMenu()" class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg> App GuardianOS</a></li>
+<li><a href="#servicios" onclick="closeMobileMenu()">Servicios</a></li>
 <li><a href="#precios" onclick="closeMobileMenu()">Precios</a></li>
-<li><a href="#pro-activation" onclick="closeMobileMenu()">💎 PRO App</a></li>
-<li><a href="https://guardianos.es/shield" target="_blank" onclick="closeMobileMenu()">🛡️ Shield App</a></li>
+<li><a href="#pro-activation" onclick="closeMobileMenu()" class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="6 3 18 3 22 9 12 22 2 9"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="12" y1="3" x2="12" y2="22"/></svg> PRO App</a></li>
+<li><a href="https://guardianos.es/shield" target="_blank" onclick="closeMobileMenu()" class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Shield App</a></li>
 <li><a href="#contacto" onclick="closeMobileMenu()">Contacto</a></li>
 </ul>
 </nav>
@@ -1258,8 +1485,17 @@ class="logo-img">
 <h1>Protección Digital Ética para Menores</h1>
 <p>Herramientas open-source <strong>y</strong> servicios profesionales para que tú y tus hijos naveguen seguros sin vigilancia invasiva.</p>
 <div class="hero-buttons">
-<a href="#app" class="btn btn-primary">📱 Descargar App Gratuita</a>
-<a href="#servicios" class="btn btn-secondary">🔧 Servicios Profesionales</a>
+<a href="#app" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descargar App Gratuita</a>
+<a href="#servicios" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Servicios Profesionales</a>
+</div>
+<div class="terminal-card" aria-hidden="true">
+<div class="terminal-titlebar">
+<span class="terminal-dot red"></span>
+<span class="terminal-dot yellow"></span>
+<span class="terminal-dot green"></span>
+<span class="terminal-wintitle">guardianos — scan</span>
+</div>
+<div class="terminal-body" id="terminalBody"><span class="t-cursor"></span></div>
 </div>
 </div>
 </section>
@@ -1267,36 +1503,85 @@ class="logo-img">
 <div class="container">
 <div class="badges-grid">
 <div class="badge">
-<span class="badge-icon">🔒</span>
-<div>
-<strong>Encriptación E2E</strong><br>
-Comunicaciones seguras
-</div>
+<span class="badge-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+<div><strong>Encriptación E2E</strong><br>Comunicaciones seguras</div>
 </div>
 <div class="badge">
-<span class="badge-icon">🏆</span>
-<div>
-<strong>Sin Root Requerido</strong><br>
-Garantía del fabricante intacta
-</div>
+<span class="badge-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+<div><strong>Sin Root Requerido</strong><br>Garantía del fabricante intacta</div>
 </div>
 <div class="badge">
-<span class="badge-icon">👨‍👩‍👧‍👦</span>
-<div>
-<strong>+100 Familias</strong><br>
-Confían en nosotros
+<span class="badge-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+<div><strong>+120 Familias</strong><br>Confían en nosotros</div>
 </div>
-</div>
-<div class="badge" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15)); border: 2px solid var(--primary);">
-<span class="badge-icon">📲</span>
-<div>
-<strong><a href="https://guardianos.es/shield" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">GuardianOS Shield</a></strong><br>
-App 100% DeGoogled
-</div>
+<div class="badge" style="background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(139,92,246,0.15)); border: 2px solid var(--primary);">
+<span class="badge-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+<div><strong><a href="https://guardianos.es/shield" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">GuardianOS Shield</a></strong><br>App 100% DeGoogled</div>
 </div>
 </div>
 </div>
 </section>
+
+<!-- ===== STATS SECTION ===== -->
+<section class="stats-section">
+<div class="container">
+<div class="stats-grid">
+<div class="stat-item reveal">
+<div class="stat-number" data-target="120" data-suffix="+">0</div>
+<div class="stat-label">Familias protegidas</div>
+</div>
+<div class="stat-item reveal reveal-d2">
+<div class="stat-number" data-target="3" data-suffix="">0</div>
+<div class="stat-label">Apps open-source gratuitas</div>
+</div>
+<div class="stat-item reveal reveal-d4">
+<div class="stat-number" data-static="true">100%</div>
+<div class="stat-label">Privado. Sin rastreo</div>
+</div>
+<div class="stat-item reveal reveal-d6">
+<div class="stat-number" data-target="0" data-suffix=" KB">0</div>
+<div class="stat-label">Datos enviados a terceros</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== CÓMO FUNCIONA ===== -->
+<section class="how-it-works">
+<div class="container">
+<div class="section-header">
+<h2>Cómo funciona</h2>
+<p>Tres pasos para proteger el dispositivo de tu hijo sin comprometer su privacidad</p>
+</div>
+<div class="steps-grid">
+<div class="step-item reveal">
+<div class="step-number">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+</div>
+<div class="step-tag">Paso 1</div>
+<h3>Descarga</h3>
+<p>Instala GuardianOS App desde GitHub sin pasar por tiendas de apps. 100% open-source y gratuita.</p>
+</div>
+<div class="step-item reveal reveal-d3">
+<div class="step-number">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+</div>
+<div class="step-tag">Paso 2</div>
+<h3>Escanea</h3>
+<p>La app analiza las aplicaciones instaladas en busca de malware, trackers y permisos excesivos.</p>
+</div>
+<div class="step-item reveal reveal-d6">
+<div class="step-number">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+</div>
+<div class="step-tag">Paso 3</div>
+<h3>Actúa</h3>
+<p>Recibe un informe claro con recomendaciones éticas. O contrata un servicio profesional.</p>
+</div>
+</div>
+</div>
+</section>
+
 <section id="caracteristicas">
 <div class="container">
 <div class="section-header">
@@ -1304,8 +1589,8 @@ App 100% DeGoogled
 <p>Seguridad integral para dispositivos móviles a nivel usuario, también de menores, sin comprometer su privacidad ni independencia</p>
 </div>
 <div class="features-grid">
-<div class="feature-card">
-<span class="feature-icon">🔐</span>
+<div class="feature-card reveal">
+<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
 <h3>Encriptación Total</h3>
 <p>Implementamos cifrado end-to-end en todas las comunicaciones</p>
 <ul class="feature-list">
@@ -1315,8 +1600,8 @@ App 100% DeGoogled
 <li> Navegador privado: Firefox Focus + bloqueadores</li>
 </ul>
 </div>
-<div class="feature-card">
-<span class="feature-icon">📱</span>
+<div class="feature-card reveal reveal-d1">
+<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg></span>
 <h3>Apps Seguras</h3>
 <p>Configuración profesional de aplicaciones populares</p>
 <ul class="feature-list">
@@ -1326,8 +1611,8 @@ App 100% DeGoogled
 <li>YouTube: modo restringido</li>
 </ul>
 </div>
-<div class="feature-card">
-<span class="feature-icon">🌐</span>
+<div class="feature-card reveal reveal-d2">
+<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
 <h3>Filtrado DNS</h3>
 <p>Control de contenido a nivel de red sin apps espía</p>
 <ul class="feature-list">
@@ -1337,8 +1622,8 @@ App 100% DeGoogled
 <li>Sin afectar la velocidad</li>
 </ul>
 </div>
-<div class="feature-card">
-<span class="feature-icon">⏱️</span>
+<div class="feature-card reveal reveal-d3">
+<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
 <h3>Gestión de Tiempo</h3>
 <p>Límites saludables sin vigilancia excesiva</p>
 <ul class="feature-list">
@@ -1348,8 +1633,8 @@ App 100% DeGoogled
 <li>Estadísticas de uso</li>
 </ul>
 </div>
-<div class="feature-card">
-<span class="feature-icon">📸</span>
+<div class="feature-card reveal reveal-d4">
+<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span>
 <h3>Metadatos Eliminados</h3>
 <p>Protección de la información en fotos y archivos</p>
 <ul class="feature-list">
@@ -1359,8 +1644,8 @@ App 100% DeGoogled
 <li>Privacidad en redes sociales</li>
 </ul>
 </div>
-<div class="feature-card">
-<span class="feature-icon">🔍</span>
+<div class="feature-card reveal reveal-d5">
+<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
 <h3>Auditoría Completa</h3>
 <p>Análisis técnico profesional del dispositivo</p>
 <ul class="feature-list">
@@ -1382,17 +1667,17 @@ App 100% DeGoogled
 </div>
 <div class="features-grid">
 <div class="feature-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-color: var(--primary);">
-<span class="feature-icon" style="color: var(--primary);">🔍</span>
+<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
 <h3>Auditoría Offline</h3>
 <p>Escanea apps instaladas directamente en tu dispositivo. <strong>Nunca envía datos a servidores externos</strong>. Todo el análisis se realiza localmente.</p>
 </div>
 <div class="feature-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-color: var(--primary);">
-<span class="feature-icon" style="color: var(--primary);">🛡️</span>
+<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
 <h3>Detección Ética</h3>
 <p>Identifica malware, stalkerware y apps con permisos excesivos <strong>sin vigilancia invasiva</strong>. Respetamos la privacidad de tus hijos.</p>
 </div>
 <div class="feature-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-color: var(--primary);">
-<span class="feature-icon" style="color: var(--primary);">📄</span>
+<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
 <h3>Informe en PDF</h3>
 <p>Exporta resultados como PDF firmado digitalmente. Válido para compartir con profesionales o como documento personal.</p>
 </div>
@@ -1451,17 +1736,17 @@ App 100% DeGoogled
 </div>
 <div class="features-grid">
 <div class="feature-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-color: var(--primary);">
-<span class="feature-icon" style="color: var(--primary);">📱</span>
+<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
 <h3>Filtrado DNS Local</h3>
 <p>Bloquea contenido inapropiado a nivel de red con listas integradas. Todo procesado localmente sin enviar datos a internet.</p>
 </div>
 <div class="feature-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-color: var(--primary);">
-<span class="feature-icon" style="color: var(--primary);">🔐</span>
+<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
 <h3>VPN Transparente</h3>
 <p>Modo avanzado con VPN local que no corta el tráfico. Compatible con Android 12, 13, 14 y 15. Sin ralentización perceptible.</p>
 </div>
 <div class="feature-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-color: var(--primary);">
-<span class="feature-icon" style="color: var(--primary);">👨‍👩‍👧‍👦</span>
+<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
 <h3>Perfiles Parentales</h3>
 <p>PIN de seguridad, horarios de uso y restricciones personalizadas. Control total sin invadir la privacidad de tus hijos.</p>
 </div>
@@ -1722,6 +2007,46 @@ y te enviamos el IBAN y los pasos a seguir.
 </div>
 </div>
 </section>
+
+<!-- ===== TESTIMONIOS ===== -->
+<section class="testimonials-section">
+<div class="container">
+<div class="section-header">
+<h2>Lo que dicen las familias</h2>
+<p>Más de 120 familias en Andalucía ya protegen a sus hijos con un enfoque ético</p>
+</div>
+<div class="testimonials-grid">
+<div class="testimonial-card reveal">
+<div class="testimonial-quote">&ldquo;</div>
+<div class="testimonial-stars">★★★★★</div>
+<p class="testimonial-text">Configuraron el móvil de mi hija de 13 años en dos horas. Ahora sé que está protegida sin tener que espiarle el WhatsApp. La diferencia es enorme.</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">ML</div>
+<div><div class="testimonial-name">María L.</div><div class="testimonial-role">Madre de familia · Sevilla</div></div>
+</div>
+</div>
+<div class="testimonial-card reveal reveal-d2">
+<div class="testimonial-quote">&ldquo;</div>
+<div class="testimonial-stars">★★★★★</div>
+<p class="testimonial-text">Hicieron una charla en nuestro AMPA sobre riesgos de TikTok. Fue práctica, sin alarmismos, y los padres se fueron con herramientas reales. Muy recomendable.</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">CR</div>
+<div><div class="testimonial-name">Carlos R.</div><div class="testimonial-role">Presidente AMPA · Dos Hermanas</div></div>
+</div>
+</div>
+<div class="testimonial-card reveal reveal-d4">
+<div class="testimonial-quote">&ldquo;</div>
+<div class="testimonial-stars">★★★★★</div>
+<p class="testimonial-text">La app GuardianOS detectó que tres apps populares tenían acceso al micrófono activado. Simple, gratuita y honesta. Exactamente lo que necesitaba.</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">AP</div>
+<div><div class="testimonial-name">Ana P.</div><div class="testimonial-role">Madre · Tomares, Sevilla</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
 <!-- ✅ Contacto — ahora con id="contacto" y formulario corregido -->
 <section id="contacto" class="contact-form-section">
 <div class="container">
@@ -1780,7 +2105,7 @@ background-size: 16px;
 <textarea id="mensaje" name="mensaje" placeholder="Ej: Tengo un hijo de 12 años con móvil Android y me preocupa su seguridad online..."></textarea>
 </div>
 <div class="form-submit">
-<button type="submit" class="btn btn-primary">📧 Enviar Solicitud</button>
+<button type="submit" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Enviar Solicitud</button>
 </div>
 </form>
 </div>
@@ -1792,21 +2117,21 @@ background-size: 16px;
 <p style="font-size: 1.2rem; margin: 1.5rem 0;">Estamos aquí para ayudarte a proteger lo más importante</p>
 <div class="contact-info">
 <div class="contact-item">
-<span class="contact-item-icon">📧</span>
+<span class="contact-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
 <div>
 <strong>Email</strong><br>
 info@guardianos.es
 </div>
 </div>
 <div class="contact-item">
-<span class="contact-item-icon">📱</span>
+<span class="contact-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
 <div>
 <strong>Teléfono</strong><br>
 +34 614 83 79 83
 </div>
 </div>
 <div class="contact-item">
-<span class="contact-item-icon">📍</span>
+<span class="contact-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
 <div>
 <strong>Ubicación</strong><br>
 Andalucía, España
@@ -1908,10 +2233,14 @@ Founder, guardianos<br>
 function toggleMobileMenu() {
 const navLinks = document.getElementById('navLinks');
 navLinks.classList.toggle('active');
+const btn = document.querySelector('.mobile-menu-btn');
+if (btn) btn.setAttribute('aria-expanded', navLinks.classList.contains('active'));
 }
 function closeMobileMenu() {
 const navLinks = document.getElementById('navLinks');
 navLinks.classList.remove('active');
+const btn = document.querySelector('.mobile-menu-btn');
+if (btn) btn.setAttribute('aria-expanded', 'false');
 }
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1968,7 +2297,7 @@ e.preventDefault();
 const btn = form.querySelector('button[type="submit"]');
 const origText = btn.innerHTML;
 btn.disabled = true;
-btn.innerHTML = '📡 Enviando…';
+btn.innerHTML = '<span class="btn-spinner"></span> Enviando…';
 const data = {
 nombre: form.nombre.value,
 email: form.email.value,
@@ -1988,18 +2317,134 @@ body: JSON.stringify(data)
 if (json.ok) {
 window.location.href = 'gracias.html';
 } else {
-alert('⚠️ ' + (json.error || 'Intenta de nuevo o escríbenos a info@guardianos.es'));
+showToast('warning', json.error || 'Intenta de nuevo o escríbenos a info@guardianos.es');
 btn.disabled = false;
 btn.innerHTML = origText;
 }
 })
 .catch(() => {
-alert('❌ Error de red. ¿Podrías escribirnos directamente a info@guardianos.es?');
+showToast('error', 'Error de red. Escríbenos directamente a info@guardianos.es');
 btn.disabled = false;
 btn.innerHTML = origText;
 });
 });
 });
+</script>
+
+<!-- Sticky CTA (only mobile) -->
+<div class="sticky-cta">
+<a href="https://github.com/systemavworks/guardianos-android/releases" target="_blank" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> App Gratuita</a>
+<a href="#contacto" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Contactar</a>
+</div>
+
+<!-- Toast container -->
+<div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+// ===== TOAST =====
+function showToast(type, msg) {
+  var container = document.getElementById('toastContainer');
+  if (!container) return;
+  var icons = { success: '✅', error: '❌', warning: '⚠️' };
+  var toast = document.createElement('div');
+  toast.className = 'toast toast-' + type;
+  toast.innerHTML = '<span class="toast-icon">' + (icons[type] || 'ℹ️') + '</span><span class="toast-msg">' + msg + '</span>';
+  container.appendChild(toast);
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() { toast.classList.add('show'); });
+  });
+  setTimeout(function() {
+    toast.classList.remove('show');
+    toast.addEventListener('transitionend', function() { if (toast.parentNode) toast.remove(); }, { once: true });
+  }, 5000);
+}
+
+// ===== SCROLL REVEAL =====
+(function() {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+})();
+
+// ===== STATS COUNTER =====
+(function() {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      if (el.dataset.static === 'true') { obs.unobserve(el); return; }
+      var target = parseInt(el.dataset.target, 10);
+      var suffix = el.dataset.suffix || '';
+      var start = performance.now();
+      var dur = 1400;
+      function step(now) {
+        var p = Math.min((now - start) / dur, 1);
+        var ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * ease) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      obs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-number[data-target]').forEach(function(el) { obs.observe(el); });
+})();
+
+// ===== TERMINAL ANIMATION =====
+(function() {
+  var body = document.getElementById('terminalBody');
+  if (!body) return;
+  var lines = [
+    { cls: 't-prompt', text: '$ guardianos scan --device android' },
+    { cls: 't-info',   text: '→ Analizando 47 aplicaciones...' },
+    { cls: 't-ok',     text: '✓ Sin malware detectado' },
+    { cls: 't-warn',   text: '⚠ TikTok: acceso a micrófono activo' },
+    { cls: 't-warn',   text: '⚠ 3 apps con permisos excesivos' },
+    { cls: 't-ok',     text: '✓ WhatsApp: privacidad configurada' },
+    { cls: 't-ok',     text: '✓ Filtrado DNS: activo' },
+    { cls: 't-info',   text: '→ Generando informe PDF...' },
+    { cls: 't-ok',     text: '✓ guardianos_report.pdf generado' },
+  ];
+  var i = 0;
+  function reset() {
+    body.innerHTML = '<span class="t-cursor"></span>';
+    i = 0; setTimeout(run, 600);
+  }
+  function run() {
+    if (i >= lines.length) { setTimeout(reset, 3500); return; }
+    var line = lines[i++];
+    var div = document.createElement('div');
+    div.className = line.cls;
+    div.style.opacity = '0';
+    div.textContent = line.text;
+    var cursor = body.querySelector('.t-cursor');
+    if (cursor) body.insertBefore(div, cursor); else body.appendChild(div);
+    requestAnimationFrame(function() {
+      setTimeout(function() { div.style.transition = 'opacity 0.25s'; div.style.opacity = '1'; }, 10);
+    });
+    setTimeout(run, i === 1 ? 350 : 580);
+  }
+  setTimeout(run, 1400);
+})();
+
+// ===== ACTIVE NAV =====
+(function() {
+  var sects = document.querySelectorAll('section[id]');
+  var links = document.querySelectorAll('.nav-links a[href^="#"]');
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        links.forEach(function(a) { a.classList.remove('active'); });
+        var a = document.querySelector('.nav-links a[href="#' + e.target.id + '"]');
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sects.forEach(function(s) { obs.observe(s); });
+})();
 </script>
 </body>
 </html>
