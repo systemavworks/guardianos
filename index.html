@@ -563,8 +563,9 @@ margin: 0 auto;
 }
 .features-grid {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+grid-template-columns: repeat(3, 1fr);
 gap: 2rem;
+align-items: stretch;
 }
 .feature-card {
 background: var(--bg-card);
@@ -575,6 +576,8 @@ transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 border: 1px solid var(--border);
 position: relative;
 overflow: hidden;
+display: flex;
+flex-direction: column;
 }
 .feature-card::before {
 content: '';
@@ -1212,6 +1215,9 @@ margin-left: 0.3rem;
 .payment-grid {
 grid-template-columns: 1fr;
 }
+.features-grid {
+grid-template-columns: repeat(2, 1fr);
+}
 }
 @media (max-width: 480px) {
 .hero h1 {
@@ -1220,6 +1226,9 @@ font-size: 1.75rem;
 .btn {
 padding: 0.875rem 1.5rem;
 font-size: 0.9rem;
+}
+.features-grid {
+grid-template-columns: 1fr;
 }
 .logo-img {
 height: 45px;
