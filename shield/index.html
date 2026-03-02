@@ -546,6 +546,48 @@
             margin-bottom: 1rem;
         }
 
+        .download-options {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .play-store-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .play-store-badge {
+            display: inline-block;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .play-store-badge:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .play-store-badge img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        .play-store-label {
+            font-size: 0.75rem;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            padding: 0.2rem 0.75rem;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 0.03em;
+        }
+
         .download p {
             font-size: 1.2rem;
             max-width: 700px;
@@ -992,9 +1034,18 @@
             <h2>⬇️ Descarga GuardianOS Shield</h2>
             <p>Protege a tus hijos hoy mismo. Instalación rápida y sencilla.</p>
             
-            <a href="https://github.com/systemavworks/guardianos-shield/releases" class="btn btn-primary" style="margin: 2rem 0; font-size: 1.25rem; padding: 1.25rem 3rem;">
-                📲 Descargar APK (Versión 1.1.0 Release)
-            </a>
+            <div class="download-options">
+                <a href="https://github.com/systemavworks/guardianos-shield/releases" class="btn btn-primary" style="font-size: 1.25rem; padding: 1.25rem 3rem;">
+                    📲 Descargar APK (Versión 1.1.0 Release)
+                </a>
+
+                <div class="play-store-wrap">
+                    <a href="https://play.google.com/apps/testing/com.guardianos.shield" target="_blank" rel="noopener" class="play-store-badge" aria-label="Disponible en Google Play – Acceso de prueba alpha">
+                        <img src="GetItOnGooglePlay_Badge_Web_color_Spanish.svg" alt="Disponible en Google Play" loading="lazy" width="200" height="60">
+                    </a>
+                    <span class="play-store-label">🧪 Acceso alpha – Prueba anticipada</span>
+                </div>
+            </div>
 
             <a href="https://github.com/systemavworks/guardianos-shield" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;">
                 <img src="https://img.shields.io/github/stars/systemavworks/guardianos-shield?style=social&label=GitHub%20Stars" alt="GitHub stars de GuardianOS Shield" loading="lazy" width="130" height="20">
