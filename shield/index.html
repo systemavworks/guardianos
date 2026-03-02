@@ -498,15 +498,22 @@
         .screenshot-img {
             width: 100%;
             height: 400px;
-            background: linear-gradient(135deg, #2196f3 0%, #1a237e 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-size: 14px;
-            text-align: center;
-            padding: 1.5rem;
+            overflow: hidden;
             border-bottom: 2px solid var(--primary);
+            background: #0f172a;
+        }
+
+        .screenshot-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .screenshot-card:hover .screenshot-img img {
+            transform: scale(1.05);
         }
 
         .screenshot-caption {
@@ -938,7 +945,7 @@
             <div class="screenshots-grid">
                 <div class="screenshot-card">
                     <div class="screenshot-img">
-                        📱 [Screenshot: Pantalla Principal con estadísticas y estado de protección]
+                        <img src="../01_dashboard.jpg" alt="GuardianOS Shield – Pantalla principal con panel de control y estado de protección" loading="lazy" width="540" height="400">
                     </div>
                     <div class="screenshot-caption">
                         <h4>Pantalla Principal</h4>
@@ -948,7 +955,7 @@
 
                 <div class="screenshot-card">
                     <div class="screenshot-img">
-                        📱 [Screenshot: Configuración de Control Parental con PIN y horarios]
+                        <img src="../08_parental_control_2.jpg" alt="GuardianOS Shield – Control parental con PIN, horarios de uso y restricciones por perfil" loading="lazy" width="540" height="400">
                     </div>
                     <div class="screenshot-caption">
                         <h4>Control Parental</h4>
@@ -958,7 +965,7 @@
 
                 <div class="screenshot-card">
                     <div class="screenshot-img">
-                        📱 [Screenshot: Estadísticas de dominios bloqueados y uso de apps]
+                        <img src="../05_statistics.jpg" alt="GuardianOS Shield – Estadísticas de dominios bloqueados y uso de aplicaciones" loading="lazy" width="540" height="400">
                     </div>
                     <div class="screenshot-caption">
                         <h4>Estadísticas</h4>
@@ -968,7 +975,7 @@
 
                 <div class="screenshot-card">
                     <div class="screenshot-img">
-                        📱 [Screenshot: Navegador Seguro con filtros activos]
+                        <img src="../12_safe_browser.jpg" alt="GuardianOS Shield – Navegador seguro con filtros DNS activos" loading="lazy" width="540" height="400">
                     </div>
                     <div class="screenshot-caption">
                         <h4>Navegador Seguro</h4>
