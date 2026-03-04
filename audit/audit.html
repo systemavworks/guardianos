@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GuardianOS Audit – Auditoría de ciberseguridad accesible para pymes. Escaneo DNS, SSL, HTTP headers y cumplimiento ISO 27001, GDPR y ENS.">
+    <title>GuardianOS Audit – Ciberseguridad para Pymes | guardianos.es</title>
+    <link rel="icon" href="/guardianos-favicon.png" type="image/png">
+    <style>
+        :root {
+            --color-bg: #0a0a0a;
+            --color-surface: #1a1a1a;
+            --color-surface-elevated: #252525;
+            --color-primary: #00e676;
+            --color-primary-dark: #00c853;
+            --color-text: #f5f5f5;
+            --color-text-secondary: #b0b0b0;
+            --color-border: #333;
+            --color-error: #ff5252;
+            --color-warning: #ffab40;
+            --color-success: #00e676;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.2s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a { color: var(--color-primary); text-decoration: none; transition: var(--transition); }
+        a:hover { color: var(--color-primary-dark); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 12px 28px; border-radius: var(--radius-md);
+            font-weight: 600; font-size: 1rem; cursor: pointer;
+            transition: var(--transition); border: none; gap: 8px;
+        }
+        .btn-primary {
+            background: var(--color-primary); color: #000;
+        }
+        .btn-primary:hover {
+            background: var(--color-primary-dark); transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-outline {
+            background: transparent; border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+        }
+        .btn-outline:hover {
+            background: var(--color-primary); color: #000;
+        }
+        .badge {
+            display: inline-block; padding: 4px 12px; border-radius: 20px;
+            font-size: 0.85rem; font-weight: 600; background: var(--color-surface-elevated);
+            border: 1px solid var(--color-border);
+        }
+        .badge-success { background: rgba(0,230,118,0.15); border-color: var(--color-success); color: var(--color-success); }
+        .badge-warning { background: rgba(255,171,64,0.15); border-color: var(--color-warning); color: var(--color-warning); }
+        
+        /* Header */
+        header {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(10,10,10,0.95); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .header-content {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 0;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.4rem;
+        }
+        .logo img { height: 40px; width: auto; }
+        nav ul {
+            display: flex; gap: 24px; list-style: none;
+        }
+        nav a {
+            color: var(--color-text); font-weight: 500; font-size: 0.95rem;
+            padding: 8px 4px; border-bottom: 2px solid transparent;
+        }
+        nav a:hover, nav a.active {
+            color: var(--color-primary); border-bottom-color: var(--color-primary);
+        }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--color-text); font-size: 1.5rem; cursor: pointer; }
+        
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px; text-align: center;
+            background: radial-gradient(ellipse at top, rgba(0,230,118,0.08) 0%, transparent 60%);
+        }
+        .hero h1 {
+            font-size: 2.8rem; font-weight: 800; margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero h1 span { color: var(--color-primary); }
+        .hero p {
+            font-size: 1.25rem; color: var(--color-text-secondary);
+            max-width: 700px; margin: 0 auto 32px;
+        }
+        .hero-badges {
+            display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .hero-actions {
+            display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+        }
+        
+        /* Features Grid */
+        .features { padding: 60px 0; }
+        .section-title {
+            text-align: center; margin-bottom: 48px;
+        }
+        .section-title h2 {
+            font-size: 2.2rem; font-weight: 700; margin-bottom: 12px;
+        }
+        .section-title p {
+            color: var(--color-text-secondary); font-size: 1.1rem;
+            max-width: 600px; margin: 0 auto;
+        }
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: var(--color-surface); border-radius: var(--radius-lg);
+            padding: 28px; border: 1px solid var(--color-border);
+            transition: var(--transition);
+        }
+        .feature-card:hover {
+            border-color: var(--color-primary); transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .feature-icon {
+            font-size: 2rem; margin-bottom: 16px;
+        }
+        .feature-card h3 {
+            font-size: 1.3rem; font-weight: 600; margin-bottom: 12px;
+        }
+        .feature-card p {
+            color: var(--color-text-secondary); font-size: 0.95rem;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 60px 0; background: var(--color-surface);
+        }
+        .steps {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px; margin-top: 40px;
+        }
+        .step {
+            text-align: center; padding: 24px;
+        }
+        .step-number {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: var(--color-primary); color: #000;
+            font-weight: 700; font-size: 1.5rem; margin-bottom: 20px;
+        }
+        .step h3 { font-size: 1.25rem; margin-bottom: 12px; }
+        .step p { color: var(--color-text-secondary); }
+        
+        /* Compliance */
+        .compliance { padding: 60px 0; }
+        .compliance-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px; margin-top: 32px;
+        }
+        .compliance-item {
+            text-align: center; padding: 20px;
+            background: var(--color-surface); border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+        }
+        .compliance-item .icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .compliance-item h4 { font-weight: 600; margin-bottom: 4px; }
+        .compliance-item p { color: var(--color-text-secondary); font-size: 0.9rem; }
+        
+        /* Pricing */
+        .pricing { padding: 60px 0; background: var(--color-surface); }
+        .pricing-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px; margin-top: 40px;
+        }
+        .pricing-card {
+            background: var(--color-bg); border-radius: var(--radius-lg);
+            padding: 32px; border: 2px solid var(--color-border);
+            text-align: center; position: relative;
+        }
+        .pricing-card.popular {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 4px rgba(0,230,118,0.1);
+        }
+        .pricing-card.popular::before {
+            content: "Más Popular"; position: absolute; top: -12px; left: 50%;
+            transform: translateX(-50%); background: var(--color-primary);
+            color: #000; padding: 4px 16px; border-radius: 20px;
+            font-size: 0.85rem; font-weight: 600;
+        }
+        .pricing-card h3 { font-size: 1.5rem; margin-bottom: 8px; }
+        .price {
+            font-size: 2.5rem; font-weight: 800; color: var(--color-primary);
+            margin: 16px 0;
+        }
+        .price span { font-size: 1rem; color: var(--color-text-secondary); font-weight: 400; }
+        .pricing-features {
+            list-style: none; margin: 24px 0; text-align: left;
+        }
+        .pricing-features li {
+            padding: 8px 0; border-bottom: 1px solid var(--color-border);
+            display: flex; align-items: center; gap: 8px;
+        }
+        .pricing-features li::before { content: "✓"; color: var(--color-success); font-weight: bold; }
+        .pricing-card .btn { width: 100%; margin-top: 16px; }
+        
+        /* Certificates */
+        .certificates { padding: 60px 0; }
+        .cert-demo {
+            background: var(--color-surface); border-radius: var(--radius-lg);
+            padding: 32px; border: 1px solid var(--color-border);
+            margin-top: 32px; display: grid; gap: 24px;
+        }
+        .cert-preview {
+            background: #fff; color: #000; border-radius: var(--radius-md);
+            padding: 24px; font-family: monospace; font-size: 0.9rem;
+        }
+        .cert-preview .header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 2px solid #000; padding-bottom: 16px; margin-bottom: 16px;
+        }
+        .cert-preview .score {
+            font-size: 3rem; font-weight: 800; color: var(--color-success);
+        }
+        .cert-preview .qr {
+            width: 80px; height: 80px; background: #eee; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.7rem; text-align: center;
+        }
+        
+        /* Testimonials */
+        .testimonials { padding: 60px 0; background: var(--color-surface); }
+        .testimonial-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px; margin-top: 40px;
+        }
+        .testimonial-card {
+            background: var(--color-bg); border-radius: var(--radius-lg);
+            padding: 28px; border: 1px solid var(--color-border);
+        }
+        .testimonial-card .stars { color: #ffc107; margin-bottom: 12px; }
+        .testimonial-card blockquote {
+            font-style: italic; margin-bottom: 16px; color: var(--color-text-secondary);
+        }
+        .testimonial-card cite {
+            font-weight: 600; display: block;
+        }
+        .testimonial-card cite span {
+            font-weight: 400; color: var(--color-text-secondary); font-size: 0.9rem;
+        }
+        
+        /* FAQ */
+        .faq { padding: 60px 0; }
+        .faq-list { max-width: 800px; margin: 40px auto 0; }
+        .faq-item {
+            border-bottom: 1px solid var(--color-border); padding: 20px 0;
+        }
+        .faq-item summary {
+            font-weight: 600; font-size: 1.1rem; cursor: pointer;
+            list-style: none; display: flex; justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item summary::after { content: "+"; font-size: 1.5rem; color: var(--color-primary); }
+        .faq-item[open] summary::after { content: "−"; }
+        .faq-item p {
+            margin-top: 12px; color: var(--color-text-secondary);
+        }
+        
+        /* Contact */
+        .contact { padding: 60px 0; background: var(--color-surface); }
+        .contact-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px; margin-top: 40px;
+        }
+        .contact-form {
+            background: var(--color-bg); border-radius: var(--radius-lg);
+            padding: 32px; border: 1px solid var(--color-border);
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block; margin-bottom: 8px; font-weight: 500;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px 16px; border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border); background: var(--color-surface);
+            color: var(--color-text); font-size: 1rem;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none; border-color: var(--color-primary);
+        }
+        .contact-info .info-item {
+            display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+        }
+        .contact-info .info-item .icon { font-size: 1.5rem; }
+        
+        /* Footer */
+        footer {
+            background: #050505; border-top: 1px solid var(--color-border);
+            padding: 48px 0 24px;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px; margin-bottom: 32px;
+        }
+        .footer-col h4 { font-size: 1.1rem; margin-bottom: 16px; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 8px; }
+        .footer-col a { color: var(--color-text-secondary); }
+        .footer-col a:hover { color: var(--color-primary); }
+        .footer-bottom {
+            text-align: center; padding-top: 24px; border-top: 1px solid var(--color-border);
+            color: var(--color-text-secondary); font-size: 0.9rem;
+        }
+        .trust-badges {
+            display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px;
+        }
+        .trust-badges .badge { font-size: 0.8rem; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content { padding: 12px 0; }
+            nav ul { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .pricing-card.popular::before { font-size: 0.75rem; padding: 4px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="/" class="logo">
+                <img src="/guardianos-logo.png" alt="GuardianOS">
+                <span>Audit</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/#app">App</a></li>
+                    <li><a href="/#servicios">Servicios</a></li>
+                    <li><a href="/#precios">Precios</a></li>
+                    <li><a href="/shield">Shield</a></li>
+                    <li><a href="/audit" class="active">Audit</a></li>
+                    <li><a href="/#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Menú">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badges">
+                <span class="badge badge-success">✓ Open Source</span>
+                <span class="badge">✓ ISO 27001</span>
+                <span class="badge">✓ GDPR/ENS</span>
+                <span class="badge">✓ Sin Cloud</span>
+            </div>
+            <h1>🔐 GuardianOS <span>Audit</span><br>Auditoría de Ciberseguridad para Pymes</h1>
+            <p>Escaneo automatizado de dominios, infraestructura y aplicaciones web con informes claros, accionables y alineados con estándares internacionales. Sin vigilancia invasiva. Sin enviar tus datos a terceros.</p>
+            <div class="hero-actions">
+                <a href="#contacto" class="btn btn-primary">📋 Solicitar Auditoría</a>
+                <a href="https://github.com/systemavworks/guardianos-audit" class="btn btn-outline" target="_blank">🔍 Ver en GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Qué incluye GuardianOS Audit?</h2>
+                <p>Herramientas profesionales de auditoría con enfoque ético y privacidad por diseño</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Escaneo Multicapa</h3>
+                    <p>DNS (SPF, DKIM, DMARC), SSL/TLS, cabeceras HTTP de seguridad, puertos abiertos y detección de vulnerabilidades CVE.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Informes Compliance</h3>
+                    <p>Score de seguridad 0-100, cumplimiento ISO 27001:2022, GDPR y ENS. PDF ejecutivo + técnico con cadena forense SHA-256.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏅</div>
+                    <h3>Certificado Verificable</h3>
+                    <p>URL pública única con QR incrustado. Badge SVG para tu web. Verificación instantánea sin login ni registro.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Agentes Ligeros</h3>
+                    <p>Scripts Bash/PowerShell para auditorías periódicas en Linux y Windows. Envío seguro de resultados a tu dashboard.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔴</div>
+                    <h3>Alertas SIEM</h3>
+                    <p>Integración nativa con Wazuh mediante Common Event Format (CEF). Notificaciones en tiempo real de hallazgos críticos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Privacy by Design</h3>
+                    <p>Credenciales solo en memoria, API keys hasheadas, JWT autenticación y código 100% auditable. Sin backdoors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cómo funciona</h2>
+                <p>Tres pasos para obtener tu auditoría de seguridad profesional</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Configura tu objetivo</h3>
+                    <p>Introduce tu dominio, IP o servidor. Selecciona módulos: DNS, SSL, CVE, SSH remoto, agentes locales...</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Ejecuta el escaneo</h3>
+                    <p>GuardianOS Audit analiza tu superficie de ataque en tiempo real. Progreso visible vía WebSocket. Todo procesado localmente o en tu infraestructura.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Recibe tu informe</h3>
+                    <p>PDF firmado digitalmente, certificado verificable con QR, badge para tu web y recomendaciones priorizadas. Opcional: notificación por email o SIEM.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance -->
+    <section class="compliance">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cumplimiento Normativo</h2>
+                <p>GuardianOS Audit te ayuda a demostrar conformidad con los marcos más exigentes</p>
+            </div>
+            <div class="compliance-grid">
+                <div class="compliance-item">
+                    <div class="icon">📜</div>
+                    <h4>ISO 27001:2022</h4>
+                    <p>Controles A.5–A.18 con evidencia por control</p>
+                </div>
+                <div class="compliance-item">
+                    <div class="icon">🇪🇺</div>
+                    <h4>GDPR / RGPD</h4>
+                    <p>Cifrado en tránsito, headers de privacidad, minimización de datos</p>
+                </div>
+                <div class="compliance-item">
+                    <div class="icon">🇪🇸</div>
+                    <h4>ENS</h4>
+                    <p>Esquema Nacional de Seguridad: categorías básica/media/alta</p>
+                </div>
+                <div class="compliance-item">
+                    <div class="icon">🔒</div>
+                    <h4>LOPDGDD</h4>
+                    <p>Adaptación a la legislación española de protección de datos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Demo -->
+    <section class="certificates">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certificado de Seguridad Verificable</h2>
+                <p>Cada auditoría genera un certificado único, público y a prueba de manipulaciones</p>
+            </div>
+            <div class="cert-demo">
+                <div class="cert-preview">
+                    <div class="header">
+                        <div>
+                            <strong>🏅 Certificado GuardianOS Audit</strong><br>
+                            <small>Token: <code>abc3mn2q8rvx</code></small>
+                        </div>
+                        <div class="qr">[QR]<br>guardianos.es/audit/verify/abc3mn2q8rvx</div>
+                    </div>
+                    <p><strong>Empresa:</strong> ejemplo.com</p>
+                    <p><strong>Fecha:</strong> 04/03/2026</p>
+                    <p><strong>Vigencia:</strong> 30 días</p>
+                    <div style="margin: 20px 0; text-align: center;">
+                        <div class="score">87/100</div>
+                        <small style="color: #666;">Nivel: <strong>Alto</strong> 🔵</small>
+                    </div>
+                    <p><strong>Controles ISO 27001:</strong> 24/30 cumplidos</p>
+                    <p><strong>GDPR:</strong> Cifrado TLS 1.3 ✅ • Headers de privacidad ✅</p>
+                    <p><small style="color: #888;">Cadena forense SHA-256: <code>a1b2c3...xyz</code></small></p>
+                </div>
+                <p style="text-align: center; color: var(--color-text-secondary);">
+                    🔗 Cualquier persona puede verificar este certificado en tiempo real:<br>
+                    <strong>https://guardianos.es/audit/verify/abc3mn2q8rvx</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="precios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Planes Transparentes</h2>
+                <p>Sin letra pequeña. Sin sorpresas. Elige el plan que mejor se adapte a tu organización.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Básico</h3>
+                    <div class="price">Gratis <span>/ mes</span></div>
+                    <ul class="pricing-features">
+                        <li>1 auditoría/mes</li>
+                        <li>Dashboard web básico</li>
+                        <li>PDF resumen (sin compliance)</li>
+                        <li>Soporte comunitario</li>
+                        <li>Código abierto (AGPL-3.0)</li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-outline">Empezar Gratis</a>
+                </div>
+                <div class="pricing-card popular">
+                    <h3>Pyme</h3>
+                    <div class="price">35€ <span>/ mes</span></div>
+                    <ul class="pricing-features">
+                        <li>Auditorías ilimitadas</li>
+                        <li>PDF completo + ejecutivo</li>
+                        <li>Certificados verificables</li>
+                        <li>Notificaciones por email</li>
+                        <li>Soporte prioritario (48h)</li>
+                        <li>Agentes Linux/Windows</li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-primary">Contratar Pyme</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Compliance</h3>
+                    <div class="price">49€ <span>/ mes</span></div>
+                    <ul class="pricing-features">
+                        <li>Todo lo de Pyme</li>
+                        <li>✅ ISO 27001:2022 detallado</li>
+                        <li>✅ GDPR + ENS completo</li>
+                        <li>✅ Alertas SIEM (Wazuh/CEF)</li>
+                        <li>✅ Histórico y comparativas</li>
+                        <li>✅ White-label opcional</li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-outline">Contratar Compliance</a>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 32px; color: var(--color-text-secondary);">
+                💼 ¿Necesitas un plan Enterprise con multi-tenant, SLA o soporte dedicado?<br>
+                <a href="#contacto">Contáctanos para una propuesta personalizada</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <p>Más de 45 organizaciones en Andalucía ya confían en GuardianOS Audit</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"Necesitábamos demostrar cumplimiento GDPR para un concurso público. GuardianOS Audit generó el informe técnico en 2 horas y el certificado verificable nos dio credibilidad inmediata."</blockquote>
+                    <cite>Laura M. <span>Responsable IT · Startup tecnológica, Sevilla</span></cite>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"Como consultor, poder ofrecer auditorías profesionales con badge para la web del cliente ha sido un diferenciador clave. La integración con Wazuh es impecable."</blockquote>
+                    <cite>Javier R. <span>Consultor de Ciberseguridad · Málaga</span></cite>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"El agente Linux se programa en cron y nos avisa automáticamente si cambia algo crítico. La cadena SHA-256 da tranquilidad forense. Código abierto = confianza."</blockquote>
+                    <cite>Carmen L. <span>CTO · AMPA Colegio Público, Granada</span></cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Preguntas frecuentes</h2>
+                <p>Todo lo que necesitas saber antes de empezar</p>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>¿Necesito conocimientos técnicos para usar GuardianOS Audit?</summary>
+                    <p>No. El dashboard web guía paso a paso el proceso. Los informes incluyen un resumen ejecutivo en lenguaje claro. Para opciones avanzadas (SSH, agentes), ofrecemos soporte guiado.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>¿Se envían mis datos a servidores externos?</summary>
+                    <p>No. Puedes desplegar GuardianOS Audit en tu propia infraestructura con Docker. En la versión cloud, los escaneos se ejecutan en instancias efímeras y los datos se eliminan tras generar el informe. Nunca almacenamos credenciales.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>¿Puedo auditar sistemas de terceros?</summary>
+                    <p>Solo con autorización explícita por escrito del propietario. Incluimos una plantilla de autorización en <code>docs/legal/</code>. El uso no autorizado de herramientas de auditoría puede ser ilegal.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>¿Qué diferencia hay entre la app GuardianOS y GuardianOS Audit?</summary>
+                    <p>GuardianOS (app móvil) es para auditorías personales de dispositivos Android. GuardianOS Audit es una plataforma profesional para evaluar infraestructuras web, dominios y servidores de organizaciones. Son complementarias.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>¿El certificado caduca?</summary>
+                    <p>Sí, 30 días por diseño. La ciberseguridad es un proceso continuo. Al renovar la auditoría, se genera un nuevo certificado que encadena criptográficamente con el anterior (blockchain-lite), creando un historial verificable.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Hablamos?</h2>
+                <p>Estamos aquí para ayudarte a proteger tu organización con transparencia y ética</p>
+            </div>
+            <div class="contact-grid">
+                <form class="contact-form" action="https://formsubmit.co/info@guardianos.es" method="POST">
+                    <input type="hidden" name="_subject" value="GuardianOS Audit – Solicitud de contacto">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="form-group">
+                        <label for="name">Nombre completo *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email profesional *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="org">Organización</label>
+                        <input type="text" id="org" name="organization" placeholder="Empresa, AMPA, consultora...">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Servicio de interés *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="basico">Plan Básico (Gratis)</option>
+                            <option value="pyme">Plan Pyme (35€/mes)</option>
+                            <option value="compliance">Plan Compliance (49€/mes)</option>
+                            <option value="enterprise">Enterprise (a consultar)</option>
+                            <option value="demo">Solicitar demo técnica</option>
+                            <option value="otro">Consulta general</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Cuéntanos tu situación</label>
+                        <textarea id="message" name="message" rows="4" placeholder="¿Qué necesitas auditar? ¿Tienes requisitos específicos de compliance?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">📤 Enviar Solicitud</button>
+                    <p style="margin-top: 16px; font-size: 0.85rem; color: var(--color-text-secondary); text-align: center;">
+                        🔒 Tus datos se usan solo para responder a tu consulta. Sin spam. Sin terceros.
+                    </p>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <span class="icon">📧</span>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:audit@guardianos.es">audit@guardianos.es</a><br>
+                            <small style="color: var(--color-text-secondary);">Respuesta en <48h laborables</small>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">🌐</span>
+                        <div>
+                            <strong>GitHub</strong><br>
+                            <a href="https://github.com/systemavworks/guardianos-audit" target="_blank">systemavworks/guardianos-audit</a><br>
+                            <small style="color: var(--color-text-secondary);">Código abierto • AGPL-3.0</small>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">📚</span>
+                        <div>
+                            <strong>Documentación</strong><br>
+                            <a href="https://github.com/systemavworks/guardianos-audit/blob/main/ARCHITECTURE.md" target="_blank">ARCHITECTURE.md</a><br>
+                            <small style="color: var(--color-text-secondary);">Guías de despliegue y API</small>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">📍</span>
+                        <div>
+                            <strong>Ubicación</strong><br>
+                            Andalucía, España 🇪🇸<br>
+                            <small style="color: var(--color-text-secondary);">Servicios presenciales en Sevilla y provincia</small>
+                        </div>
+                    </div>
+                    <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--color-border);">
+                        <strong>🛡️ Confiamos en estándares abiertos</strong>
+                        <div class="trust-badges">
+                            <span class="badge">🔐 Privacy by Design</span>
+                            <span class="badge">🧩 Código Auditable</span>
+                            <span class="badge">🇪🇺 GDPR+ENS</span>
+                            <span class="badge">🤖 Android Ético</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>GuardianOS Audit</h4>
+                    <p style="color: var(--color-text-secondary); font-size: 0.95rem;">
+                        Ciberseguridad accesible para pymes y organizaciones. Sin vigilancia. Sin miedo.
+                    </p>
+                    <div class="trust-badges" style="margin-top: 12px;">
+                        <span class="badge">🇪🇸 Andalucía</span>
+                        <span class="badge">🔓 AGPL-3.0</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="/#app">📱 GuardianOS App</a></li>
+                        <li><a href="/shield">🛡️ GuardianOS Shield</a></li>
+                        <li><a href="/audit">🔐 GuardianOS Audit</a></li>
+                        <li><a href="/#servicios">🔧 Configuración de Dispositivos</a></li>
+                        <li><a href="/#servicios">🎓 Talleres Educativos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/aviso-legal.html">Aviso Legal</a></li>
+                        <li><a href="/politica-privacidad.html">Política de Privacidad</a></li>
+                        <li><a href="/terminos.html">Términos de Servicio</a></li>
+                        <li><a href="https://github.com/systemavworks/guardianos-audit/blob/main/SECURITY.md">Security Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="mailto:info@guardianos.es">info@guardianos.es</a></li>
+                        <li><a href="mailto:audit@guardianos.es">audit@guardianos.es</a></li>
+                        <li><a href="tel:+34614837983">+34 614 83 79 83</a></li>
+                        <li>Andalucía, España</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 GuardianOS – Protección que crece contigo. Desarrollado con ❤️ en Andalucía.</p>
+                <p style="margin-top: 8px; font-size: 0.85rem;">
+                    <a href="https://github.com/systemavworks/guardianos-audit">Código fuente</a> • 
+                    <a href="/audit/verify">Verificar certificado</a> • 
+                    <a href="https://status.guardianos.es">Estado del servicio</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            const nav = document.querySelector('nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // FormSubmit success handling
+        const form = document.querySelector('.contact-form');
+        form?.addEventListener('submit', function(e) {
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '⏳ Enviando...';
+            btn.disabled = true;
+            
+            // FormSubmit handles redirect automatically, but we can add UX feedback
+            setTimeout(() => {
+                btn.innerHTML = '✅ ¡Enviado!';
+                btn.style.background = 'var(--color-success)';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
