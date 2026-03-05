@@ -380,7 +380,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
     <ul class="nav-links" id="navLinks">
       <li><a href="/" onclick="closeMobileMenu()">Inicio</a></li>
       <li><a href="/#servicios" onclick="closeMobileMenu()">Servicios</a></li>
-
+      <li><a href="#agentes" onclick="closeMobileMenu()">Agentes</a></li>
       <li><a href="/shield" onclick="closeMobileMenu()">Shield</a></li>
       <li><a href="/audit" class="active" onclick="closeMobileMenu()">Audit</a></li>
       <li><a href="#contacto" onclick="closeMobileMenu()">Contacto</a></li>
@@ -433,8 +433,8 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
       </div>
       <div class="feature-card reveal reveal-d1">
         <div class="feature-icon">🤖</div>
-        <h3>Agentes Ligeros</h3>
-        <p>Scripts Bash/PowerShell para auditorías periódicas en Linux y Windows. Envío seguro de resultados a tu dashboard.</p>
+        <h3>Agentes Linux &amp; Windows</h3>
+        <p>Scripts Bash/PowerShell desplegables en cualquier servidor. Auditorías periódicas programadas con <code style="background:rgba(122,158,90,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.85em;">cron</code> / Tarea Programada. Resultados enviados cifrados al dashboard propio.</p>
       </div>
       <div class="feature-card reveal reveal-d2">
         <div class="feature-icon">🔴</div>
@@ -473,6 +473,87 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <h3>Recibe tu informe</h3>
         <p>PDF firmado digitalmente, certificado verificable con QR, badge para tu web y recomendaciones priorizadas. Opcional: notificación por email o SIEM.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Agents Section -->
+<section style="background: var(--bg-main);" id="agentes">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>🤖 Agentes para Linux y Windows</h2>
+      <p>Despliega un agente ligero en tus servidores y automatiza auditorías periódicas con tu propio backend, base de datos y dashboard</p>
+    </div>
+
+    <!-- Arquitectura -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:3rem;">
+      <div class="feature-card reveal" style="border-color:rgba(122,158,90,0.4);">
+        <div class="feature-icon">🐧</div>
+        <h3>Agente Linux</h3>
+        <p>Script Bash autocontenido. Audita el sistema operativo, servicios activos, usuarios, permisos, paquetes desactualizados y configuración SSH. Programable con <strong>cron</strong> cada hora, día o semana.</p>
+        <ul style="color:var(--text-secondary);font-size:0.88rem;line-height:1.8;padding-left:1.25rem;margin-top:0.75rem;">
+          <li>Compatible con Debian, Ubuntu, RHEL, CentOS, Arch</li>
+          <li>Sin dependencias externas — solo <code style="background:rgba(122,158,90,0.12);padding:0.1rem 0.3rem;border-radius:0.25rem;">bash</code> + <code style="background:rgba(122,158,90,0.12);padding:0.1rem 0.3rem;border-radius:0.25rem;">curl</code></li>
+          <li>Firma SHA-256 de cada envío</li>
+          <li>Integración con Wazuh / CEF / SIEM</li>
+        </ul>
+      </div>
+      <div class="feature-card reveal reveal-d2" style="border-color:rgba(0,188,212,0.4);">
+        <div class="feature-icon">🪟</div>
+        <h3>Agente Windows</h3>
+        <p>Script PowerShell firmado. Audita rol del servidor, políticas de grupo, actualizaciones pendientes, servicios críticos y configuración de firewall. Ejecutable como <strong>Tarea Programada</strong>.</p>
+        <ul style="color:var(--text-secondary);font-size:0.88rem;line-height:1.8;padding-left:1.25rem;margin-top:0.75rem;">
+          <li>Compatible con Windows Server 2016, 2019, 2022 y W10/11</li>
+          <li>Sin agente residente — ejecución puntual o periódica</li>
+          <li>Resultados cifrados con AES-256 antes del envío</li>
+          <li>Soporte GPO y entornos Active Directory</li>
+        </ul>
+      </div>
+      <div class="feature-card reveal reveal-d4" style="border-color:rgba(139,92,246,0.4);">
+        <div class="feature-icon">📊</div>
+        <h3>Backend + Dashboard + BD</h3>
+        <p>Infraestructura propia desplegable en tu servidor. Los agentes reportan a tu instancia; ningún dato sale a servidores de terceros.</p>
+        <ul style="color:var(--text-secondary);font-size:0.88rem;line-height:1.8;padding-left:1.25rem;margin-top:0.75rem;">
+          <li>API REST con JWT y API keys hasheadas</li>
+          <li>Base de datos con histórico y comparativas entre auditorías</li>
+          <li>Dashboard web con score, hallazgos y tendencias</li>
+          <li>WebSocket para progreso en tiempo real</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Flujo técnico -->
+    <div class="cert-demo reveal" style="background:var(--bg-elevated);padding:2rem;border-radius:1rem;border:1px solid var(--border);">
+      <h3 style="color:var(--text-primary);margin-bottom:1.5rem;text-align:center;">Flujo de una auditoría con agente</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;text-align:center;">
+        <div style="padding:1rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid var(--border);">
+          <div style="font-size:1.8rem;margin-bottom:0.5rem;">🖥️</div>
+          <div style="font-weight:600;color:var(--text-primary);font-size:0.9rem;">Tu servidor</div>
+          <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.25rem;">Linux / Windows</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--primary);">→</div>
+        <div style="padding:1rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid rgba(122,158,90,0.4);">
+          <div style="font-size:1.8rem;margin-bottom:0.5rem;">🤖</div>
+          <div style="font-weight:600;color:var(--text-primary);font-size:0.9rem;">Agente</div>
+          <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.25rem;">Bash / PowerShell</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--primary);">→</div>
+        <div style="padding:1rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid rgba(0,188,212,0.4);">
+          <div style="font-size:1.8rem;margin-bottom:0.5rem;">🔐</div>
+          <div style="font-weight:600;color:var(--text-primary);font-size:0.9rem;">API Backend</div>
+          <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.25rem;">JWT · AES-256</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--primary);">→</div>
+        <div style="padding:1rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid rgba(139,92,246,0.4);">
+          <div style="font-size:1.8rem;margin-bottom:0.5rem;">📊</div>
+          <div style="font-weight:600;color:var(--text-primary);font-size:0.9rem;">Dashboard</div>
+          <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.25rem;">Score + Informe PDF</div>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:1.5rem;color:var(--text-secondary);font-size:0.9rem;">
+        Código abierto y auto-hospedado —
+        <a href="https://github.com/systemavworks/guardianos-audit" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:underline;">github.com/systemavworks/guardianos-audit</a>
+      </p>
     </div>
   </div>
 </section>
