@@ -747,19 +747,19 @@ color: var(--text-primary);
 /* Contact Form Section */
 .contact-form-section {
 background: var(--bg-card);
-padding: 5rem 0;
+padding: 2.5rem 0;
 }
 .form-container {
 max-width: 700px;
 margin: 0 auto;
 background: var(--bg-elevated);
-padding: 3rem;
+padding: 1.5rem;
 border-radius: 1rem;
 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 border: 1px solid var(--border);
 }
 .form-group {
-margin-bottom: 1.5rem;
+margin-bottom: 0.85rem;
 }
 .form-group label {
 display: block;
@@ -771,7 +771,7 @@ font-weight: 500;
 .form-group select,
 .form-group textarea {
 width: 100%;
-padding: 1rem;
+padding: 0.65rem 0.85rem;
 border: 2px solid var(--border);
 border-radius: 0.5rem;
 background: var(--bg-card);
@@ -788,17 +788,17 @@ border-color: var(--primary);
 box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 .form-group textarea {
-min-height: 150px;
+min-height: 90px;
 resize: vertical;
 }
 .form-row {
 display: grid;
 grid-template-columns: 1fr 1fr;
-gap: 1.5rem;
+gap: 0.85rem;
 }
 .form-submit {
 text-align: center;
-margin-top: 2rem;
+margin-top: 0.75rem;
 }
 .form-message {
 padding: 1rem;
@@ -1133,8 +1133,8 @@ color: white;
 text-align: center;
 }
 .contact h2 {
-font-size: 2.5rem;
-margin-bottom: 1rem;
+font-size: 1.5rem;
+margin-bottom: 0.5rem;
 }
 .contact-info {
 display: flex;
@@ -1736,7 +1736,7 @@ pointer-events: all; font-size: 0.88rem; color: var(--text-primary); line-height
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
 
 <!-- Card 1: GuardianOS App -->
-<div class="feature-card reveal" style="display: flex; flex-direction: column; border: 2px solid #3b82f6; background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.08));">
+<a href="#app" class="feature-card reveal" style="display: flex; flex-direction: column; border: 2px solid #3b82f6; background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.08)); text-decoration: none; color: inherit; cursor: pointer;">
 <div style="font-size: 3rem; margin-bottom: 1rem;">📱</div>
 <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
 <span style="background: rgba(59,130,246,0.2); color: #93c5fd; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600;">GRATIS</span>
@@ -1749,11 +1749,11 @@ pointer-events: all; font-size: 0.88rem; color: var(--text-primary); line-height
 <li>Informe PDF con firma SHA-256</li>
 <li>Versión PRO disponible (9,99€)</li>
 </ul>
-<a href="#app" style="display: block; margin-top: auto; text-align: center; padding: 0.85rem 1.5rem; background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: #fff; border-radius: 0.6rem; font-weight: 600; text-decoration: none; font-size: 0.95rem;">⬇ Ver GuardianOS App</a>
-</div>
+<div style="display: block; margin-top: auto; text-align: center; padding: 0.85rem 1.5rem; background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: #fff; border-radius: 0.6rem; font-weight: 600; font-size: 0.95rem;">⬇ Ver GuardianOS App</div>
+</a>
 
 <!-- Card 2: GuardianOS Shield -->
-<div class="feature-card reveal reveal-d3" style="display: flex; flex-direction: column; border: 2px solid #06b6d4; background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(59,130,246,0.08));">
+<a href="https://guardianos.es/shield" class="feature-card reveal reveal-d3" style="display: flex; flex-direction: column; border: 2px solid #06b6d4; background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(59,130,246,0.08)); text-decoration: none; color: inherit; cursor: pointer;">
 <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
 <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
 <span style="background: rgba(6,182,212,0.2); color: #67e8f9; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600;">CONTROL PARENTAL</span>
@@ -1766,11 +1766,11 @@ pointer-events: all; font-size: 0.88rem; color: var(--text-primary); line-height
 <li>Sin datos enviados a servidores</li>
 <li>Compatible Android 12–15</li>
 </ul>
-<a href="/shield/" style="display: block; margin-top: auto; text-align: center; padding: 0.85rem 1.5rem; background: linear-gradient(135deg, #0891b2, #3b82f6); color: #fff; border-radius: 0.6rem; font-weight: 600; text-decoration: none; font-size: 0.95rem;">🛡 Ver GuardianOS Shield</a>
-</div>
+<div style="display: block; margin-top: auto; text-align: center; padding: 0.85rem 1.5rem; background: linear-gradient(135deg, #0891b2, #3b82f6); color: #fff; border-radius: 0.6rem; font-weight: 600; font-size: 0.95rem;">🛡 Ver GuardianOS Shield</div>
+</a>
 
 <!-- Card 3: GuardianOS Audit -->
-<div class="feature-card reveal reveal-d6" style="display: flex; flex-direction: column; border: 2px solid #00e676; background: linear-gradient(135deg, rgba(0,230,118,0.08), rgba(0,188,212,0.08));">
+<a href="https://guardianos.es/audit" class="feature-card reveal reveal-d6" style="display: flex; flex-direction: column; border: 2px solid #00e676; background: linear-gradient(135deg, rgba(0,230,118,0.08), rgba(0,188,212,0.08)); text-decoration: none; color: inherit; cursor: pointer;">
 <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
 <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
 <span style="background: rgba(0,230,118,0.2); color: #86efac; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600;">PYMES</span>
@@ -1783,8 +1783,8 @@ pointer-events: all; font-size: 0.88rem; color: var(--text-primary); line-height
 <li>Informe ejecutivo + técnico</li>
 <li>Plan de acción priorizado</li>
 </ul>
-<a href="/audit/" style="display: block; margin-top: auto; text-align: center; padding: 0.85rem 1.5rem; background: linear-gradient(135deg, #00c853, #00acc1); color: #fff; border-radius: 0.6rem; font-weight: 600; text-decoration: none; font-size: 0.95rem;">🔍 Ver GuardianOS Audit</a>
-</div>
+<div style="display: block; margin-top: auto; text-align: center; padding: 0.85rem 1.5rem; background: linear-gradient(135deg, #00c853, #00acc1); color: #fff; border-radius: 0.6rem; font-weight: 600; font-size: 0.95rem;">🔍 Ver GuardianOS Audit</div>
+</a>
 
 </div>
 </div>
@@ -1925,44 +1925,32 @@ Gratuito • Open Source • 100% Privado • Sin Analytics • Compatibilidad A
 </section>
 
 <!-- ========== SECCIÓN PRO (COMPACTA) ========== -->
-<section id="pro-activation" style="background: linear-gradient(135deg, #0f1c2e 0%, #1a0d2e 100%); padding: 5rem 0;">
+<section id="pro-activation" style="background: linear-gradient(135deg, #0f1c2e 0%, #1a0d2e 100%); padding: 2rem 0;">
 <div class="container">
-<div style="max-width: 640px; margin: 0 auto; text-align: center;">
-<div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(139,92,246,0.2); color: #c4b5fd; padding: 0.4rem 1.1rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(139,92,246,0.4); margin-bottom: 1.5rem;">⭐ Versión Premium</div>
-<h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); color: #e2e8f0; margin-bottom: 0.75rem;">💎 GuardianOS App PRO</h2>
-<p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem;">Desbloquea funciones avanzadas de la app con un <strong>pago único de 9,99€</strong>. Sin suscripciones, sin datos enviados a servidores.</p>
-
-<div style="background: var(--bg-card); border: 2px solid rgba(139,92,246,0.5); border-radius: 1.25rem; padding: 2.5rem; text-align: left; margin-bottom: 2rem;">
-<div style="font-size: 2.5rem; font-weight: 800; color: #c4b5fd; text-align: center; margin-bottom: 1.5rem;">9,99€ <span style="font-size: 1rem; font-weight: 400; color: var(--text-secondary);">· pago único · para siempre</span></div>
-<ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem;">
-<li style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-secondary);"><span style="color: #a78bfa; font-size: 1.1rem;">✓</span> Análisis de privacidad avanzado</li>
-<li style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-secondary);"><span style="color: #a78bfa; font-size: 1.1rem;">✓</span> Bóveda de documentos cifrada AES-256</li>
-<li style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-secondary);"><span style="color: #a78bfa; font-size: 1.1rem;">✓</span> Reportes PDF forenses con firma SHA-256</li>
-<li style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-secondary);"><span style="color: #a78bfa; font-size: 1.1rem;">✓</span> Sin anuncios — interfaz limpia</li>
-<li style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-secondary);"><span style="color: #a78bfa; font-size: 1.1rem;">✓</span> Soporte prioritario por email</li>
+<div style="max-width: 700px; margin: 0 auto;">
+<div style="background: var(--bg-card); border: 1px solid rgba(139,92,246,0.4); border-radius: 1rem; padding: 1.5rem; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+<!-- Izq: título + precio -->
+<div style="flex: 1 1 220px; text-align: center;">
+<div style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(139,92,246,0.2); color: #c4b5fd; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; border: 1px solid rgba(139,92,246,0.4); margin-bottom: 0.6rem;">⭐ Premium</div>
+<div style="font-size: 1.1rem; font-weight: 700; color: #e2e8f0; margin-bottom: 0.25rem;">💎 GuardianOS App PRO</div>
+<div style="font-size: 1.9rem; font-weight: 800; color: #c4b5fd; line-height: 1.1;">9,99€</div>
+<div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.75rem;">pago único · para siempre</div>
+<div style="display: flex; flex-direction: column; gap: 0.4rem;">
+<a href="https://buy.stripe.com/3cI5kDc6t1Y1aZO6FW00001" target="_blank" rel="noopener" style="display: block; padding: 0.55rem 1rem; background: linear-gradient(135deg, #7c3aed, #3b82f6); color: #fff; border-radius: 0.5rem; font-weight: 600; text-decoration: none; font-size: 0.85rem;">💳 Tarjeta / Google Pay</a>
+<a href="mailto:info@guardianos.es?subject=GuardianOS%20PRO%20%E2%80%93%20Bizum&body=Hola%2C%20quiero%20pagar%20con%20Bizum.%20Mi%20email%20es%3A" style="display: block; padding: 0.55rem 1rem; background: rgba(30,41,59,0.8); border: 1px solid var(--border); color: #e2e8f0; border-radius: 0.5rem; font-weight: 600; text-decoration: none; font-size: 0.85rem;">📱 Bizum · 614 83 79 83</a>
+<a href="mailto:info@guardianos.es?subject=GuardianOS%20PRO%20%E2%80%93%20Transferencia" style="display: block; padding: 0.55rem 1rem; background: rgba(30,41,59,0.8); border: 1px solid var(--border); color: #e2e8f0; border-radius: 0.5rem; font-weight: 600; text-decoration: none; font-size: 0.85rem;">🏦 Transferencia bancaria</a>
+</div>
+</div>
+<!-- Der: features -->
+<ul style="flex: 1 1 220px; list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem;">
+<li style="display: flex; align-items: center; gap: 0.6rem; color: var(--text-secondary); font-size: 0.9rem;"><span style="color: #a78bfa;">✓</span> Análisis de privacidad avanzado</li>
+<li style="display: flex; align-items: center; gap: 0.6rem; color: var(--text-secondary); font-size: 0.9rem;"><span style="color: #a78bfa;">✓</span> Bóveda de documentos cifrada AES-256</li>
+<li style="display: flex; align-items: center; gap: 0.6rem; color: var(--text-secondary); font-size: 0.9rem;"><span style="color: #a78bfa;">✓</span> Reportes PDF forenses con firma SHA-256</li>
+<li style="display: flex; align-items: center; gap: 0.6rem; color: var(--text-secondary); font-size: 0.9rem;"><span style="color: #a78bfa;">✓</span> Sin anuncios — interfaz limpia</li>
+<li style="display: flex; align-items: center; gap: 0.6rem; color: var(--text-secondary); font-size: 0.9rem;"><span style="color: #a78bfa;">✓</span> Soporte prioritario por email</li>
+<li style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-secondary);">🔒 SSL · Código GUAR-XXXX por email · Sin caducidad</li>
 </ul>
 </div>
-
-<p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">Elige tu método de pago:</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-<a href="https://buy.stripe.com/3cI5kDc6t1Y1aZO6FW00001" target="_blank" rel="noopener" style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 1.2rem; background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(59,130,246,0.15)); border: 2px solid rgba(139,92,246,0.5); border-radius: 0.9rem; color: #e2e8f0; font-weight: 600; text-decoration: none; transition: border-color 0.2s;">
-<span style="font-size: 1.5rem;">💳</span>
-<span>Tarjeta / Google Pay</span>
-<span style="font-size: 0.78rem; color: var(--text-secondary); font-weight: 400;">Pago instantáneo · Stripe</span>
-</a>
-<a href="mailto:info@guardianos.es?subject=GuardianOS%20PRO%20%E2%80%93%20Bizum&body=Hola%2C%20quiero%20pagar%20con%20Bizum.%20Mi%20email%20es%3A" style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 1.2rem; background: rgba(30,41,59,0.7); border: 1px solid var(--border); border-radius: 0.9rem; color: #e2e8f0; font-weight: 600; text-decoration: none;">
-<span style="font-size: 1.5rem;">📱</span>
-<span>Bizum</span>
-<span style="font-size: 0.78rem; color: var(--text-secondary); font-weight: 400;">614 83 79 83</span>
-</a>
-<a href="mailto:info@guardianos.es?subject=GuardianOS%20PRO%20%E2%80%93%20Transferencia" style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 1.2rem; background: rgba(30,41,59,0.7); border: 1px solid var(--border); border-radius: 0.9rem; color: #e2e8f0; font-weight: 600; text-decoration: none;">
-<span style="font-size: 1.5rem;">🏦</span>
-<span>Transferencia</span>
-<span style="font-size: 0.78rem; color: var(--text-secondary); font-weight: 400;">Solicitar datos IBAN</span>
-</a>
-</div>
-
-<p style="color: var(--text-secondary); font-size: 0.82rem; line-height: 1.6;">🔒 Pago seguro SSL · Código GUAR-XXXX enviado por email · Un dispositivo · Sin caducidad</p>
 </div>
 </div>
 </section>
@@ -2142,10 +2130,10 @@ background-size: 16px;
 </div>
 </div>
 </section>
-<section class="contact">
+<section class="contact" style="padding: 2rem 0;">
 <div class="container">
 <h2>¿Prefieres contactarnos directamente?</h2>
-<p style="font-size: 1.2rem; margin: 1.5rem 0;">Estamos aquí para ayudarte a proteger lo más importante</p>
+<p style="font-size: 1rem; margin: 0.75rem 0;">Estamos aquí para ayudarte a proteger lo más importante</p>
 <div class="contact-info">
 <div class="contact-item">
 <span class="contact-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
