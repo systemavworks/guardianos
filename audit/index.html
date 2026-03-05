@@ -24,17 +24,17 @@
 <script defer data-domain="guardianos.es" src="https://plausible.io/js/script.js"></script>
 <style>
 :root {
-  --primary: #7a9e5a;
-  --primary-dark: #5c7a3e;
-  --secondary: #96b870;
-  --accent: #00bcd4;
+  --primary: #2a9d8f;
+  --primary-dark: #1a7a6e;
+  --secondary: #52b788;
+  --accent: #c9a94e;
   --dark: #050505;
-  --bg-main: #0a0f0f;
-  --bg-card: #121d1d;
-  --bg-elevated: #172626;
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --border: #1c3535;
+  --bg-main: #0a0e12;
+  --bg-card: #111620;
+  --bg-elevated: #171e2c;
+  --text-primary: #dde4ec;
+  --text-secondary: #7a8fa8;
+  --border: #1e2d3d;
   --color-error: #ff5252;
   --color-warning: #ffab40;
   --color-success: #7a9e5a;
@@ -71,7 +71,7 @@ header {
   background: rgba(10,15,15,0.95);
   backdrop-filter: blur(10px);
   position: sticky; top: 0; z-index: 1000;
-  box-shadow: 0 1px 3px rgba(122,158,90,0.15);
+  box-shadow: 0 1px 3px rgba(42,157,143,0.15);
   border-bottom: 1px solid var(--border);
   transition: all 0.3s ease;
 }
@@ -85,11 +85,11 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .logo:hover { transform: scale(1.05); }
 .logo-img {
   height: 64px; width: auto;
-  filter: drop-shadow(0 0 10px rgba(122,158,90,0.3));
+  filter: drop-shadow(0 0 10px rgba(42,157,143,0.3));
   transition: filter 0.3s ease;
 }
 .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--primary); white-space: nowrap; }
-.logo:hover .logo-img { filter: drop-shadow(0 0 20px rgba(122,158,90,0.6)); }
+.logo:hover .logo-img { filter: drop-shadow(0 0 20px rgba(42,157,143,0.6)); }
 .nav-links { display: flex; gap: 1.5rem; list-style: none; }
 .nav-links a {
   color: var(--text-primary); text-decoration: none;
@@ -120,11 +120,11 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 }
 .btn-primary {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: #fff; box-shadow: 0 4px 15px rgba(122,158,90,0.3);
+  color: #fff; box-shadow: 0 4px 15px rgba(42,157,143,0.3);
 }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(122,158,90,0.5); color: #fff; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(42,157,143,0.5); color: #fff; }
 .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
-.btn-outline:hover { background: rgba(122,158,90,0.1); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(122,158,90,0.2); }
+.btn-outline:hover { background: rgba(42,157,143,0.1); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(42,157,143,0.2); }
 
 /* ===== BADGES ===== */
 .badge {
@@ -133,7 +133,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   font-size: 0.82rem; font-weight: 600;
   background: var(--bg-elevated); border: 1px solid var(--border); color: var(--text-secondary);
 }
-.badge-success { background: rgba(122,158,90,0.1); border-color: var(--primary); color: var(--primary); }
+.badge-success { background: rgba(42,157,143,0.1); border-color: var(--primary); color: var(--primary); }
 
 /* ===== HERO ===== */
 .hero {
@@ -145,8 +145,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
   background:
-    radial-gradient(circle at 20% 50%, rgba(122,158,90,0.12) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(0,188,212,0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(42,157,143,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(201,169,78,0.1) 0%, transparent 50%);
   animation: float 20s ease-in-out infinite;
 }
 @keyframes float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-50px) scale(1.05); } }
@@ -187,19 +187,19 @@ section { padding: 5rem 0; }
 }
 .feature-card::before {
   content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(135deg, rgba(122,158,90,0.08), rgba(0,188,212,0.08));
+  background: linear-gradient(135deg, rgba(42,157,143,0.08), rgba(201,169,78,0.08));
   opacity: 0; transition: opacity 0.4s ease;
 }
-.feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(122,158,90,0.2); border-color: var(--primary); background: var(--bg-elevated); }
+.feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(42,157,143,0.2); border-color: var(--primary); background: var(--bg-elevated); }
 .feature-card:hover::before { opacity: 1; }
 .feature-icon {
   width: 3.2rem; height: 3.2rem;
-  background: linear-gradient(135deg, rgba(122,158,90,0.15), rgba(0,188,212,0.15));
-  border: 1px solid rgba(122,158,90,0.3); border-radius: 0.875rem;
+  background: linear-gradient(135deg, rgba(42,157,143,0.15), rgba(201,169,78,0.15));
+  border: 1px solid rgba(42,157,143,0.3); border-radius: 0.875rem;
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 1.25rem; font-size: 1.4rem; transition: all 0.4s ease; flex-shrink: 0;
 }
-.feature-card:hover .feature-icon { background: linear-gradient(135deg, rgba(122,158,90,0.28), rgba(0,188,212,0.28)); border-color: var(--primary); transform: scale(1.08); }
+.feature-card:hover .feature-icon { background: linear-gradient(135deg, rgba(42,157,143,0.28), rgba(201,169,78,0.28)); border-color: var(--primary); transform: scale(1.08); }
 .feature-card h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.75rem; position: relative; z-index: 1; }
 .feature-card p { color: var(--text-secondary); line-height: 1.7; position: relative; z-index: 1; font-size: 0.95rem; }
 
@@ -216,11 +216,11 @@ section { padding: 5rem 0; }
   background: linear-gradient(135deg, var(--primary), var(--accent));
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
   margin: 0 auto 1.5rem; position: relative; z-index: 1;
-  box-shadow: 0 4px 20px rgba(122,158,90,0.4);
+  box-shadow: 0 4px 20px rgba(42,157,143,0.4);
   font-size: 1.5rem; font-weight: 700; color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.step-item:hover .step-number { transform: scale(1.1); box-shadow: 0 8px 30px rgba(122,158,90,0.6); }
+.step-item:hover .step-number { transform: scale(1.1); box-shadow: 0 8px 30px rgba(42,157,143,0.6); }
 .step-item h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
 .step-item p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
 
@@ -231,7 +231,7 @@ section { padding: 5rem 0; }
   background: var(--bg-card); border-radius: 1rem;
   border: 1px solid var(--border); transition: all 0.3s ease;
 }
-.compliance-item:hover { border-color: var(--primary); transform: translateY(-6px); box-shadow: 0 12px 30px rgba(122,158,90,0.15); }
+.compliance-item:hover { border-color: var(--primary); transform: translateY(-6px); box-shadow: 0 12px 30px rgba(42,157,143,0.15); }
 .compliance-item .icon { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
 .compliance-item h4 { font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; }
 .compliance-item p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; }
@@ -253,7 +253,7 @@ section { padding: 5rem 0; }
 }
 .pricing-card.featured {
   border-color: var(--primary); transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(122,158,90,0.3); background: var(--bg-elevated);
+  box-shadow: 0 20px 40px rgba(42,157,143,0.3); background: var(--bg-elevated);
 }
 .pricing-card.featured::before {
   content: 'MÁS POPULAR'; position: absolute; top: -14px; left: 50%;
@@ -262,7 +262,7 @@ section { padding: 5rem 0; }
   color: #000; padding: 0.4rem 1.2rem; border-radius: 2rem;
   font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
 }
-.pricing-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(122,158,90,0.2); border-color: var(--primary); }
+.pricing-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(42,157,143,0.2); border-color: var(--primary); }
 .pricing-card.featured:hover { transform: scale(1.05) translateY(-10px); }
 .pricing-header { margin-bottom: 1.5rem; }
 .pricing-header h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-primary); }
@@ -281,7 +281,7 @@ section { padding: 5rem 0; }
 /* ===== TESTIMONIALS ===== */
 .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 2rem; margin-top: 3rem; }
 .testimonial-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 1rem; padding: 2rem; transition: all 0.35s ease; }
-.testimonial-card:hover { border-color: var(--primary); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(122,158,90,0.15); }
+.testimonial-card:hover { border-color: var(--primary); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(42,157,143,0.15); }
 .testimonial-quote { font-size: 3.5rem; font-family: Georgia, serif; line-height: 0.8; color: var(--primary); opacity: 0.22; margin-bottom: 0.75rem; user-select: none; }
 .testimonial-stars { color: #fbbf24; font-size: 0.9rem; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
 .testimonial-text { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.75; font-style: italic; margin-bottom: 1.5rem; }
@@ -307,7 +307,7 @@ details.faq-item p { padding: 0 1.5rem 1.25rem; color: var(--text-secondary); li
 .form-group { margin-bottom: 0.65rem; }
 .form-group label { display: block; margin-bottom: 0.25rem; color: var(--text-primary); font-weight: 500; font-size: 0.9rem; }
 .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.6rem 0.8rem; border: 2px solid var(--border); border-radius: 0.5rem; background: var(--bg-card); color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 0.9rem; transition: all 0.3s ease; }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(122,158,90,0.1); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(42,157,143,0.1); }
 .form-group textarea { min-height: 70px; resize: vertical; }
 .contact-info-col { display: flex; flex-direction: column; gap: 0.65rem; }
 .contact-info-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem; background: var(--bg-elevated); border-radius: 0.75rem; border: 1px solid var(--border); transition: all 0.3s ease; }
@@ -328,7 +328,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
 .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.88rem; }
 .footer-bottom a { color: rgba(255,255,255,0.5); }
 .footer-bottom a:hover { color: var(--primary); }
-.trust-badge-sm { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.25rem 0.65rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600; background: rgba(122,158,90,0.1); border: 1px solid rgba(122,158,90,0.3); color: var(--primary); margin: 0.2rem; }
+.trust-badge-sm { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.25rem 0.65rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600; background: rgba(42,157,143,0.1); border: 1px solid rgba(42,157,143,0.3); color: var(--primary); margin: 0.2rem; }
 
 /* ===== SCROLL REVEAL ===== */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
@@ -399,11 +399,11 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <span class="badge">✓ Sin Cloud</span>
         <span class="badge badge-success">✓ Agentes Linux &amp; Windows</span>
       </div>
-      <h1>🔐 GuardianOS <span>Audit</span></h1>
+      <h1>GuardianOS <span>Audit</span></h1>
       <p class="hero-sub">Auditoría de seguridad integral para dominios, infraestructura web y sistemas operativos. Escaneo automatizado de DNS, SSL, CVE y cabeceras HTTP—más agentes ligeros Bash/PowerShell para auditar servidores <strong>Linux y Windows</strong> de forma periódica. Backend propio, base de datos y dashboard incluidos. Informes con cadena forense SHA-256, certificado verificable y alineación con ISO 27001, GDPR y ENS. Sin vigilancia invasiva. Sin enviar tus datos a terceros.</p>
       <div class="hero-actions">
-        <a href="#contacto" class="btn btn-primary">📋 Solicitar Auditoría</a>
-        <a href="https://github.com/systemavworks/guardianos-audit" class="btn btn-outline" target="_blank" rel="noopener">🔍 Ver en GitHub</a>
+        <a href="#contacto" class="btn btn-primary">Solicitar Auditoría</a>
+        <a href="https://github.com/systemavworks/guardianos-audit" class="btn btn-outline" target="_blank" rel="noopener">Ver en GitHub</a>
       </div>
     </div>
   </div>
@@ -418,32 +418,32 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
     </div>
     <div class="features-grid">
       <div class="feature-card reveal">
-        <div class="feature-icon">🔍</div>
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/><line x1="10" y1="7" x2="10" y2="13"/><line x1="7" y1="10" x2="13" y2="10"/></svg></div>
         <h3>Escaneo Multicapa</h3>
         <p>DNS (SPF, DKIM, DMARC), SSL/TLS, cabeceras HTTP de seguridad, puertos abiertos y detección de vulnerabilidades CVE.</p>
       </div>
       <div class="feature-card reveal reveal-d1">
-        <div class="feature-icon">📊</div>
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/><line x1="3" y1="20" x2="21" y2="20"/></svg></div>
         <h3>Informes Compliance</h3>
         <p>Score de seguridad 0-100, cumplimiento ISO 27001:2022, GDPR y ENS. PDF ejecutivo + técnico con cadena forense SHA-256.</p>
       </div>
       <div class="feature-card reveal reveal-d2">
-        <div class="feature-icon">🏅</div>
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
         <h3>Certificado Verificable</h3>
         <p>URL pública única con QR incrustado. Badge SVG para tu web. Verificación instantánea sin login ni registro.</p>
       </div>
       <div class="feature-card reveal reveal-d1">
-        <div class="feature-icon">🤖</div>
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
         <h3>Agentes Linux &amp; Windows</h3>
-        <p>Scripts Bash/PowerShell desplegables en cualquier servidor. Auditorías periódicas programadas con <code style="background:rgba(122,158,90,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.85em;">cron</code> / Tarea Programada. Resultados enviados cifrados al dashboard propio.</p>
+        <p>Scripts Bash/PowerShell desplegables en cualquier servidor. Auditorías periódicas programadas con <code style="background:rgba(42,157,143,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.85em;">cron</code> / Tarea Programada. Resultados enviados cifrados al dashboard propio.</p>
       </div>
       <div class="feature-card reveal reveal-d2">
-        <div class="feature-icon">🔴</div>
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
         <h3>Alertas SIEM</h3>
         <p>Integración nativa con Wazuh mediante Common Event Format (CEF). Notificaciones en tiempo real de hallazgos críticos.</p>
       </div>
       <div class="feature-card reveal reveal-d3">
-        <div class="feature-icon">🔐</div>
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
         <h3>Privacy by Design</h3>
         <p>Credenciales solo en memoria, API keys hasheadas, JWT autenticación y código 100% auditable. Sin backdoors.</p>
       </div>
@@ -482,25 +482,25 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
 <section style="background: var(--bg-main);" id="agentes">
   <div class="container">
     <div class="section-header reveal">
-      <h2>🤖 Agentes para Linux y Windows</h2>
+      <h2>Agentes para Linux y Windows</h2>
       <p>Despliega un agente ligero en tus servidores y automatiza auditorías periódicas con tu propio backend, base de datos y dashboard</p>
     </div>
 
     <!-- Arquitectura -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:3rem;">
-      <div class="feature-card reveal" style="border-color:rgba(122,158,90,0.4);">
-        <div class="feature-icon">🐧</div>
+      <div class="feature-card reveal" style="border-color:rgba(42,157,143,0.4);">
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
         <h3>Agente Linux</h3>
         <p>Script Bash autocontenido. Audita el sistema operativo, servicios activos, usuarios, permisos, paquetes desactualizados y configuración SSH. Programable con <strong>cron</strong> cada hora, día o semana.</p>
         <ul style="color:var(--text-secondary);font-size:0.88rem;line-height:1.8;padding-left:1.25rem;margin-top:0.75rem;">
           <li>Compatible con Debian, Ubuntu, RHEL, CentOS, Arch</li>
-          <li>Sin dependencias externas — solo <code style="background:rgba(122,158,90,0.12);padding:0.1rem 0.3rem;border-radius:0.25rem;">bash</code> + <code style="background:rgba(122,158,90,0.12);padding:0.1rem 0.3rem;border-radius:0.25rem;">curl</code></li>
+          <li>Sin dependencias externas — solo <code style="background:rgba(42,157,143,0.12);padding:0.1rem 0.3rem;border-radius:0.25rem;">bash</code> + <code style="background:rgba(42,157,143,0.12);padding:0.1rem 0.3rem;border-radius:0.25rem;">curl</code></li>
           <li>Firma SHA-256 de cada envío</li>
           <li>Integración con Wazuh / CEF / SIEM</li>
         </ul>
       </div>
-      <div class="feature-card reveal reveal-d2" style="border-color:rgba(0,188,212,0.4);">
-        <div class="feature-icon">🪟</div>
+      <div class="feature-card reveal reveal-d2" style="border-color:rgba(201,169,78,0.4);">
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
         <h3>Agente Windows</h3>
         <p>Script PowerShell firmado. Audita rol del servidor, políticas de grupo, actualizaciones pendientes, servicios críticos y configuración de firewall. Ejecutable como <strong>Tarea Programada</strong>.</p>
         <ul style="color:var(--text-secondary);font-size:0.88rem;line-height:1.8;padding-left:1.25rem;margin-top:0.75rem;">
@@ -510,8 +510,8 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
           <li>Soporte GPO y entornos Active Directory</li>
         </ul>
       </div>
-      <div class="feature-card reveal reveal-d4" style="border-color:rgba(139,92,246,0.4);">
-        <div class="feature-icon">📊</div>
+      <div class="feature-card reveal reveal-d4" style="border-color:rgba(91,111,212,0.4);">
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg></div>
         <h3>Backend + Dashboard + BD</h3>
         <p>Infraestructura propia desplegable en tu servidor. Los agentes reportan a tu instancia; ningún dato sale a servidores de terceros.</p>
         <ul style="color:var(--text-secondary);font-size:0.88rem;line-height:1.8;padding-left:1.25rem;margin-top:0.75rem;">
@@ -529,23 +529,23 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
       <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0.5rem;">
 
         <div style="flex:0 0 auto;width:130px;padding:1rem 0.75rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid var(--border);text-align:center;">
-          <div style="font-size:1.8rem;margin-bottom:0.4rem;">🖥️</div>
+          <div style="width:2rem;height:2rem;margin:0 auto 0.4rem;display:flex;align-items:center;justify-content:center;color:var(--primary);"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1" fill="currentColor"/><circle cx="6" cy="18" r="1" fill="currentColor"/></svg></div>
           <div style="font-weight:600;color:var(--text-primary);font-size:0.85rem;">Tu servidor</div>
           <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem;">Linux / Windows</div>
         </div>
 
         <div style="flex:0 0 auto;font-size:1.4rem;color:var(--primary);line-height:1;">→</div>
 
-        <div style="flex:0 0 auto;width:130px;padding:1rem 0.75rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid rgba(122,158,90,0.4);text-align:center;">
-          <div style="font-size:1.8rem;margin-bottom:0.4rem;">🤖</div>
+        <div style="flex:0 0 auto;width:130px;padding:1rem 0.75rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid rgba(42,157,143,0.4);text-align:center;">
+          <div style="width:2rem;height:2rem;margin:0 auto 0.4rem;display:flex;align-items:center;justify-content:center;color:var(--primary);"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
           <div style="font-weight:600;color:var(--text-primary);font-size:0.85rem;">Agente</div>
           <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem;">Bash / PowerShell</div>
         </div>
 
         <div style="flex:0 0 auto;font-size:1.4rem;color:var(--primary);line-height:1;">→</div>
 
-        <div style="flex:0 0 auto;width:130px;padding:1rem 0.75rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid rgba(0,188,212,0.4);text-align:center;">
-          <div style="font-size:1.8rem;margin-bottom:0.4rem;">🔐</div>
+        <div style="flex:0 0 auto;width:130px;padding:1rem 0.75rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid rgba(201,169,78,0.4);text-align:center;">
+          <div style="width:2rem;height:2rem;margin:0 auto 0.4rem;display:flex;align-items:center;justify-content:center;color:var(--primary);"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
           <div style="font-weight:600;color:var(--text-primary);font-size:0.85rem;">API Backend</div>
           <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem;">JWT · AES-256</div>
         </div>
@@ -553,7 +553,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <div style="flex:0 0 auto;font-size:1.4rem;color:var(--primary);line-height:1;">→</div>
 
         <div style="flex:0 0 auto;width:130px;padding:1rem 0.75rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid rgba(139,92,246,0.4);text-align:center;">
-          <div style="font-size:1.8rem;margin-bottom:0.4rem;">📊</div>
+          <div style="width:2rem;height:2rem;margin:0 auto 0.4rem;display:flex;align-items:center;justify-content:center;color:var(--primary);"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
           <div style="font-weight:600;color:var(--text-primary);font-size:0.85rem;">Dashboard</div>
           <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem;">Score + PDF</div>
         </div>
@@ -561,7 +561,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <div style="flex:0 0 auto;font-size:1.4rem;color:var(--primary);line-height:1;">→</div>
 
         <div style="flex:0 0 auto;width:130px;padding:1rem 0.75rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid rgba(251,191,36,0.4);text-align:center;">
-          <div style="font-size:1.8rem;margin-bottom:0.4rem;">🏅</div>
+          <div style="width:2rem;height:2rem;margin:0 auto 0.4rem;display:flex;align-items:center;justify-content:center;color:var(--accent);"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
           <div style="font-weight:600;color:var(--text-primary);font-size:0.85rem;">Certificado</div>
           <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem;">SHA-256 + QR</div>
         </div>
@@ -584,22 +584,22 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
     </div>
     <div class="compliance-grid">
       <div class="compliance-item reveal">
-        <span class="icon">📜</span>
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
         <h4>ISO 27001:2022</h4>
         <p>Controles A.5–A.18 con evidencia por control</p>
       </div>
       <div class="compliance-item reveal reveal-d1">
-        <span class="icon">🇪🇺</span>
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
         <h4>GDPR / RGPD</h4>
         <p>Cifrado en tránsito, headers de privacidad, minimización de datos</p>
       </div>
       <div class="compliance-item reveal reveal-d2">
-        <span class="icon">🇪🇸</span>
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8L6 7h12l-2-4z"/></svg></span>
         <h4>ENS</h4>
         <p>Esquema Nacional de Seguridad: categorías básica/media/alta</p>
       </div>
       <div class="compliance-item reveal reveal-d3">
-        <span class="icon">🔒</span>
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg></span>
         <h4>LOPDGDD</h4>
         <p>Adaptación a la legislación española de protección de datos</p>
       </div>
@@ -619,7 +619,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
       <div class="cert-preview" style="font-size: 0.85rem; padding: 1.25rem;">
         <div class="cert-header" style="padding-bottom: 0.75rem; margin-bottom: 0.75rem;">
           <div>
-            <strong>🏅 Certificado GuardianOS Audit</strong><br>
+            <strong>&#9679; Certificado GuardianOS Audit</strong><br>
             <small>Token: <code>abc3mn2q8rvx</code></small>
           </div>
           <div class="qr" style="width:60px;height:60px;font-size:0.55rem;">[QR]<br><small>verify/abc3mn2q8rvx</small></div>
@@ -628,22 +628,22 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
           <p style="margin:0;"><strong>Empresa:</strong> ejemplo.com</p>
           <p style="margin:0;"><strong>Fecha:</strong> 05/03/2026</p>
           <p style="margin:0;"><strong>Vigencia:</strong> 30 días</p>
-          <p style="margin:0;"><strong>ISO 27001:</strong> 24/30 ✅</p>
+            <p style="margin:0;"><strong>ISO 27001:</strong> 24/30 ✓</p>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
           <div style="text-align:center;">
             <div class="score" style="font-size:2rem;">87/100</div>
-            <small style="color:#666;">Nivel: <strong>Alto</strong> 🔵</small>
+            <small style="color:#666;">Nivel: <strong style="color:var(--secondary);">Alto</strong></small>
           </div>
           <div style="flex:1;min-width:200px;">
-            <p style="margin:0 0 0.25rem;"><strong>GDPR:</strong> TLS 1.3 ✅ · Headers ✅</p>
-            <p style="margin:0;font-size:0.78rem;color:#888;">🔏 SHA-256: <code>a1b2c3d4e5f6…xyz9</code></p>
+            <p style="margin:0 0 0.25rem;"><strong>GDPR:</strong> TLS 1.3 ✓ · Headers ✓</p>
+            <p style="margin:0;font-size:0.78rem;color:#888;letter-spacing:0.01em;">SHA-256 <code>a1b2c3d4e5f6…xyz9</code></p>
             <p style="margin:0.35rem 0 0;font-size:0.75rem;color:#999;">Firma única generada por auditoría — no reutilizable, verificable en tiempo real</p>
           </div>
         </div>
       </div>
       <p style="text-align:center;color:var(--text-secondary);margin-top:1rem;font-size:0.85rem;">
-        🔗 <strong style="color:var(--primary);">guardianos.es/audit/verify/abc3mn2q8rvx</strong>
+        ↗ <strong style="color:var(--primary);">guardianos.es/audit/verify/abc3mn2q8rvx</strong>
       </p>
     </div>
   </div>
@@ -664,7 +664,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <div class="testimonial-stars">★★★★★</div>
         <p class="testimonial-text">Necesitábamos demostrar cumplimiento GDPR para un concurso público. GuardianOS Audit generó el informe técnico en 2 horas y el certificado verificable nos dio credibilidad inmediata.</p>
         <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#7a9e5a,#00bcd4);">LM</div>
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#2a9d8f,#1a7a6e);">LM</div>
           <div>
             <div class="testimonial-name">Laura M.</div>
             <div class="testimonial-role">Responsable IT · Startup tecnológica, Sevilla</div>
@@ -676,7 +676,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <div class="testimonial-stars">★★★★★</div>
         <p class="testimonial-text">Como consultor, poder ofrecer auditorías profesionales con badge para la web del cliente ha sido un diferenciador clave. La integración con Wazuh es impecable.</p>
         <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#96b870,#7a9e5a);">JR</div>
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#52b788,#2a9d8f);">JR</div>
           <div>
             <div class="testimonial-name">Javier R.</div>
             <div class="testimonial-role">Consultor de Ciberseguridad · Málaga</div>
@@ -688,7 +688,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <div class="testimonial-stars">★★★★★</div>
         <p class="testimonial-text">El agente Linux se programa en cron y nos avisa automáticamente si cambia algo crítico. La cadena SHA-256 da tranquilidad forense. Código abierto = confianza.</p>
         <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#00bcd4,#7a9e5a);">CL</div>
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#c9a94e,#2a9d8f);">CL</div>
           <div>
             <div class="testimonial-name">Carmen L.</div>
             <div class="testimonial-role">CTO · AMPA Colegio Público, Granada</div>
@@ -780,14 +780,14 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
           <label for="message">Cuéntanos tu situación</label>
           <textarea id="message" name="message" rows="3" placeholder="¿Qué necesitas auditar? ¿Tienes requisitos específicos de compliance?"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">📤 Enviar Solicitud</button>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitud</button>
         <p style="margin-top: 1rem; font-size: 0.82rem; color: var(--text-secondary); text-align: center;">
-          🔒 Tus datos se usan solo para responder. Sin spam. Sin terceros.
+          Tus datos se usan solo para responder. Sin spam.
         </p>
       </form>
       <div class="contact-info-col reveal reveal-d2">
         <div class="contact-info-item">
-          <span class="icon">📧</span>
+          <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
           <div>
             <strong>Email</strong>
             <a href="mailto:audit@guardianos.es">audit@guardianos.es</a><br>
@@ -795,7 +795,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
           </div>
         </div>
         <div class="contact-info-item">
-          <span class="icon">🌐</span>
+          <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
           <div>
             <strong>GitHub</strong>
             <a href="https://github.com/systemavworks/guardianos-audit" target="_blank" rel="noopener">systemavworks/guardianos-audit</a><br>
@@ -803,7 +803,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
           </div>
         </div>
         <div class="contact-info-item">
-          <span class="icon">📚</span>
+          <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
           <div>
             <strong>Documentación</strong>
             <a href="https://github.com/systemavworks/guardianos-audit/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">ARCHITECTURE.md</a><br>
@@ -811,7 +811,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
           </div>
         </div>
         <div class="contact-info-item">
-          <span class="icon">📍</span>
+          <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
           <div>
             <strong>Ubicación</strong>
             Andalucía, España 🇪🇸<br>
@@ -819,12 +819,12 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
           </div>
         </div>
         <div class="contact-info-item">
-          <span class="icon">🛡️</span>
+          <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
           <div>
             <strong>Confiamos en estándares abiertos</strong>
             <div style="margin-top: 0.5rem;">
-              <span class="trust-badge-sm">🔐 Privacy by Design</span>
-              <span class="trust-badge-sm">🧩 Código Auditable</span>
+              <span class="trust-badge-sm">Privacy by Design</span>
+              <span class="trust-badge-sm">Código Auditable</span>
               <span class="trust-badge-sm">🇪🇺 GDPR+ENS</span>
             </div>
           </div>
@@ -842,18 +842,18 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <h4>GuardianOS Audit</h4>
         <p>Ciberseguridad accesible para pymes y organizaciones. Sin vigilancia. Sin miedo.</p>
         <div style="margin-top: 1rem;">
-          <span class="trust-badge-sm">🇪🇸 Andalucía</span>
-          <span class="trust-badge-sm">🔓 AGPL-3.0</span>
+          <span class="trust-badge-sm">Andalucía, España</span>
+          <span class="trust-badge-sm">AGPL-3.0</span>
         </div>
       </div>
       <div class="footer-section">
         <h4>Servicios</h4>
         <ul>
-          <li><a href="/">📱 GuardianOS App</a></li>
-          <li><a href="/shield">🛡️ GuardianOS Shield</a></li>
-          <li><a href="/audit">🔐 GuardianOS Audit</a></li>
-          <li><a href="/#servicios">🔧 Configuración de Dispositivos</a></li>
-          <li><a href="/#servicios">🎓 Talleres Educativos</a></li>
+          <li><a href="/">GuardianOS App</a></li>
+          <li><a href="/shield">GuardianOS Shield</a></li>
+          <li><a href="/audit">GuardianOS Audit</a></li>
+          <li><a href="/#servicios">Configuración de Dispositivos</a></li>
+          <li><a href="/#servicios">Talleres Educativos</a></li>
         </ul>
       </div>
       <div class="footer-section">
