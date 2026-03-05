@@ -27,9 +27,48 @@
 
 ## 📱 ¿Qué ofrecemos?
 
-- 🌐 **Web informativa y recursos**: guías, recomendaciones técnicas y materiales para padres.
-- 📲 **App Android en desarrollo**: herramienta de auditoría y protección ligera, sin permisos innecesarios, sin eSIM checks, sin dependencias cerradas.
-- 🖨️ **Materiales offline**: flyers, tarjetas y talleres para colegios (próximamente, campaña *vuelta al cole*).
+### 🛡️ [GuardianOS App](https://guardianos.es/#app)
+App Android open-source gratuita para auditorías locales de dispositivos. Sin permisos innecesarios, sin envío de datos, sin dependencias cerradas. Compatible con LineageOS, GrapheneOS y /e/OS.
+
+### 🛡️ [GuardianOS Shield](https://guardianos.es/shield)
+Control parental 100% deGoogled para Android. Filtrado DNS local, VPN transparente y perfiles parentales con PIN. Sin analytics ni tracking. Código abierto (AGPL-3.0).
+
+### 🔐 [GuardianOS Audit](https://guardianos.es/audit) ← **nuevo**
+Plataforma de auditoría de ciberseguridad profesional para pymes y organizaciones:
+
+| Módulo | Descripción |
+|--------|-------------|
+| **Escaneo multicapa** | DNS (SPF, DKIM, DMARC), SSL/TLS, HTTP headers, CVEs |
+| **Informes compliance** | Score 0–100 · ISO 27001:2022 · GDPR · ENS · SHA-256 |
+| **Certificado verificable** | URL pública + QR incrustado + badge SVG para tu web |
+| **Agentes ligeros** | Scripts Bash/PowerShell para auditorías periódicas (cron) |
+| **Alertas SIEM** | Integración Wazuh vía CEF en tiempo real |
+| **Privacy by Design** | Credenciales solo en memoria · JWT · sin backdoors |
+
+**Planes**: Básico (gratis) · Pyme (35 €/mes) · Compliance (49 €/mes) · Enterprise (a medida)  
+**Código fuente**: [`guardianos-audit`](https://github.com/systemavworks/guardianos-audit) · Licencia AGPL-3.0  
+**Contacto**: [audit@guardianos.es](mailto:audit@guardianos.es)
+
+### 🔧 Servicios profesionales en Sevilla
+- Auditoría Express de dispositivos Android (49 €)
+- Configuración segura completa (desde 89 €)
+- Talleres educativos para colegios y AMPAs
+
+### 🖨️ Materiales offline
+Flyers, tarjetas y talleres presenciales para familias (campaña *vuelta al cole*).
+
+---
+
+## 🌐 Estructura del sitio web (`guardianos.es`)
+
+```
+/              → Landing principal (app, servicios, precios, contacto)
+/shield        → GuardianOS Shield App
+/audit         → GuardianOS Audit (ciberseguridad para pymes)  ← nuevo
+/aviso-legal.html
+/politica-privacidad.html
+/terminos.html
+```
 
 ---
 
