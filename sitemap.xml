@@ -8,6 +8,12 @@
   </url>
   <url>
     <loc>https://guardianos.es/shield/</loc>
+  <url>
+    <loc>https://guardianos.es/audit/</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
     <lastmod>2026-03-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
