@@ -1,1 +1,2 @@
-/audit/verify/*  /audit/index.html  200
+# SPA routing gestionada por Pages Functions (functions/audit/verify/[token].js)
+# No se necesita regla de redirect para /audit/verify/*
