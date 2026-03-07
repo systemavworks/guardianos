@@ -932,6 +932,153 @@ auditForm?.addEventListener('submit', function(e) {
     btn.style.background = 'linear-gradient(135deg, var(--primary), var(--secondary))';
   }, 2000);
 });
+
+// ── Verificación pública de certificados ─────────────────────────────────────
+// Actúa cuando la URL es: guardianos.es/audit/verify/TOKEN
+// El servidor debe servir este index_audit.html para rutas /audit/verify/*
+(function initVerify() {
+  const path  = window.location.pathname;          // /audit/verify/abc3mn2q8rvx
+  const match = path.match(/\/verify\/([^/?#]+)/); // extrae el token
+  if (!match) return;                              // URL normal, sin verify
+
+  const token = match[1];
+
+  // ── Ocultar todo el contenido de la landing ──────────────────────────────
+  document.querySelectorAll('header, main, footer, section').forEach(el => {
+    el.style.display = 'none';
+  });
+
+  // ── Crear y mostrar sección de verificación ──────────────────────────────
+  const section = document.createElement('div');
+  section.id = 'verify-root';
+  section.style.cssText = 'min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1rem;background:#0a0e12';
+  section.innerHTML = `
+    <div style="max-width:600px;width:100%;text-align:center;margin-bottom:1.5rem">
+      <p style="color:#7a8fa8;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase">
+        GUARDIANOS AUDIT — Verificación de Certificado
+      </p>
+    </div>
+    <div id="verify-card" style="max-width:600px;width:100%;background:#111620;
+         border:2px solid #1e2d3d;border-radius:16px;padding:2rem">
+      <p style="text-align:center;color:#7a8fa8;padding:2rem 0">
+        <span style="font-size:2rem;display:block;margin-bottom:.8rem">🔍</span>
+        Verificando certificado <code style="color:#fde68a;background:#1e293b;
+        padding:.2rem .5rem;border-radius:4px;font-size:.85rem">${token}</code>…
+      </p>
+    </div>
+    <div style="margin-top:1.5rem;font-size:.78rem;color:#475569">
+      <a href="/audit" style="color:#2a9d8f;text-decoration:none">← guardianos.es/audit</a>
+      &nbsp;·&nbsp; GuardianOS Audit © 2026
+      &nbsp;·&nbsp; <a href="mailto:audit@guardianos.es" style="color:#2a9d8f;text-decoration:none">audit@guardianos.es</a>
+    </div>`;
+  document.body.appendChild(section);
+
+  // ── Llamada al backend (JSON) via Cloudflare Worker proxy ────────────────
+  // Worker en guardianos.es/api/verify/* reenvía al backend real (VPS/ngrok)
+  const apiUrl = 'https://guardianos.es/api/verify/' + token;
+
+  fetch(apiUrl, { headers: { 'Accept': 'application/json' } })
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(d  => renderCert(d))
+    .catch(() => renderError(token));
+
+  function scoreColor(s) {
+    return s >= 80 ? '#22c55e' : s >= 60 ? '#eab308' : s >= 40 ? '#f97316' : '#ef4444';
+  }
+  function scoreLabel(s) {
+    return s >= 80 ? 'Excelente' : s >= 60 ? 'Aceptable' : s >= 40 ? 'Mejorable' : 'Crítico';
+  }
+  function riskEs(r) {
+    return {LOW:'Bajo',MEDIUM:'Medio',HIGH:'Alto',CRITICAL:'Crítico'}[r.toUpperCase()] || r;
+  }
+  function statusInfo(d) {
+    if (!d.isValid && d.status === 'EXPIRED')     return ['#6b7280','⏱','EXPIRADO'];
+    if (!d.isValid && d.status === 'INVALIDATED') return ['#ef4444','🚫','REVOCADO'];
+    if (!d.isValid)                               return ['#6b7280','❓',d.status];
+    if (d.score >= 80) return ['#22c55e','✅','VÁLIDO'];
+    if (d.score >= 60) return ['#eab308','⚠️','VÁLIDO'];
+    return ['#ef4444','⚠️','VÁLIDO'];
+  }
+
+  function renderCert(d) {
+    const [bColor, icon, sLabel] = statusInfo(d);
+    const sc = scoreColor(d.score);
+    const card = document.getElementById('verify-card');
+    card.style.borderColor = bColor;
+    card.innerHTML = `
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;
+                  flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem">
+        <div>
+          <div style="font-size:1.35rem;font-weight:700;color:#f8fafc">${d.companyName}</div>
+          <div style="color:#7a8fa8;font-size:.9rem">${d.domain}</div>
+        </div>
+        <div style="width:72px;height:72px;border-radius:50%;border:3px solid ${sc};
+                    display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0">
+          <span style="font-size:1.6rem;font-weight:900;color:${sc};line-height:1">${d.score}</span>
+          <span style="font-size:.6rem;color:#7a8fa8">/ 100</span>
+        </div>
+      </div>
+
+      <div style="display:inline-flex;align-items:center;gap:.4rem;border:1px solid ${bColor};
+                  color:${bColor};padding:.35rem .9rem;border-radius:20px;font-weight:700;
+                  font-size:.88rem;margin-bottom:1.5rem">
+        ${icon} CERTIFICADO ${sLabel}
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
+        ${dataItem('Puntuación','<strong style="color:'+sc+'">' + d.score + '/100</strong> · ' + scoreLabel(d.score))}
+        ${dataItem('Nivel de riesgo', riskEs(d.riskLevel))}
+        ${dataItem('Emitido el', d.issuedAt.slice(0,10))}
+        ${dataItem('Válido hasta', d.validUntil.slice(0,10) + ' (' + d.daysRemaining + 'd)')}
+      </div>
+
+      <div style="background:#0d1117;border:1px solid #1e2d3d;border-radius:8px;padding:1rem;margin-bottom:1rem">
+        <p style="font-size:.7rem;color:#7a8fa8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem">
+          🔒 Hash SHA-256 del certificado
+        </p>
+        <code style="font-family:'Cascadia Code',Consolas,monospace;font-size:.73rem;color:#fde68a;
+                     word-break:break-all;line-height:1.6">${d.certificateHash}</code>
+      </div>
+
+      <div style="background:#052e16;border:1px solid #166534;border-radius:8px;
+                  padding:.75rem 1rem;font-size:.8rem;color:#86efac">
+        ⛓ Cadena hash verificada — integridad garantizada (blockchain-lite)
+      </div>
+
+      <div style="text-align:center;margin-top:1.2rem">
+        <img src="${window.location.origin}/certificate/qr/${token}.png"
+             alt="QR" style="max-width:120px;border-radius:8px;border:1px solid #1e2d3d"
+             onerror="this.style.display='none'" />
+        <p style="font-size:.7rem;color:#7a8fa8;margin-top:.4rem">Escanea para verificar en móvil</p>
+      </div>`;
+  }
+
+  function dataItem(label, val) {
+    return `<div>
+      <div style="font-size:.7rem;color:#7a8fa8;text-transform:uppercase;
+                  letter-spacing:.05em;margin-bottom:.2rem">${label}</div>
+      <div style="font-size:.88rem;color:#e2e8f0;font-weight:500">${val}</div>
+    </div>`;
+  }
+
+  function renderError(t) {
+    const card = document.getElementById('verify-card');
+    card.style.borderColor = '#ef4444';
+    card.innerHTML = `
+      <div style="text-align:center;padding:1.5rem 0">
+        <div style="font-size:2.5rem;margin-bottom:1rem">🔍</div>
+        <h2 style="color:#f87171;margin-bottom:.8rem">Certificado no encontrado</h2>
+        <p style="color:#7a8fa8;margin-bottom:.5rem">
+          No existe ningún certificado para el token:
+        </p>
+        <code style="background:#1e293b;color:#fde68a;padding:.3rem .7rem;
+                     border-radius:4px;font-size:.85rem;word-break:break-all">${t}</code>
+        <p style="color:#7a8fa8;font-size:.85rem;margin-top:1rem">
+          Puede que haya expirado, sido revocado o que el token sea incorrecto.
+        </p>
+      </div>`;
+  }
+})();
 </script>
 </body>
 </html>
