@@ -383,6 +383,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
       <li><a href="#agentes" onclick="closeMobileMenu()">Agentes</a></li>
       <li><a href="/shield" onclick="closeMobileMenu()">Shield</a></li>
       <li><a href="/audit" class="active" onclick="closeMobileMenu()">Audit</a></li>
+      <li><a href="#verificar" onclick="closeMobileMenu()" style="color:var(--primary);">🔍 Verificar</a></li>
       <li><a href="#contacto" onclick="closeMobileMenu()">Contacto</a></li>
     </ul>
   </nav>
@@ -741,6 +742,38 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
   </div>
 </section>
 
+<!-- Verificar certificado -->
+<section id="verificar" style="background: var(--bg-main); padding: 5rem 0;">
+  <div class="container" style="max-width:680px;">
+    <div class="section-header reveal" style="margin-bottom:2rem;">
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(42,157,143,.12);border:1px solid rgba(42,157,143,.3);border-radius:2rem;padding:.35rem 1rem;font-size:.8rem;color:var(--primary);margin-bottom:1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Verificación pública
+      </div>
+      <h2>¿Tienes un certificado?</h2>
+      <p>Introduce el token de verificación para comprobar la autenticidad, puntuación y vigencia de cualquier auditoría emitida por GuardianOS Audit</p>
+    </div>
+    <div class="reveal" style="background:var(--bg-card);border:1px solid rgba(42,157,143,.2);border-radius:1rem;padding:2rem 2rem 1.8rem;">
+      <label style="display:block;font-size:.85rem;color:var(--text-muted);margin-bottom:.6rem;letter-spacing:.04em;">TOKEN DEL CERTIFICADO</label>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+        <input id="verifyInput" type="text"
+          placeholder="ej. zi7uinawq7td"
+          style="flex:1;min-width:200px;background:#0d1117;border:1px solid rgba(42,157,143,.35);border-radius:.6rem;padding:.75rem 1rem;color:#e2e8f0;font-family:monospace;font-size:.95rem;outline:none;transition:border-color .2s;"
+          onkeydown="if(event.key==='Enter') verificarToken()"
+          onfocus="this.style.borderColor='var(--primary)'"
+          onblur="this.style.borderColor='rgba(42,157,143,.35)'">
+        <button onclick="verificarToken()" class="btn-primary" style="white-space:nowrap;padding:.75rem 1.6rem;font-size:.95rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:.4rem;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Verificar
+        </button>
+      </div>
+      <p style="margin-top:1rem;font-size:.78rem;color:var(--text-muted);">
+        El token aparece en el PDF del informe, en el código QR y en la sección <em>Certificados</em> del dashboard.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- Contact -->
 <section class="contact-section" id="contacto">
   <div class="container">
@@ -932,6 +965,19 @@ auditForm?.addEventListener('submit', function(e) {
     btn.style.background = 'linear-gradient(135deg, var(--primary), var(--secondary))';
   }, 2000);
 });
+
+function verificarToken() {
+  const raw = (document.getElementById('verifyInput')?.value || '').trim();
+  if (!raw) {
+    document.getElementById('verifyInput').style.borderColor = '#e63946';
+    setTimeout(() => document.getElementById('verifyInput').style.borderColor = 'rgba(42,157,143,.35)', 1500);
+    return;
+  }
+  // Extraer solo el token si el usuario pegó la URL completa
+  const match = raw.match(/verify\/([^/?#\s]+)/) || raw.match(/^([a-zA-Z0-9_-]+)$/);
+  const token = match ? match[1] : raw;
+  window.location.href = '/audit/verify/' + encodeURIComponent(token);
+}
 
 // ── Verificación pública de certificados ─────────────────────────────────────
 // Actúa cuando la URL es: guardianos.es/audit/verify/TOKEN
