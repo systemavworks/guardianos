@@ -381,6 +381,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
       <li><a href="/shield" onclick="closeMobileMenu()">Shield</a></li>
       <li><a href="/audit" class="active" onclick="closeMobileMenu()">Audit</a></li>
       <li><a href="#verificar" onclick="closeMobileMenu()" style="color:var(--primary);">🔍 Verificar</a></li>
+      <li><a href="#prueba-gratis" onclick="closeMobileMenu()" style="color:var(--secondary);font-weight:600;">⚡ Prueba gratis</a></li>
       <li><a href="#contacto" onclick="closeMobileMenu()">Contacto</a></li>
     </ul>
   </nav>
@@ -402,8 +403,8 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
       <h1>GuardianOS <span>Audit</span></h1>
       <p class="hero-sub">Auditoría de seguridad integral para dominios, infraestructura web y sistemas operativos. Escaneo automatizado de DNS, SSL, CVE y cabeceras HTTP—más agentes ligeros Bash/PowerShell para auditar servidores <strong>Linux y Windows</strong> de forma periódica. Backend propio, base de datos y dashboard incluidos. Informes con cadena forense SHA-256, certificado verificable y alineación con ISO 27001, GDPR y ENS. Sin vigilancia invasiva. Sin enviar tus datos a terceros.</p>
       <div class="hero-actions">
-        <a href="#contacto" class="btn btn-primary">Solicitar Auditoría</a>
-        <a href="https://github.com/systemavworks/guardianos-audit" class="btn btn-outline" target="_blank" rel="noopener">Ver en GitHub</a>
+        <a href="#prueba-gratis" class="btn btn-primary">⚡ Analizar mi dominio gratis</a>
+        <a href="#contacto" class="btn btn-outline">Solicitar Auditoría</a>
       </div>
     </div>
   </div>
@@ -879,6 +880,291 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PRUEBA GRATUITA
+════════════════════════════════════════════════════════ -->
+<section id="prueba-gratis" style="background: var(--bg-card); padding: 5rem 0; border-top: 1px solid rgba(42,157,143,0.15);">
+  <div class="container" style="max-width: 680px;">
+    <div class="section-header reveal" style="margin-bottom: 2.5rem;">
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(42,157,143,.12);border:1px solid rgba(42,157,143,.3);border-radius:2rem;padding:.35rem 1rem;font-size:.8rem;color:var(--primary);margin-bottom:1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        1 auditoría gratuita · sin tarjeta · sin contratos
+      </div>
+      <h2>Analiza tu dominio ahora</h2>
+      <p>Obtén tu score de seguridad real en minutos. Usamos los mismos motores que el plan de pago — sin restricciones en el análisis técnico.</p>
+    </div>
+
+    <!-- PASO 1 — Formulario -->
+    <div id="trial-step-form" class="reveal">
+      <div style="background:var(--bg-main);border:1px solid rgba(42,157,143,.2);border-radius:1rem;padding:2rem;">
+        <form id="trial-form" onsubmit="trialSubmit(event)" novalidate>
+          <div style="display:flex;flex-direction:column;gap:1.1rem;">
+            <div>
+              <label style="display:block;font-size:.8rem;color:var(--text-muted);letter-spacing:.06em;margin-bottom:.5rem;">DOMINIO A AUDITAR</label>
+              <input id="trial-domain" type="text" autocomplete="off" spellcheck="false"
+                placeholder="tuempresa.com"
+                style="width:100%;background:#0d1117;border:1px solid rgba(42,157,143,.3);border-radius:.6rem;padding:.8rem 1rem;color:#e2e8f0;font-size:1rem;outline:none;box-sizing:border-box;transition:border-color .2s;"
+                onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(42,157,143,.3)'">
+            </div>
+            <div>
+              <label style="display:block;font-size:.8rem;color:var(--text-muted);letter-spacing:.06em;margin-bottom:.5rem;">TU EMAIL — para recibir resultados</label>
+              <input id="trial-email" type="email" autocomplete="email"
+                placeholder="tu@empresa.com"
+                style="width:100%;background:#0d1117;border:1px solid rgba(42,157,143,.3);border-radius:.6rem;padding:.8rem 1rem;color:#e2e8f0;font-size:1rem;outline:none;box-sizing:border-box;transition:border-color .2s;"
+                onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(42,157,143,.3)'">
+            </div>
+            <button type="submit" id="trial-submit-btn" class="btn btn-primary" style="width:100%;padding:.9rem;font-size:1rem;">
+              Analizar gratis →
+            </button>
+            <p id="trial-error" style="color:#f85149;font-size:.85rem;text-align:center;display:none;margin:0;padding:.5rem;background:rgba(248,81,73,.08);border-radius:.5rem;"></p>
+            <p style="font-size:.75rem;color:var(--text-muted);text-align:center;margin:0;">
+              Al continuar aceptas nuestra <a href="/politica-privacidad" style="color:var(--primary);">política de privacidad</a>. 1 prueba por email. Sin spam, nunca.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- PASO 2 — Cargando -->
+    <div id="trial-step-loading" style="display:none;">
+      <div style="background:var(--bg-main);border:1px solid rgba(42,157,143,.2);border-radius:1rem;padding:3rem 2rem;text-align:center;">
+        <style>.trial-spinner{width:52px;height:52px;border:3px solid rgba(42,157,143,.15);border-top-color:var(--primary);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 1.5rem;}@keyframes spin{to{transform:rotate(360deg)}}</style>
+        <div class="trial-spinner"></div>
+        <h3 style="margin:0 0 .4rem;font-size:1.2rem;">Analizando <span id="trial-loading-domain" style="color:var(--primary);"></span></h3>
+        <p style="color:var(--text-secondary);font-size:.9rem;margin:0 0 1.8rem;">Esto puede tardar 2–8 minutos. No cierres esta pestaña.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;" id="trial-checks">
+          <span id="tck-dns"        style="padding:.3rem .8rem;border-radius:2rem;font-size:.78rem;background:rgba(42,157,143,.08);border:1px solid rgba(42,157,143,.2);color:var(--text-secondary);">⏳ DNS</span>
+          <span id="tck-ssl"        style="padding:.3rem .8rem;border-radius:2rem;font-size:.78rem;background:rgba(42,157,143,.08);border:1px solid rgba(42,157,143,.2);color:var(--text-secondary);">⏳ TLS/SSL</span>
+          <span id="tck-headers"    style="padding:.3rem .8rem;border-radius:2rem;font-size:.78rem;background:rgba(42,157,143,.08);border:1px solid rgba(42,157,143,.2);color:var(--text-secondary);">⏳ Headers HTTP</span>
+          <span id="tck-ports"      style="padding:.3rem .8rem;border-radius:2rem;font-size:.78rem;background:rgba(42,157,143,.08);border:1px solid rgba(42,157,143,.2);color:var(--text-secondary);">⏳ Puertos</span>
+          <span id="tck-compliance" style="padding:.3rem .8rem;border-radius:2rem;font-size:.78rem;background:rgba(42,157,143,.08);border:1px solid rgba(42,157,143,.2);color:var(--text-secondary);">⏳ 21 Marcos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 3 — Resultado -->
+    <div id="trial-step-result" style="display:none;"></div>
+  </div>
+</section>
+
+<style>
+.trial-finding { display:flex; align-items:flex-start; gap:.75rem; padding:.9rem 0; border-bottom:1px solid rgba(255,255,255,.05); }
+.trial-finding:last-child { border-bottom:none; }
+.trial-finding-badge { flex-shrink:0; padding:.2rem .6rem; border-radius:2rem; font-size:.72rem; font-weight:700; letter-spacing:.04em; }
+.trial-badge-critical { background:rgba(248,81,73,.15); color:#f85149; border:1px solid rgba(248,81,73,.3); }
+.trial-badge-high     { background:rgba(255,159,67,.15); color:#ff9f43; border:1px solid rgba(255,159,67,.3); }
+.trial-badge-medium   { background:rgba(254,202,87,.12); color:#feca57; border:1px solid rgba(254,202,87,.3); }
+.trial-badge-low      { background:rgba(42,157,143,.15); color:var(--primary); border:1px solid rgba(42,157,143,.3); }
+.trial-cta-box { background:linear-gradient(135deg,rgba(42,157,143,.15),rgba(42,157,143,.05)); border:1px solid rgba(42,157,143,.3); border-radius:.8rem; padding:1.5rem; text-align:center; margin-top:1.5rem; }
+</style>
+
+<script>
+(function() {
+  // URL base de la API — misma origin que el navegador + ruta /api
+  const API = '';  // vacío = mismo dominio
+
+  function showTrialStep(step) {
+    ['form','loading','result'].forEach(function(s) {
+      document.getElementById('trial-step-' + s).style.display = (s === step) ? '' : 'none';
+    });
+  }
+
+  function showTrialError(msg) {
+    var el = document.getElementById('trial-error');
+    if (!msg) { el.style.display = 'none'; return; }
+    el.textContent = msg;
+    el.style.display = 'block';
+    showTrialStep('form');
+  }
+
+  var checksDone = false;
+  function animateChecks() {
+    if (checksDone) return;
+    checksDone = true;
+    var ids = ['tck-dns','tck-ssl','tck-headers','tck-ports','tck-compliance'];
+    ids.forEach(function(id, i) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      setTimeout(function() {
+        el.style.background = 'rgba(42,157,143,.12)';
+        el.style.borderColor = 'rgba(42,157,143,.5)';
+        el.style.color = 'var(--primary)';
+        el.textContent = el.textContent.replace('⏳', '🔍');
+      }, 800 + i * 600);
+    });
+  }
+
+  function scoreColor(score) {
+    if (score >= 90) return '#2a9d8f';
+    if (score >= 75) return '#52b788';
+    if (score >= 50) return '#feca57';
+    return '#f85149';
+  }
+
+  function riskLabel(risk) {
+    var map = { CRITICAL:'Crítico', HIGH:'Alto', MEDIUM:'Medio', LOW:'Bajo', MINIMAL:'Mínimo' };
+    return map[risk] || risk;
+  }
+
+  function badgeClass(risk) {
+    var map = { CRITICAL:'critical', HIGH:'high', MEDIUM:'medium', LOW:'low', MINIMAL:'low' };
+    return 'trial-badge-' + (map[risk] || 'low');
+  }
+
+  function renderPreview(report) {
+    var score     = report.overallScore || 0;
+    var risk      = report.riskLevel || 'UNKNOWN';
+    var findings  = (report.findings || []).filter(function(f) {
+                      return f.risk === 'CRITICAL' || f.risk === 'HIGH' || f.risk === 'MEDIUM';
+                    }).slice(0, 3);
+    var compCount = report.complianceEvaluations ? Object.keys(report.complianceEvaluations).length : 0;
+    var domain    = report.target || '';
+
+    var findingsHtml = findings.length > 0
+      ? findings.map(function(f) {
+          return '<div class="trial-finding">' +
+            '<span class="trial-finding-badge ' + badgeClass(f.risk) + '">' + f.risk + '</span>' +
+            '<div style="flex:1;min-width:0;">' +
+              '<p style="margin:0;font-size:.9rem;color:var(--text-primary);">' + escHtml(f.title) + '</p>' +
+              '<p style="margin:.2rem 0 0;font-size:.78rem;color:var(--text-muted);">' + escHtml((f.description||'').slice(0,100)) + (f.description && f.description.length > 100 ? '…' : '') + '</p>' +
+            '</div></div>';
+        }).join('')
+      : '<p style="color:var(--text-secondary);font-size:.9rem;text-align:center;padding:1rem 0;">✅ No se detectaron hallazgos críticos o altos. ¡Buen estado de seguridad!</p>';
+
+    var extraBlurred = '<div style="filter:blur(4px);opacity:.5;pointer-events:none;user-select:none;">' +
+      '<div class="trial-finding"><span class="trial-finding-badge trial-badge-high">HIGH</span><div style="flex:1"><p style="margin:0;font-size:.9rem;color:#e2e8f0;">████████████████████████████</p><p style="margin:.2rem 0 0;font-size:.78rem;color:#666;">█████████████████████████████████████</p></div></div>' +
+      '<div class="trial-finding"><span class="trial-finding-badge trial-badge-medium">MEDIUM</span><div style="flex:1"><p style="margin:0;font-size:.9rem;color:#e2e8f0;">███████████████████████</p><p style="margin:.2rem 0 0;font-size:.78rem;color:#666;">████████████████████████████████</p></div></div>' +
+      '</div>' +
+      '<p style="text-align:center;font-size:.82rem;color:var(--text-muted);margin:.5rem 0 0;">🔒 ' + (report.summary && report.summary.totalFindings ? (report.summary.totalFindings - findings.length) : 'X') + ' hallazgos adicionales en el informe completo</p>';
+
+    var html = '<div style="background:var(--bg-main);border:1px solid rgba(42,157,143,.25);border-radius:1rem;overflow:hidden;">' +
+      // Score header
+      '<div style="background:linear-gradient(135deg,rgba(42,157,143,.15),rgba(42,157,143,.05));padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">' +
+        '<div>' +
+          '<p style="margin:0 0 .2rem;font-size:.8rem;color:var(--text-muted);letter-spacing:.06em;">RESULTADO PARA</p>' +
+          '<p style="margin:0;font-size:1rem;color:var(--text-primary);font-weight:700;">' + escHtml(domain) + '</p>' +
+        '</div>' +
+        '<div style="text-align:center;">' +
+          '<div style="font-size:3rem;font-weight:900;line-height:1;color:' + scoreColor(score) + ';">' + score + '</div>' +
+          '<div style="font-size:.75rem;color:var(--text-muted);margin-top:.2rem;">/ 100</div>' +
+        '</div>' +
+        '<div style="text-align:center;">' +
+          '<span style="padding:.4rem 1rem;border-radius:2rem;font-size:.85rem;font-weight:700;background:rgba(42,157,143,.1);border:1px solid rgba(42,157,143,.3);color:var(--primary);">' + riskLabel(risk) + '</span>' +
+          '<p style="margin:.4rem 0 0;font-size:.75rem;color:var(--text-muted);">' + compCount + ' marcos evaluados</p>' +
+        '</div>' +
+      '</div>' +
+      // Findings
+      '<div style="padding:1.5rem 2rem;">' +
+        '<p style="margin:0 0 1rem;font-size:.85rem;color:var(--text-muted);font-weight:600;letter-spacing:.04em;">HALLAZGOS PRINCIPALES</p>' +
+        findingsHtml +
+        extraBlurred +
+      '</div>' +
+      // CTA
+      '<div class="trial-cta-box" style="margin:0;border-radius:0;border-left:none;border-right:none;border-bottom:none;">' +
+        '<p style="margin:0 0 .5rem;font-weight:700;font-size:1.05rem;">¿Quieres el informe completo con PDF y certificado?</p>' +
+        '<p style="color:var(--text-secondary);margin:0 0 1.2rem;font-size:.9rem;">Descarga el PDF técnico · 21 marcos de compliance · Cadena forense SHA-256 · Certificado verificable</p>' +
+        '<a href="#contacto" class="btn btn-primary" style="display:inline-block;text-decoration:none;padding:.75rem 2rem;">Ver planes desde 89 € →</a>' +
+        '<p style="margin:.8rem 0 0;font-size:.78rem;color:var(--text-muted);">O escríbenos a <a href="mailto:audit@guardianos.es" style="color:var(--primary);">audit@guardianos.es</a> para una demo personalizada</p>' +
+      '</div>' +
+    '</div>' +
+    '<p style="text-align:center;margin-top:1rem;"><a href="#prueba-gratis" onclick="trialReset()" style="color:var(--primary);font-size:.85rem;">← Analizar otro dominio</a></p>';
+
+    document.getElementById('trial-step-result').innerHTML = html;
+    showTrialStep('result');
+  }
+
+  function escHtml(str) {
+    if (!str) return '';
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  var pollTimer = null;
+  function pollTrialResult(auditId, attempt) {
+    attempt = attempt || 0;
+    if (attempt > 90) {  // máx ~7.5 min
+      showTrialError('La auditoría está tardando más de lo esperado. Escríbenos a audit@guardianos.es e investigamos.');
+      return;
+    }
+    fetch(API + '/api/v1/audit/' + auditId)
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(data) {
+        if (!data) { pollTimer = setTimeout(function(){ pollTrialResult(auditId, attempt + 1); }, 5000); return; }
+        var status = data.status || '';
+        if (status === 'COMPLETED') {
+          renderPreview(data);
+        } else if (status === 'FAILED') {
+          showTrialError('La auditoría no pudo completarse. Comprueba que el dominio sea correcto y vuelve a intentarlo.');
+        } else {
+          pollTimer = setTimeout(function(){ pollTrialResult(auditId, attempt + 1); }, 5000);
+        }
+      })
+      .catch(function() {
+        pollTimer = setTimeout(function(){ pollTrialResult(auditId, attempt + 1); }, 6000);
+      });
+  }
+
+  window.trialSubmit = function(event) {
+    event.preventDefault();
+    var domain = document.getElementById('trial-domain').value.trim();
+    var email  = document.getElementById('trial-email').value.trim();
+    if (!domain || !email) return;
+
+    // Limpiar protocolo y rutas del dominio
+    var cleanDomain = domain.replace(/^https?:\/\//,'').replace(/\/.*$/,'').toLowerCase();
+
+    checksDone = false;
+    showTrialError('');
+    showTrialStep('loading');
+    document.getElementById('trial-loading-domain').textContent = cleanDomain;
+    setTimeout(animateChecks, 300);
+
+    fetch(API + '/api/v1/trial', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, domain: cleanDomain })
+    })
+    .then(function(res) {
+      if (res.status === 409) {
+        showTrialError('Este email ya tiene una prueba activa. Escríbenos a audit@guardianos.es si necesitas ayuda.');
+        return null;
+      }
+      if (res.status === 429) {
+        showTrialError('Demasiadas solicitudes. Espera unos minutos e inténtalo de nuevo.');
+        return null;
+      }
+      if (res.status === 422) {
+        return res.json().then(function(d) { showTrialError(d.error || 'Datos inválidos. Comprueba el dominio y email.'); return null; });
+      }
+      if (res.status === 503) {
+        showTrialError('El servidor está ocupado ahora mismo. Inténtalo en unos minutos.');
+        return null;
+      }
+      if (!res.ok) {
+        showTrialError('Error al iniciar la auditoría. Inténtalo de nuevo o escríbenos.');
+        return null;
+      }
+      return res.json();
+    })
+    .then(function(data) {
+      if (!data) return;
+      pollTrialResult(data.auditId);
+    })
+    .catch(function() {
+      showTrialError('No se pudo conectar con el servidor. Verifica tu conexión e inténtalo.');
+    });
+  };
+
+  window.trialReset = function() {
+    if (pollTimer) { clearTimeout(pollTimer); pollTimer = null; }
+    checksDone = false;
+    document.getElementById('trial-domain').value = '';
+    document.getElementById('trial-email').value = '';
+    showTrialError('');
+    showTrialStep('form');
+  };
+})();
+</script>
 
 <!-- Contact -->
 <section class="contact-section" id="contacto">
