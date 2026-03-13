@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Política de seguridad, declaración OWASP ASVS, conformidad CRA y transparencia técnica de GuardianOS Audit — plataforma de auditoría de ciberseguridad.">
+<title>Seguridad &amp; Transparencia — GuardianOS Audit</title>
+<meta property="og:title" content="Seguridad &amp; Transparencia — GuardianOS Audit">
+<meta property="og:description" content="Declaración CRA, autoevaluación OWASP ASVS Level 2, arquitectura de seguridad y política de divulgación responsable de GuardianOS Audit.">
+<meta property="og:url" content="https://guardianos.es/audit/security">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://guardianos.es/audit/security" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script defer data-domain="guardianos.es" src="https://plausible.io/js/script.js"></script>
+<style>
+:root {
+  --primary: #2a9d8f;
+  --primary-dark: #1a7a6e;
+  --secondary: #52b788;
+  --accent: #c9a94e;
+  --dark: #050505;
+  --bg-main: #0a0e12;
+  --bg-card: #111620;
+  --bg-elevated: #171e2c;
+  --text-primary: #dde4ec;
+  --text-secondary: #7a8fa8;
+  --border: #1e2d3d;
+  --color-ok: #52b788;
+  --color-warn: #ffab40;
+  --color-info: #2a9d8f;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: var(--text-primary); background: var(--bg-main); overflow-x: hidden; }
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--primary-dark); }
+code { background: rgba(42,157,143,0.12); padding: 0.1rem 0.4rem; border-radius: 0.3rem; font-size: 0.88em; font-family: 'JetBrains Mono', 'Fira Code', monospace; color: var(--secondary); }
+pre code { background: transparent; padding: 0; font-size: 0.85rem; }
+pre { background: #0d1117; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem 1.5rem; overflow-x: auto; line-height: 1.6; }
+
+/* HEADER */
+header { background: rgba(10,15,15,0.97); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+.logo { display: flex; align-items: center; gap: 0.75rem; font-size: 1.1rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+.logo-img { height: 44px; width: auto; filter: drop-shadow(0 0 8px rgba(42,157,143,0.3)); }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a { color: var(--text-secondary); font-weight: 500; font-size: 0.92rem; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+.breadcrumb { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 0.6rem 0; font-size: 0.85rem; color: var(--text-secondary); }
+.breadcrumb a { color: var(--text-secondary); }
+.breadcrumb a:hover { color: var(--primary); }
+.breadcrumb span { margin: 0 0.4rem; }
+
+/* HERO */
+.page-hero { background: linear-gradient(135deg, #0a0f0f 0%, #0f1f1f 60%, #0a1810 100%); padding: 4.5rem 0 3.5rem; border-bottom: 1px solid var(--border); }
+.page-hero h1 { font-size: 2.6rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+.page-hero h1 span { color: var(--primary); }
+.page-hero p { font-size: 1.1rem; color: var(--text-secondary); max-width: 680px; margin-bottom: 1.5rem; }
+.badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+.badge { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.3rem 0.85rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 600; background: var(--bg-elevated); border: 1px solid var(--border); color: var(--text-secondary); }
+.badge-ok { background: rgba(82,183,136,0.1); border-color: var(--color-ok); color: var(--color-ok); }
+.badge-info { background: rgba(42,157,143,0.1); border-color: var(--primary); color: var(--primary); }
+.badge-warn { background: rgba(255,171,64,0.1); border-color: var(--color-warn); color: var(--color-warn); }
+
+/* TOC */
+.toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem 2rem; margin: 2.5rem 0; }
+.toc h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 1rem; }
+.toc ol { padding-left: 1.25rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.25rem 2rem; }
+.toc li { font-size: 0.9rem; padding: 0.2rem 0; }
+.toc a { color: var(--text-secondary); }
+.toc a:hover { color: var(--primary); }
+
+/* SECTIONS */
+.doc-section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
+.doc-section:last-child { border-bottom: none; }
+.section-tag { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(42,157,143,0.1); border: 1px solid rgba(42,157,143,0.25); border-radius: 2rem; padding: 0.25rem 0.85rem; font-size: 0.78rem; color: var(--primary); font-weight: 600; letter-spacing: 0.04em; margin-bottom: 0.85rem; }
+.doc-section h2 { font-size: 1.85rem; color: var(--text-primary); margin-bottom: 0.6rem; }
+.doc-section h3 { font-size: 1.15rem; color: var(--text-primary); margin: 1.75rem 0 0.5rem; }
+.doc-section p { color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.7; }
+.doc-section ul, .doc-section ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1rem; }
+.doc-section li { padding: 0.2rem 0; line-height: 1.7; }
+
+/* ASVS TABLE */
+.asvs-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.88rem; }
+.asvs-table th { background: var(--bg-elevated); color: var(--text-secondary); font-weight: 600; padding: 0.75rem 1rem; text-align: left; border-bottom: 2px solid var(--border); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.asvs-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; }
+.asvs-table tr:hover td { background: rgba(42,157,143,0.04); }
+.status-ok { color: var(--color-ok); font-weight: 600; }
+.status-partial { color: var(--color-warn); font-weight: 600; }
+.status-na { color: var(--text-secondary); opacity: 0.6; }
+.asvs-category { font-weight: 700; color: var(--text-primary); }
+
+/* ARCH BLOCKS */
+.arch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; }
+.arch-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.875rem; padding: 1.25rem; transition: border-color 0.2s; }
+.arch-block:hover { border-color: var(--primary); }
+.arch-block h4 { color: var(--text-primary); font-size: 0.95rem; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem; }
+.arch-block p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; margin: 0; }
+.arch-icon { color: var(--primary); flex-shrink: 0; }
+
+/* CRA BOX */
+.cra-box { background: var(--bg-elevated); border: 1px solid rgba(42,157,143,0.35); border-radius: 1rem; padding: 2rem; margin: 1.5rem 0; }
+.cra-box h3 { color: var(--primary); margin-bottom: 1rem; }
+.cra-dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1.5rem; font-size: 0.9rem; }
+.cra-dl dt { color: var(--text-secondary); font-weight: 600; white-space: nowrap; padding: 0.2rem 0; }
+.cra-dl dd { color: var(--text-primary); padding: 0.2rem 0; }
+
+/* DISCLOSURE */
+.timeline { display: flex; flex-direction: column; gap: 0; margin: 1.25rem 0; }
+.timeline-item { display: flex; gap: 1.25rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+.timeline-item:last-child { border-bottom: none; }
+.timeline-time { min-width: 130px; font-weight: 600; color: var(--primary); font-size: 0.88rem; }
+.timeline-desc { color: var(--text-secondary); font-size: 0.9rem; }
+
+/* SCORE BLOCK */
+.score-block { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.score-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.875rem; padding: 1.25rem; text-align: center; }
+.score-card .num { font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; }
+.score-card .label { font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.35rem; }
+
+/* UPDATES */
+.changelog-list { display: flex; flex-direction: column; gap: 0.6rem; margin: 1rem 0; }
+.changelog-item { display: flex; gap: 1rem; align-items: baseline; font-size: 0.9rem; }
+.changelog-date { color: var(--accent); font-size: 0.82rem; min-width: 90px; font-weight: 500; }
+.changelog-desc { color: var(--text-secondary); }
+
+/* FOOTER */
+footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 2.5rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-inner { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: flex-start; }
+.footer-inner p { font-size: 0.85rem; line-height: 1.7; }
+.footer-inner a { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+.footer-inner a:hover { color: var(--primary); }
+.footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+.trust-badge-sm { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.2rem 0.6rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600; background: rgba(42,157,143,0.1); border: 1px solid rgba(42,157,143,0.3); color: var(--primary); margin: 0.15rem; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .page-hero h1 { font-size: 1.9rem; }
+  .cra-dl { grid-template-columns: 1fr; gap: 0.1rem; }
+  .cra-dl dt { padding-top: 0.6rem; }
+  .asvs-table { font-size: 0.8rem; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <nav class="container">
+    <a href="/audit" class="logo">
+      <img src="/audit/logo_guardianos_audit.jpg" alt="GuardianOS Audit" class="logo-img">
+      <span>🛡️ GuardianOS <strong style="color:var(--secondary)">Audit</strong></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/audit">Inicio</a></li>
+      <li><a href="/audit#features">Características</a></li>
+      <li><a href="/audit#verificar">Verificar</a></li>
+      <li><a href="/audit/security" class="active">Seguridad</a></li>
+      <li><a href="/audit#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">guardianos.es</a>
+    <span>›</span>
+    <a href="/audit">Audit</a>
+    <span>›</span>
+    <span style="color:var(--primary);">Seguridad</span>
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="page-hero">
+  <div class="container">
+    <div class="section-tag">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Seguridad &amp; Transparencia Técnica
+    </div>
+    <h1>Seguridad de la <span>Plataforma</span></h1>
+    <p>Declaración de conformidad CRA, autoevaluación OWASP ASVS Level 2, arquitectura de seguridad y política de divulgación responsable de vulnerabilidades. Todos los documentos son públicos y auditables.</p>
+    <div class="badge-row">
+      <span class="badge badge-ok">✓ OWASP ASVS Level 2</span>
+      <span class="badge badge-ok">✓ Declaración CRA Preliminar</span>
+      <span class="badge badge-ok">✓ Software Registrado (OEPM + Junta Andalucía)</span>
+      <span class="badge badge-info">📜 Privacy by Design</span>
+      <span class="badge badge-info">🔓 Código Auditado Públicamente</span>
+      <span class="badge badge-info">AGPL-3.0</span>
+    </div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="container">
+  <nav class="toc" aria-label="Índice del documento">
+    <h3>Contenido</h3>
+    <ol>
+      <li><a href="#registro">Registro de Propiedad</a></li>
+      <li><a href="#cra">Declaración CRA</a></li>
+      <li><a href="#asvs">OWASP ASVS Level 2</a></li>
+      <li><a href="#arquitectura">Arquitectura de Seguridad</a></li>
+      <li><a href="#datos">Protección de Datos</a></li>
+      <li><a href="#disclosure">Divulgación Responsable</a></li>
+      <li><a href="#actualizaciones">Historial de Actualizaciones</a></li>
+    </ol>
+  </nav>
+</div>
+
+<!-- 1. REGISTRO -->
+<section class="doc-section" id="registro">
+  <div class="container">
+    <div class="section-tag">01 — Propiedad Intelectual</div>
+    <h2>Registro de Software</h2>
+    <p>GuardianOS Audit está registrado como obra de software original bajo la titularidad de Víctor García en los siguientes registros oficiales:</p>
+    <div class="arch-grid" style="margin-top:1.5rem;">
+      <div class="arch-block" style="border-color:rgba(201,169,78,0.4);">
+        <h4>
+          <svg class="arch-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Propiedad Intelectual — Junta de Andalucía
+        </h4>
+        <p>Registro de obra literaria (software) en el Registro de la Propiedad Intelectual de la Comunidad Autónoma de Andalucía. Acredita autoría y fecha de creación con valor jurídico ante tribunales españoles y europeos (Directiva 2009/24/CE).</p>
+      </div>
+      <div class="arch-block" style="border-color:rgba(42,157,143,0.4);">
+        <h4>
+          <svg class="arch-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          Registro Nominativo — OEPM
+        </h4>
+        <p>Registro de nombre comercial / denominación ante la <strong>Oficina Española de Patentes y Marcas</strong>. Protege la denominación «GuardianOS Audit» en las clases de software y servicios de seguridad informática en todo el territorio nacional.</p>
+      </div>
+    </div>
+    <div class="cra-box" style="margin-top:1.5rem;border-color:rgba(82,183,136,0.3);">
+      <p style="font-size:0.9rem;margin:0;color:var(--text-secondary);">
+        <strong style="color:var(--text-primary);">Licencia pública:</strong> El código fuente se distribuye bajo licencia <strong>AGPL-3.0</strong>. El registro de propiedad intelectual protege la autoría y la versión comercial del software, sin restringir los derechos de los usuarios de la versión libre (acceso al código fuente, modificación y distribución bajo los mismos términos). Ver <a href="https://github.com/systemavworks/guardianos-audit/blob/main/LICENSE" target="_blank" rel="noopener">LICENSE</a> en GitHub.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. CRA -->
+<section class="doc-section" id="cra">
+  <div class="container">
+    <div class="section-tag">02 — CRA (Cyber Resilience Act)</div>
+    <h2>Declaración Preliminar de Conformidad</h2>
+    <p>El <strong>Reglamento (UE) 2024/2847</strong> sobre Resiliencia Cibernética (CRA) establece requisitos esenciales de ciberseguridad para productos con elementos digitales. GuardianOS Audit se clasifica como producto de <strong>categoría predeterminada</strong> (Clase I — sin organismo de evaluación notificado obligatorio) y declara cumplimiento por <em>autoevaluación documentada</em>.</p>
+
+    <div class="cra-box">
+      <h3>📋 Declaración UE de Conformidad — GuardianOS Audit v1.x</h3>
+      <dl class="cra-dl">
+        <dt>Producto:</dt>
+        <dd>GuardianOS Audit — Plataforma de auditoría de ciberseguridad</dd>
+        <dt>Versión:</dt>
+        <dd>1.3.x (rama <code>main</code>, tag publicado en GitHub)</dd>
+        <dt>Fabricante:</dt>
+        <dd>Víctor García — systemavworks, Andalucía, España</dd>
+        <dt>Clase CRA:</dt>
+        <dd>Categoría predeterminada (Anexo III, sin organismo notificado obligatorio)</dd>
+        <dt>Normas aplicadas:</dt>
+        <dd>OWASP ASVS 4.0.3 Level 2 · ETSI EN 303 645 (donde aplica) · ISO/IEC 27001:2022 (referencia) · ENS categoría básica</dd>
+        <dt>Fecha declaración:</dt>
+        <dd>13 de marzo de 2026</dd>
+        <dt>Próxima revisión:</dt>
+        <dd>Septiembre 2026 o con cada versión major</dd>
+      </dl>
+    </div>
+
+    <h3>Requisitos esenciales del Anexo I CRA — Estado de cumplimiento</h3>
+    <table class="asvs-table">
+      <thead>
+        <tr>
+          <th>Requisito CRA (Anexo I)</th>
+          <th>Estado</th>
+          <th>Evidencia / Mecanismo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sin vulnerabilidades conocidas explotables en la entrega</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>Dependencias saneadas con <code>gradle dependencies</code>; revisión manual antes de cada release</td>
+        </tr>
+        <tr>
+          <td>Configuración segura predeterminada</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>Docker Compose con red interna, sin puertos expuestos innecesarios, HTTPS obligatorio</td>
+        </tr>
+        <tr>
+          <td>Confidencialidad — protección de datos en reposo y tránsito</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>TLS 1.3, credenciales nunca almacenadas en texto plano, API keys hasheadas SHA-256, DB cifrada en producción</td>
+        </tr>
+        <tr>
+          <td>Integridad — protección frente a manipulación no autorizada</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>JWT firmado, cadena forense SHA-256 por auditoría, validación de entrada server-side</td>
+        </tr>
+        <tr>
+          <td>Disponibilidad — resiliencia ante DoS básico</td>
+          <td class="status-partial">~ PARCIAL</td>
+          <td>Rate limiting en nginx; sin mitigación DDoS L3/L4 dedicada (fuera de alcance para despliegues auto-hospedados)</td>
+        </tr>
+        <tr>
+          <td>Control de acceso — principio de mínimo privilegio</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>Multi-tenant, JWT por usuario, API keys con scopes, contenedores sin privilegios root</td>
+        </tr>
+        <tr>
+          <td>Minimización de superficie de ataque</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>Solo puertos 80/443 expuestos; servicios internos en red Docker privada</td>
+        </tr>
+        <tr>
+          <td>Política de divulgación de vulnerabilidades</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td><a href="https://guardianos.es/.well-known/security.txt">.well-known/security.txt</a> · <a href="#disclosure">sección disclosure</a> de este documento</td>
+        </tr>
+        <tr>
+          <td>Instrucciones de uso seguro disponibles</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td><a href="https://github.com/systemavworks/guardianos-audit/blob/main/FIRST_STEPS.md" target="_blank" rel="noopener">FIRST_STEPS.md</a> · <a href="https://github.com/systemavworks/guardianos-audit/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">ARCHITECTURE.md</a></td>
+        </tr>
+        <tr>
+          <td>Actualizaciones de seguridad durante período de soporte</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>Releases en GitHub con changelog; parches críticos en ≤14 días; ver <a href="#actualizaciones">historial</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:1rem;font-size:0.85rem;">
+      📄 <a href="/audit/security/declaracion-cra.html">Versión imprimible de la Declaración CRA</a> — lista para adjuntar a propuestas comerciales y licitaciones.
+    </p>
+  </div>
+</section>
+
+<!-- 3. OWASP ASVS -->
+<section class="doc-section" id="asvs">
+  <div class="container">
+    <div class="section-tag">03 — OWASP ASVS 4.0.3</div>
+    <h2>Autoevaluación OWASP ASVS Level 2</h2>
+    <p>El <strong>Application Security Verification Standard (ASVS)</strong> de OWASP define requisitos de seguridad verificables para aplicaciones web. GuardianOS Audit se autoevalúa en el <strong>Nivel 2</strong> (software comercial con datos sensibles) mediante revisión de código, pruebas manuales y análisis de configuración.</p>
+    <p style="font-size:0.85rem;color:var(--color-warn);">⚠ Esta es una autoevaluación documentada, no una certificación por tercero. Publicamos los resultados por transparencia.</p>
+
+    <div class="score-block">
+      <div class="score-card">
+        <div class="num">V1</div>
+        <div class="label">Arquitectura — ✓ CUMPLE</div>
+      </div>
+      <div class="score-card">
+        <div class="num">V2</div>
+        <div class="label">Autenticación — ✓ CUMPLE</div>
+      </div>
+      <div class="score-card">
+        <div class="num">V3</div>
+        <div class="label">Sesión — ✓ CUMPLE</div>
+      </div>
+      <div class="score-card">
+        <div class="num">V4</div>
+        <div class="label">Autorización — ✓ CUMPLE</div>
+      </div>
+      <div class="score-card">
+        <div class="num">V5</div>
+        <div class="label">Validación — ✓ CUMPLE</div>
+      </div>
+      <div class="score-card">
+        <div class="num">V6</div>
+        <div class="label">Criptografía — ✓ CUMPLE</div>
+      </div>
+      <div class="score-card">
+        <div class="num">V7</div>
+        <div class="label">Errores/Logs — ~ PARCIAL</div>
+      </div>
+      <div class="score-card">
+        <div class="num">V8</div>
+        <div class="label">Protección datos — ✓ CUMPLE</div>
+      </div>
+      <div class="score-card">
+        <div class="num">V9</div>
+        <div class="label">Comunicaciones — ✓ CUMPLE</div>
+      </div>
+      <div class="score-card">
+        <div class="num">V13</div>
+        <div class="label">API — ✓ CUMPLE</div>
+      </div>
+    </div>
+
+    <h3>Detalle por categoría</h3>
+    <table class="asvs-table">
+      <thead>
+        <tr>
+          <th>Categoría ASVS</th>
+          <th>Nivel 2</th>
+          <th>Mecanismo implementado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="asvs-category">V1 — Arquitectura</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>Separación frontend / backend / BD en contenedores distintos; red interna Docker; sin secretos en código fuente</td>
+        </tr>
+        <tr>
+          <td class="asvs-category">V2 — Autenticación</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>JWT firmado (HS256), contraseñas con bcrypt factor 12, sin almacenamiento de texto plano, API keys hasheadas SHA-256 en BD</td>
+        </tr>
+        <tr>
+          <td class="asvs-category">V3 — Gestión de Sesión</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>Tokens con expiración, invalidación en logout, cookie HttpOnly/Secure donde aplica</td>
+        </tr>
+        <tr>
+          <td class="asvs-category">V4 — Control de Acceso</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>Multi-tenant con enforcing server-side en cada endpoint; las rutas `/api/v1/admin/*` exigen rol ADMIN verificado en JWT</td>
+        </tr>
+        <tr>
+          <td class="asvs-category">V5 — Validación / Sanitización</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>Validación de entrada en todos los endpoints Ktor; prevención de path traversal en descarga de PDFs; sin interpolación SQL directa (queries parametrizadas Exposed ORM)</td>
+        </tr>
+        <tr>
+          <td class="asvs-category">V6 — Criptografía</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>TLS 1.3 en tránsito; SHA-256 para huella forense; bcrypt para contraseñas; sin algoritmos obsoletos (MD5, SHA-1) en código propio</td>
+        </tr>
+        <tr>
+          <td class="asvs-category">V7 — Errores y Logging</td>
+          <td class="status-partial">~ PARCIAL</td>
+          <td>Logs en fichero con rotación; sin envío de stack traces al cliente; pendiente: correlación de logs entre servicios y alertas automatizadas</td>
+        </tr>
+        <tr>
+          <td class="asvs-category">V8 — Protección de Datos</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>Credenciales not stored; datos de auditoría aislados por tenant; sin telemetría de usuario a terceros; PII mínima en BD</td>
+        </tr>
+        <tr>
+          <td class="asvs-category">V9 — Comunicaciones</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>HTTPS obligatorio (HSTS en nginx); certificado TLS válido; sin mixed content; comunicación agente→API con token por dispositivo</td>
+        </tr>
+        <tr>
+          <td class="asvs-category">V13 — API y Servicios Web</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>API REST documentada en OpenAPI 3.0; rate limiting; CORS restrictivo; sin endpoints no documentados en producción</td>
+        </tr>
+        <tr>
+          <td class="asvs-category">V14 — Configuración</td>
+          <td class="status-ok">✓ CUMPLE</td>
+          <td>Variables de entorno para secretos; <code>.env</code> excluido de git; imágenes Docker basadas en Alpine/distroless; sin dependencias abandonadas</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 4. ARQUITECTURA -->
+<section class="doc-section" id="arquitectura">
+  <div class="container">
+    <div class="section-tag">04 — Arquitectura de Seguridad</div>
+    <h2>Diseño Seguro por Capas</h2>
+    <p>GuardianOS Audit implementa un modelo de defensa en profundidad con separación estricta de responsabilidades entre capas.</p>
+
+    <div class="arch-grid">
+      <div class="arch-block">
+        <h4>
+          <svg class="arch-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Autenticación
+        </h4>
+        <p>JWT firmado HS256 · bcrypt factor 12 · API keys hasheadas SHA-256 · Sin almacenamiento de contraseñas en texto plano</p>
+      </div>
+      <div class="arch-block">
+        <h4>
+          <svg class="arch-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Red y TLS
+        </h4>
+        <p>TLS 1.3 exclusivo · HSTS · CORS restrictivo · Solo puertos 80/443 expuestos · Servicios internos en red Docker privada no enrutable</p>
+      </div>
+      <div class="arch-block">
+        <h4>
+          <svg class="arch-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>
+          Base de Datos
+        </h4>
+        <p>PostgreSQL con usuario sin permisos superuser · Queries parametrizadas (Exposed ORM) · Sin SQL dinámico · Aislamiento por tenant a nivel de datos</p>
+      </div>
+      <div class="arch-block">
+        <h4>
+          <svg class="arch-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Integridad Forense
+        </h4>
+        <p>Cada auditoría genera un hash SHA-256 único e irrepetible · Encadenamiento blockchain-lite entre auditorías del mismo objetivo · Verificación pública sin autenticación</p>
+      </div>
+      <div class="arch-block">
+        <h4>
+          <svg class="arch-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          Agentes
+        </h4>
+        <p>Token único por agente · Comunicación HTTPS · Sin acceso root requerido · Firma SHA-256 de cada payload enviado · Sin datos de sistema en tránsito sin cifrar</p>
+      </div>
+      <div class="arch-block">
+        <h4>
+          <svg class="arch-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-1H1a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2"/></svg>
+          IA (Claude)
+        </h4>
+        <p>Invocación bajo demanda exclusiva · El informe base no envía datos a Anthropic · Solo texto de hallazgos (sin IPs ni datos personales) llega a la API de Claude · Controlado por el operador</p>
+      </div>
+    </div>
+
+    <h3>Stack tecnológico auditado</h3>
+    <pre><code>Backend:    Kotlin 1.9 · Ktor 2.x · Exposed ORM · PostgreSQL 16 · Redis 7
+Frontend:   React / Vite · TypeScript · Tailwind CSS
+Infra:      Docker Compose · nginx (TLS 1.3 + HSTS) · MinIO (S3-compatible)
+Auth:       JWT (HS256) · bcrypt (factor 12) · API keys SHA-256
+Certs:      Let's Encrypt (ACME) autorenewable
+Código:     AGPL-3.0 · github.com/systemavworks/guardianos-audit</code></pre>
+  </div>
+</section>
+
+<!-- 5. DATOS -->
+<section class="doc-section" id="datos">
+  <div class="container">
+    <div class="section-tag">05 — Protección de Datos</div>
+    <h2>Qué datos recopilamos y cómo los tratamos</h2>
+    <p>GuardianOS Audit sigue el principio de <strong>privacidad por diseño</strong> (GDPR Art. 25) y minimización de datos. La plataforma puede desplegarse completamente auto-hospedada sin compartir ningún dato con nosotros.</p>
+
+    <div class="arch-grid">
+      <div class="arch-block" style="border-color:rgba(82,183,136,0.3);">
+        <h4>Datos NO almacenados</h4>
+        <p>✓ Contraseñas en texto plano<br>✓ Credenciales SSH<br>✓ Claves API de terceros<br>✓ Contenido de ficheros auditados</p>
+      </div>
+      <div class="arch-block">
+        <h4>Datos de cuenta</h4>
+        <p>Email (hash en logs), nombre de organización, preferencias de notificación. Necesarios para el servicio. Eliminables bajo solicitud.</p>
+      </div>
+      <div class="arch-block">
+        <h4>Datos de auditoría</h4>
+        <p>Dominio / IP auditado, hallazgos técnicos, score, timestamp. Propiedad del usuario. Exportables y eliminables desde el dashboard.</p>
+      </div>
+      <div class="arch-block">
+        <h4>Datos de agente</h4>
+        <p>Fingerprint del sistema (hash), versión OS, CVEs detectados. Sin información personal de usuarios del sistema auditado. Aislados por tenant.</p>
+      </div>
+    </div>
+
+    <h3>Base legal (RGPD)</h3>
+    <ul>
+      <li><strong>Ejecución de contrato</strong> (Art. 6.1.b) — datos necesarios para prestar el servicio de auditoría.</li>
+      <li><strong>Interés legítimo</strong> (Art. 6.1.f) — logs de seguridad para detección de abuso.</li>
+      <li><strong>Consentimiento</strong> (Art. 6.1.a) — análisis IA opcional; el usuario activa explícitamente el envío a Claude.</li>
+    </ul>
+    <p style="margin-top:1rem;">
+      Para ejercer derechos ARCO: <a href="mailto:info@guardianos.es">info@guardianos.es</a> · Ver <a href="/politica-privacidad.html">Política de Privacidad completa</a>.
+    </p>
+  </div>
+</section>
+
+<!-- 6. DISCLOSURE -->
+<section class="doc-section" id="disclosure">
+  <div class="container">
+    <div class="section-tag">06 — Divulgación Responsable</div>
+    <h2>Política de Reporte de Vulnerabilidades</h2>
+    <p>Agradecemos los reportes responsables de la comunidad de seguridad. Esta política aplica exclusivamente a GuardianOS Audit (<code>guardianos.es/audit</code> y el repositorio <code>systemavworks/guardianos-audit</code>).</p>
+
+    <h3>Alcance</h3>
+    <ul>
+      <li>API REST: <code>guardianos.es/api/v1/*</code></li>
+      <li>Dashboard web: <code>guardianos.es/audit</code></li>
+      <li>Backend Kotlin/Ktor (código fuente en GitHub)</li>
+      <li>Agentes Linux/Windows (scripts del repositorio)</li>
+    </ul>
+    <p><strong>Fuera de alcance:</strong> ataques DoS volumétricos, ingeniería social, servicios de terceros (Cloudflare, GitHub, Anthropic).</p>
+
+    <h3>Cómo reportar</h3>
+    <p>Envía tu reporte cifrado con nuestra clave PGP a <a href="mailto:info@guardianos.es"><strong>info@guardianos.es</strong></a> con asunto <code>[SECURITY-AUDIT] descripción breve</code>.</p>
+    <pre><code>Clave PGP: https://guardianos.es/pgp-key.txt
+Fingerprint: 8D5D 2148 485D BFD3 1BFC 3DDB 2F50 61C4 7E2B F14F</code></pre>
+
+    <h3>Tiempos de respuesta</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-time">≤ 72 h</span>
+        <span class="timeline-desc">Confirmación de recepción del reporte</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">≤ 7 días</span>
+        <span class="timeline-desc">Evaluación técnica y clasificación de severidad (CVSS v3.1)</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">≤ 14 días</span>
+        <span class="timeline-desc">Parche para vulnerabilidades críticas (CVSS ≥ 9.0)</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">≤ 30 días</span>
+        <span class="timeline-desc">Parche para vulnerabilidades altas (CVSS 7.0–8.9)</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">Publicación</span>
+        <span class="timeline-desc">CVE / advisory en GitHub tras resolución; mención en hall-of-fame con consentimiento del investigador</span>
+      </div>
+    </div>
+
+    <p style="margin-top:1.5rem;">
+      📄 Ver también: <a href="https://guardianos.es/.well-known/security.txt" target="_blank" rel="noopener">.well-known/security.txt</a>
+    </p>
+  </div>
+</section>
+
+<!-- 7. ACTUALIZACIONES -->
+<section class="doc-section" id="actualizaciones">
+  <div class="container">
+    <div class="section-tag">07 — Historial</div>
+    <h2>Actualizaciones de Seguridad</h2>
+    <p>Registro de parches y mejoras de seguridad relevantes. Historial completo en <a href="https://github.com/systemavworks/guardianos-audit/blob/main/CHANGELOG.md" target="_blank" rel="noopener">CHANGELOG.md</a>.</p>
+    <div class="changelog-list">
+      <div class="changelog-item">
+        <span class="changelog-date">Mar 2026</span>
+        <span class="changelog-desc"><strong>v1.3.1</strong> — Corrección de emisión de certificados; persistencia de auditorías en lote en PostgreSQL (BatchAuditsTable); fix descarga de agentes tras proxy Cloudflare</span>
+      </div>
+      <div class="changelog-item">
+        <span class="changelog-date">Feb 2026</span>
+        <span class="changelog-desc"><strong>v1.2.x</strong> — Trazabilidad completa de auditorías programadas; token de agente por dispositivo; validación estricta de input en endpoints de agente</span>
+      </div>
+      <div class="changelog-item">
+        <span class="changelog-date">Ene 2026</span>
+        <span class="changelog-desc"><strong>v1.1.x</strong> — Autenticación multi-tenant; API keys hasheadas en BD; migración a TLS 1.3 exclusivo en nginx</span>
+      </div>
+      <div class="changelog-item">
+        <span class="changelog-date">Dic 2025</span>
+        <span class="changelog-desc"><strong>v1.0.0</strong> — Release inicial; cadena forense SHA-256; certificados verificables con QR; 21 marcos normativos</span>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;padding:1.25rem;background:var(--bg-elevated);border-radius:0.875rem;border:1px solid var(--border);font-size:0.88rem;color:var(--text-secondary);">
+      <strong style="color:var(--text-primary);">Próximas mejoras de seguridad planificadas:</strong>
+      <ul style="margin-top:0.5rem;padding-left:1.25rem;">
+        <li>Correlación de logs entre servicios (Loki / centralización)</li>
+        <li>Alertas automatizadas por umbral de score</li>
+        <li>SBOM en formato CycloneDX publicado con cada release</li>
+        <li>Revisión externa de seguridad (Security Review Letter)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <p><strong style="color:#fff;">GuardianOS Audit</strong> — Plataforma de auditoría de ciberseguridad</p>
+        <p>Desarrollado en Andalucía, España · AGPL-3.0 · Software registrado</p>
+        <div style="margin-top:0.75rem;">
+          <span class="trust-badge-sm">CRA Categoría Predeterminada</span>
+          <span class="trust-badge-sm">OWASP ASVS L2</span>
+          <span class="trust-badge-sm">Privacy by Design</span>
+          <span class="trust-badge-sm">🇪🇺 GDPR + ENS</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="/audit">GuardianOS Audit</a>
+        <a href="/audit/security/declaracion-cra.html">Declaración CRA</a>
+        <a href="https://guardianos.es/.well-known/security.txt">security.txt</a>
+        <a href="https://github.com/systemavworks/guardianos-audit" target="_blank" rel="noopener">GitHub</a>
+        <a href="/politica-privacidad.html">Privacidad</a>
+        <a href="/aviso-legal.html">Aviso Legal</a>
+      </div>
+    </div>
+    <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.8rem;color:rgba(255,255,255,0.4);">
+      © 2026 GuardianOS · Última actualización de este documento: 13 de marzo de 2026
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

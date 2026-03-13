@@ -1,5 +1,13 @@
-# GuardianOS — Protección digital ética para menores
+# GuardianOS — Protección digital ética para menores y auditoría de ciberseguridad
 # Standard security.txt file — https://securitytxt.org/
+#
+# Para vulnerabilidades en GuardianOS Audit (plataforma de auditoría):
+#   Asunto: [SECURITY-AUDIT] descripción breve
+#   Política completa: https://guardianos.es/audit/security#disclosure
+#   Declaración CRA:   https://guardianos.es/audit/security/declaracion-cra.html
+#
+# Para vulnerabilidades en GuardianOS App (control parental):
+#   Asunto: [SECURITY] descripción breve
 
 Contact: mailto:info@guardianos.es
 Contact: https://guardianos.es/#contacto
@@ -7,9 +15,8 @@ Encryption: https://guardianos.es/pgp-key.txt
 Acknowledgments: https://guardianos.es/security-hall-of-fame.html
 Preferred-Languages: es, en
 Canonical: https://guardianos.es/.well-known/security.txt
-Policy: https://guardianos.es/politica-seguridad.pdf
+Policy: https://guardianos.es/audit/security#disclosure
 Hiring: https://guardianos.es/trabaja-con-nosotros.html
-Expires: 2026-07-01T23:59:59+02:00
-Encryption: https://guardianos.es/pgp-key.txt
+Expires: 2027-03-01T23:59:59+01:00
 # Fingerprint de la clave maestra (ed25519)
 # 8D5D 2148 485D BFD3 1BFC  3DDB 2F50 61C4 7E2B F14F
