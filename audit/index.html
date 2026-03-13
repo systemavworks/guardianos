@@ -1092,7 +1092,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
       .then(function(r) { return r.ok ? r.json() : null; })
       .then(function(data) {
         if (!data) { pollTimer = setTimeout(function(){ pollTrialResult(auditId, attempt + 1); }, 5000); return; }
-        var status = data.status || '';
+        var status = (data.status || '').toUpperCase();
         if (status === 'COMPLETED') {
           renderPreview(data);
         } else if (status === 'FAILED') {
