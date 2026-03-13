@@ -1079,13 +1079,16 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
   }
 
   var pollTimer = null;
+  var trialToken = null;
   function pollTrialResult(auditId, attempt) {
     attempt = attempt || 0;
     if (attempt > 90) {  // máx ~7.5 min
       showTrialError('La auditoría está tardando más de lo esperado. Escríbenos a audit@guardianos.es e investigamos.');
       return;
     }
-    fetch(API + '/api/v1/audit/' + auditId)
+    var headers = {};
+    if (trialToken) headers['Authorization'] = 'Bearer ' + trialToken;
+    fetch(API + '/api/v1/audit/' + auditId, { headers: headers })
       .then(function(r) { return r.ok ? r.json() : null; })
       .then(function(data) {
         if (!data) { pollTimer = setTimeout(function(){ pollTrialResult(auditId, attempt + 1); }, 5000); return; }
@@ -1147,6 +1150,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
     })
     .then(function(data) {
       if (!data) return;
+      trialToken = data.token || null;
       pollTrialResult(data.auditId);
     })
     .catch(function() {
@@ -1156,6 +1160,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
 
   window.trialReset = function() {
     if (pollTimer) { clearTimeout(pollTimer); pollTimer = null; }
+    trialToken = null;
     checksDone = false;
     document.getElementById('trial-domain').value = '';
     document.getElementById('trial-email').value = '';
