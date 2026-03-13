@@ -1012,12 +1012,12 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
   }
 
   function renderPreview(report) {
-    var score     = report.overallScore || 0;
+    var score     = report.score || report.overallScore || 0;
     var risk      = report.riskLevel || 'UNKNOWN';
     var findings  = (report.findings || []).filter(function(f) {
                       return f.risk === 'CRITICAL' || f.risk === 'HIGH' || f.risk === 'MEDIUM';
                     }).slice(0, 3);
-    var compCount = report.complianceEvaluations ? Object.keys(report.complianceEvaluations).length : 0;
+    var compCount = (report.compliance || report.complianceEvaluations || []).length || 0;
     var domain    = report.target || '';
 
     var findingsHtml = findings.length > 0
