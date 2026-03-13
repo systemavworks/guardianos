@@ -177,7 +177,7 @@ section { padding: 5rem 0; }
 .section-header p { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
 
 /* ===== FEATURES ===== */
-.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; align-items: stretch; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
 .feature-card {
   background: var(--bg-card); padding: 2.5rem; border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
@@ -345,7 +345,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
   .mobile-menu-btn { display: block; }
   .hero h1 { font-size: 2rem; }
   .hero .hero-sub { font-size: 1rem; }
-  .features-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; min-width: 0; }
   .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
   .steps-grid::before { display: none; }
   .section-header h2 { font-size: 2rem; }
@@ -396,6 +396,8 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <span class="badge">✓ GDPR / ENS</span>
         <span class="badge">✓ Sin Cloud</span>
         <span class="badge badge-success">✓ Agentes Linux &amp; Windows</span>
+        <span class="badge badge-success">✓ Auditorías en Lote</span>
+        <span class="badge">✓ Auditorías Programadas</span>
       </div>
       <h1>GuardianOS <span>Audit</span></h1>
       <p class="hero-sub">Auditoría de seguridad integral para dominios, infraestructura web y sistemas operativos. Escaneo automatizado de DNS, SSL, CVE y cabeceras HTTP—más agentes ligeros Bash/PowerShell para auditar servidores <strong>Linux y Windows</strong> de forma periódica. Backend propio, base de datos y dashboard incluidos. Informes con cadena forense SHA-256, certificado verificable y alineación con ISO 27001, GDPR y ENS. Sin vigilancia invasiva. Sin enviar tus datos a terceros.</p>
@@ -412,7 +414,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
   <div class="container">
     <div class="section-header reveal">
       <h2>¿Qué incluye GuardianOS Audit?</h2>
-      <p>Plataforma completa para consultoras y equipos de seguridad — con IA, 11 marcos normativos y privacidad por diseño</p>
+      <p>Plataforma completa para consultoras y equipos de seguridad — con IA, 11 marcos normativos, auditorías en lote y privacidad por diseño</p>
     </div>
     <div class="features-grid">
       <div class="feature-card reveal">
@@ -445,6 +447,16 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <h3>Privacy by Design</h3>
         <p>Credenciales never stored en BD, API keys hasheadas SHA-256, JWT autenticación, multi-tenant y código 100% auditable. Sin backdoors. AGPL-3.0.</p>
       </div>
+      <div class="feature-card reveal reveal-d1">
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        <h3>Auditorías en Lote</h3>
+        <p>Lanza hasta 20 auditorías en paralelo sobre múltiples dominios o IPs con un solo click. Estado en tiempo real por objetivo, informes individuales y listado persistente en base de datos — los lotes sobreviven reinicios del backend.</p>
+      </div>
+      <div class="feature-card reveal reveal-d2">
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="8" cy="15" r="1" fill="currentColor"/><circle cx="12" cy="15" r="1" fill="currentColor"/><circle cx="16" cy="15" r="1" fill="currentColor"/></svg></div>
+        <h3>Auditorías Programadas</h3>
+        <p>Automatiza auditorías periódicas (diarias, semanales, mensuales). Genera PDF + certificado automáticamente al completar, notifica por email y mantiene historial completo con enlace al último informe por objetivo.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -470,7 +482,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
       <div class="step-item reveal reveal-d4">
         <div class="step-number">3</div>
         <h3>Informe + IA opcional</h3>
-        <p>PDF completo con score, hallazgos y certificado QR listo para entregar. Activa el análisis IA (Claude) solo en los informes que lo requieran — narrative ejecutiva, remediaciones priorizadas y brechas normativas.</p>
+        <p>PDF completo con score, hallazgos y certificado QR listo para entregar. Activa el análisis IA (Claude) solo en los informes que lo requieran — narrative ejecutiva, remediaciones priorizadas y brechas normativas. Programa auditorías recurrentes para mantener el cumplimiento continuo.</p>
       </div>
     </div>
   </div>
@@ -659,9 +671,9 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.3rem 1.5rem;margin-bottom:0.75rem;">
           <p style="margin:0;"><strong>Empresa:</strong> ejemplo.com</p>
-          <p style="margin:0;"><strong>Fecha:</strong> 05/03/2026</p>
           <p style="margin:0;"><strong>Vigencia:</strong> 30 días</p>
             <p style="margin:0;"><strong>ISO 27001:</strong> 24/30 ✓</p>
+          <p style="margin:0;"><strong>Fecha:</strong> 13/03/2026</p>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
           <div style="text-align:center;">
@@ -930,6 +942,8 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
           <li><a href="/">GuardianOS App</a></li>
           <li><a href="/shield">GuardianOS Shield</a></li>
           <li><a href="/audit">GuardianOS Audit</a></li>
+          <li><a href="/audit#agentes">Agentes Linux &amp; Windows</a></li>
+          <li><a href="/audit#features">Auditorías en Lote</a></li>
           <li><a href="/#servicios">Configuración de Dispositivos</a></li>
           <li><a href="/#servicios">Talleres Educativos</a></li>
         </ul>
