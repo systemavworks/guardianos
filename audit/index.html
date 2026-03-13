@@ -960,8 +960,8 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
 
 <script>
 (function() {
-  // URL base de la API — misma origin que el navegador + ruta /api
-  const API = '';  // vacío = mismo dominio
+  // URL base de la API — backend en audit.guardianos.es
+  const API = 'https://audit.guardianos.es';
 
   function showTrialStep(step) {
     ['form','loading','result'].forEach(function(s) {
