@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pago confirmado – GuardianOS Audit</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script defer data-domain="guardianos.es" src="https://plausible.io/js/script.js"></script>
+<style>
+:root {
+  --primary: #2a9d8f;
+  --secondary: #52b788;
+  --bg-main: #0a0e12;
+  --bg-card: #111620;
+  --bg-elevated: #171e2c;
+  --text-primary: #dde4ec;
+  --text-secondary: #7a8fa8;
+  --border: #1e2d3d;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 3rem 2.5rem;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  animation: fadeUp 0.6s ease both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.check-circle {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2.2rem;
+  box-shadow: 0 0 40px rgba(42,157,143,0.4);
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(42,157,143,0.4); }
+  50%       { box-shadow: 0 0 60px rgba(42,157,143,0.7); }
+}
+h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.75rem; }
+h1 span { color: var(--primary); }
+.subtitle { color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; }
+.info-box {
+  background: var(--bg-elevated);
+  border: 1px solid rgba(42,157,143,0.25);
+  border-radius: 0.75rem;
+  padding: 1.1rem 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+.info-box strong { color: var(--text-primary); }
+.redirect-bar {
+  background: var(--bg-elevated);
+  border-radius: 0.5rem;
+  height: 6px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.redirect-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 0.5rem;
+  animation: fill 8s linear forwards;
+  width: 0%;
+}
+@keyframes fill { from { width: 0%; } to { width: 100%; } }
+.redirect-text { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.9rem 2rem; border-radius: 0.75rem; font-weight: 600;
+  font-size: 0.95rem; text-decoration: none; transition: all 0.3s ease;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff; border: none; cursor: pointer;
+  font-family: 'Inter', sans-serif; width: 100%;
+  box-shadow: 0 4px 15px rgba(42,157,143,0.3);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(42,157,143,0.5); color: #fff; }
+.footer-note {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.footer-note a { color: var(--primary); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="check-circle">✓</div>
+
+  <h1>¡Pago <span>confirmado</span>!</h1>
+  <p class="subtitle">
+    Tu compra se ha procesado correctamente.<br>
+    Recibirás un email de confirmación en breves momentos con las instrucciones de acceso.
+  </p>
+
+  <div class="info-box">
+    <strong>📋 ¿Qué pasa ahora?</strong><br>
+    En las próximas horas recibirás un email con tus credenciales de acceso y la factura.
+    Si en 24 h no recibes nada, escríbenos a
+    <a href="mailto:audit@guardianos.es" style="color:var(--primary);">audit@guardianos.es</a>
+    indicando tu email de compra.
+  </div>
+
+  <div class="redirect-bar">
+    <div class="redirect-bar-fill" id="bar"></div>
+  </div>
+  <p class="redirect-text" id="countdown">Redirigiendo a guardianos.es/audit en <strong>8</strong> segundos…</p>
+
+  <a href="https://guardianos.es/audit" class="btn" id="btnVolver">Ir a GuardianOS Audit →</a>
+
+  <p class="footer-note">
+    ¿Tienes dudas? <a href="mailto:audit@guardianos.es">audit@guardianos.es</a> ·
+    <a href="tel:+34614837983">+34 614 83 79 83</a>
+  </p>
+</div>
+
+<script>
+(function () {
+  var seconds = 8;
+  var el = document.getElementById('countdown').querySelector('strong');
+  var interval = setInterval(function () {
+    seconds--;
+    if (el) el.textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(interval);
+      window.location.href = 'https://guardianos.es/audit';
+    }
+  }, 1000);
+
+  document.getElementById('btnVolver').addEventListener('click', function () {
+    clearInterval(interval);
+  });
+})();
+</script>
+</body>
+</html>
