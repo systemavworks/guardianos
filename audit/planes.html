@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Planes y precios de GuardianOS Audit – Auditoría de ciberseguridad para PYMEs y consultoras. Modelos prepago, sin suscripción obligatoria. Desde 89 €.">
+<title>Planes y Precios – GuardianOS Audit | guardianos.es</title>
+<meta property="og:title" content="Planes y Precios – GuardianOS Audit">
+<meta property="og:description" content="Bolsas de auditorías prepago, sin renovación automática. Starter 89€ · Básico 249€ · Pro 449€ · Anual 799€ · Corporativo a medida.">
+<meta property="og:image" content="https://guardianos.es/audit/logo_guardianos_audit.jpg">
+<meta property="og:url" content="https://guardianos.es/audit/planes">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://guardianos.es/audit/planes" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script defer data-domain="guardianos.es" src="https://plausible.io/js/script.js"></script>
+<style>
+:root {
+  --primary: #2a9d8f;
+  --primary-dark: #1a7a6e;
+  --secondary: #52b788;
+  --accent: #c9a94e;
+  --dark: #050505;
+  --bg-main: #0a0e12;
+  --bg-card: #111620;
+  --bg-elevated: #171e2c;
+  --text-primary: #dde4ec;
+  --text-secondary: #7a8fa8;
+  --border: #1e2d3d;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-main);
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 50%; left: 50%;
+  width: 120vw; height: 120vh;
+  background-image: url('/audit/logo_guardianos_audit.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+}
+@media (max-width: 768px) { body::before { display: none; } }
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+a { color: var(--primary); text-decoration: none; transition: all 0.3s ease; }
+a:hover { color: var(--primary-dark); }
+
+/* HEADER */
+header {
+  background: rgba(10,15,15,0.95);
+  backdrop-filter: blur(10px);
+  position: sticky; top: 0; z-index: 1000;
+  box-shadow: 0 1px 3px rgba(42,157,143,0.15);
+  border-bottom: 1px solid var(--border);
+}
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+.logo {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--primary); text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.logo:hover { transform: scale(1.05); }
+.logo-img { height: 64px; width: auto; filter: drop-shadow(0 0 10px rgba(42,157,143,0.3)); }
+.logo-text { font-size: 1.3rem; font-weight: 700; color: var(--primary); white-space: nowrap; }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a {
+  color: var(--text-primary); text-decoration: none;
+  font-weight: 500; transition: all 0.3s ease; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -5px; left: 0;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: width 0.3s ease;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.mobile-menu-btn {
+  display: none; background: none; border: none;
+  color: var(--text-primary); cursor: pointer; padding: 0.5rem;
+}
+.mobile-menu-btn svg { width: 1.4rem; height: 1.4rem; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; }
+
+/* BUTTONS */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+  padding: 1rem 2rem; text-decoration: none; border-radius: 0.75rem;
+  font-weight: 600; transition: all 0.3s ease; cursor: pointer; border: none;
+  font-size: 1rem; font-family: 'Inter', sans-serif;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff; box-shadow: 0 4px 15px rgba(42,157,143,0.3);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(42,157,143,0.5); color: #fff; }
+.btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+.btn-outline:hover { background: rgba(42,157,143,0.1); transform: translateY(-3px); color: var(--primary); }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #0a0f0f 0%, #0f2020 50%, #0a2e1e 100%);
+  color: white; padding: 6rem 0 4rem; text-align: center; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(42,157,143,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(201,169,78,0.1) 0%, transparent 50%);
+}
+.hero-content { position: relative; z-index: 1; }
+.hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+.hero h1 span { color: var(--primary); }
+.hero-sub { font-size: 1.1rem; max-width: 640px; margin: 0 auto 1.5rem; opacity: 0.85; color: var(--text-secondary); }
+.breadcrumb { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+.breadcrumb a { color: var(--primary); }
+
+/* PRICING */
+.pricing-section { padding: 5rem 0; }
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-header h2 { font-size: 2.2rem; color: var(--text-primary); margin-bottom: 0.75rem; }
+.section-header p { font-size: 1.05rem; color: var(--text-secondary); max-width: 580px; margin: 0 auto; }
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem; max-width: 1100px; margin: 0 auto;
+}
+.pricing-card {
+  background: var(--bg-card); border: 2px solid var(--border);
+  border-radius: 1rem; padding: 2.5rem; text-align: center;
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1); position: relative;
+  display: flex; flex-direction: column;
+}
+.pricing-card.featured {
+  border-color: var(--primary); transform: scale(1.04);
+  box-shadow: 0 20px 40px rgba(42,157,143,0.25); background: var(--bg-elevated);
+}
+.pricing-card.featured::before {
+  content: 'MÁS POPULAR'; position: absolute; top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #000; padding: 0.4rem 1.2rem; border-radius: 2rem;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+}
+.pricing-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(42,157,143,0.2); border-color: var(--primary); }
+.pricing-card.featured:hover { transform: scale(1.04) translateY(-8px); }
+
+.plan-icon { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
+.pricing-header h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-primary); }
+.plan-sub { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem; }
+
+.price {
+  font-size: 3rem; font-weight: 800; line-height: 1;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 0.25rem;
+}
+.price-note { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+
+.pricing-features { list-style: none; margin: 0 0 1.75rem; text-align: left; flex: 1; }
+.pricing-features li {
+  padding: 0.6rem 0; color: var(--text-secondary);
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  border-bottom: 1px solid var(--border); font-size: 0.92rem; line-height: 1.5;
+}
+.pricing-features li:last-child { border-bottom: none; }
+.pricing-features li::before { content: '✓'; color: var(--primary); font-weight: 700; font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
+.pricing-features li.no::before { content: '✗'; color: #475569; }
+.pricing-features li.no { color: #475569; }
+.pricing-card:hover .pricing-features li:not(.no) { color: var(--text-primary); }
+
+.pricing-card .btn { width: 100%; }
+
+/* BOLSA NOTA */
+.quota-note {
+  background: var(--bg-elevated); border: 1px solid rgba(42,157,143,0.3);
+  border-radius: 1rem; padding: 1.5rem 2rem; margin: 3rem auto 0; max-width: 800px;
+  text-align: center; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;
+}
+.quota-note strong { color: var(--text-primary); }
+
+/* COMPARE TABLE */
+.compare-section { padding: 4rem 0; background: var(--bg-card); }
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 2.5rem; }
+.compare-table th, .compare-table td {
+  padding: 0.9rem 1.25rem; text-align: left;
+  border-bottom: 1px solid var(--border); font-size: 0.9rem;
+}
+.compare-table th { color: var(--primary); font-weight: 700; background: var(--bg-elevated); }
+.compare-table td { color: var(--text-secondary); }
+.compare-table tr:hover td { background: rgba(42,157,143,0.04); color: var(--text-primary); }
+.check { color: var(--primary); font-weight: 700; }
+.cross { color: #475569; }
+
+/* CTA FINAL */
+.cta-section { padding: 5rem 0; text-align: center; }
+.cta-section h2 { font-size: 2rem; margin-bottom: 1rem; }
+.cta-section p { color: var(--text-secondary); font-size: 1.05rem; max-width: 560px; margin: 0 auto 2.5rem; }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* FAQ */
+.faq-section { padding: 4rem 0; }
+.faq-list { max-width: 800px; margin: 2.5rem auto 0; display: flex; flex-direction: column; gap: 1rem; }
+details.faq-item { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 1rem; overflow: hidden; }
+details.faq-item summary { padding: 1.25rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--text-primary); }
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary .chevron { transition: transform 0.3s; color: var(--primary); flex-shrink: 0; }
+details.faq-item[open] summary .chevron { transform: rotate(180deg); }
+details.faq-item p { padding: 0 1.5rem 1.25rem; color: var(--text-secondary); line-height: 1.7; margin: 0; font-size: 0.93rem; }
+
+/* FOOTER */
+footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 2rem; }
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem; margin-bottom: 2rem; }
+.footer-section h4 { color: white; margin-bottom: 1rem; font-size: 1.05rem; }
+.footer-section ul { list-style: none; }
+.footer-section ul li { padding: 0.4rem 0; }
+.footer-section a { color: rgba(255,255,255,0.65); text-decoration: none; transition: all 0.3s ease; }
+.footer-section a:hover { color: var(--primary); padding-left: 5px; }
+.footer-section p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; }
+.footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.88rem; }
+.footer-bottom a { color: rgba(255,255,255,0.5); }
+.footer-bottom a:hover { color: var(--primary); }
+.trust-badge-sm { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.25rem 0.65rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600; background: rgba(42,157,143,0.1); border: 1px solid rgba(42,157,143,0.3); color: var(--primary); margin: 0.2rem; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.32s; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: rgba(10,15,15,0.98); backdrop-filter: blur(10px); flex-direction: column; padding: 2rem; gap: 1rem; transition: left 0.3s ease; z-index: 999; }
+  .nav-links.active { left: 0; }
+  .mobile-menu-btn { display: block; }
+  .hero h1 { font-size: 2rem; }
+  .pricing-card.featured { transform: scale(1); }
+  .compare-table { font-size: 0.82rem; }
+  .compare-table th, .compare-table td { padding: 0.7rem 0.8rem; }
+  .logo-img { height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <nav class="container">
+    <a href="/audit" class="logo">
+      <img src="/audit/logo_guardianos_audit.jpg" alt="GuardianOS Audit Logo" class="logo-img">
+      <span class="logo-text">🛡️ GuardianOS <span style="color:var(--secondary)">Audit</span></span>
+    </a>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/" onclick="closeMobileMenu()">Inicio</a></li>
+      <li><a href="/audit" onclick="closeMobileMenu()">Audit</a></li>
+      <li><a href="/audit/planes.html" class="active" onclick="closeMobileMenu()">Planes</a></li>
+      <li><a href="/audit#agentes" onclick="closeMobileMenu()">Agentes</a></li>
+      <li><a href="/audit#verificar" onclick="closeMobileMenu()">Verificar</a></li>
+      <li><a href="/audit#contacto" onclick="closeMobileMenu()">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="breadcrumb"><a href="/audit">GuardianOS Audit</a> → Planes y Precios</p>
+      <h1>Planes <span>transparentes</span>,<br>sin sorpresas</h1>
+      <p class="hero-sub">Modelo prepago — pagas por lo que necesitas. Sin suscripción mensual obligatoria, sin renovación automática. Tu bolsa de auditorías no caduca.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing Cards -->
+<section class="pricing-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Elige tu plan</h2>
+      <p>Todos los planes incluyen informe PDF profesional, score 0–100, evaluación de marcos normativos y certificado verificable con QR</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+      <div class="pricing-card reveal">
+        <span class="plan-icon">🚀</span>
+        <div class="pricing-header">
+          <h3>Starter</h3>
+          <p class="plan-sub">Primera auditoría, sin compromiso</p>
+        </div>
+        <div class="price">89 €</div>
+        <p class="price-note">1 auditoría · Sin IVA</p>
+        <ul class="pricing-features">
+          <li>1 auditoría de dominio o IP</li>
+          <li>Informe PDF completo con cadena forense SHA-256</li>
+          <li>Score 0–100 + 21 marcos normativos</li>
+          <li>Certificado verificable con QR</li>
+          <li>Escaneo DNS, SSL, CVE, cabeceras HTTP</li>
+          <li class="no">Análisis IA (Claude)</li>
+          <li class="no">Auditorías en lote</li>
+          <li class="no">Agentes Linux/Windows</li>
+        </ul>
+        <a href="mailto:audit@guardianos.es?subject=Contratar%20Plan%20Starter" class="btn btn-outline">Solicitar acceso</a>
+      </div>
+
+      <!-- BÁSICO -->
+      <div class="pricing-card reveal reveal-d1">
+        <span class="plan-icon">🏢</span>
+        <div class="pricing-header">
+          <h3>Básico</h3>
+          <p class="plan-sub">Para PYMEs que quieren cumplir normativa</p>
+        </div>
+        <div class="price">249 €</div>
+        <p class="price-note">3 auditorías · Sin IVA</p>
+        <ul class="pricing-features">
+          <li>3 auditorías de dominio o IP</li>
+          <li>Informe PDF completo con cadena forense SHA-256</li>
+          <li>Score 0–100 + 21 marcos normativos (ISO 27001, GDPR, ENS, NIS2…)</li>
+          <li>Certificado verificable con QR</li>
+          <li>Análisis IA bajo demanda (Claude)</li>
+          <li>Estimación de impacto financiero</li>
+          <li class="no">Auditorías en lote</li>
+          <li class="no">Agentes Linux/Windows</li>
+        </ul>
+        <a href="mailto:audit@guardianos.es?subject=Contratar%20Plan%20Básico" class="btn btn-outline">Solicitar acceso</a>
+      </div>
+
+      <!-- PRO (FEATURED) -->
+      <div class="pricing-card featured reveal reveal-d2">
+        <span class="plan-icon">⭐</span>
+        <div class="pricing-header">
+          <h3>Pro</h3>
+          <p class="plan-sub">Para consultoras y equipos de seguridad</p>
+        </div>
+        <div class="price">449 €</div>
+        <p class="price-note">6 auditorías · Sin IVA</p>
+        <ul class="pricing-features">
+          <li>6 auditorías de dominio, IP o servidor</li>
+          <li>Informe PDF completo con cadena forense SHA-256</li>
+          <li>Score 0–100 + 21 marcos normativos</li>
+          <li>Certificado verificable con QR</li>
+          <li>Análisis IA bajo demanda (Claude)</li>
+          <li>Estimación de impacto financiero</li>
+          <li>Auditorías en lote (hasta 20 simultáneas)</li>
+          <li>Agentes Linux &amp; Windows</li>
+        </ul>
+        <a href="mailto:audit@guardianos.es?subject=Contratar%20Plan%20Pro" class="btn btn-primary">Solicitar acceso</a>
+      </div>
+
+      <!-- ANUAL -->
+      <div class="pricing-card reveal reveal-d3">
+        <span class="plan-icon">📅</span>
+        <div class="pricing-header">
+          <h3>Anual</h3>
+          <p class="plan-sub">Cobertura continua para todo el año</p>
+        </div>
+        <div class="price">799 €</div>
+        <p class="price-note">12 auditorías · Sin IVA</p>
+        <ul class="pricing-features">
+          <li>12 auditorías de dominio, IP o servidor</li>
+          <li>Informe PDF completo con cadena forense SHA-256</li>
+          <li>Score 0–100 + 21 marcos normativos</li>
+          <li>Certificado verificable con QR</li>
+          <li>Análisis IA bajo demanda (Claude)</li>
+          <li>Estimación de impacto financiero</li>
+          <li>Auditorías en lote (hasta 20 simultáneas)</li>
+          <li>Agentes Linux &amp; Windows</li>
+        </ul>
+        <a href="mailto:audit@guardianos.es?subject=Contratar%20Plan%20Anual" class="btn btn-outline">Solicitar acceso</a>
+      </div>
+
+      <!-- CORPORATIVO -->
+      <div class="pricing-card reveal reveal-d4">
+        <span class="plan-icon">🏛️</span>
+        <div class="pricing-header">
+          <h3>Corporativo</h3>
+          <p class="plan-sub">MSPs, auditoras y grandes equipos</p>
+        </div>
+        <div class="price" style="font-size:2rem;">A medida</div>
+        <p class="price-note">Auditorías ilimitadas · Precio negociado</p>
+        <ul class="pricing-features">
+          <li>Auditorías ilimitadas</li>
+          <li>White-label con tu marca en los informes PDF</li>
+          <li>API REST completa para integración en tu workflow</li>
+          <li>SLA garantizado + soporte prioritario</li>
+          <li>Despliegue on-premise en tu infraestructura</li>
+          <li>Auditorías programadas y recurrentes</li>
+          <li>Análisis IA ilimitado (Claude)</li>
+          <li>Gestor de cuenta dedicado</li>
+        </ul>
+        <a href="mailto:audit@guardianos.es?subject=Solicitar%20Propuesta%20Corporativo" class="btn btn-outline">Contactar</a>
+      </div>
+
+    </div>
+
+    <div class="quota-note reveal">
+      <strong>ℹ️ Política de bolsas:</strong> Todos los planes de pago son <strong>prepago sin caducidad</strong> —
+      la bolsa de auditorías no expira ni se renueva automáticamente.
+      Consumes cuando lo necesitas, sin presión de fechas.
+      Se aplica <strong>IVA 21%</strong> en la factura según normativa española.
+    </div>
+  </div>
+</section>
+
+<!-- Compare Table -->
+<section class="compare-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Comparativa de planes</h2>
+      <p>Todas las funcionalidades de GuardianOS Audit, plan a plan</p>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Funcionalidad</th>
+            <th>Starter</th>
+            <th>Básico</th>
+            <th style="color:var(--primary)">Pro ⭐</th>
+            <th>Anual</th>
+            <th>Corporativo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Auditorías incluidas</td><td>1</td><td>3</td><td><strong style="color:var(--primary)">6</strong></td><td>12</td><td>Ilimitadas</td></tr>
+          <tr><td>Score 0–100</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>21 marcos normativos (ISO, GDPR, ENS, NIS2…)</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Informe PDF con cadena forense SHA-256</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Certificado verificable con QR</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Análisis IA bajo demanda (Claude)</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Impacto financiero estimado</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Auditorías en lote (hasta 20 simultáneas)</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Agentes Linux &amp; Windows</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Auditorías programadas y recurrentes</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>White-label (PDF con tu marca)</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td></tr>
+          <tr><td>API REST completa</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td></tr>
+          <tr><td>Despliegue on-premise</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td></tr>
+          <tr><td>SLA + soporte prioritario</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Preguntas frecuentes</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>¿Las auditorías caducan si no las uso? <span class="chevron">▾</span></summary>
+        <p>No. La bolsa de auditorías es permanente — no tiene fecha de caducidad ni se renueva automáticamente. Consumes cuando lo necesitas.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>¿Puedo auditar tanto dominios como IPs? <span class="chevron">▾</span></summary>
+        <p>Sí. GuardianOS Audit soporta dominios (empresa.com), subdominios (panel.empresa.com), direcciones IP públicas y servidores accesibles vía SSH (Linux) o WinRM (Windows) en los planes Pro, Anual y Corporativo.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>¿Qué incluye exactamente el análisis IA? <span class="chevron">▾</span></summary>
+        <p>El análisis IA usa Claude (Anthropic) para interpretar el informe y generar hasta 15 hallazgos priorizados con explicación en lenguaje ejecutivo, plan de remediación accionable y estimación del impacto financiero (multas GDPR, coste del incidente). Solo se activa bajo demanda — no se consume en every auditoría.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>¿Puedo probarlo antes de contratar? <span class="chevron">▾</span></summary>
+        <p>Sí. Ofrecemos una <strong>prueba gratuita</strong> en <a href="https://guardianos.es/audit" style="color:var(--primary)">guardianos.es/audit</a> — introduce tu dominio y recibirás el informe completo en tu email sin necesidad de tarjeta de crédito.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>¿Dónde se almacenan mis datos? <span class="chevron">▾</span></summary>
+        <p>En tu propia instancia o en nuestro servidor en Europa (Hetzner, Alemania). Ningún dato de auditoría sale a servicios de terceros. El código es open source (AGPL-3.0) y totalmente auditable.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>¿Se emite factura? <span class="chevron">▾</span></summary>
+        <p>Sí. Emitimos factura con IVA (21%) según normativa española vigente. Para empresas de la UE fuera de España, aplica inversión del sujeto pasivo si dispones de NIF-IVA intracomunitario.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>¿Cómo se gestiona el plan Corporativo? <span class="chevron">▾</span></summary>
+        <p>Contáctanos en <a href="mailto:audit@guardianos.es" style="color:var(--primary)">audit@guardianos.es</a> o llámanos al <a href="tel:+34614837983" style="color:var(--primary)">+34 614 83 79 83</a>. Preparamos una propuesta personalizada en 24–48 h con demostración incluida.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Final -->
+<section class="cta-section" style="background: var(--bg-card);">
+  <div class="container">
+    <h2 class="reveal">¿Recibiste tu informe gratuito?</h2>
+    <p class="reveal">Tienes el diagnóstico. Ahora es el momento de actuar antes de que lo haga alguien más. Un plan Pro incluye 6 auditorías, análisis IA y agentes para tus servidores.</p>
+    <div class="cta-actions reveal">
+      <a href="mailto:audit@guardianos.es?subject=Contratar%20Plan%20Pro" class="btn btn-primary">Contratar Plan Pro — 449 €</a>
+      <a href="mailto:audit@guardianos.es?subject=Consulta%20planes%20GuardianOS%20Audit" class="btn btn-outline">Hablar con un asesor</a>
+    </div>
+    <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:1.5rem;">
+      O llámanos: <a href="tel:+34614837983" style="color:var(--primary);">+34 614 83 79 83</a> · <a href="mailto:audit@guardianos.es" style="color:var(--primary);">audit@guardianos.es</a>
+    </p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>GuardianOS Audit</h4>
+        <p>Plataforma de auditoría para consultoras, MSPs y equipos de seguridad. IA (Claude), 21 marcos normativos, API white-label. Sin vigilancia. Sin miedo.</p>
+        <div style="margin-top: 1rem;">
+          <span class="trust-badge-sm">Andalucía, España</span>
+          <span class="trust-badge-sm">AGPL-3.0</span>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="/">GuardianOS App</a></li>
+          <li><a href="/shield">GuardianOS Shield</a></li>
+          <li><a href="/audit">GuardianOS Audit</a></li>
+          <li><a href="/audit#agentes">Agentes Linux &amp; Windows</a></li>
+          <li><a href="/audit/planes.html">Planes y Precios</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso Legal</a></li>
+          <li><a href="/politica-privacidad.html">Política de Privacidad</a></li>
+          <li><a href="/terminos.html">Términos de Servicio</a></li>
+          <li><a href="/audit/privacidad.html">Privacidad Audit</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:info@guardianos.es">info@guardianos.es</a></li>
+          <li><a href="mailto:audit@guardianos.es">audit@guardianos.es</a></li>
+          <li><a href="tel:+34614837983">+34 614 83 79 83</a></li>
+          <li>Andalucía, España</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 GuardianOS – Protección que crece contigo. Desarrollado con ❤️ en Andalucía.</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="/audit">GuardianOS Audit</a> ·
+        <a href="/audit/verify">Verificar certificado</a> ·
+        <a href="/audit/planes.html">Planes</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  const nav = document.getElementById('navLinks');
+  nav.classList.toggle('active');
+  const btn = document.querySelector('.mobile-menu-btn');
+  if (btn) btn.setAttribute('aria-expanded', nav.classList.contains('active'));
+}
+function closeMobileMenu() {
+  const nav = document.getElementById('navLinks');
+  nav.classList.remove('active');
+  const btn = document.querySelector('.mobile-menu-btn');
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+}
+(function() {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+})();
+</script>
+</body>
+</html>
