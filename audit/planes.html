@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Planes y precios de GuardianOS Audit – Auditoría de ciberseguridad para PYMEs. Pago puntual desde 89 € o suscripción desde 49 €/mes. Todo incluido, sin add-ons.">
+<meta name="description" content="Planes y precios de GuardianOS Audit. Pago puntual desde 149 € (Express) o suscripción desde 79 €/mes (Vigilancia). Todo incluido — IA, ENS, RGPD, PDF, QR. Sin add-ons.">
 <title>Planes y Precios – GuardianOS Audit | guardianos.es</title>
 <meta property="og:title" content="Planes y Precios – GuardianOS Audit">
-<meta property="og:description" content="Pago puntual: Pyme 89€ · E-commerce 129€ · Profesional 149€. Suscripción: Pro 49€/mes · Business 99€/mes · Enterprise 199€/mes. Todo incluido, sin add-ons.">
+<meta property="og:description" content="Track A (puntual): Express 149€ · Completo 299€ · Certificable 499€. Track B (mensual): Vigilancia 79€/mes · Profesional 149€/mes · Business 299€/mes. Todo incluido, sin add-ons.">
 <meta property="og:image" content="https://guardianos.es/audit/logo_guardianos_audit.jpg">
 <meta property="og:url" content="https://guardianos.es/audit/planes">
 <meta property="og:type" content="website">
@@ -130,43 +130,64 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .hero-content { position: relative; z-index: 1; }
 .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
 .hero h1 span { color: var(--primary); }
-.hero-sub { font-size: 1.1rem; max-width: 640px; margin: 0 auto 1.5rem; opacity: 0.85; color: var(--text-secondary); }
+.hero-sub { font-size: 1.1rem; max-width: 680px; margin: 0 auto 1.5rem; opacity: 0.85; color: var(--text-secondary); }
 .breadcrumb { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
 .breadcrumb a { color: var(--primary); }
 
+/* TRACK LABEL */
+.track-label {
+  text-align: center;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 2rem 0 1.25rem;
+}
+.track-label span {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border: 1px solid rgba(42,157,143,0.35);
+  border-radius: 2rem;
+  background: rgba(42,157,143,0.07);
+}
+.track-divider {
+  display: flex; align-items: center; gap: 1rem;
+  max-width: 800px; margin: 3.5rem auto 0;
+  color: var(--text-secondary); font-size: 0.8rem;
+}
+.track-divider::before, .track-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+
 /* PRICING */
 .pricing-section { padding: 5rem 0; }
-.section-header { text-align: center; margin-bottom: 4rem; }
+.section-header { text-align: center; margin-bottom: 2rem; }
 .section-header h2 { font-size: 2.2rem; color: var(--text-primary); margin-bottom: 0.75rem; }
 .section-header p { font-size: 1.05rem; color: var(--text-secondary); max-width: 580px; margin: 0 auto; }
-
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
   gap: 2rem;
   max-width: 1100px;
   margin: 0 auto;
 }
 .pricing-card {
-  grid-column: span 2;
   background: var(--bg-card); border: 2px solid var(--border);
   border-radius: 1rem; padding: 2.5rem; text-align: center;
   transition: all 0.4s cubic-bezier(0.4,0,0.2,1); position: relative;
   display: flex; flex-direction: column;
 }
-/* Las dos últimas tarjetas (fila 2) centradas en el grid de 6 columnas */
-.pricing-card:nth-child(4) { grid-column: 2 / 4; }
-.pricing-card:nth-child(5) { grid-column: 4 / 6; }
 .pricing-card.featured {
   border-color: var(--primary); transform: scale(1.04);
   box-shadow: 0 20px 40px rgba(42,157,143,0.25); background: var(--bg-elevated);
 }
 .pricing-card.featured::before {
-  content: 'MÁS POPULAR'; position: absolute; top: -14px; left: 50%;
+  content: attr(data-badge); position: absolute; top: -14px; left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: #000; padding: 0.4rem 1.2rem; border-radius: 2rem;
   font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+  white-space: nowrap;
 }
 .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(42,157,143,0.2); border-color: var(--primary); }
 .pricing-card.featured:hover { transform: scale(1.04) translateY(-8px); }
@@ -174,7 +195,6 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .plan-icon { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
 .pricing-header h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-primary); }
 .plan-sub { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem; }
-
 .price {
   font-size: 3rem; font-weight: 800; line-height: 1;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -182,7 +202,13 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   margin-bottom: 0.25rem;
 }
 .price-note { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
-
+.quota-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.3rem 0.85rem; border-radius: 2rem;
+  background: rgba(42,157,143,0.1); border: 1px solid rgba(42,157,143,0.3);
+  color: var(--primary); font-size: 0.78rem; font-weight: 700;
+  margin-bottom: 1.5rem;
+}
 .pricing-features { list-style: none; margin: 0 0 1.75rem; text-align: left; flex: 1; }
 .pricing-features li {
   padding: 0.6rem 0; color: var(--text-secondary);
@@ -190,38 +216,37 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   border-bottom: 1px solid var(--border); font-size: 0.92rem; line-height: 1.5;
 }
 .pricing-features li:last-child { border-bottom: none; }
-.pricing-features li::before { content: '✓'; color: var(--primary); font-weight: 700; font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
-.pricing-features li.no::before { content: '✗'; color: #475569; }
-.pricing-features li.no { color: #475569; }
-.pricing-card:hover .pricing-features li:not(.no) { color: var(--text-primary); }
-
+.pricing-features li::before { content: '\2713'; color: var(--primary); font-weight: 700; font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
+.pricing-card:hover .pricing-features li { color: var(--text-primary); }
 .pricing-card .btn { width: 100%; }
 
 /* BOLSA NOTA */
-.quota-note {
+.info-note {
   background: var(--bg-elevated); border: 1px solid rgba(42,157,143,0.3);
-  border-radius: 1rem; padding: 1.5rem 2rem; margin: 3rem auto 0; max-width: 800px;
+  border-radius: 1rem; padding: 1.5rem 2rem; margin: 3rem auto 0; max-width: 860px;
   text-align: center; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;
 }
-.quota-note strong { color: var(--text-primary); }
+.info-note strong { color: var(--text-primary); }
 
 /* COMPARE TABLE */
 .compare-section { padding: 4rem 0; background: var(--bg-card); }
 .compare-table { width: 100%; border-collapse: collapse; margin-top: 2.5rem; }
 .compare-table th, .compare-table td {
-  padding: 0.9rem 1.25rem; text-align: left;
-  border-bottom: 1px solid var(--border); font-size: 0.9rem;
+  padding: 0.75rem 0.9rem; text-align: center;
+  border-bottom: 1px solid var(--border); font-size: 0.82rem;
 }
+.compare-table th:first-child, .compare-table td:first-child { text-align: left; }
 .compare-table th { color: var(--primary); font-weight: 700; background: var(--bg-elevated); }
 .compare-table td { color: var(--text-secondary); }
 .compare-table tr:hover td { background: rgba(42,157,143,0.04); color: var(--text-primary); }
 .check { color: var(--primary); font-weight: 700; }
 .cross { color: #475569; }
+.th-track { font-size: 0.7rem; letter-spacing: 0.08em; opacity: 0.7; font-weight: 500; }
 
 /* CTA FINAL */
 .cta-section { padding: 5rem 0; text-align: center; }
 .cta-section h2 { font-size: 2rem; margin-bottom: 1rem; }
-.cta-section p { color: var(--text-secondary); font-size: 1.05rem; max-width: 560px; margin: 0 auto 2.5rem; }
+.cta-section p { color: var(--text-secondary); font-size: 1.05rem; max-width: 580px; margin: 0 auto 2.5rem; }
 .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
 /* FAQ */
@@ -254,32 +279,18 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
 .reveal-d1 { transition-delay: 0.08s; }
 .reveal-d2 { transition-delay: 0.16s; }
 .reveal-d3 { transition-delay: 0.24s; }
-.reveal-d4 { transition-delay: 0.32s; }
 
 /* RESPONSIVE */
-/* Tablet: 2 tarjetas por fila (grid de 4 cols), la 5ª centrada */
-@media (max-width: 900px) {
-  .pricing-grid { grid-template-columns: repeat(4, 1fr); }
-  .pricing-card { grid-column: span 2; }
-  .pricing-card:nth-child(4) { grid-column: span 2; }
-  .pricing-card:nth-child(5) { grid-column: 2 / 4; }
-  .pricing-card.featured { transform: scale(1); }
-}
 @media (max-width: 768px) {
   .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: rgba(10,15,15,0.98); backdrop-filter: blur(10px); flex-direction: column; padding: 2rem; gap: 1rem; transition: left 0.3s ease; z-index: 999; }
   .nav-links.active { left: 0; }
   .mobile-menu-btn { display: block; }
   .hero h1 { font-size: 2rem; }
-  .compare-table { font-size: 0.82rem; }
-  .compare-table th, .compare-table td { padding: 0.7rem 0.8rem; }
+  .compare-table { font-size: 0.78rem; }
+  .compare-table th, .compare-table td { padding: 0.55rem 0.55rem; }
   .logo-img { height: 48px; }
-}
-/* Móvil: 1 tarjeta por fila */
-@media (max-width: 600px) {
-  .pricing-grid { grid-template-columns: 1fr; }
-  .pricing-card,
-  .pricing-card:nth-child(4),
-  .pricing-card:nth-child(5) { grid-column: span 1; }
+  .pricing-card.featured { transform: scale(1); }
+  .pricing-card.featured:hover { transform: translateY(-8px); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -294,9 +305,9 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
   <nav class="container">
     <a href="/audit" class="logo">
       <img src="/audit/logo_guardianos_audit.jpg" alt="GuardianOS Audit Logo" class="logo-img">
-      <span class="logo-text">🛡️ GuardianOS <span style="color:var(--secondary)">Audit</span></span>
+      <span class="logo-text">&#x1F6E1;&#xFE0F; GuardianOS <span style="color:var(--secondary)">Audit</span></span>
     </a>
-    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false">
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir men&#250;" aria-expanded="false">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
     <ul class="nav-links" id="navLinks">
@@ -314,157 +325,219 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <p class="breadcrumb"><a href="/audit">GuardianOS Audit</a> → Planes y Precios</p>
-      <h1>Planes <span>transparentes</span>,<br>sin sorpresas</h1>
-      <p class="hero-sub">Elige tu modelo: <strong>pago puntual por sector</strong> (desde 89 €) o <strong>suscripción mensual</strong> (desde 49 €/mes). Todo incluido — IA, ENS, RGPD, PDF y certificado QR. Sin add-ons. Precios sin IVA.</p>
+      <p class="breadcrumb"><a href="/audit">GuardianOS Audit</a> &rarr; Planes y Precios</p>
+      <h1>Diagn&#243;sticos de ciberseguridad<br><span>profesionales</span></h1>
+      <p class="hero-sub">3&nbsp;tracks para cada necesidad: <strong>pago puntual</strong> (desde&nbsp;149&nbsp;&#8364;), <strong>suscripci&#243;n mensual</strong> (desde&nbsp;79&nbsp;&#8364;/mes) o <strong>agencia / revendedor</strong> (desde&nbsp;399&nbsp;&#8364;/mes). Esc&#225;ner&nbsp;+ RGPD&nbsp;+ ENS&nbsp;+ IA&nbsp;+ PDF&nbsp;+ QR. Sin add-ons. Precios sin IVA.</p>
     </div>
   </div>
 </section>
 
-<!-- Pricing Cards -->
+<!-- Pricing -->
 <section class="pricing-section">
   <div class="container">
     <div class="section-header reveal">
       <h2>Elige tu plan</h2>
-      <p>Todos los planes incluyen: escáner + IA + ENS + RGPD + informe PDF + certificado QR verificable. Sin extras opcionales. Precios sin IVA.</p>
+      <p>El primer paso obligatorio antes de cualquier certificaci&#243;n ENS. Con nuestro informe el auditor certificador trabaja menos horas y te cobra menos.</p>
     </div>
 
-    <!-- TRACK LABEL: PAGO PUNTUAL -->
-    <p style="text-align:center;color:var(--primary);font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 1.25rem;">Pago puntual &mdash; por sector</p>
-    <div class="pricing-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+    <!-- ─── TRACK A: PAGO PUNTUAL ─────────────────────────────── -->
+    <div class="track-label reveal"><span>&#9889; Track A &mdash; Diagn&#243;stico puntual</span></div>
+    <div class="pricing-grid reveal" style="grid-template-columns:repeat(auto-fit,minmax(290px,1fr));">
 
-      <!-- PYME / DESPACHO -->
-      <div class="pricing-card reveal">
-        <span class="plan-icon">🏛️</span>
+      <!-- EXPRESS -->
+      <div class="pricing-card">
+        <span class="plan-icon">&#x1F3DB;&#xFE0F;</span>
         <div class="pricing-header">
-          <h3>Pyme / Despacho</h3>
-          <p class="plan-sub">Despachos de abogados, gestorías, academias, agencias de viajes</p>
+          <h3>Express</h3>
+          <p class="plan-sub">PYMEs, despachos, academias, agencias de viajes</p>
         </div>
-        <div class="price">89 €</div>
-        <p class="price-note">1 auditoría · Pago único · Sin IVA</p>
+        <div class="price">149 &#8364;</div>
+        <p class="price-note">pago &#250;nico &middot; sin IVA</p>
+        <div class="quota-badge">&#x26A1; 1 diagn&#243;stico</div>
         <ul class="pricing-features">
-          <li>Escáner web completo (DNS, SSL, CVE, cabeceras)</li>
-          <li>RGPD / LOPDGDD automático</li>
-          <li>Score 0–100 + 21 marcos normativos</li>
-          <li>Informe PDF técnico + ejecutivo</li>
+          <li>Esc&#225;ner web completo (DNS, SSL, CVE, cabeceras)</li>
+          <li>Revisi&#243;n RGPD / LOPDGDD autom&#225;tica</li>
+          <li>Score 0&#8211;100 + 21 marcos normativos</li>
+          <li>Informe PDF t&#233;cnico + ejecutivo</li>
           <li>Certificado QR verificable</li>
-          <li>Análisis IA incluido (Claude)</li>
-          <li>Plan de acción priorizado</li>
+          <li>An&#225;lisis IA con plan de acci&#243;n priorizado</li>
         </ul>
         <a href="https://buy.stripe.com/3cIcN5gmJ0TXc3S6FW00002" class="btn btn-outline" target="_blank" rel="noopener">Comprar ahora</a>
       </div>
 
-      <!-- E-COMMERCE / WEB -->
-      <div class="pricing-card reveal reveal-d1">
-        <span class="plan-icon">🛒</span>
+      <!-- COMPLETO -->
+      <div class="pricing-card featured" data-badge="M&#193;S SOLICITADO">
+        <span class="plan-icon">&#x1F6D2;</span>
         <div class="pricing-header">
-          <h3>E-commerce / Web</h3>
-          <p class="plan-sub">Tiendas online, SaaS y plataformas web</p>
+          <h3>Completo</h3>
+          <p class="plan-sub">E-commerce, SaaS, tiendas online, plataformas web</p>
         </div>
-        <div class="price">129 €</div>
-        <p class="price-note">1 auditoría · Pago único · Sin IVA</p>
+        <div class="price">299 &#8364;</div>
+        <p class="price-note">pago &#250;nico &middot; sin IVA</p>
+        <div class="quota-badge">&#x26A1; 1 diagn&#243;stico</div>
         <ul class="pricing-features">
-          <li>Todo lo de Pyme / Despacho</li>
-          <li>PCI DSS light incluido</li>
-          <li>Escaneo avanzado de vulnerabilidades</li>
-          <li>Revisión de pasarelas de pago</li>
-          <li>Análisis IA incluido (Claude)</li>
-          <li>Plan de acción priorizado</li>
+          <li>Todo lo de Express</li>
+          <li>PCI DSS light para pasarelas de pago</li>
+          <li>Documento de Adecuaci&#243;n ENS prellenado</li>
+          <li>Plan de acci&#243;n 90 d&#237;as con prioridades</li>
+          <li>Soporte por email 15 d&#237;as</li>
+          <li>An&#225;lisis IA avanzado (Claude)</li>
         </ul>
-        <a href="mailto:audit@guardianos.es?subject=Contratar%20plan%20E-commerce%20129%E2%82%AC" class="btn btn-outline">Solicitar</a>
+        <a href="mailto:audit@guardianos.es?subject=Contratar%20plan%20Completo%20299%E2%82%AC" class="btn btn-primary">Solicitar</a>
       </div>
 
-      <!-- PROFESIONAL -->
-      <div class="pricing-card reveal reveal-d2">
-        <span class="plan-icon">🏥</span>
+      <!-- CERTIFICABLE -->
+      <div class="pricing-card">
+        <span class="plan-icon">&#x1F3E5;</span>
         <div class="pricing-header">
-          <h3>Profesional</h3>
-          <p class="plan-sub">Clínicas dentales, psicólogos, datos de salud</p>
+          <h3>Certificable</h3>
+          <p class="plan-sub">Cl&#237;nicas, datos de salud, sector p&#250;blico, licitaciones</p>
         </div>
-        <div class="price">149 €</div>
-        <p class="price-note">1 auditoría · Pago único · Sin IVA</p>
+        <div class="price">499 &#8364;</div>
+        <p class="price-note">pago &#250;nico &middot; sin IVA</p>
+        <div class="quota-badge">&#x26A1; 1 diagn&#243;stico</div>
         <ul class="pricing-features">
-          <li>Todo lo de E-commerce</li>
-          <li>ENS sanitario incluido</li>
-          <li>Protección datos de salud (LOPD + RGPD)</li>
-          <li>Análisis IA incluido (Claude)</li>
-          <li>Plan de acción priorizado</li>
+          <li>Todo lo de Completo</li>
+          <li>ENS sanitario / categor&#237;a ALTA</li>
+          <li>M&#225;xima documentaci&#243;n para auditor certificador</li>
+          <li>Reduce coste y tiempo de certificaci&#243;n ENS</li>
+          <li>Soporte por email 30 d&#237;as</li>
+          <li>Apto como evidencia en proceso de certificaci&#243;n</li>
         </ul>
-        <a href="mailto:audit@guardianos.es?subject=Contratar%20plan%20Profesional%20149%E2%82%AC" class="btn btn-outline">Solicitar</a>
+        <a href="mailto:audit@guardianos.es?subject=Contratar%20plan%20Certificable%20499%E2%82%AC" class="btn btn-outline">Solicitar</a>
       </div>
 
+    </div><!-- /grid track A -->
+
+    <div class="info-note reveal">
+      <strong>&#x2139;&#xFE0F; Track A &mdash; Pago puntual:</strong> Bolsa sin caducidad. Consumes cuando lo necesitas, sin renovaci&#243;n autom&#225;tica.
+      El plan <strong>Certificable</strong> incluye toda la documentaci&#243;n que pide un auditor certificador ENS, reduciendo el tiempo (y el coste) del proceso.
     </div>
 
-    <!-- TRACK LABEL: SUSCRIPCIÓN -->
-    <p style="text-align:center;color:var(--primary);font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin:2.5rem 0 1.25rem;">Suscripci&oacute;n mensual &mdash; todo incluido</p>
-    <div class="pricing-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+    <!-- ─── TRACK B: SUSCRIPCI&#211;N MENSUAL ──────────────────────── -->
+    <div class="track-divider reveal">&#8212; o elige monitorizaci&#243;n continua &#8212;</div>
+    <div class="track-label reveal"><span>&#x1F6E1; Track B &mdash; Suscripci&#243;n mensual</span></div>
+    <div class="pricing-grid reveal" style="grid-template-columns:repeat(auto-fit,minmax(290px,1fr));">
 
-      <!-- SUB PRO -->
-      <div class="pricing-card reveal">
-        <span class="plan-icon">🚀</span>
+      <!-- VIGILANCIA -->
+      <div class="pricing-card">
+        <span class="plan-icon">&#x1F50D;</span>
         <div class="pricing-header">
-          <h3>Pro</h3>
-          <p class="plan-sub">PYMEs con auditorías regulares</p>
+          <h3>Vigilancia</h3>
+          <p class="plan-sub">Monitorizaci&#243;n continua para PYMEs</p>
         </div>
-        <div class="price">49 €<span style="font-size:1rem;font-weight:400;opacity:0.7">/mes</span></div>
-        <p class="price-note">o 39 €/mes facturación anual · Sin IVA</p>
+        <div class="price">79 &#8364;<span style="font-size:1rem;font-weight:400;opacity:0.7">/mes</span></div>
+        <p class="price-note">o&nbsp;63&nbsp;&#8364;/mes facturaci&#243;n anual &middot; sin IVA</p>
+        <div class="quota-badge">&#x26A1; 3 diagn&#243;sticos/mes</div>
         <ul class="pricing-features">
-          <li>3 auditorías / mes</li>
           <li>IA + ENS + RGPD incluidos</li>
           <li>Informe PDF + certificado QR</li>
-          <li>Comparativa histórica</li>
-          <li>Soporte por email</li>
+          <li>Comparativa hist&#243;rica de scores</li>
+          <li>Alertas autom&#225;ticas por email</li>
+          <li>Se renueva el d&#237;a 1 de cada mes</li>
         </ul>
-        <a href="mailto:audit@guardianos.es?subject=Contratar%20suscripci%C3%B3n%20Pro%2049%E2%82%AC%2Fmes" class="btn btn-outline">Solicitar</a>
+        <a href="mailto:audit@guardianos.es?subject=Contratar%20suscripci%C3%B3n%20Vigilancia%2079%E2%82%AC%2Fmes" class="btn btn-outline">Solicitar</a>
       </div>
 
-      <!-- SUB BUSINESS (FEATURED) -->
-      <div class="pricing-card featured reveal reveal-d1">
-        <span class="plan-icon">⭐</span>
+      <!-- PROFESIONAL (featured) -->
+      <div class="pricing-card featured" data-badge="M&#193;S POPULAR">
+        <span class="plan-icon">&#11088;</span>
         <div class="pricing-header">
-          <h3>Business</h3>
-          <p class="plan-sub">Multi-dominio y multi-usuario</p>
+          <h3>Profesional</h3>
+          <p class="plan-sub">Multi-dominio, para equipos de seguridad</p>
         </div>
-        <div class="price">99 €<span style="font-size:1rem;font-weight:400;opacity:0.7">/mes</span></div>
-        <p class="price-note">o 79 €/mes facturación anual · Sin IVA</p>
+        <div class="price">149 &#8364;<span style="font-size:1rem;font-weight:400;opacity:0.7">/mes</span></div>
+        <p class="price-note">o&nbsp;119&nbsp;&#8364;/mes facturaci&#243;n anual &middot; sin IVA</p>
+        <div class="quota-badge">&#x26A1; 10 diagn&#243;sticos/mes</div>
         <ul class="pricing-features">
-          <li>8 auditorías / mes</li>
-          <li>IA + ENS + RGPD + OSINT incluidos</li>
-          <li>Auditorías programadas</li>
-          <li>Alertas email / Slack / Teams</li>
+          <li>Todo lo de Vigilancia</li>
+          <li>M&#243;dulo OSINT incluido</li>
+          <li>Auditor&#237;as programadas y autom&#225;ticas</li>
+          <li>Alertas Slack / Teams / Webhook</li>
           <li>Acceso multi-usuario</li>
           <li>Soporte prioritario</li>
         </ul>
-        <a href="mailto:audit@guardianos.es?subject=Contratar%20suscripci%C3%B3n%20Business%2099%E2%82%AC%2Fmes" class="btn btn-primary">Solicitar</a>
+        <a href="mailto:audit@guardianos.es?subject=Contratar%20suscripci%C3%B3n%20Profesional%20149%E2%82%AC%2Fmes" class="btn btn-primary">Solicitar</a>
       </div>
 
-      <!-- SUB ENTERPRISE -->
-      <div class="pricing-card reveal reveal-d2">
-        <span class="plan-icon">🏛️</span>
+      <!-- BUSINESS -->
+      <div class="pricing-card">
+        <span class="plan-icon">&#x1F3E2;</span>
         <div class="pricing-header">
-          <h3>Enterprise</h3>
-          <p class="plan-sub">Agencias, consultoras y grandes organizaciones</p>
+          <h3>Business</h3>
+          <p class="plan-sub">Organizaciones con auditor&#237;as recurrentes</p>
         </div>
-        <div class="price">199 €<span style="font-size:1rem;font-weight:400;opacity:0.7">/mes</span></div>
-        <p class="price-note">o 159 €/mes facturación anual · Sin IVA</p>
+        <div class="price">299 &#8364;<span style="font-size:1rem;font-weight:400;opacity:0.7">/mes</span></div>
+        <p class="price-note">o&nbsp;239&nbsp;&#8364;/mes facturaci&#243;n anual &middot; sin IVA</p>
+        <div class="quota-badge">&#x26A1; 25 diagn&#243;sticos/mes</div>
         <ul class="pricing-features">
-          <li>Auditorías ilimitadas</li>
-          <li>Todo lo de Business</li>
-          <li>API key dedicada</li>
-          <li>Monitorización de red</li>
-          <li>White-label (PDF con tu marca)</li>
-          <li>Soporte &lt;4 h</li>
+          <li>Todo lo de Profesional</li>
+          <li>Monitorizaci&#243;n de red (inventario + alertas)</li>
+          <li>Agentes Linux y Windows</li>
+          <li>API REST incluida</li>
+          <li>Informes CSV exportables</li>
+          <li>Soporte &lt; 8 h</li>
         </ul>
-        <a href="mailto:audit@guardianos.es?subject=Contratar%20suscripci%C3%B3n%20Enterprise%20199%E2%82%AC%2Fmes" class="btn btn-outline">Solicitar</a>
+        <a href="mailto:audit@guardianos.es?subject=Contratar%20suscripci%C3%B3n%20Business%20299%E2%82%AC%2Fmes" class="btn btn-outline">Solicitar</a>
       </div>
 
+    </div><!-- /grid track B -->
+
+    <!-- ─── TRACK C: AGENCIA / REVENDEDOR ─────────────────────── -->
+    <div class="track-divider reveal">&#8212; o integra GuardianOS en tu propia consultor&#237;a &#8212;</div>
+    <div class="track-label reveal"><span>&#x1F3E2; Track C &mdash; Agencia / Revendedor</span></div>
+    <div class="pricing-grid reveal" style="grid-template-columns:repeat(auto-fit,minmax(340px,1fr));max-width:780px;">
+
+      <!-- AGENCIA -->
+      <div class="pricing-card">
+        <span class="plan-icon">&#x1F465;</span>
+        <div class="pricing-header">
+          <h3>Agencia</h3>
+          <p class="plan-sub">Consultoras de ciberseguridad y despachos TI</p>
+        </div>
+        <div class="price">399 &#8364;<span style="font-size:1rem;font-weight:400;opacity:0.7">/mes</span></div>
+        <p class="price-note">sin IVA &middot; sin permanencia</p>
+        <div class="quota-badge">&#x26A1; 30 diagn&#243;sticos/mes</div>
+        <ul class="pricing-features">
+          <li>PDF white-label con tu logo y marca</li>
+          <li>Multi-tenant: un tenant por cliente</li>
+          <li>Todo incluido: IA, ENS, RGPD, OSINT, agentes</li>
+          <li>Panel admin para gestionar clientes</li>
+          <li>Webhooks configurables</li>
+          <li>Soporte dedicado &lt; 4 h</li>
+        </ul>
+        <a href="mailto:audit@guardianos.es?subject=Demo%20plan%20Agencia%20399%E2%82%AC%2Fmes" class="btn btn-outline">Solicitar demo</a>
+      </div>
+
+      <!-- REVENDEDOR -->
+      <div class="pricing-card">
+        <span class="plan-icon">&#x1F517;</span>
+        <div class="pricing-header">
+          <h3>Revendedor</h3>
+          <p class="plan-sub">MSPs, grandes consultoras, integraci&#243;n en flujo propio</p>
+        </div>
+        <div class="price">699 &#8364;<span style="font-size:1rem;font-weight:400;opacity:0.7">/mes</span></div>
+        <p class="price-note">sin IVA &middot; sin permanencia</p>
+        <div class="quota-badge">&#x26A1; Diagn&#243;sticos ilimitados</div>
+        <ul class="pricing-features">
+          <li>Todo lo de Agencia</li>
+          <li>API&nbsp;key dedicada con rate limit elevado</li>
+          <li>Diagn&#243;sticos ilimitados</li>
+          <li>Integraci&#243;n v&#237;a API en tu plataforma propia</li>
+          <li>Revenue sharing opcional disponible</li>
+          <li>Gestor de cuenta dedicado</li>
+        </ul>
+        <a href="mailto:audit@guardianos.es?subject=Demo%20plan%20Revendedor%20699%E2%82%AC%2Fmes" class="btn btn-outline">Contactar ventas</a>
+      </div>
+
+    </div><!-- /grid track C -->
+
+    <div class="info-note reveal">
+      <strong>&#x2714;&#xFE0F; Sin add-ons ocultos:</strong> Todos los precios incluyen IA (Claude), ENS, RGPD, OSINT (seg&#250;n plan), PDF, certificado QR y soporte.
+      Pago seguro por <strong>Stripe</strong>. Factura con IVA (21 %) emitida autom&#225;ticamente.
+      &#x1F4EC; &#194;dudas? <a href="mailto:audit@guardianos.es">audit@guardianos.es</a> &middot; <a href="tel:+34614837983">+34 614 83 79 83</a>
     </div>
 
-    <div class="quota-note reveal">
-      <strong>ℹ️ Precios sin IVA:</strong> Se aplica <strong>IVA 21%</strong> en la factura según normativa española.
-      Pago puntual: bolsa sin caducidad, consumes cuando lo necesitas.
-      Suscripción mensual: sin permanencia, cancelas cuando quieras.
-    </div>
   </div>
 </section>
 
@@ -472,39 +545,51 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
 <section class="compare-section">
   <div class="container">
     <div class="section-header reveal">
-      <h2>Comparativa de planes</h2>
+      <h2>Comparativa completa</h2>
       <p>Todas las funcionalidades de GuardianOS Audit, plan a plan</p>
     </div>
     <div style="overflow-x:auto;">
       <table class="compare-table">
         <thead>
           <tr>
-            <th>Funcionalidad</th>
-            <th>Pyme 89€</th>
-            <th>E-com 129€</th>
-            <th>Prof. 149€</th>
-            <th>Pro 49€/m</th>
-            <th style="color:var(--primary)">Biz ⭐ 99€/m</th>
-            <th>Ent. 199€/m</th>
+            <th rowspan="2">Funcionalidad</th>
+            <th colspan="3" class="th-track" style="border-bottom:2px solid var(--primary)">Track A &mdash; Puntual</th>
+            <th colspan="3" class="th-track" style="border-bottom:2px solid var(--secondary)">Track B &mdash; Suscripci&#243;n</th>
+            <th colspan="2" class="th-track" style="border-bottom:2px solid var(--accent)">Track C &mdash; Agencia</th>
+          </tr>
+          <tr>
+            <th>Express<br><span class="th-track">149 &#8364;</span></th>
+            <th>Completo<br><span class="th-track">299 &#8364;</span></th>
+            <th>Certificable<br><span class="th-track">499 &#8364;</span></th>
+            <th>Vigilancia<br><span class="th-track">79 &#8364;/m</span></th>
+            <th style="color:var(--primary)">Profesional &#11088;<br><span class="th-track">149 &#8364;/m</span></th>
+            <th>Business<br><span class="th-track">299 &#8364;/m</span></th>
+            <th>Agencia<br><span class="th-track">399 &#8364;/m</span></th>
+            <th>Revendedor<br><span class="th-track">699 &#8364;/m</span></th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Auditorías</td><td>1</td><td>1</td><td>1</td><td>3/mes</td><td><strong style="color:var(--primary)">8/mes</strong></td><td>Ilimitadas</td></tr>
-          <tr><td>Score 0–100</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-          <tr><td>21 marcos normativos (ISO, GDPR, ENS, NIS2…)</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-          <tr><td>Informe PDF + cadena forense SHA-256</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-          <tr><td>Certificado verificable con QR</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-          <tr><td>Análisis IA incluido (Claude)</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-          <tr><td>Impacto financiero estimado</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-          <tr><td>PCI DSS light</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td></tr>
-          <tr><td>ENS sanitario</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td></tr>
-          <tr><td>OSINT</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td></tr>
-          <tr><td>Auditorías programadas</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td></tr>
-          <tr><td>Alertas email / Slack / Teams</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td></tr>
-          <tr><td>Multi-usuario</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td></tr>
-          <tr><td>API key dedicada</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td></tr>
-          <tr><td>White-label (PDF con tu marca)</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td></tr>
-          <tr><td>Soporte prioritario (&lt;4 h)</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td></tr>
+          <tr><td>Diagn&#243;sticos</td><td>1</td><td>1</td><td>1</td><td>3/mes</td><td><strong style="color:var(--primary)">10/mes</strong></td><td>25/mes</td><td>30/mes</td><td>Ilimitados</td></tr>
+          <tr><td>Score 0&#8211;100</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>21 marcos normativos (ISO, GDPR, ENS, NIS2&#8230;)</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Informe PDF + cadena forense SHA-256</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Certificado QR verificable</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>An&#225;lisis IA (Claude)</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Impacto financiero estimado</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>PCI DSS light</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Documento de Adecuaci&#243;n ENS prellenado</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>ENS sanitario / DOC para certificaci&#243;n</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>M&#243;dulo OSINT</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Auditor&#237;as programadas</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Alertas Slack / Teams / Webhook</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Acceso multi-usuario</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Monitorizaci&#243;n de red + agentes</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>API REST</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>PDF white-label (tu marca)</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Multi-tenant (un tenant por cliente)</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>API key dedicada ilimitada</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Gestor de cuenta dedicado</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Soporte</td><td>&#8212;</td><td>Email 15 d</td><td>Email 30 d</td><td>Email</td><td>Prioritario</td><td>&lt; 8 h</td><td>&lt; 4 h</td><td>Gestor propio</td></tr>
         </tbody>
       </table>
     </div>
@@ -519,32 +604,32 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
     </div>
     <div class="faq-list">
       <details class="faq-item reveal">
-        <summary>¿Las auditorías caducan si no las uso? <span class="chevron">▾</span></summary>
-        <p>No. La bolsa de auditorías es permanente — no tiene fecha de caducidad ni se renueva automáticamente. Consumes cuando lo necesitas.</p>
+        <summary>&#191;Los diagn&#243;sticos puntuales caducan si no los uso? <span class="chevron">&#9662;</span></summary>
+        <p>No. La bolsa es permanente — sin fecha de caducidad ni renovaci&#243;n autom&#225;tica. Consumes cuando lo necesitas.</p>
       </details>
       <details class="faq-item reveal">
-        <summary>¿Puedo auditar tanto dominios como IPs? <span class="chevron">▾</span></summary>
-          <p>Sí. GuardianOS Audit soporta dominios (empresa.com), subdominios (panel.empresa.com), direcciones IP públicas y servidores accesibles vía SSH (Linux) o WinRM (Windows) en los planes Pro, Business y Corporativo.</p>
+        <summary>&#191;Para qu&#233; sirve el plan Certificable? <span class="chevron">&#9662;</span></summary>
+        <p>Incluye toda la documentaci&#243;n que exige un auditor certificador ENS (Esquema Nacional de Seguridad): DoA prellenado, evidencias t&#233;cnicas, hallazgos priorizados y plan de adecuaci&#243;n. Al presentarlo el auditor trabaja menos horas y el proceso de certificaci&#243;n es m&#225;s r&#225;pido y barato.</p>
       </details>
       <details class="faq-item reveal">
-        <summary>¿Qué incluye exactamente el análisis IA? <span class="chevron">▾</span></summary>
-        <p>El análisis IA usa Claude (Anthropic) para interpretar el informe y generar hasta 15 hallazgos priorizados con explicación en lenguaje ejecutivo, plan de remediación accionable y estimación del impacto financiero (multas GDPR, coste del incidente). Solo se activa bajo demanda — no se consume en every auditoría.</p>
+        <summary>&#191;Qu&#233; diferencia hay entre Agencia y Revendedor? <span class="chevron">&#9662;</span></summary>
+        <p><strong>Agencia</strong> es para consultoras que auditan a sus propios clientes con PDF de marca propia y panel multi-tenant. <strong>Revendedor</strong> a&#241;ade diagn&#243;sticos ilimitados, una API key dedicada para integrar GuardianOS en tu propia plataforma y un gestor de cuenta exclusivo.</p>
       </details>
       <details class="faq-item reveal">
-        <summary>¿Puedo probarlo antes de contratar? <span class="chevron">▾</span></summary>
-        <p>Sí. Ofrecemos una <strong>prueba gratuita</strong> en <a href="https://guardianos.es/audit" style="color:var(--primary)">guardianos.es/audit</a> — introduce tu dominio y recibirás el informe completo en tu email sin necesidad de tarjeta de crédito.</p>
+        <summary>&#191;Puedo auditar dominios, subdominios e IPs? <span class="chevron">&#9662;</span></summary>
+        <p>S&#237;. GuardianOS Audit soporta dominios (empresa.com), subdominios (panel.empresa.com), IPs p&#250;blicas y servidores v&#237;a SSH&nbsp;(Linux) o WinRM&nbsp;(Windows) en los planes Profesional, Business y superiores.</p>
       </details>
       <details class="faq-item reveal">
-        <summary>¿Dónde se almacenan mis datos? <span class="chevron">▾</span></summary>
-        <p>En tu propia instancia o en nuestro servidor en Europa (Hetzner, Alemania). Ningún dato de auditoría sale a servicios de terceros. El código es open source (AGPL-3.0) y totalmente auditable.</p>
+        <summary>&#191;Qu&#233; incluye el an&#225;lisis IA? <span class="chevron">&#9662;</span></summary>
+        <p>Usa Claude&nbsp;(Anthropic) para interpretar el informe t&#233;cnico y generar hasta 15 hallazgos priorizados en lenguaje ejecutivo, con plan de remediaci&#243;n accionable e impacto financiero estimado (multas GDPR, coste del incidente). Solo se activa bajo demanda.</p>
       </details>
       <details class="faq-item reveal">
-        <summary>¿Se emite factura? <span class="chevron">▾</span></summary>
-        <p>Sí. Emitimos factura con IVA (21%) según normativa española vigente. Para empresas de la UE fuera de España, aplica inversión del sujeto pasivo si dispones de NIF-IVA intracomunitario.</p>
+        <summary>&#191;Puedo probarlo antes de contratar? <span class="chevron">&#9662;</span></summary>
+        <p>S&#237;. Prueba gratuita en <a href="https://guardianos.es/audit" style="color:var(--primary)">guardianos.es/audit</a> — introduce tu dominio y recibes el informe completo en tu email. Sin tarjeta de cr&#233;dito.</p>
       </details>
       <details class="faq-item reveal">
-        <summary>¿Cómo se gestiona el plan Corporativo? <span class="chevron">▾</span></summary>
-        <p>Contáctanos en <a href="mailto:audit@guardianos.es" style="color:var(--primary)">audit@guardianos.es</a> o llámanos al <a href="tel:+34614837983" style="color:var(--primary)">+34 614 83 79 83</a>. Preparamos una propuesta personalizada en 24–48 h con demostración incluida.</p>
+        <summary>&#191;Se emite factura con IVA? <span class="chevron">&#9662;</span></summary>
+        <p>S&#237;. Emitimos factura con IVA 21% seg&#250;n normativa espa&#241;ola. Empresas UE fuera de Espa&#241;a: aplica inversi&#243;n del sujeto pasivo con NIF-IVA intracomunitario.</p>
       </details>
     </div>
   </div>
@@ -553,14 +638,14 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
 <!-- CTA Final -->
 <section class="cta-section" style="background: var(--bg-card);">
   <div class="container">
-    <h2 class="reveal">¿Recibiste tu informe gratuito?</h2>
-    <p class="reveal">Tienes el diagnóstico. Ahora actúa. Desde 89 € pago puntual o 49 €/mes con suscripción. Todo incluido — IA, RGPD, ENS, PDF y certificado QR. Sin add-ons.</p>
+    <h2 class="reveal">&#191;Listo para tu primer diagn&#243;stico certificable?</h2>
+    <p class="reveal">Desde&nbsp;149&nbsp;&#8364; pago puntual o&nbsp;79&nbsp;&#8364;/mes con suscripci&#243;n. Todo incluido &mdash; IA, RGPD, ENS, PDF y certificado QR. Sin add-ons. Sin sorpresas.</p>
     <div class="cta-actions reveal">
-      <a href="https://buy.stripe.com/3cIcN5gmJ0TXc3S6FW00002" class="btn btn-primary" target="_blank" rel="noopener">Pago puntual — desde 89 €</a>
-      <a href="mailto:audit@guardianos.es?subject=Solicitar%20suscripci%C3%B3n%20GuardianOS%20Audit" class="btn btn-outline">Solicitar suscripción</a>
+      <a href="https://buy.stripe.com/3cIcN5gmJ0TXc3S6FW00002" class="btn btn-primary" target="_blank" rel="noopener">Pago puntual &mdash; desde&nbsp;149&nbsp;&#8364;</a>
+      <a href="mailto:audit@guardianos.es?subject=Solicitar%20suscripci%C3%B3n%20GuardianOS%20Audit" class="btn btn-outline">Solicitar suscripci&#243;n</a>
     </div>
     <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:1.5rem;">
-      O llámanos: <a href="tel:+34614837983" style="color:var(--primary);">+34 614 83 79 83</a> · <a href="mailto:audit@guardianos.es" style="color:var(--primary);">audit@guardianos.es</a>
+      O ll&#225;menos: <a href="tel:+34614837983" style="color:var(--primary);">+34&nbsp;614&nbsp;83&nbsp;79&nbsp;83</a> &middot; <a href="mailto:audit@guardianos.es" style="color:var(--primary);">audit@guardianos.es</a>
     </p>
   </div>
 </section>
@@ -571,9 +656,9 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
     <div class="footer-content">
       <div class="footer-section">
         <h4>GuardianOS Audit</h4>
-        <p>Plataforma de auditoría para consultoras, MSPs y equipos de seguridad. IA (Claude), 21 marcos normativos, API white-label. Sin vigilancia. Sin miedo.</p>
+        <p>Plataforma de diagn&#243;sticos de ciberseguridad para consultoras, MSPs y equipos de seguridad. IA (Claude), 21 marcos normativos, API white-label. Sin vigilancia. Sin miedo.</p>
         <div style="margin-top: 1rem;">
-          <span class="trust-badge-sm">Andalucía, España</span>
+          <span class="trust-badge-sm">Andaluc&#237;a, Espa&#241;a</span>
           <span class="trust-badge-sm">AGPL-3.0</span>
         </div>
       </div>
@@ -591,8 +676,8 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <h4>Legal</h4>
         <ul>
           <li><a href="/aviso-legal.html">Aviso Legal</a></li>
-          <li><a href="/politica-privacidad.html">Política de Privacidad</a></li>
-          <li><a href="/terminos.html">Términos de Servicio</a></li>
+          <li><a href="/politica-privacidad.html">Pol&#237;tica de Privacidad</a></li>
+          <li><a href="/terminos.html">T&#233;rminos de Servicio</a></li>
           <li><a href="/audit/privacidad.html">Privacidad Audit</a></li>
         </ul>
       </div>
@@ -602,15 +687,15 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
           <li><a href="mailto:info@guardianos.es">info@guardianos.es</a></li>
           <li><a href="mailto:audit@guardianos.es">audit@guardianos.es</a></li>
           <li><a href="tel:+34614837983">+34 614 83 79 83</a></li>
-          <li>Andalucía, España</li>
+          <li>Andaluc&#237;a, Espa&#241;a</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 GuardianOS – Protección que crece contigo. Desarrollado con ❤️ en Andalucía.</p>
+      <p>&#169; 2026 GuardianOS &#8211; Protecci&#243;n que crece contigo. Desarrollado con &#10084;&#65039; en Andaluc&#237;a.</p>
       <p style="margin-top: 0.5rem;">
-        <a href="/audit">GuardianOS Audit</a> ·
-        <a href="/audit/verify">Verificar certificado</a> ·
+        <a href="/audit">GuardianOS Audit</a> &#183;
+        <a href="/audit/verify">Verificar certificado</a> &#183;
         <a href="/audit/planes.html">Planes</a>
       </p>
     </div>
