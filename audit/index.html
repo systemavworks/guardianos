@@ -396,10 +396,12 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <span class="badge badge-success">✓ Gestión de Exposición</span>
         <span class="badge badge-success">✓ Open Source</span>
         <span class="badge">✓ ISO 27001</span>
-        <span class="badge">✓ GDPR / ENS</span>
+        <span class="badge">✓ GDPR / ENS / DORA</span>
         <span class="badge">✓ Sin Cloud</span>
         <span class="badge badge-success">✓ Agentes Linux &amp; Windows</span>
         <span class="badge badge-success">✓ Auditorías en Lote</span>
+        <span class="badge">⚠ Alertas CVE · INCIBE-CERT</span>
+        <span class="badge">🔔 Webhooks</span>
         <span class="badge">✓ Visibilidad Continua</span>
       </div>
       <h1>GuardianOS <span>Audit</span></h1>
@@ -459,6 +461,21 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="8" cy="15" r="1" fill="currentColor"/><circle cx="12" cy="15" r="1" fill="currentColor"/><circle cx="16" cy="15" r="1" fill="currentColor"/></svg></div>
         <h3>Auditorías Programadas</h3>
         <p>Automatiza auditorías periódicas (diarias, semanales, mensuales). Genera PDF + certificado automáticamente al completar, notifica por email y mantiene historial completo con enlace al último informe por objetivo.</p>
+      </div>
+      <div class="feature-card reveal reveal-d1">
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <h3>Alertas CVE · INCIBE-CERT</h3>
+        <p>Monitorización continua del <strong>NVD</strong> e <strong>INCIBE-CERT</strong>. En cuanto se publica un CVE que afecta al software detectado en tu stack, recibes una alerta por email o webhook con puntuación CVSS 3.1 y priorización automática por criticidad.</p>
+      </div>
+      <div class="feature-card reveal reveal-d2">
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+        <h3>Webhooks &amp; Automatización</h3>
+        <p>5 eventos configurables: <code style="background:rgba(42,157,143,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.82em;">audit_failed</code> · <code style="background:rgba(42,157,143,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.82em;">cve_alert</code> · <code style="background:rgba(42,157,143,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.82em;">compliance_changed</code> · <code style="background:rgba(42,157,143,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.82em;">member_invited</code> · <code style="background:rgba(42,157,143,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.82em;">member_accepted</code>. Conecta con Slack, Teams, SIEM o cualquier endpoint HTTP sin adaptadores propietarios.</p>
+      </div>
+      <div class="feature-card reveal reveal-d3">
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/><circle cx="6" cy="6" r="0.5" fill="currentColor"/><circle cx="12" cy="15" r="2"/><path d="m10 13 4 4"/></svg></div>
+        <h3>Signal Pills — Dashboard Inteligente</h3>
+        <p>Indicadores visuales por auditoría en el dashboard: delta de score <strong>▲/▼</strong>, nuevos hallazgos, CVEs críticos, porcentaje <strong>ENS</strong>, vencimiento SSL, grado TLS y detección de <em>subdomain takeover</em>. Estado de exposición a golpe de vista.</p>
       </div>
     </div>
   </div>
