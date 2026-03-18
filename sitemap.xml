@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://guardianos.es/</loc>
-    <lastmod>2026-03-01</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -10,7 +10,7 @@
     <loc>https://guardianos.es/shield/</loc>
   <url>
     <loc>https://guardianos.es/audit/</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -20,25 +20,25 @@
   </url>
   <url>
     <loc>https://guardianos.es/aviso-legal.html</loc>
-    <lastmod>2026-03-01</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://guardianos.es/politica-privacidad.html</loc>
-    <lastmod>2026-03-01</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://guardianos.es/terminos.html</loc>
-    <lastmod>2026-03-01</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://guardianos.es/shield/terminos-condiciones.html</loc>
-    <lastmod>2026-03-01</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
