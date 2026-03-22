@@ -305,7 +305,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
   <nav class="container">
     <a href="/audit" class="logo">
       <img src="/audit/logo_guardianos_audit.jpg" alt="GuardianOS Audit Logo" class="logo-img">
-      <span class="logo-text">&#x1F6E1;&#xFE0F; GuardianOS <span style="color:var(--secondary)">Audit</span></span>
+      <span class="logo-text">GuardianOS <span style="color:var(--secondary)">Audit</span></span>
     </a>
     <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir men&#250;" aria-expanded="false">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -431,9 +431,10 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <p class="price-note">o&nbsp;59&nbsp;&#8364;/mes facturaci&#243;n anual &middot; sin IVA</p>
         <div class="quota-badge">&#x26A1; 3 diagn&#243;sticos/mes</div>
         <ul class="pricing-features">
-          <li>IA + ENS + RGPD incluidos</li>
-          <li>Informe PDF + certificado QR</li>
-          <li>Comparativa hist&#243;rica de scores</li>
+          <li>Esc&#225;ner web + DNS + SSL + CVE + INCIBE-CERT</li>
+          <li>IA (Claude) + ENS + RGPD incluidos</li>
+          <li>Informe PDF t&#233;cnico y ejecutivo + QR</li>
+          <li>Historial y comparativa de scores (delta &#9650;/&#9660;)</li>
           <li>Alertas autom&#225;ticas por email</li>
           <li>Se renueva el d&#237;a 1 de cada mes</li>
         </ul>
@@ -453,9 +454,9 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <div class="quota-badge">&#x26A1; 8 diagn&#243;sticos/mes</div>
         <ul class="pricing-features">
           <li>Todo lo de Pro</li>
-          <li>M&#243;dulo OSINT incluido</li>
+          <li>OSINT &amp; Reputaci&#243;n (Shodan, VirusTotal 70+, InternetDB)</li>
           <li>Auditor&#237;as programadas y autom&#225;ticas</li>
-          <li>Alertas Slack / Teams / Webhook</li>
+          <li>Alertas Slack / Teams / Webhook (HMAC-SHA256)</li>
           <li>Acceso multi-usuario</li>
           <li>Soporte prioritario</li>
         </ul>
@@ -475,10 +476,11 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <div class="quota-badge">&#x26A1; Auditor&#237;as ilimitadas</div>
         <ul class="pricing-features">
           <li>Todo lo de Business</li>
-          <li>Monitorizaci&#243;n de red (inventario + alertas)</li>
-          <li>Agentes Linux y Windows</li>
-          <li>API REST incluida</li>
-          <li>Informes CSV exportables</li>
+          <li>Agentes Linux &amp; Windows (AES-256, sin VPN)</li>
+          <li>Inventario de activos + Mapa de red (D3-force)</li>
+          <li>SOC Dashboard &amp; Triage (MTTA/MTTR, SLA 4h)</li>
+          <li>Lotes de diagn&#243;sticos (20 en paralelo)</li>
+          <li>Exportaci&#243;n CSV / API REST incluida</li>
           <li>Soporte &lt; 8 h</li>
         </ul>
         <a href="mailto:audit@guardianos.es?subject=Contratar%20suscripci%C3%B3n%20Enterprise%20249%E2%82%AC%2Fmes" class="btn btn-outline">Solicitar</a>
@@ -503,10 +505,10 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <div class="quota-badge">&#x26A1; 30 diagn&#243;sticos/mes</div>
         <ul class="pricing-features">
           <li>PDF white-label con tu logo y marca</li>
-          <li>Multi-tenant: un tenant por cliente</li>
+          <li>Multi-tenant: un tenant por cliente final</li>
           <li>Todo incluido: IA, ENS, RGPD, OSINT, agentes</li>
-          <li>Panel admin para gestionar clientes</li>
-          <li>Webhooks configurables</li>
+          <li>SOC Dashboard &amp; Triage para tus clientes</li>
+          <li>Webhooks HMAC-SHA256 (Slack, Teams, endpoint propio)</li>
           <li>Soporte dedicado &lt; 4 h</li>
         </ul>
         <a href="mailto:audit@guardianos.es?subject=Demo%20plan%20Agencia%20399%E2%82%AC%2Fmes" class="btn btn-outline">Solicitar demo</a>
@@ -524,8 +526,9 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <div class="quota-badge">&#x26A1; Diagn&#243;sticos ilimitados</div>
         <ul class="pricing-features">
           <li>Todo lo de Agencia</li>
-          <li>API&nbsp;key dedicada con rate limit elevado</li>
           <li>Diagn&#243;sticos ilimitados</li>
+          <li>API&nbsp;key dedicada (rate limit: sin tope)</li>
+          <li>Inventario multi-tenant + Mapa de red unificado</li>
           <li>Integraci&#243;n v&#237;a API en tu plataforma propia</li>
           <li>Revenue sharing opcional disponible</li>
           <li>Gestor de cuenta dedicado</li>
@@ -582,11 +585,14 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
           <tr><td>PCI DSS light</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
           <tr><td>Documento de Adecuaci&#243;n ENS prellenado</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
           <tr><td>ENS sanitario / DOC para certificaci&#243;n</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-          <tr><td>M&#243;dulo OSINT</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>OSINT &amp; Reputaci&#243;n (Shodan, VirusTotal 70+, InternetDB)</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
           <tr><td>Auditor&#237;as programadas</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
           <tr><td>Alertas Slack / Teams / Webhook</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
           <tr><td>Acceso multi-usuario</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-          <tr><td>Monitorizaci&#243;n de red + agentes</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Monitorizaci&#243;n de red + Agentes Linux/Windows</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Inventario de activos + Mapa de red (D3-force)</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>SOC Dashboard &amp; Triage (MTTA/MTTR, SLA 4h, IA)</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Lotes y programaci&#243;n masiva (20 en paralelo)</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
           <tr><td>API REST</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
           <tr><td>PDF white-label (tu marca)</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
           <tr><td>Multi-tenant (un tenant por cliente)</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
@@ -666,7 +672,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 
         <p>Plataforma de diagn&#243;sticos de ciberseguridad para consultoras, MSPs y equipos de seguridad. IA (Claude), 21 marcos normativos, API white-label. Sin vigilancia. Sin miedo.</p>
         <div style="margin-top: 1rem;">
           <span class="trust-badge-sm">Andaluc&#237;a, Espa&#241;a</span>
-          <span class="trust-badge-sm">AGPL-3.0</span>
+          <span class="trust-badge-sm">INCIBE-CERT</span>
         </div>
       </div>
       <div class="footer-section">

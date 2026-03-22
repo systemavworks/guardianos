@@ -3,1547 +3,1370 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="GuardianOS Audit – Plataforma de gestión de exposición en ciberseguridad con IA (Claude). Mide, prioriza y reduce tu superficie de ataque con 21 marcos normativos, visibilidad continua de activos y certificados verificables. Open Source · Andalucía.">
-<title>GuardianOS Audit – Gestión de Exposición en Ciberseguridad | guardianos.es</title>
-<meta property="og:title" content="GuardianOS Audit – Plataforma de Gestión de Exposición con IA">
-<meta property="og:description" content="Plataforma de gestión de exposición con IA (Claude). Visibilidad unificada de activos, priorización de riesgos y 21 marcos normativos (ISO 27001, GDPR, ENS, NIS2, DORA, PCI DSS, SOC 2, NIST SP 800-53…). Certificados verificables y datos en tu infraestructura.">
-<meta property="og:image" content="https://guardianos.es/audit/logo_guardianos_audit.jpg">
-<meta property="og:url" content="https://guardianos.es/audit">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="es_ES">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://guardianos.es/audit" />
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+<meta name="description" content="GuardianOS Audit — Descubre en 10 minutos si tu empresa está expuesta. 1 auditoría gratuita, sin tarjeta. Informe PDF + certificado QR verificable. RGPD, ENS, ISO 27001.">
+<title>GuardianOS Audit — ¿Tu empresa está expuesta? Descúbrelo gratis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<script defer data-domain="guardianos.es" src="https://plausible.io/js/script.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+/* ══════════════════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════════════════ */
 :root {
-  --primary: #2a9d8f;
-  --primary-dark: #1a7a6e;
-  --secondary: #52b788;
-  --accent: #c9a94e;
-  --dark: #050505;
-  --bg-main: #0a0e12;
-  --bg-card: #111620;
-  --bg-elevated: #171e2c;
-  --text-primary: #dde4ec;
-  --text-secondary: #7a8fa8;
-  --border: #1e2d3d;
-  --color-error: #ff5252;
-  --color-warning: #ffab40;
-  --color-success: #7a9e5a;
+  --p:      #2a9d8f;
+  --p-dk:   #1a7a6e;
+  --p-lt:   #3dbdae;
+  --acc:    #f4a535;
+  --red:    #e05252;
+  --dark:   #0a0e12;
+  --card:   #111620;
+  --elev:   #171e2c;
+  --bdr:    #1e2d3d;
+  --txt:    #dde4ec;
+  --txt2:   #8899aa;
+  --txt3:   #4f6070;
+  --white:  #ffffff;
+  --r:      8px;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family:'Inter', system-ui, sans-serif;
+  background: var(--dark);
+  color: var(--txt);
   line-height: 1.6;
-  color: var(--text-primary);
-  background: var(--bg-main);
   overflow-x: hidden;
 }
-body::before {
-  content: '';
-  position: fixed;
-  top: 50%; left: 50%;
-  width: 120vw; height: 120vh;
-  background-image: url('/audit/logo_guardianos_audit.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.05;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: -1;
-}
-@media (max-width: 768px) { body::before { display: none; } }
-.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-a { color: var(--primary); text-decoration: none; transition: all 0.3s ease; }
-a:hover { color: var(--primary-dark); }
+a { color: var(--p); text-decoration: none; }
+a:hover { color: var(--p-lt); }
+img { max-width:100%; }
 
-/* ===== HEADER ===== */
-header {
-  background: rgba(10,15,15,0.95);
-  backdrop-filter: blur(10px);
-  position: sticky; top: 0; z-index: 1000;
-  box-shadow: 0 1px 3px rgba(42,157,143,0.15);
-  border-bottom: 1px solid var(--border);
-  transition: all 0.3s ease;
+/* ══════════════════════════════════════════════════════
+   NAV
+══════════════════════════════════════════════════════ */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .9rem 2rem;
+  background: rgba(10,14,18,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--bdr);
 }
-nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
-.logo {
-  display: flex; align-items: center; gap: 0.75rem;
-  font-size: 1.4rem; font-weight: 700;
-  color: var(--primary); text-decoration: none;
-  transition: transform 0.3s ease;
+.nav-brand {
+  display: flex; align-items: center; gap: .6rem;
+  font-weight: 800; font-size: 1.05rem; color: var(--white);
 }
-.logo:hover { transform: scale(1.05); }
-.logo-img {
-  height: 64px; width: auto;
-  filter: drop-shadow(0 0 10px rgba(42,157,143,0.3));
-  transition: filter 0.3s ease;
+.nav-shield {
+  width: 38px; height: 38px; border-radius: 7px;
+  flex-shrink:0; object-fit:contain; display:block;
 }
-.logo-text { font-size: 1.3rem; font-weight: 700; color: var(--primary); white-space: nowrap; }
-.logo:hover .logo-img { filter: drop-shadow(0 0 20px rgba(42,157,143,0.6)); }
-.nav-links { display: flex; gap: 1.5rem; list-style: none; }
-.nav-links a {
-  color: var(--text-primary); text-decoration: none;
-  font-weight: 500; transition: all 0.3s ease; position: relative;
+.nav-brand span { color: var(--p-lt); }
+.nav-links { display:flex; align-items:center; gap:1.5rem; }
+.nav-links a { font-size:.88rem; color: var(--txt2); transition:color .2s; }
+.nav-links a:hover { color: var(--txt); }
+.nav-cta {
+  padding: .5rem 1.2rem; border-radius: var(--r);
+  background: var(--p); color: var(--white) !important;
+  font-weight: 700; font-size: .85rem;
+  transition: background .2s, transform .15s;
 }
-.nav-links a::after {
-  content: ''; position: absolute; bottom: -5px; left: 0;
-  width: 0; height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  transition: width 0.3s ease;
+.nav-cta:hover { background: var(--p-lt) !important; transform: translateY(-1px); }
+@media(max-width:700px){
+  .nav-links .hide-mob { display:none; }
 }
-.nav-links a:hover, .nav-links a.active { color: var(--primary); }
-.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-.mobile-menu-btn {
-  display: none; background: none; border: none;
-  color: var(--text-primary); cursor: pointer;
-  padding: 0.5rem; transition: color 0.3s ease;
-}
-.mobile-menu-btn:hover { color: var(--primary); }
-.mobile-menu-btn svg { width: 1.4rem; height: 1.4rem; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; }
 
-/* ===== BUTTONS ===== */
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
-  padding: 1rem 2rem; text-decoration: none; border-radius: 0.75rem;
-  font-weight: 600; transition: all 0.3s ease; cursor: pointer; border: none;
-  font-size: 1rem; font-family: 'Inter', sans-serif;
-}
-.btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: #fff; box-shadow: 0 4px 15px rgba(42,157,143,0.3);
-}
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(42,157,143,0.5); color: #fff; }
-.btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
-.btn-outline:hover { background: rgba(42,157,143,0.1); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(42,157,143,0.2); }
-
-/* ===== BADGES ===== */
-.badge {
-  display: inline-flex; align-items: center; gap: 0.3rem;
-  padding: 0.3rem 0.85rem; border-radius: 2rem;
-  font-size: 0.82rem; font-weight: 600;
-  background: var(--bg-elevated); border: 1px solid var(--border); color: var(--text-secondary);
-}
-.badge-success { background: rgba(42,157,143,0.1); border-color: var(--primary); color: var(--primary); }
-
-/* ===== HERO ===== */
+/* ══════════════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════════════ */
 .hero {
-  background: linear-gradient(135deg, #0a0f0f 0%, #0f2020 50%, #0a2e1e 100%);
-  color: white; padding: 8rem 0 6rem;
-  text-align: center; position: relative; overflow: hidden;
+  min-height: 88vh;
+  display: flex; align-items: center;
+  padding: 5rem 2rem 4rem;
+  position: relative; overflow: hidden;
 }
 .hero::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background:
-    radial-gradient(circle at 20% 50%, rgba(42,157,143,0.12) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(201,169,78,0.1) 0%, transparent 50%);
-  animation: float 20s ease-in-out infinite;
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(42,157,143,.12) 0%, transparent 70%);
+  pointer-events:none;
 }
-@keyframes float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-50px) scale(1.05); } }
-.hero-content { position: relative; z-index: 1; }
-.hero-badges {
-  display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
-  margin-bottom: 2rem; animation: fadeInUp 0.8s ease-out;
+.hero-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 420px; gap: 4rem; align-items: center;
 }
+@media(max-width:900px){
+  .hero-inner { grid-template-columns:1fr; }
+  .hero-form-col { order:-1; }
+}
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.35rem .9rem; border-radius:99px;
+  border:1px solid rgba(42,157,143,.4); background:rgba(42,157,143,.08);
+  font-size:.8rem; font-weight:600; color: var(--p-lt);
+  margin-bottom:1.4rem;
+}
+.hero-eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--p-lt); animation:pulse 2s infinite; }
+@keyframes pulse{ 0%,100%{opacity:1} 50%{opacity:.4} }
+
 .hero h1 {
-  font-size: 3.2rem; font-weight: 800; margin-bottom: 1.5rem;
-  animation: fadeInUp 0.8s ease-out 0.1s backwards; line-height: 1.2;
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-weight: 900; line-height: 1.15;
+  color: var(--white); margin-bottom: 1.2rem;
+  letter-spacing: -.03em;
 }
-.hero h1 span { color: var(--primary); }
-.hero .hero-sub {
-  font-size: 1.25rem; max-width: 700px; margin: 0 auto 2.5rem;
-  opacity: 0.9; animation: fadeInUp 0.8s ease-out 0.2s backwards; color: var(--text-secondary);
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--p-lt), #7de1d5);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-.hero-actions {
-  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+.hero-sub {
+  font-size: 1.05rem; color: var(--txt2);
+  max-width: 520px; margin-bottom: 1.8rem; line-height: 1.7;
 }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.hero-sub strong { color: var(--txt); }
 
-/* ===== SECTIONS ===== */
-section { padding: 5rem 0; }
-.section-header { text-align: center; margin-bottom: 4rem; }
-.section-header h2 { font-size: 2.4rem; color: var(--text-primary); margin-bottom: 1rem; }
-.section-header p { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+/* Mini pain cards */
+.pain-row {
+  display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2rem;
+}
+.pain-chip {
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding: .35rem .8rem; border-radius:99px;
+  background: rgba(224,82,82,.1); border:1px solid rgba(224,82,82,.3);
+  font-size:.8rem; color:#f08080; font-weight:500;
+}
+.pain-chip .icon { font-size:.9rem; }
 
-/* ===== FEATURES ===== */
-.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
-.feature-card {
-  background: var(--bg-card); padding: 2.5rem; border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-  border: 1px solid var(--border); position: relative; overflow: hidden;
-  display: flex; flex-direction: column;
+/* Trust row */
+.trust-row {
+  display:flex; flex-wrap:wrap; gap:.8rem; align-items:center;
 }
-.feature-card::before {
-  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(135deg, rgba(42,157,143,0.08), rgba(201,169,78,0.08));
-  opacity: 0; transition: opacity 0.4s ease;
+.trust-item {
+  display:flex; align-items:center; gap:.4rem;
+  font-size:.82rem; color: var(--txt2);
 }
-.feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(42,157,143,0.2); border-color: var(--primary); background: var(--bg-elevated); }
-.feature-card:hover::before { opacity: 1; }
-.feature-icon {
-  width: 3.2rem; height: 3.2rem;
-  background: linear-gradient(135deg, rgba(42,157,143,0.15), rgba(201,169,78,0.15));
-  border: 1px solid rgba(42,157,143,0.3); border-radius: 0.875rem;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 1.25rem; font-size: 1.4rem; transition: all 0.4s ease; flex-shrink: 0;
-}
-.feature-card:hover .feature-icon { background: linear-gradient(135deg, rgba(42,157,143,0.28), rgba(201,169,78,0.28)); border-color: var(--primary); transform: scale(1.08); }
-.feature-card h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.75rem; position: relative; z-index: 1; }
-.feature-card p { color: var(--text-secondary); line-height: 1.7; position: relative; z-index: 1; font-size: 0.95rem; }
+.trust-item .tick { color:var(--p); font-weight:800; }
+.trust-sep { color:var(--txt3); }
 
-/* ===== HOW IT WORKS ===== */
-.how-it-works { background: var(--bg-card); padding: 5rem 0; border-bottom: 1px solid var(--border); }
-.steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3rem; margin-top: 3.5rem; position: relative; }
-.steps-grid::before {
-  content: ''; position: absolute; top: 2.35rem; left: 22%; right: 22%; height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--accent)); opacity: 0.35;
+/* ── FORM CARD ── */
+.hero-form-col .form-card {
+  background: var(--card);
+  border: 1px solid var(--bdr);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
 }
-.step-item { text-align: center; }
-.step-number {
-  width: 4.7rem; height: 4.7rem;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 1.5rem; position: relative; z-index: 1;
-  box-shadow: 0 4px 20px rgba(42,157,143,0.4);
-  font-size: 1.5rem; font-weight: 700; color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.form-card-badge {
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:.3rem .8rem; border-radius:99px;
+  background:rgba(42,157,143,.12); border:1px solid rgba(42,157,143,.3);
+  color:var(--p-lt); font-size:.78rem; font-weight:700;
+  margin-bottom:1rem;
 }
-.step-item:hover .step-number { transform: scale(1.1); box-shadow: 0 8px 30px rgba(42,157,143,0.6); }
-.step-item h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
-.step-item p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
+.form-card h3 { font-size:1.2rem; font-weight:800; color:var(--white); margin-bottom:.35rem; }
+.form-card .fc-sub { font-size:.84rem; color:var(--txt2); margin-bottom:1.4rem; line-height:1.5; }
+.fc-sub strong { color: var(--acc); }
 
-/* ===== COMPLIANCE ===== */
-.compliance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
-.compliance-item {
-  text-align: center; padding: 2rem;
-  background: var(--bg-card); border-radius: 1rem;
-  border: 1px solid var(--border); transition: all 0.3s ease;
+.form-group { margin-bottom:.9rem; }
+.form-group label { display:block; font-size:.8rem; color:var(--txt2); margin-bottom:.35rem; font-weight:500; }
+.form-group input {
+  width:100%; padding:.7rem .9rem;
+  background: var(--elev); border:1px solid var(--bdr);
+  border-radius: var(--r); color:var(--txt);
+  font-family:inherit; font-size:.9rem;
+  transition:border .2s;
 }
-.compliance-item:hover { border-color: var(--primary); transform: translateY(-6px); box-shadow: 0 12px 30px rgba(42,157,143,0.15); }
-.compliance-item .icon { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
-.compliance-item h4 { font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; }
-.compliance-item p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; }
+.form-group input:focus { outline:none; border-color:var(--p); }
+.form-group input::placeholder { color:var(--txt3); }
 
-/* ===== CERT DEMO ===== */
-.cert-demo { background: var(--bg-card); border-radius: 1rem; padding: 2.5rem; border: 1px solid var(--border); margin-top: 2.5rem; }
-.cert-preview { background: #fff; color: #000; border-radius: 0.75rem; padding: 2rem; font-family: monospace; font-size: 0.9rem; }
-.cert-preview .cert-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 1rem; margin-bottom: 1rem; }
-.score { font-size: 2.8rem; font-weight: 800; color: #5c7a3e; }
-.qr { width: 80px; height: 80px; background: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; text-align: center; }
-
-/* ===== PRICING ===== */
-.pricing { background: var(--bg-card); }
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 3rem auto 0; }
-.pricing-card {
-  background: var(--bg-main); border: 2px solid var(--border);
-  border-radius: 1rem; padding: 2.5rem; text-align: center;
-  transition: all 0.4s cubic-bezier(0.4,0,0.2,1); position: relative;
+.btn-primary {
+  width:100%; padding:.85rem;
+  background: linear-gradient(135deg, var(--p), var(--p-lt));
+  color:#fff; border:none; border-radius:var(--r);
+  font-family:inherit; font-size:.95rem; font-weight:700;
+  cursor:pointer; transition:opacity .2s, transform .15s;
 }
-.pricing-card.featured {
-  border-color: var(--primary); transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(42,157,143,0.3); background: var(--bg-elevated);
-}
-.pricing-card.featured::before {
-  content: 'MÁS POPULAR'; position: absolute; top: -14px; left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: #000; padding: 0.4rem 1.2rem; border-radius: 2rem;
-  font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
-}
-.pricing-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(42,157,143,0.2); border-color: var(--primary); }
-.pricing-card.featured:hover { transform: scale(1.05) translateY(-10px); }
-.pricing-header { margin-bottom: 1.5rem; }
-.pricing-header h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-primary); }
-.price {
-  font-size: 2.8rem; font-weight: 700;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-.price span { font-size: 1rem; color: var(--text-secondary); -webkit-text-fill-color: var(--text-secondary); }
-.pricing-features { list-style: none; margin: 1.5rem 0; text-align: left; }
-.pricing-features li { padding: 0.6rem 0; color: var(--text-secondary); display: flex; align-items: center; gap: 0.6rem; border-bottom: 1px solid var(--border); transition: color 0.3s ease; }
-.pricing-card:hover .pricing-features li { color: var(--text-primary); }
-.pricing-features li::before { content: '✓'; color: var(--primary); font-weight: bold; font-size: 1.1rem; }
-.pricing-card .btn { width: 100%; margin-top: 1rem; }
+.btn-primary:hover { opacity:.9; transform:translateY(-2px); }
 
-/* ===== TESTIMONIALS ===== */
-.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 2rem; margin-top: 3rem; }
-.testimonial-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 1rem; padding: 2rem; transition: all 0.35s ease; }
-.testimonial-card:hover { border-color: var(--primary); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(42,157,143,0.15); }
-.testimonial-quote { font-size: 3.5rem; font-family: Georgia, serif; line-height: 0.8; color: var(--primary); opacity: 0.22; margin-bottom: 0.75rem; user-select: none; }
-.testimonial-stars { color: #fbbf24; font-size: 0.9rem; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
-.testimonial-text { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.75; font-style: italic; margin-bottom: 1.5rem; }
-.testimonial-author { display: flex; align-items: center; gap: 0.875rem; }
-.testimonial-avatar { width: 2.75rem; height: 2.75rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: #000; flex-shrink: 0; }
-.testimonial-name { font-weight: 600; color: var(--text-primary); font-size: 0.9rem; }
-.testimonial-role { font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.1rem; }
-
-/* ===== FAQ ===== */
-.faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
-details.faq-item { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 1rem; overflow: hidden; }
-details.faq-item summary { padding: 1.25rem 1.5rem; font-weight: 600; font-size: 1rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--text-primary); }
-details.faq-item summary::-webkit-details-marker { display: none; }
-details.faq-item summary .faq-chevron { transition: transform 0.3s; flex-shrink: 0; color: var(--primary); }
-details.faq-item[open] summary .faq-chevron { transform: rotate(180deg); }
-details.faq-item p { padding: 0 1.5rem 1.25rem; color: var(--text-secondary); line-height: 1.7; margin: 0; }
-
-/* ===== CONTACT ===== */
-.contact-section { background: var(--bg-card); padding: 2.5rem 0; }
-.contact-section .section-header { margin-bottom: 1.5rem; }
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-.contact-form-card { background: var(--bg-elevated); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border); }
-.form-group { margin-bottom: 0.65rem; }
-.form-group label { display: block; margin-bottom: 0.25rem; color: var(--text-primary); font-weight: 500; font-size: 0.9rem; }
-.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.6rem 0.8rem; border: 2px solid var(--border); border-radius: 0.5rem; background: var(--bg-card); color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 0.9rem; transition: all 0.3s ease; }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(42,157,143,0.1); }
-.form-group textarea { min-height: 70px; resize: vertical; }
-.contact-info-col { display: flex; flex-direction: column; gap: 0.65rem; }
-.contact-info-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem; background: var(--bg-elevated); border-radius: 0.75rem; border: 1px solid var(--border); transition: all 0.3s ease; }
-.contact-info-item:hover { border-color: var(--primary); }
-.contact-info-item .icon { font-size: 1.2rem; flex-shrink: 0; }
-.contact-info-item strong { color: var(--text-primary); display: block; margin-bottom: 0.1rem; font-size: 0.9rem; }
-.contact-info-item small { color: var(--text-secondary); font-size: 0.78rem; }
-
-/* ===== FOOTER ===== */
-footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 3rem 0 2rem; }
-.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem; margin-bottom: 2rem; }
-.footer-section h4 { color: white; margin-bottom: 1rem; font-size: 1.05rem; }
-.footer-section ul { list-style: none; }
-.footer-section ul li { padding: 0.4rem 0; }
-.footer-section a { color: rgba(255,255,255,0.65); text-decoration: none; transition: all 0.3s ease; }
-.footer-section a:hover { color: var(--primary); padding-left: 5px; }
-.footer-section p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; }
-.footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.88rem; }
-.footer-bottom a { color: rgba(255,255,255,0.5); }
-.footer-bottom a:hover { color: var(--primary); }
-.trust-badge-sm { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.25rem 0.65rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600; background: rgba(42,157,143,0.1); border: 1px solid rgba(42,157,143,0.3); color: var(--primary); margin: 0.2rem; }
-
-/* ===== SCROLL REVEAL ===== */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-d1 { transition-delay: 0.08s; }
-.reveal-d2 { transition-delay: 0.16s; }
-.reveal-d3 { transition-delay: 0.24s; }
-.reveal-d4 { transition-delay: 0.32s; }
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: rgba(10,15,15,0.98); backdrop-filter: blur(10px); flex-direction: column; padding: 2rem; gap: 1rem; transition: left 0.3s ease; border-right: 1px solid var(--border); z-index: 999; }
-  .nav-links.active { left: 0; }
-  .mobile-menu-btn { display: block; }
-  .hero h1 { font-size: 2rem; }
-  .hero .hero-sub { font-size: 1rem; }
-  .features-grid { grid-template-columns: 1fr; min-width: 0; }
-  .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .steps-grid::before { display: none; }
-  .section-header h2 { font-size: 2rem; }
-  .pricing-card.featured { transform: scale(1); }
-  .logo-img { height: 48px; }
+.form-disclaimer {
+  margin-top:.8rem; font-size:.75rem; color:var(--txt3);
+  text-align:center; line-height:1.5;
 }
-@media (max-width: 480px) {
-  .hero h1 { font-size: 1.75rem; }
-  .btn { padding: 0.875rem 1.5rem; font-size: 0.9rem; }
+.form-price-note {
+  margin-top:1rem; padding:.7rem;
+  border-radius:var(--r); border:1px solid rgba(244,165,53,.25);
+  background:rgba(244,165,53,.07);
+  font-size:.78rem; color:#f4c06a; text-align:center; line-height:1.5;
 }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-  .reveal { opacity: 1; transform: none; }
+.form-price-note strong { color:var(--acc); }
+
+/* ══════════════════════════════════════════════════════
+   LOGO STRIP
+══════════════════════════════════════════════════════ */
+.logo-strip {
+  border-top:1px solid var(--bdr); border-bottom:1px solid var(--bdr);
+  padding:1.3rem 2rem;
+  display:flex; align-items:center; justify-content:center;
+  gap:2.5rem; flex-wrap:wrap;
 }
+.logo-strip .label { font-size:.78rem; color:var(--txt3); white-space:nowrap; }
+.norm-pill {
+  display:inline-flex; align-items:center; gap:.35rem;
+  padding:.28rem .75rem; border-radius:99px;
+  border:1px solid var(--bdr); background:var(--elev);
+  font-size:.76rem; color:var(--txt2); font-weight:600; white-space:nowrap;
+}
+.norm-pill.hl { border-color:rgba(42,157,143,.4); color:var(--p-lt); background:rgba(42,157,143,.08); }
+
+/* ══════════════════════════════════════════════════════
+   DUAL AUDIENCE SECTION
+══════════════════════════════════════════════════════ */
+.section { padding: 5rem 2rem; }
+.section-inner { max-width:1100px; margin:0 auto; }
+.section-label {
+  font-size:.78rem; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--p); margin-bottom:.7rem;
+}
+.section-title {
+  font-size:clamp(1.5rem,3vw,2.1rem); font-weight:900;
+  color:var(--white); line-height:1.2; letter-spacing:-.02em;
+  margin-bottom:.8rem;
+}
+.section-sub { font-size:1rem; color:var(--txt2); max-width:560px; line-height:1.7; }
+
+.audience-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem;
+}
+@media(max-width:700px){ .audience-grid { grid-template-columns:1fr; } }
+
+.aud-card {
+  border-radius:12px; padding:1.8rem;
+  border:1px solid var(--bdr);
+  background: var(--card);
+  position:relative; overflow:hidden;
+}
+.aud-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+}
+.aud-card.pyme::before { background:linear-gradient(90deg, var(--p), var(--p-lt)); }
+.aud-card.partner::before { background:linear-gradient(90deg, var(--acc), #f7c95a); }
+.aud-icon { font-size:1.8rem; margin-bottom:.8rem; }
+.aud-card h3 { font-size:1.1rem; font-weight:800; color:var(--white); margin-bottom:.4rem; }
+.aud-card .aud-who { font-size:.82rem; color:var(--txt2); margin-bottom:1.1rem; line-height:1.5; }
+.aud-list { list-style:none; }
+.aud-list li {
+  display:flex; align-items:flex-start; gap:.6rem;
+  font-size:.88rem; color:var(--txt); padding:.4rem 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  line-height:1.45;
+}
+.aud-list li:last-child { border-bottom:none; }
+.aud-list li .tick { color:var(--p); flex-shrink:0; }
+.aud-card.partner .aud-list li .tick { color:var(--acc); }
+.aud-cta {
+  display:inline-flex; align-items:center; gap:.4rem;
+  margin-top:1.3rem; padding:.6rem 1.2rem; border-radius:var(--r);
+  font-size:.85rem; font-weight:700; font-family:inherit;
+  cursor:pointer; border:none; transition:all .2s;
+}
+.aud-cta.pyme { background:var(--p); color:#fff; }
+.aud-cta.pyme:hover { background:var(--p-lt); }
+.aud-cta.partner { background:transparent; border:1.5px solid var(--acc); color:var(--acc); }
+.aud-cta.partner:hover { background:rgba(244,165,53,.1); }
+
+/* ══════════════════════════════════════════════════════
+   PROBLEMA / DOLOR
+══════════════════════════════════════════════════════ */
+.problem-section {
+  background: linear-gradient(180deg, var(--dark) 0%, #0d1219 100%);
+}
+
+.problem-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.5rem;
+}
+@media(max-width:800px){ .problem-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:500px){ .problem-grid { grid-template-columns:1fr; } }
+
+.problem-card {
+  border-radius:10px; padding:1.4rem;
+  background:rgba(224,82,82,.06); border:1px solid rgba(224,82,82,.2);
+}
+.problem-card .pc-icon { font-size:1.4rem; margin-bottom:.6rem; }
+.problem-card h4 { font-size:.92rem; font-weight:700; color:#f08080; margin-bottom:.4rem; }
+.problem-card p { font-size:.83rem; color:var(--txt2); line-height:1.6; }
+.problem-card .pc-stat {
+  display:inline-block; margin-top:.7rem;
+  padding:.25rem .65rem; border-radius:99px;
+  background:rgba(224,82,82,.15); border:1px solid rgba(224,82,82,.3);
+  font-size:.75rem; font-weight:700; color:#ff9090;
+}
+
+/* ══════════════════════════════════════════════════════
+   FEATURES — orientadas a problema
+══════════════════════════════════════════════════════ */
+.features-bg { background:var(--elev); }
+
+.features-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.5rem;
+}
+@media(max-width:800px){ .features-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:500px){ .features-grid { grid-template-columns:1fr; } }
+
+.feat-card {
+  background:var(--card); border:1px solid var(--bdr);
+  border-radius:12px; padding:1.5rem;
+  transition:border-color .2s, transform .2s;
+}
+.feat-card:hover { border-color:rgba(42,157,143,.4); transform:translateY(-3px); }
+.feat-card .fi { font-size:1.5rem; margin-bottom:.8rem; }
+.feat-card h4 { font-size:.95rem; font-weight:800; color:var(--white); margin-bottom:.35rem; }
+.feat-card .before {
+  font-size:.8rem; color:var(--red); margin-bottom:.35rem;
+  display:flex; align-items:flex-start; gap:.3rem;
+}
+.feat-card .after {
+  font-size:.82rem; color:var(--txt2); line-height:1.55;
+}
+.feat-card .after strong { color:var(--p-lt); }
+
+/* ══════════════════════════════════════════════════════
+   INCIBE HIGHLIGHT
+══════════════════════════════════════════════════════ */
+.incibe-banner {
+  background: linear-gradient(135deg, rgba(42,157,143,.1), rgba(42,157,143,.04));
+  border:1px solid rgba(42,157,143,.3); border-radius:14px;
+  padding:2.2rem; margin-top:2.5rem;
+  display:flex; gap:2rem; align-items:center;
+  flex-wrap:wrap;
+}
+.incibe-badge {
+  flex-shrink:0;
+  width:72px; height:72px; border-radius:12px;
+  background:linear-gradient(135deg, var(--p-dk), var(--p));
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  font-weight:900; font-size:.7rem; color:#fff; text-align:center; line-height:1.3;
+}
+.incibe-badge .bi { font-size:1.5rem; margin-bottom:.1rem; }
+.incibe-text h4 { font-size:1.05rem; font-weight:800; color:var(--white); margin-bottom:.4rem; }
+.incibe-text p { font-size:.88rem; color:var(--txt2); line-height:1.6; max-width:560px; }
+.incibe-text p strong { color:var(--p-lt); }
+.incibe-chips { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.8rem; }
+.ichip {
+  padding:.25rem .7rem; border-radius:99px;
+  background:rgba(42,157,143,.15); border:1px solid rgba(42,157,143,.3);
+  font-size:.76rem; color:var(--p-lt); font-weight:600;
+}
+
+/* ══════════════════════════════════════════════════════
+   PRICING SECTION
+══════════════════════════════════════════════════════ */
+.pricing-section { background: var(--dark); }
+.price-intro {
+  max-width:640px; margin-bottom:2.5rem;
+}
+.pricing-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem;
+}
+@media(max-width:800px){ .pricing-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:520px){ .pricing-grid { grid-template-columns:1fr; } }
+
+.price-card {
+  background:var(--card); border:1px solid var(--bdr);
+  border-radius:12px; padding:1.6rem;
+  display:flex; flex-direction:column;
+  transition:border-color .2s;
+}
+.price-card.highlight {
+  border-color: var(--p);
+  background:linear-gradient(160deg, rgba(42,157,143,.08) 0%, var(--card) 100%);
+  position:relative;
+}
+.price-card.highlight::before {
+  content:'+ popular';
+  position:absolute; top:-1px; left:50%; transform:translateX(-50%);
+  padding:.2rem .9rem; border-radius:0 0 8px 8px;
+  background:var(--p); color:#fff; font-size:.72rem; font-weight:700;
+}
+.price-card-track {
+  font-size:.72rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.08em; margin-bottom:.5rem;
+}
+.price-card-track.a { color:var(--p); }
+.price-card-track.b { color:#60a5fa; }
+.price-card-track.c { color:var(--acc); }
+.price-card h3 { font-size:1rem; font-weight:800; color:var(--white); margin-bottom:.2rem; }
+.price-card .pc-target { font-size:.78rem; color:var(--txt2); margin-bottom:1rem; line-height:1.4; }
+.price-amount { font-size:1.8rem; font-weight:900; color:var(--p-lt); line-height:1; margin-bottom:.2rem; }
+.price-amount .unit { font-size:.9rem; font-weight:400; color:var(--txt2); }
+.price-freq { font-size:.75rem; color:var(--txt2); margin-bottom:1rem; }
+.price-freq .save { color:var(--p-lt); font-weight:600; }
+.price-quota {
+  display:inline-flex; align-items:center; gap:.3rem;
+  padding:.25rem .7rem; border-radius:99px; margin-bottom:1rem;
+  background:rgba(42,157,143,.1); border:1px solid rgba(42,157,143,.25);
+  font-size:.76rem; font-weight:700; color:var(--p-lt);
+}
+.price-feats { list-style:none; flex:1; }
+.price-feats li {
+  display:flex; gap:.5rem; font-size:.82rem; color:var(--txt2);
+  padding:.35rem 0; border-bottom:1px solid rgba(255,255,255,.04);
+  line-height:1.4;
+}
+.price-feats li:last-child { border-bottom:none; }
+.price-feats li::before { content:'✓'; color:var(--p); flex-shrink:0; }
+
+.pricing-note {
+  margin-top:1.8rem; padding:1rem 1.2rem;
+  border-radius:var(--r); border:1px solid var(--bdr);
+  background:var(--elev);
+  font-size:.83rem; color:var(--txt2); line-height:1.6;
+  display:flex; align-items:flex-start; gap:.7rem;
+}
+.pricing-note .ni { font-size:1rem; flex-shrink:0; margin-top:.1rem; }
+
+/* ══════════════════════════════════════════════════════
+   CANAL B2B / PARTNERS
+══════════════════════════════════════════════════════ */
+.partner-section { background:var(--elev); }
+.partner-band {
+  border:1px solid rgba(244,165,53,.25); border-radius:14px;
+  padding:2.5rem; margin-top:2.5rem;
+  display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:center;
+}
+@media(max-width:700px){ .partner-band { grid-template-columns:1fr; } }
+.pb-label {
+  font-size:.78rem; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--acc); margin-bottom:.5rem;
+}
+.partner-band h3 { font-size:1.3rem; font-weight:900; color:var(--white); margin-bottom:.6rem; }
+.partner-band p { font-size:.9rem; color:var(--txt2); line-height:1.7; max-width:560px; }
+.partner-band p strong { color:var(--txt); }
+.partner-items { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+.pitem {
+  padding:.3rem .8rem; border-radius:99px;
+  border:1px solid rgba(244,165,53,.3); background:rgba(244,165,53,.07);
+  font-size:.78rem; color:#f4c06a; font-weight:600;
+}
+.pb-action { display:flex; flex-direction:column; gap:.7rem; align-items:flex-start; }
+.btn-acc {
+  padding:.75rem 1.5rem; border-radius:var(--r);
+  background:transparent; border:1.5px solid var(--acc);
+  color:var(--acc); font-family:inherit; font-size:.88rem; font-weight:700;
+  cursor:pointer; white-space:nowrap; transition:all .2s;
+}
+.btn-acc:hover { background:rgba(244,165,53,.1); }
+.btn-acc-solid {
+  padding:.75rem 1.5rem; border-radius:var(--r);
+  background:var(--acc); border:none;
+  color:#111; font-family:inherit; font-size:.88rem; font-weight:700;
+  cursor:pointer; white-space:nowrap; transition:opacity .2s;
+}
+.btn-acc-solid:hover { opacity:.9; }
+
+/* ══════════════════════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════════════════════ */
+.testimonials-section { background:var(--dark); }
+.test-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.5rem;
+}
+@media(max-width:800px){ .test-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:530px){ .test-grid { grid-template-columns:1fr; } }
+
+.test-card {
+  background:var(--card); border:1px solid var(--bdr);
+  border-radius:12px; padding:1.5rem;
+}
+.test-stars { color:var(--acc); font-size:.9rem; margin-bottom:.8rem; }
+.test-card p { font-size:.86rem; color:var(--txt2); line-height:1.7; font-style:italic; margin-bottom:1.1rem; }
+.test-card p strong { color:var(--p-lt); font-style:normal; }
+.test-person { display:flex; align-items:center; gap:.7rem; }
+.test-avatar {
+  width:36px; height:36px; border-radius:50%;
+  background:linear-gradient(135deg, var(--p-dk), var(--p));
+  display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:.85rem; color:#fff; flex-shrink:0;
+}
+.test-name { font-size:.82rem; font-weight:700; color:var(--white); }
+.test-role { font-size:.75rem; color:var(--txt3); line-height:1.4; }
+
+/* ══════════════════════════════════════════════════════
+   FAQ
+══════════════════════════════════════════════════════ */
+.faq-section { background:var(--elev); }
+.faq-list { max-width:720px; margin-top:2rem; }
+.faq-item {
+  border-bottom:1px solid var(--bdr);
+}
+.faq-q {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:1.1rem 0; cursor:pointer;
+  font-size:.95rem; font-weight:600; color:var(--txt);
+  user-select:none;
+}
+.faq-q:hover { color:var(--white); }
+.faq-arrow { color:var(--txt3); font-size:1.1rem; transition:transform .25s; }
+.faq-item.open .faq-arrow { transform:rotate(180deg); }
+.faq-a {
+  overflow:hidden; max-height:0;
+  font-size:.87rem; color:var(--txt2); line-height:1.7;
+  transition:max-height .35s ease, padding .35s;
+}
+.faq-item.open .faq-a { max-height:200px; padding-bottom:1.1rem; }
+
+/* ══════════════════════════════════════════════════════
+   FINAL CTA
+══════════════════════════════════════════════════════ */
+.final-cta-section { background:var(--dark); padding:5rem 2rem; }
+.final-cta-box {
+  max-width:680px; margin:0 auto; text-align:center;
+  border:1px solid rgba(42,157,143,.3); border-radius:16px;
+  padding:3rem 2rem;
+  background: linear-gradient(160deg, rgba(42,157,143,.08), transparent);
+}
+.final-cta-box h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:900; color:var(--white); margin-bottom:.8rem; }
+.final-cta-box p { font-size:.95rem; color:var(--txt2); margin-bottom:2rem; line-height:1.6; }
+.final-cta-box p strong { color:var(--txt); }
+.cta-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.btn-hero-main {
+  padding:.9rem 2rem; border-radius:var(--r);
+  background:linear-gradient(135deg,var(--p),var(--p-lt));
+  color:#fff; border:none; font-family:inherit;
+  font-size:.95rem; font-weight:700; cursor:pointer;
+  transition:opacity .2s, transform .15s;
+}
+.btn-hero-main:hover { opacity:.9; transform:translateY(-2px); }
+.btn-hero-out {
+  padding:.9rem 2rem; border-radius:var(--r);
+  background:transparent; border:1.5px solid var(--bdr);
+  color:var(--txt2); font-family:inherit;
+  font-size:.95rem; font-weight:600; cursor:pointer;
+  transition:all .2s;
+}
+.btn-hero-out:hover { border-color:var(--txt2); color:var(--txt); }
+
+/* ══════════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════════ */
+footer {
+  border-top:1px solid var(--bdr);
+  padding:3rem 2rem 2rem;
+  background:var(--dark);
+}
+.footer-inner {
+  max-width:1100px; margin:0 auto;
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:2rem;
+}
+@media(max-width:700px){ .footer-inner { grid-template-columns:1fr 1fr; } }
+.footer-brand { }
+.footer-logo {
+  display:flex; align-items:center; gap:.5rem;
+  font-weight:800; font-size:1rem; color:var(--white); margin-bottom:.7rem;
+}
+.footer-logo .shield-sm {
+  width:28px; height:28px; border-radius:5px;
+  object-fit:contain; flex-shrink:0; display:block;
+}
+.footer-brand p { font-size:.82rem; color:var(--txt3); line-height:1.6; max-width:240px; }
+.footer-brand .footer-badges { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.8rem; }
+.fbadge {
+  padding:.2rem .6rem; border-radius:99px;
+  border:1px solid var(--bdr); background:var(--elev);
+  font-size:.7rem; color:var(--txt3);
+}
+.footer-col h5 { font-size:.82rem; font-weight:700; color:var(--txt); margin-bottom:.8rem; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:.4rem; }
+.footer-col ul li a { font-size:.82rem; color:var(--txt3); }
+.footer-col ul li a:hover { color:var(--txt2); }
+.footer-bottom {
+  max-width:1100px; margin:2rem auto 0;
+  padding-top:1.2rem; border-top:1px solid var(--bdr);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem;
+  font-size:.76rem; color:var(--txt3);
+}
+
+/* ══════════════════════════════════════════════════════
+   MISC UTILS
+══════════════════════════════════════════════════════ */
+.sep { max-width:1100px; margin:0 auto; border:none; border-top:1px solid var(--bdr); }
+.mt-s { margin-top:1rem; }
+.mt-m { margin-top:2rem; }
+.centered { text-align:center; }
+.centered .section-sub { margin:0 auto; }
 </style>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <nav class="container">
-    <a href="/" class="logo">
-      <img src="/audit/logo_guardianos_audit.jpg" alt="GuardianOS Audit Logo" class="logo-img">
-      <span class="logo-text">🛡️ GuardianOS <span style="color:var(--secondary)">Audit</span></span>
-    </a>
-    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/" onclick="closeMobileMenu()">Inicio</a></li>
-      <li><a href="/#servicios" onclick="closeMobileMenu()">Servicios</a></li>
-      <li><a href="#agentes" onclick="closeMobileMenu()">Agentes</a></li>
-      <li><a href="/shield" onclick="closeMobileMenu()">Shield</a></li>
-      <li><a href="/audit" class="active" onclick="closeMobileMenu()">Audit</a></li>
-      <li><a href="/audit/planes.html" onclick="closeMobileMenu()" style="color:var(--accent);font-weight:600;">💰 Planes</a></li>
-      <li><a href="#verificar" onclick="closeMobileMenu()" style="color:var(--primary);">🔍 Verificar</a></li>
-      <li><a href="#prueba-gratis" onclick="closeMobileMenu()" style="color:var(--secondary);font-weight:600;">⚡ Prueba gratis</a></li>
-      <li><a href="#contacto" onclick="closeMobileMenu()">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-badges">
-        <span class="badge badge-success">✓ Gestión de Exposición</span>
-        <span class="badge badge-success">✓ Open Source</span>
-        <span class="badge">✓ ISO 27001</span>
-        <span class="badge">✓ GDPR / ENS / DORA</span>
-        <span class="badge">✓ Sin Cloud</span>
-        <span class="badge badge-success">✓ Agentes Linux &amp; Windows</span>
-        <span class="badge badge-success">✓ Auditorías en Lote</span>
-        <span class="badge">⚠ Alertas CVE · INCIBE-CERT</span>
-        <span class="badge">🔔 Webhooks</span>
-        <span class="badge">✓ Visibilidad Continua</span>
-      </div>
-      <h1>GuardianOS <span>Audit</span></h1>
-         <p class="hero-sub">Plataforma de <strong>gestión de exposición</strong> para organizaciones que necesitan visibilidad continua de su superficie de ataque. Detecta, prioriza y reduce exposiciones en DNS, SSL, CVE y cabeceras HTTP — más agentes ligeros Bash/PowerShell para monitorizar servidores <strong>Linux y Windows</strong> de forma periódica. 21 marcos normativos, IA con Claude, historial evolutivo y certificado forense SHA-256. Backend propio: tus datos, tu infraestructura.</p>
-      <div class="hero-actions">
-        <a href="#prueba-gratis" class="btn btn-primary">⚡ Analizar mi dominio gratis</a>
-        <a href="#contacto" class="btn btn-outline">Medir mi Exposición</a>
-      </div>
-    </div>
+<!-- ═══════════════════════════════ NAV ═════════════════════════════ -->
+<nav>
+  <div class="nav-brand">
+    <img class="nav-shield" src="logo_guardianos_audit.jpg" alt="GuardianOS Audit">
+    GuardianOS <span>&nbsp;Audit</span>
   </div>
-</section>
-
-<!-- Features -->
-<section id="features" style="background: var(--bg-main);">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2>Una plataforma de exposición completa</h2>
-      <p>Visibilidad unificada de activos, priorización de riesgos con IA y 21 marcos normativos — con privacidad total por diseño</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card reveal">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/><line x1="10" y1="7" x2="10" y2="13"/><line x1="7" y1="10" x2="13" y2="10"/></svg></div>
-        <h3>Mapa de Superficie de Ataque</h3>
-        <p>DNS (SPF, DKIM, DMARC), SSL/TLS, cabeceras HTTP de seguridad, puertos abiertos y detección de vulnerabilidades CVE. Visibilidad total de tu exposición exterior.</p>
-      </div>
-      <div class="feature-card reveal reveal-d1">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/><line x1="3" y1="20" x2="21" y2="20"/></svg></div>
-        <h3>21 Marcos Normativos</h3>
-        <p>Score 0-100 con evaluación automática de ISO 27001/27002/27005/27017/27018/27032/27035, GDPR, ENS, NIS2, DORA, CRA, PCI DSS, NIST CSF 2.0, NIST SP 800-53 r5, CIS v8, ISO 27701, ISO 22301, LOPDGDD, SOC 2 Type II e ISO 23195. PDF ejecutivo + técnico con cadena forense SHA-256.</p>
-      </div>
-      <div class="feature-card reveal reveal-d2">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-        <h3>Certificado Verificable</h3>
-        <p>URL pública única con QR incrustado. Badge SVG para tu web. Verificación instantánea sin login ni registro.</p>
-      </div>
-      <div class="feature-card reveal reveal-d1">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
-        <h3>Agentes Linux &amp; Windows</h3>
-        <p>Scripts Bash/PowerShell desplegables en cualquier servidor. Auditorías periódicas programadas con <code style="background:rgba(42,157,143,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.85em;">cron</code> / Tarea Programada. Resultados enviados cifrados al dashboard propio.</p>
-      </div>
-      <div class="feature-card reveal reveal-d2">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-1H1a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2"/></svg></div>
-        <h3>Análisis IA con Priorización</h3>
-        <p>Claude (claude-sonnet) analiza el informe solo cuando lo solicitas. Explica riesgos en lenguaje ejecutivo, prioriza exposiciones por impacto financiero y mapea brechas normativas. Cero tokens en auditorías base.</p>
-      </div>
-      <div class="feature-card reveal reveal-d3">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
-        <h3>Privacy by Design</h3>
-        <p>Credenciales never stored en BD, API keys hasheadas SHA-256, JWT autenticación, multi-tenant y código 100% auditable. Sin backdoors. AGPL-3.0.</p>
-      </div>
-      <div class="feature-card reveal reveal-d1">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-        <h3>Auditorías en Lote</h3>
-        <p>Lanza hasta 20 auditorías en paralelo sobre múltiples dominios o IPs con un solo click. Estado en tiempo real por objetivo, informes individuales y listado persistente en base de datos — los lotes sobreviven reinicios del backend.</p>
-      </div>
-      <div class="feature-card reveal reveal-d2">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="8" cy="15" r="1" fill="currentColor"/><circle cx="12" cy="15" r="1" fill="currentColor"/><circle cx="16" cy="15" r="1" fill="currentColor"/></svg></div>
-        <h3>Auditorías Programadas</h3>
-        <p>Automatiza auditorías periódicas (diarias, semanales, mensuales). Genera PDF + certificado automáticamente al completar, notifica por email y mantiene historial completo con enlace al último informe por objetivo.</p>
-      </div>
-      <div class="feature-card reveal reveal-d1">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-        <h3>Alertas CVE · INCIBE-CERT</h3>
-        <p>Monitorización continua del <strong>NVD</strong> e <strong>INCIBE-CERT</strong>. En cuanto se publica un CVE que afecta al software detectado en tu stack, recibes una alerta por email o webhook con puntuación CVSS 3.1 y priorización automática por criticidad.</p>
-      </div>
-      <div class="feature-card reveal reveal-d2">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-        <h3>Webhooks &amp; Automatización</h3>
-        <p>5 eventos configurables: <code style="background:rgba(42,157,143,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.82em;">audit_failed</code> · <code style="background:rgba(42,157,143,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.82em;">cve_alert</code> · <code style="background:rgba(42,157,143,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.82em;">compliance_changed</code> · <code style="background:rgba(42,157,143,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.82em;">member_invited</code> · <code style="background:rgba(42,157,143,0.15);padding:0.1rem 0.35rem;border-radius:0.3rem;font-size:0.82em;">member_accepted</code>. Conecta con Slack, Teams, SIEM o cualquier endpoint HTTP sin adaptadores propietarios.</p>
-      </div>
-      <div class="feature-card reveal reveal-d3">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/><circle cx="6" cy="6" r="0.5" fill="currentColor"/><circle cx="12" cy="15" r="2"/><path d="m10 13 4 4"/></svg></div>
-        <h3>Signal Pills — Dashboard Inteligente</h3>
-        <p>Indicadores visuales por auditoría en el dashboard: delta de score <strong>▲/▼</strong>, nuevos hallazgos, CVEs críticos, porcentaje <strong>ENS</strong>, vencimiento SSL, grado TLS y detección de <em>subdomain takeover</em>. Estado de exposición a golpe de vista.</p>
-      </div>
-    </div>
+  <div class="nav-links">
+    <a href="#por-que" class="hide-mob">¿Por qué?</a>
+    <a href="#funcionalidades" class="hide-mob">Funcionalidades</a>
+    <a href="#precios">Precios</a>
+    <a href="#partners" class="hide-mob">Partners</a>
+    <a href="https://guardianos.es/audit/verify" class="hide-mob">Verificar certificado</a>
+    <a href="#prueba-gratis" class="nav-cta">⚡ Prueba gratis</a>
   </div>
-</section>
+</nav>
 
-<!-- How It Works -->
-<section class="how-it-works">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2>Cómo funciona</h2>
-      <p>De exposición detectada a riesgo priorizado — en 10 minutos</p>
-    </div>
-    <div class="steps-grid">
-      <div class="step-item reveal">
-        <div class="step-number">1</div>
-        <h3>Configura tu objetivo</h3>
-        <p>Introduce un dominio, IP o servidor. Selecciona módulos: DNS, SSL, CVE, subdominios, agentes Linux/Windows, auditoría masiva...</p>
+<!-- ═══════════════════════════════ HERO ════════════════════════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+
+    <!-- COPY -->
+    <div>
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Desarrollado en Andalucía · AGPL-3.0 · Open Source
       </div>
-      <div class="step-item reveal reveal-d2">
-        <div class="step-number">2</div>
-        <h3>Escaneo y mapeo automático</h3>
-        <p>GuardianOS Audit mapea tu superficie de ataque en tiempo real vía WebSocket. Identifica y pondera exposiciones, evalúa 21 marcos normativos, calcula impacto financiero y genera el PDF. Todo en tu infraestructura.</p>
-      </div>
-      <div class="step-item reveal reveal-d4">
-        <div class="step-number">3</div>
-        <h3>Informe + visibilidad continua</h3>
-        <p>PDF completo con score, hallazgos y certificado QR listo para entregar. Activa el análisis IA (Claude) solo en los informes que lo requieran — narrativa ejecutiva, exposiciones priorizadas y brechas normativas. Programa auditorías recurrentes para mantener visibilidad continua del riesgo.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Agents Section -->
-<section style="background: var(--bg-main);" id="agentes">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2>Agentes para Linux y Windows</h2>
-      <p>Despliega un agente ligero en tus servidores y automatiza auditorías periódicas con tu propio backend, base de datos y dashboard</p>
-    </div>
+      <h1>
+        Tu empresa tiene datos de clientes.<br>
+        <em>¿Sabes si estás expuesto?</em>
+      </h1>
 
-    <!-- Arquitectura -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:3rem;">
-      <div class="feature-card reveal" style="border-color:rgba(42,157,143,0.4);">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
-        <h3>Agente Linux</h3>
-        <p>Script Bash autocontenido. Audita el sistema operativo, servicios activos, usuarios, permisos, paquetes desactualizados y configuración SSH. Programable con <strong>cron</strong> cada hora, día o semana.</p>
-        <ul style="color:var(--text-secondary);font-size:0.88rem;line-height:1.8;padding-left:1.25rem;margin-top:0.75rem;">
-          <li>Compatible con Debian, Ubuntu, RHEL, CentOS, Arch</li>
-          <li>Sin dependencias externas — solo <code style="background:rgba(42,157,143,0.12);padding:0.1rem 0.3rem;border-radius:0.25rem;">bash</code> + <code style="background:rgba(42,157,143,0.12);padding:0.1rem 0.3rem;border-radius:0.25rem;">curl</code></li>
-          <li>Firma SHA-256 de cada envío</li>
-          <li>Integración con Wazuh / CEF / SIEM</li>
-        </ul>
-      </div>
-      <div class="feature-card reveal reveal-d2" style="border-color:rgba(201,169,78,0.4);">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-        <h3>Agente Windows</h3>
-        <p>Script PowerShell firmado. Audita rol del servidor, políticas de grupo, actualizaciones pendientes, servicios críticos y configuración de firewall. Ejecutable como <strong>Tarea Programada</strong>.</p>
-        <ul style="color:var(--text-secondary);font-size:0.88rem;line-height:1.8;padding-left:1.25rem;margin-top:0.75rem;">
-          <li>Compatible con Windows Server 2016, 2019, 2022 y W10/11</li>
-          <li>Sin agente residente — ejecución puntual o periódica</li>
-          <li>Resultados cifrados con AES-256 antes del envío</li>
-          <li>Soporte GPO y entornos Active Directory</li>
-        </ul>
-      </div>
-      <div class="feature-card reveal reveal-d4" style="border-color:rgba(91,111,212,0.4);">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg></div>
-        <h3>Backend + Dashboard + BD</h3>
-        <p>Infraestructura propia desplegable en tu servidor. Los agentes reportan a tu instancia; ningún dato sale a servidores de terceros.</p>
-        <ul style="color:var(--text-secondary);font-size:0.88rem;line-height:1.8;padding-left:1.25rem;margin-top:0.75rem;">
-          <li>API REST con JWT y API keys hasheadas</li>
-          <li>Base de datos con histórico y comparativas entre auditorías</li>
-          <li>Dashboard web con score, hallazgos y tendencias</li>
-          <li>WebSocket para progreso en tiempo real</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Flujo técnico -->
-    <div class="cert-demo reveal" style="background:var(--bg-elevated);padding:2rem;border-radius:1rem;border:1px solid var(--border);">
-      <h3 style="color:var(--text-primary);margin-bottom:1.75rem;text-align:center;">Flujo de una auditoría con agente</h3>
-      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0.5rem;">
-
-        <div style="flex:0 0 auto;width:130px;padding:1rem 0.75rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid var(--border);text-align:center;">
-          <div style="width:2rem;height:2rem;margin:0 auto 0.4rem;display:flex;align-items:center;justify-content:center;color:var(--primary);"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1" fill="currentColor"/><circle cx="6" cy="18" r="1" fill="currentColor"/></svg></div>
-          <div style="font-weight:600;color:var(--text-primary);font-size:0.85rem;">Tu servidor</div>
-          <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem;">Linux / Windows</div>
-        </div>
-
-        <div style="flex:0 0 auto;font-size:1.4rem;color:var(--primary);line-height:1;">→</div>
-
-        <div style="flex:0 0 auto;width:130px;padding:1rem 0.75rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid rgba(42,157,143,0.4);text-align:center;">
-          <div style="width:2rem;height:2rem;margin:0 auto 0.4rem;display:flex;align-items:center;justify-content:center;color:var(--primary);"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
-          <div style="font-weight:600;color:var(--text-primary);font-size:0.85rem;">Agente</div>
-          <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem;">Bash / PowerShell</div>
-        </div>
-
-        <div style="flex:0 0 auto;font-size:1.4rem;color:var(--primary);line-height:1;">→</div>
-
-        <div style="flex:0 0 auto;width:130px;padding:1rem 0.75rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid rgba(201,169,78,0.4);text-align:center;">
-          <div style="width:2rem;height:2rem;margin:0 auto 0.4rem;display:flex;align-items:center;justify-content:center;color:var(--primary);"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-          <div style="font-weight:600;color:var(--text-primary);font-size:0.85rem;">API Backend</div>
-          <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem;">JWT · AES-256</div>
-        </div>
-
-        <div style="flex:0 0 auto;font-size:1.4rem;color:var(--primary);line-height:1;">→</div>
-
-        <div style="flex:0 0 auto;width:130px;padding:1rem 0.75rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid rgba(139,92,246,0.4);text-align:center;">
-          <div style="width:2rem;height:2rem;margin:0 auto 0.4rem;display:flex;align-items:center;justify-content:center;color:var(--primary);"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
-          <div style="font-weight:600;color:var(--text-primary);font-size:0.85rem;">Dashboard</div>
-          <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem;">Score + PDF</div>
-        </div>
-
-        <div style="flex:0 0 auto;font-size:1.4rem;color:var(--primary);line-height:1;">→</div>
-
-        <div style="flex:0 0 auto;width:130px;padding:1rem 0.75rem;background:var(--bg-card);border-radius:0.75rem;border:1px solid rgba(251,191,36,0.4);text-align:center;">
-          <div style="width:2rem;height:2rem;margin:0 auto 0.4rem;display:flex;align-items:center;justify-content:center;color:var(--accent);"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-          <div style="font-weight:600;color:var(--text-primary);font-size:0.85rem;">Certificado</div>
-          <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem;">SHA-256 + QR</div>
-        </div>
-
-      </div>
-      <p style="text-align:center;margin-top:1.5rem;color:var(--text-secondary);font-size:0.9rem;">
-        Código abierto (AGPL-3.0) y auto-hospedado — consulta la <a href="/audit/security" style="color:var(--primary);text-decoration:underline;">política de seguridad</a>
+      <p class="hero-sub">
+        Una brecha de datos en una pyme española puede costar entre
+        <strong>10.000 € y 50.000 €</strong> en sanciones de la AEPD —
+        más el daño reputacional. GuardianOS Audit te dice exactamente qué tienes mal
+        y cómo corregirlo. En 10 minutos. Gratis para empezar.
       </p>
+
+      <div class="pain-row">
+        <span class="pain-chip"><span class="icon">⚠️</span> Sin SSL válido detectado</span>
+        <span class="pain-chip"><span class="icon">🍪</span> Cookies sin banner RGPD</span>
+        <span class="pain-chip"><span class="icon">📧</span> Sin SPF / DKIM configurado</span>
+        <span class="pain-chip"><span class="icon">🔓</span> Puertos expuestos innecesariamente</span>
+      </div>
+
+      <div class="trust-row">
+        <span class="trust-item"><span class="tick">✓</span> 1 auditoría gratis</span>
+        <span class="trust-sep">·</span>
+        <span class="trust-item"><span class="tick">✓</span> Sin tarjeta</span>
+        <span class="trust-sep">·</span>
+        <span class="trust-item"><span class="tick">✓</span> Informe PDF en 10 min</span>
+        <span class="trust-sep">·</span>
+        <span class="trust-item"><span class="tick">✓</span> Desde 149 € si quieres el certificado</span>
+      </div>
     </div>
-  </div>
+
+    <!-- FORM -->
+    <div class="hero-form-col">
+      <div class="form-card">
+        <div class="form-card-badge">⚡ 1 análisis gratuito · sin tarjeta</div>
+        <h3>Analiza tu dominio ahora</h3>
+        <p class="fc-sub">
+          Recibirás el score, los fallos detectados y el PDF completo.
+          <strong>Sin restricciones en el análisis técnico.</strong>
+        </p>
+
+        <form onsubmit="return false">
+          <div class="form-group">
+            <label for="domain">Tu dominio o IP</label>
+            <input type="text" id="domain" placeholder="ejemplo.com" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="email">Tu email (para recibir el informe)</label>
+            <input type="email" id="email" placeholder="nombre@empresa.com">
+          </div>
+          <button type="submit" class="btn-primary">⚡ Analizar gratis →</button>
+        </form>
+
+        <p class="form-disclaimer">
+          Sin spam. 1 prueba por email. Al continuar aceptas nuestra
+          <a href="https://guardianos.es/audit/privacidad" target="_blank">política de privacidad</a>.
+        </p>
+
+        <div class="form-price-note">
+          ¿Quieres el informe PDF + certificado QR verificable?<br>
+          <strong>Desde 149 € pago único</strong> · sin suscripción · sin caducidad
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /hero-inner -->
 </section>
 
-<!-- Compliance -->
-<section style="background: var(--bg-main);">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2>21 Marcos Normativos</h2>
-      <p>Evaluación automática en cada auditoría — sin configuración adicional</p>
-    </div>
-    <div class="compliance-grid">
-      <div class="compliance-item reveal">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
-        <h4>ISO 27001:2022</h4>
-        <p>Controles A.5–A.18 con evidencia por control</p>
-      </div>
-      <div class="compliance-item reveal reveal-d1">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
-        <h4>GDPR / RGPD</h4>
-        <p>Cifrado en tránsito, headers de privacidad, minimización de datos</p>
-      </div>
-      <div class="compliance-item reveal reveal-d2">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8L6 7h12l-2-4z"/></svg></span>
-        <h4>ENS (RD 311/2022)</h4>
-        <p>Esquema Nacional de Seguridad: categorías básica/media/alta</p>
-      </div>
-      <div class="compliance-item reveal reveal-d3">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg></span>
-        <h4>LOPDGDD</h4>
-        <p>Ley Orgánica española de Protección de Datos</p>
-      </div>
-      <div class="compliance-item reveal">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-        <h4>NIS2 (UE 2022/2555)</h4>
-        <p>Gestión de riesgos y notificación de incidentes</p>
-      </div>
-      <div class="compliance-item reveal reveal-d1">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
-        <h4>DORA (UE 2022/2554)</h4>
-        <p>Resiliencia digital para el sector financiero</p>
-      </div>
-      <div class="compliance-item reveal reveal-d2">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
-        <h4>PCI DSS v4.0</h4>
-        <p>Seguridad de datos de tarjetas de pago</p>
-      </div>
-      <div class="compliance-item reveal reveal-d3">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-        <h4>NIST CSF 2.0</h4>
-        <p>Identificar · Proteger · Detectar · Responder · Recuperar</p>
-      </div>
-      <div class="compliance-item reveal">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
-        <h4>CIS Controls v8</h4>
-        <p>18 controles + 153 salvaguardas priorizadas</p>
-      </div>
-      <div class="compliance-item reveal reveal-d1">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-        <h4>ISO 27701:2019</h4>
-        <p>Sistema de gestión de privacidad (SGPI)</p>
-      </div>
-      <div class="compliance-item reveal reveal-d2">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
-        <h4>CRA (Cyber Resilience)</h4>
-        <p>Ciberseguridad en productos digitales (UE)</p>
-      </div>
-      <div class="compliance-item reveal reveal-d3">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="17" r="1" fill="currentColor"/><line x1="8" y1="21" x2="16" y2="21"/></svg></span>
-        <h4>NIST SP 800-53 r5</h4>
-        <p>Catálogo de controles federales (AC, IA, SC, SI, CP…)</p>
-      </div>
-      <div class="compliance-item reveal">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></span>
-        <h4>ISO 27002:2022</h4>
-        <p>93 controles: organizativos, personas, físicos y tecnológicos</p>
-      </div>
-      <div class="compliance-item reveal reveal-d1">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-        <h4>ISO 27005:2022</h4>
-        <p>Gestión de riesgos de seguridad (MAGERIT / ENS)</p>
-      </div>
-      <div class="compliance-item reveal reveal-d2">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15a4 4 0 0 0 4 4h9a5 5 0 0 0 1.8-9.7 7 7 0 0 0-13.4-2 4.5 4.5 0 0 0-1.4 7.7z"/></svg></span>
-        <h4>ISO 27017:2015</h4>
-        <p>Controles de seguridad para servicios cloud</p>
-      </div>
-      <div class="compliance-item reveal reveal-d3">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg></span>
-        <h4>ISO 27018:2019</h4>
-        <p>Protección de PII en la nube (RGPD cloud)</p>
-      </div>
-      <div class="compliance-item reveal">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-        <h4>ISO 27032:2023</h4>
-        <p>Ciberseguridad: phishing, malware, DDoS, supply chain</p>
-      </div>
-      <div class="compliance-item reveal reveal-d1">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
-        <h4>ISO 27035:2023</h4>
-        <p>Gestión de incidentes de seguridad (notificación NIS2/ENS)</p>
-      </div>
-      <div class="compliance-item reveal reveal-d2">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
-        <h4>ISO 22301:2019</h4>
-        <p>Continuidad del negocio BCP/DRP (resiliencia NIS2/DORA)</p>
-      </div>
-      <div class="compliance-item reveal reveal-d3">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-        <h4>ISO/IEC 23195</h4>
-        <p>Seguridad en procesamiento de datos personales (LOPDGDD)</p>
-      </div>
-      <div class="compliance-item reveal">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></span>
-        <h4>SOC 2 Type II</h4>
-        <p>Trust Services Criteria: seguridad, disponibilidad, confidencialidad</p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ═══════════════════════════════ LOGO STRIP ══════════════════════ -->
+<div class="logo-strip">
+  <span class="label">Marcos incluidos:</span>
+  <span class="norm-pill hl">RGPD / LOPDGDD</span>
+  <span class="norm-pill hl">ENS RD 311/2022</span>
+  <span class="norm-pill">ISO 27001/27002</span>
+  <span class="norm-pill">NIS2 · DORA · CRA</span>
+  <span class="norm-pill">PCI DSS v4</span>
+  <span class="norm-pill">NIST CSF 2.0</span>
+  <span class="norm-pill">CIS v8</span>
+  <span class="norm-pill">SOC 2 Type II</span>
+  <span class="norm-pill">+ 13 marcos más (21 total)</span>
+</div>
 
-<!-- Certificate Demo -->
-<section style="background: var(--bg-card); padding: 2.5rem 0;">
-  <div class="container">
-    <div class="section-header reveal" style="margin-bottom: 1.5rem;">
-      <h2>Certificado de Seguridad Verificable</h2>
-      <p>Cada auditoría genera un certificado único, público y a prueba de manipulaciones —<br>
-      <strong>firmado con SHA-256 irrepetible</strong> para garantía forense total</p>
-    </div>
-    <div class="cert-demo reveal" style="max-width: 640px; margin: 0 auto; padding: 1.25rem;">
-      <div class="cert-preview" style="font-size: 0.85rem; padding: 1.25rem;">
-        <div class="cert-header" style="padding-bottom: 0.75rem; margin-bottom: 0.75rem;">
-          <div>
-            <strong>&#9679; Certificado GuardianOS Audit</strong><br>
-            <small>Token: <code>abc3mn2q8rvx</code></small>
-          </div>
-          <div class="qr" style="width:60px;height:60px;font-size:0.55rem;">[QR]<br><small>verify/abc3mn2q8rvx</small></div>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.3rem 1.5rem;margin-bottom:0.75rem;">
-          <p style="margin:0;"><strong>Empresa:</strong> ejemplo.com</p>
-          <p style="margin:0;"><strong>Vigencia:</strong> 30 días</p>
-            <p style="margin:0;"><strong>ISO 27001:</strong> 24/30 ✓</p>
-          <p style="margin:0;"><strong>Fecha:</strong> 13/03/2026</p>
-        </div>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
-          <div style="text-align:center;">
-            <div class="score" style="font-size:2rem;">87/100</div>
-            <small style="color:#666;">Nivel: <strong style="color:var(--secondary);">Alto</strong></small>
-          </div>
-          <div style="flex:1;min-width:200px;">
-            <p style="margin:0 0 0.25rem;"><strong>GDPR:</strong> TLS 1.3 ✓ · Headers ✓</p>
-            <p style="margin:0;font-size:0.78rem;color:#888;letter-spacing:0.01em;">SHA-256 <code>a1b2c3d4e5f6…xyz9</code></p>
-            <p style="margin:0.35rem 0 0;font-size:0.75rem;color:#999;">Firma única generada por auditoría — no reutilizable, verificable en tiempo real</p>
-          </div>
-        </div>
-      </div>
-      <p style="text-align:center;color:var(--text-secondary);margin-top:1rem;font-size:0.85rem;">
-        ↗ <strong style="color:var(--primary);">guardianos.es/audit/verify/abc3mn2q8rvx</strong>
-      </p>
-    </div>
-  </div>
-</section>
+<!-- ═══════════════════════════════ A QUIÉN VA ══════════════════════ -->
+<section class="section" id="para-quien">
+  <div class="section-inner">
+    <div class="section-label">¿Para quién es?</div>
+    <h2 class="section-title">Dos caminos, un mismo resultado</h2>
+    <p class="section-sub">
+      Tanto si eres una empresa que necesita saber si está expuesta, como si eres
+      una consultora que audita los sistemas de sus clientes, GuardianOS Audit tiene
+      un plan pensado para ti.
+    </p>
 
+    <div class="audience-grid">
 
-
-<!-- Testimonials -->
-<section style="background: var(--bg-main);">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2>Lo que dicen nuestros clientes</h2>
-      <p>Consultoras, MSPs y equipos de seguridad que ya usan GuardianOS Audit</p>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <div class="testimonial-quote">&ldquo;</div>
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">Necesitábamos demostrar cumplimiento GDPR para un concurso público. GuardianOS Audit generó el informe técnico en 10 minutos, evaluó 21 marcos normativos y el certificado verificable nos dio credibilidad inmediata.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#2a9d8f,#1a7a6e);">LM</div>
-          <div>
-            <div class="testimonial-name">Laura M.</div>
-            <div class="testimonial-role">Responsable IT · Startup tecnológica, Sevilla</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal reveal-d2">
-        <div class="testimonial-quote">&ldquo;</div>
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">Como consultor, poder ofrecer auditorías profesionales con IA, badge verificable y cobertura de 21 marcos normativos ha sido un diferenciador clave. Lo que tardaba medio día ahora lo entrego en 45 minutos.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#52b788,#2a9d8f);">JR</div>
-          <div>
-            <div class="testimonial-name">Javier R.</div>
-            <div class="testimonial-role">Consultor de Ciberseguridad · Málaga</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal reveal-d4">
-        <div class="testimonial-quote">&ldquo;</div>
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">El agente Linux se programa en cron y nos avisa automáticamente si cambia algo crítico. La cadena SHA-256 da tranquilidad forense. Código abierto = confianza.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#c9a94e,#2a9d8f);">CL</div>
-          <div>
-            <div class="testimonial-name">Carmen L.</div>
-            <div class="testimonial-role">CTO · AMPA Colegio Público, Granada</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section style="background: var(--bg-card);">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2>Preguntas frecuentes</h2>
-      <p>Todo lo que necesitas saber antes de empezar</p>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item reveal">
-        <summary>¿Necesito conocimientos técnicos para usar GuardianOS Audit?
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>No. El dashboard web guía paso a paso el proceso. Los informes incluyen un resumen ejecutivo en lenguaje claro. Para opciones avanzadas (SSH, agentes), ofrecemos soporte guiado.</p>
-      </details>
-      <details class="faq-item reveal reveal-d1">
-        <summary>¿Se envían mis datos a servidores externos?
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>No. Puedes desplegar GuardianOS Audit en tu propia infraestructura con Docker. En la versión cloud, los escaneos se ejecutan en instancias efímeras y los datos se eliminan tras generar el informe. Nunca almacenamos credenciales.</p>
-      </details>
-      <details class="faq-item reveal reveal-d2">
-        <summary>¿Puedo auditar sistemas de terceros?
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>Solo con autorización explícita por escrito del propietario. Incluimos una plantilla de autorización en <code>docs/legal/</code>. El uso no autorizado de herramientas de auditoría puede ser ilegal.</p>
-      </details>
-      <details class="faq-item reveal reveal-d3">
-        <summary>¿Qué diferencia hay entre la app GuardianOS y GuardianOS Audit?
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>GuardianOS (app móvil) es para auditorías personales de dispositivos Android. GuardianOS Audit es una plataforma profesional para evaluar infraestructuras web, dominios y servidores de organizaciones. Son complementarias.</p>
-      </details>
-      <details class="faq-item reveal reveal-d4">
-        <summary>¿El certificado caduca?
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>Sí, 30 días por diseño. La ciberseguridad es un proceso continuo. Al renovar la auditoría, se genera un nuevo certificado que encadena criptográficamente con el anterior (blockchain-lite), creando un historial verificable.</p>
-      </details>
-      <details class="faq-item reveal">
-        <summary>¿Cuándo se usa el análisis IA y cuánto consume?
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>El análisis IA con Claude es <strong>completamente opcional y bajo demanda</strong>. La auditoría técnica completa y el PDF se generan sin consumir ningún token. Solo activas el análisis IA en los informes que lo necesiten — desde el dashboard o via API. El coste en tokens se controla al 100% desde tu panel.</p>
-      </details>
-      <details class="faq-item reveal reveal-d1">
-        <summary>¿Puedo integrar GuardianOS Audit en mis procesos como MSP o consultora?
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>Sí. Disponemos de API REST completa (OpenAPI/Swagger) para lanzar auditorías, recibir PDFs, activar análisis IA y emitir certificados de forma programática. Ideal para MSPs que quieren automatizar auditorías recurrentes de sus clientes o consultoras que integran los informes en su flujo de entrega. Escríbenos para hablar de condiciones de volumen.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- Verificar certificado -->
-<section id="verificar" style="background: var(--bg-main); padding: 5rem 0;">
-  <div class="container" style="max-width:680px;">
-    <div class="section-header reveal" style="margin-bottom:2rem;">
-      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(42,157,143,.12);border:1px solid rgba(42,157,143,.3);border-radius:2rem;padding:.35rem 1rem;font-size:.8rem;color:var(--primary);margin-bottom:1rem;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Verificación pública
-      </div>
-      <h2>¿Tienes un certificado?</h2>
-      <p>Introduce el token de verificación para comprobar la autenticidad, puntuación y vigencia de cualquier auditoría emitida por GuardianOS Audit</p>
-    </div>
-    <div class="reveal" style="background:var(--bg-card);border:1px solid rgba(42,157,143,.2);border-radius:1rem;padding:2rem 2rem 1.8rem;">
-      <label style="display:block;font-size:.85rem;color:var(--text-muted);margin-bottom:.6rem;letter-spacing:.04em;">TOKEN DEL CERTIFICADO</label>
-      <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
-        <input id="verifyInput" type="text"
-          placeholder="ej. zi7uinawq7td"
-          style="flex:1;min-width:200px;background:#0d1117;border:1px solid rgba(42,157,143,.35);border-radius:.6rem;padding:.75rem 1rem;color:#e2e8f0;font-family:monospace;font-size:.95rem;outline:none;transition:border-color .2s;"
-          onkeydown="if(event.key==='Enter') verificarToken()"
-          onfocus="this.style.borderColor='var(--primary)'"
-          onblur="this.style.borderColor='rgba(42,157,143,.35)'">
-        <button onclick="verificarToken()" class="btn-primary" style="white-space:nowrap;padding:.75rem 1.6rem;font-size:.95rem;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:.4rem;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          Verificar
+      <!-- PYME / EMPRESA DIRECTA -->
+      <div class="aud-card pyme">
+        <div class="aud-icon">🏢</div>
+        <h3>Soy empresa o despacho</h3>
+        <p class="aud-who">
+          Tienes datos de clientes, un sitio web o servidores propios y quieres saber
+          si estás bien protegido sin contratar una auditoría cara.
+        </p>
+        <ul class="aud-list">
+          <li><span class="tick">✓</span> Score 0-100 de tu exposición real en 10 min</li>
+          <li><span class="tick">✓</span> Fallos concretos con explicación sin tecnicismos</li>
+          <li><span class="tick">✓</span> Plan de acción priorizado — qué corregir primero</li>
+          <li><span class="tick">✓</span> PDF listo para mostrar a tu asesor, abogado o DPO</li>
+          <li><span class="tick">✓</span> Certificado QR verificable para tu web o clientes</li>
+          <li><span class="tick">✓</span> RGPD: detección de cookies, trackers y banners</li>
+        </ul>
+        <button class="aud-cta pyme" onclick="document.getElementById('prueba-gratis').scrollIntoView({behavior:'smooth'})">
+          Empezar gratis →
         </button>
       </div>
-      <p style="margin-top:1rem;font-size:.78rem;color:var(--text-muted);">
-        El token aparece en el PDF del informe, en el código QR y en la sección <em>Certificados</em> del dashboard.
-      </p>
-    </div>
-  </div>
-</section>
 
-<!-- ═══════════════════════════════════════════════════════
-     PRUEBA GRATUITA
-════════════════════════════════════════════════════════ -->
-<section id="prueba-gratis" style="background: var(--bg-card); padding: 5rem 0; border-top: 1px solid rgba(42,157,143,0.15);">
-  <div class="container" style="max-width: 680px;">
-    <div class="section-header reveal" style="margin-bottom: 2.5rem;">
-      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(42,157,143,.12);border:1px solid rgba(42,157,143,.3);border-radius:2rem;padding:.35rem 1rem;font-size:.8rem;color:var(--primary);margin-bottom:1rem;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        1 auditoría gratuita · sin tarjeta · sin contratos
-      </div>
-      <h2>Analiza tu dominio ahora</h2>
-      <p>Obtén tu score de seguridad real en minutos. Usamos los mismos motores que el plan de pago — sin restricciones en el análisis técnico.</p>
-    </div>
-
-    <!-- PASO 1 — Formulario -->
-    <div id="trial-step-form" class="reveal">
-      <div style="background:var(--bg-main);border:1px solid rgba(42,157,143,.2);border-radius:1rem;padding:2rem;">
-        <form id="trial-form" onsubmit="trialSubmit(event)" novalidate>
-          <div style="display:flex;flex-direction:column;gap:1.1rem;">
-            <div>
-              <label style="display:block;font-size:.8rem;color:var(--text-muted);letter-spacing:.06em;margin-bottom:.5rem;">DOMINIO A AUDITAR</label>
-              <input id="trial-domain" type="text" autocomplete="off" spellcheck="false"
-                placeholder="tuempresa.com"
-                style="width:100%;background:#0d1117;border:1px solid rgba(42,157,143,.3);border-radius:.6rem;padding:.8rem 1rem;color:#e2e8f0;font-size:1rem;outline:none;box-sizing:border-box;transition:border-color .2s;"
-                onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(42,157,143,.3)'">
-            </div>
-            <div>
-              <label style="display:block;font-size:.8rem;color:var(--text-muted);letter-spacing:.06em;margin-bottom:.5rem;">TU EMAIL — para recibir resultados</label>
-              <input id="trial-email" type="email" autocomplete="email"
-                placeholder="tu@empresa.com"
-                style="width:100%;background:#0d1117;border:1px solid rgba(42,157,143,.3);border-radius:.6rem;padding:.8rem 1rem;color:#e2e8f0;font-size:1rem;outline:none;box-sizing:border-box;transition:border-color .2s;"
-                onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(42,157,143,.3)'">
-            </div>
-            <button type="submit" id="trial-submit-btn" class="btn btn-primary" style="width:100%;padding:.9rem;font-size:1rem;">
-              Analizar gratis →
-            </button>
-            <p id="trial-error" style="color:#f85149;font-size:.85rem;text-align:center;display:none;margin:0;padding:.5rem;background:rgba(248,81,73,.08);border-radius:.5rem;"></p>
-            <p style="font-size:.75rem;color:var(--text-muted);text-align:center;margin:0;">
-              Al continuar aceptas nuestra <a href="/audit/privacidad" style="color:var(--primary);">política de privacidad</a>. 1 prueba por email. Sin spam, nunca.
-            </p>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- PASO 2 — Cargando -->
-    <div id="trial-step-loading" style="display:none;">
-      <div style="background:var(--bg-main);border:1px solid rgba(42,157,143,.2);border-radius:1rem;padding:3rem 2rem;text-align:center;">
-        <style>.trial-spinner{width:52px;height:52px;border:3px solid rgba(42,157,143,.15);border-top-color:var(--primary);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 1.5rem;}@keyframes spin{to{transform:rotate(360deg)}}</style>
-        <div class="trial-spinner"></div>
-        <h3 style="margin:0 0 .4rem;font-size:1.2rem;">Analizando <span id="trial-loading-domain" style="color:var(--primary);"></span></h3>
-        <p style="color:var(--text-secondary);font-size:.9rem;margin:0 0 1.8rem;">Esto puede tardar 2–8 minutos. No cierres esta pestaña.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;" id="trial-checks">
-          <span id="tck-dns"        style="padding:.3rem .8rem;border-radius:2rem;font-size:.78rem;background:rgba(42,157,143,.08);border:1px solid rgba(42,157,143,.2);color:var(--text-secondary);">⏳ DNS</span>
-          <span id="tck-ssl"        style="padding:.3rem .8rem;border-radius:2rem;font-size:.78rem;background:rgba(42,157,143,.08);border:1px solid rgba(42,157,143,.2);color:var(--text-secondary);">⏳ TLS/SSL</span>
-          <span id="tck-headers"    style="padding:.3rem .8rem;border-radius:2rem;font-size:.78rem;background:rgba(42,157,143,.08);border:1px solid rgba(42,157,143,.2);color:var(--text-secondary);">⏳ Headers HTTP</span>
-          <span id="tck-ports"      style="padding:.3rem .8rem;border-radius:2rem;font-size:.78rem;background:rgba(42,157,143,.08);border:1px solid rgba(42,157,143,.2);color:var(--text-secondary);">⏳ Puertos</span>
-          <span id="tck-compliance" style="padding:.3rem .8rem;border-radius:2rem;font-size:.78rem;background:rgba(42,157,143,.08);border:1px solid rgba(42,157,143,.2);color:var(--text-secondary);">⏳ 21 Marcos</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- PASO 3 — Resultado -->
-    <div id="trial-step-result" style="display:none;"></div>
-  </div>
-</section>
-
-<style>
-.trial-finding { display:flex; align-items:flex-start; gap:.75rem; padding:.9rem 0; border-bottom:1px solid rgba(255,255,255,.05); }
-.trial-finding:last-child { border-bottom:none; }
-.trial-finding-badge { flex-shrink:0; padding:.2rem .6rem; border-radius:2rem; font-size:.72rem; font-weight:700; letter-spacing:.04em; }
-.trial-badge-critical { background:rgba(248,81,73,.15); color:#f85149; border:1px solid rgba(248,81,73,.3); }
-.trial-badge-high     { background:rgba(255,159,67,.15); color:#ff9f43; border:1px solid rgba(255,159,67,.3); }
-.trial-badge-medium   { background:rgba(254,202,87,.12); color:#feca57; border:1px solid rgba(254,202,87,.3); }
-.trial-badge-low      { background:rgba(42,157,143,.15); color:var(--primary); border:1px solid rgba(42,157,143,.3); }
-.trial-cta-box { background:linear-gradient(135deg,rgba(42,157,143,.15),rgba(42,157,143,.05)); border:1px solid rgba(42,157,143,.3); border-radius:.8rem; padding:1.5rem; text-align:center; margin-top:1.5rem; }
-</style>
-
-<script>
-(function() {
-  // URL base de la API — backend en audit.guardianos.es
-  const API = 'https://audit.guardianos.es';
-
-  function showTrialStep(step) {
-    ['form','loading','result'].forEach(function(s) {
-      document.getElementById('trial-step-' + s).style.display = (s === step) ? '' : 'none';
-    });
-  }
-
-  function showTrialError(msg) {
-    var el = document.getElementById('trial-error');
-    if (!msg) { el.style.display = 'none'; return; }
-    el.textContent = msg;
-    el.style.display = 'block';
-    showTrialStep('form');
-  }
-
-  var checksDone = false;
-  function animateChecks() {
-    if (checksDone) return;
-    checksDone = true;
-    var ids = ['tck-dns','tck-ssl','tck-headers','tck-ports','tck-compliance'];
-    ids.forEach(function(id, i) {
-      var el = document.getElementById(id);
-      if (!el) return;
-      setTimeout(function() {
-        el.style.background = 'rgba(42,157,143,.12)';
-        el.style.borderColor = 'rgba(42,157,143,.5)';
-        el.style.color = 'var(--primary)';
-        el.textContent = el.textContent.replace('⏳', '🔍');
-      }, 800 + i * 600);
-    });
-  }
-
-  function scoreColor(score) {
-    if (score >= 90) return '#2a9d8f';
-    if (score >= 75) return '#52b788';
-    if (score >= 50) return '#feca57';
-    return '#f85149';
-  }
-
-  function riskLabel(risk) {
-    var map = { CRITICAL:'Crítico', HIGH:'Alto', MEDIUM:'Medio', LOW:'Bajo', MINIMAL:'Mínimo' };
-    return map[risk] || risk;
-  }
-
-  function badgeClass(risk) {
-    var map = { CRITICAL:'critical', HIGH:'high', MEDIUM:'medium', LOW:'low', MINIMAL:'low' };
-    return 'trial-badge-' + (map[risk] || 'low');
-  }
-
-  function renderPreview(report) {
-    var score     = report.score || report.overallScore || 0;
-    var risk      = report.riskLevel || 'UNKNOWN';
-    var findings  = (report.findings || []).filter(function(f) {
-                      return f.risk === 'CRITICAL' || f.risk === 'HIGH' || f.risk === 'MEDIUM';
-                    }).slice(0, 3);
-    var compCount = (report.compliance || report.complianceEvaluations || []).length || 0;
-    var domain    = report.target || '';
-
-    var findingsHtml = findings.length > 0
-      ? findings.map(function(f) {
-          return '<div class="trial-finding">' +
-            '<span class="trial-finding-badge ' + badgeClass(f.risk) + '">' + f.risk + '</span>' +
-            '<div style="flex:1;min-width:0;">' +
-              '<p style="margin:0;font-size:.9rem;color:var(--text-primary);">' + escHtml(f.title) + '</p>' +
-              '<p style="margin:.2rem 0 0;font-size:.78rem;color:var(--text-muted);">' + escHtml((f.description||'').slice(0,100)) + (f.description && f.description.length > 100 ? '…' : '') + '</p>' +
-            '</div></div>';
-        }).join('')
-      : '<p style="color:var(--text-secondary);font-size:.9rem;text-align:center;padding:1rem 0;">✅ No se detectaron hallazgos críticos o altos. ¡Buen estado de seguridad!</p>';
-
-    var extraBlurred = '<div style="filter:blur(4px);opacity:.5;pointer-events:none;user-select:none;">' +
-      '<div class="trial-finding"><span class="trial-finding-badge trial-badge-high">HIGH</span><div style="flex:1"><p style="margin:0;font-size:.9rem;color:#e2e8f0;">████████████████████████████</p><p style="margin:.2rem 0 0;font-size:.78rem;color:#666;">█████████████████████████████████████</p></div></div>' +
-      '<div class="trial-finding"><span class="trial-finding-badge trial-badge-medium">MEDIUM</span><div style="flex:1"><p style="margin:0;font-size:.9rem;color:#e2e8f0;">███████████████████████</p><p style="margin:.2rem 0 0;font-size:.78rem;color:#666;">████████████████████████████████</p></div></div>' +
-      '</div>' +
-      '<p style="text-align:center;font-size:.82rem;color:var(--text-muted);margin:.5rem 0 0;">🔒 ' + (report.summary && report.summary.totalFindings ? (report.summary.totalFindings - findings.length) : 'X') + ' hallazgos adicionales en el informe completo</p>';
-
-    var html = '<div style="background:var(--bg-main);border:1px solid rgba(42,157,143,.25);border-radius:1rem;overflow:hidden;">' +
-      // Score header
-      '<div style="background:linear-gradient(135deg,rgba(42,157,143,.15),rgba(42,157,143,.05));padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">' +
-        '<div>' +
-          '<p style="margin:0 0 .2rem;font-size:.8rem;color:var(--text-muted);letter-spacing:.06em;">RESULTADO PARA</p>' +
-          '<p style="margin:0;font-size:1rem;color:var(--text-primary);font-weight:700;">' + escHtml(domain) + '</p>' +
-        '</div>' +
-        '<div style="text-align:center;">' +
-          '<div style="font-size:3rem;font-weight:900;line-height:1;color:' + scoreColor(score) + ';">' + score + '</div>' +
-          '<div style="font-size:.75rem;color:var(--text-muted);margin-top:.2rem;">/ 100</div>' +
-        '</div>' +
-        '<div style="text-align:center;">' +
-          '<span style="padding:.4rem 1rem;border-radius:2rem;font-size:.85rem;font-weight:700;background:rgba(42,157,143,.1);border:1px solid rgba(42,157,143,.3);color:var(--primary);">' + riskLabel(risk) + '</span>' +
-          '<p style="margin:.4rem 0 0;font-size:.75rem;color:var(--text-muted);">' + compCount + ' marcos evaluados</p>' +
-        '</div>' +
-      '</div>' +
-      // Findings
-      '<div style="padding:1.5rem 2rem;">' +
-        '<p style="margin:0 0 1rem;font-size:.85rem;color:var(--text-muted);font-weight:600;letter-spacing:.04em;">HALLAZGOS PRINCIPALES</p>' +
-        findingsHtml +
-        extraBlurred +
-      '</div>' +
-      // CTA
-      '<div class="trial-cta-box" style="margin:0;border-radius:0;border-left:none;border-right:none;border-bottom:none;">' +
-        '<p style="margin:0 0 .5rem;font-weight:700;font-size:1.05rem;">¿Quieres el informe completo con PDF y certificado?</p>' +
-        '<p style="color:var(--text-secondary);margin:0 0 1.2rem;font-size:.9rem;">Descarga el PDF técnico · 21 marcos de compliance · Cadena forense SHA-256 · Certificado verificable</p>' +
-        '<a href="/audit/planes.html" class="btn btn-primary" style="display:inline-block;text-decoration:none;padding:.75rem 2rem;">Ver planes desde 149 € · suscripción desde 79 €/mes →</a>' +
-        '<p style="margin:.8rem 0 0;font-size:.78rem;color:var(--text-muted);">O escríbenos a <a href="mailto:audit@guardianos.es" style="color:var(--primary);">audit@guardianos.es</a> para una demo personalizada</p>' +
-      '</div>' +
-    '</div>' +
-    '<p style="text-align:center;margin-top:1rem;"><a href="#prueba-gratis" onclick="trialReset()" style="color:var(--primary);font-size:.85rem;">← Analizar otro dominio</a></p>';
-
-    document.getElementById('trial-step-result').innerHTML = html;
-    showTrialStep('result');
-  }
-
-  function escHtml(str) {
-    if (!str) return '';
-    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-
-  var pollTimer = null;
-  var trialToken = null;
-  function pollTrialResult(auditId, attempt) {
-    attempt = attempt || 0;
-    if (attempt > 90) {  // máx ~7.5 min
-      showTrialError('La auditoría está tardando más de lo esperado. Escríbenos a audit@guardianos.es e investigamos.');
-      return;
-    }
-    var headers = {};
-    if (trialToken) headers['Authorization'] = 'Bearer ' + trialToken;
-    fetch(API + '/api/v1/audit/' + auditId, { headers: headers })
-      .then(function(r) { return r.ok ? r.json() : null; })
-      .then(function(data) {
-        if (!data) { pollTimer = setTimeout(function(){ pollTrialResult(auditId, attempt + 1); }, 5000); return; }
-        var status = (data.status || '').toUpperCase();
-        if (status === 'COMPLETED') {
-          renderPreview(data);
-        } else if (status === 'FAILED') {
-          showTrialError('La auditoría no pudo completarse. Comprueba que el dominio sea correcto y vuelve a intentarlo.');
-        } else {
-          pollTimer = setTimeout(function(){ pollTrialResult(auditId, attempt + 1); }, 5000);
-        }
-      })
-      .catch(function() {
-        pollTimer = setTimeout(function(){ pollTrialResult(auditId, attempt + 1); }, 6000);
-      });
-  }
-
-  window.trialSubmit = function(event) {
-    event.preventDefault();
-    var domain = document.getElementById('trial-domain').value.trim();
-    var email  = document.getElementById('trial-email').value.trim();
-    if (!domain || !email) return;
-
-    // Limpiar protocolo y rutas del dominio
-    var cleanDomain = domain.replace(/^https?:\/\//,'').replace(/\/.*$/,'').toLowerCase();
-
-    checksDone = false;
-    showTrialError('');
-    showTrialStep('loading');
-    document.getElementById('trial-loading-domain').textContent = cleanDomain;
-    setTimeout(animateChecks, 300);
-
-    fetch(API + '/api/v1/trial', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, domain: cleanDomain })
-    })
-    .then(function(res) {
-      if (res.status === 409) {
-        showTrialError('Este email ya tiene una prueba activa. Escríbenos a audit@guardianos.es si necesitas ayuda.');
-        return null;
-      }
-      if (res.status === 429) {
-        showTrialError('Demasiadas solicitudes. Espera unos minutos e inténtalo de nuevo.');
-        return null;
-      }
-      if (res.status === 422) {
-        return res.json().then(function(d) { showTrialError(d.error || 'Datos inválidos. Comprueba el dominio y email.'); return null; });
-      }
-      if (res.status === 503) {
-        showTrialError('El servidor está ocupado ahora mismo. Inténtalo en unos minutos.');
-        return null;
-      }
-      if (!res.ok) {
-        showTrialError('Error al iniciar la auditoría. Inténtalo de nuevo o escríbenos.');
-        return null;
-      }
-      return res.json();
-    })
-    .then(function(data) {
-      if (!data) return;
-      trialToken = data.token || null;
-      pollTrialResult(data.auditId);
-    })
-    .catch(function() {
-      showTrialError('No se pudo conectar con el servidor. Verifica tu conexión e inténtalo.');
-    });
-  };
-
-  window.trialReset = function() {
-    if (pollTimer) { clearTimeout(pollTimer); pollTimer = null; }
-    trialToken = null;
-    checksDone = false;
-    document.getElementById('trial-domain').value = '';
-    document.getElementById('trial-email').value = '';
-    showTrialError('');
-    showTrialStep('form');
-  };
-})();
-</script>
-
-<!-- Contact -->
-<section class="contact-section" id="contacto">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2>¿Hablamos?</h2>
-      <p>Estamos aquí para ayudarte a <strong>medir y reducir tu exposición</strong> con transparencia y ética</p>
-    </div>
-    <div class="contact-grid">
-      <form class="contact-form-card reveal" action="https://formsubmit.co/info@guardianos.es" method="POST">
-        <input type="hidden" name="_subject" value="GuardianOS Audit – Solicitud de contacto">
-        <input type="hidden" name="_captcha" value="false">
-        <div class="form-group">
-          <label for="name">Nombre completo *</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email profesional *</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="org">Organización</label>
-          <input type="text" id="org" name="organization" placeholder="Empresa, AMPA, consultora...">
-        </div>
-        <div class="form-group">
-          <label for="service">Servicio de interés *</label>
-          <select id="service" name="service" required>
-            <option value="">Selecciona un servicio</option>
-            <option value="demo">Demo técnica (gratis, 20 min) — muestra tu exposición real</option>
-            <option value="consultora">Consultora / equipo de seguridad</option>
-            <option value="msp">MSP / proveedor IT (integración API)</option>
-            <option value="iso">Diagnóstico previo ISO 27001 / ENS / GDPR</option>
-            <option value="pyme">PYME (auditorías periódicas)</option>
-            <option value="whitelabel">White-label / branding propio</option>
-            <option value="otro">Consulta general</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Cuéntanos tu situación</label>
-          <textarea id="message" name="message" rows="3" placeholder="¿Qué quieres medir o monitorizar? ¿Tienes requisitos de compliance o normativa específica?"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitud</button>
-        <p style="margin-top: 1rem; font-size: 0.82rem; color: var(--text-secondary); text-align: center;">
-          Tus datos se usan solo para responder. Sin spam.
+      <!-- CONSULTOR / MSP / PARTNER -->
+      <div class="aud-card partner">
+        <div class="aud-icon">🔗</div>
+        <h3>Soy consultor, MSP o agencia IT</h3>
+        <p class="aud-who">
+          Ofreces servicios de ciberseguridad a otras empresas y necesitas
+          entregar auditorías profesionales de forma rápida, escalable y con tu propia marca.
         </p>
-      </form>
-      <div class="contact-info-col reveal reveal-d2">
-        <div class="contact-info-item">
-          <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
-          <div>
-            <strong>Email</strong>
-            <a href="mailto:audit@guardianos.es">audit@guardianos.es</a><br>
-            <small>Respuesta en &lt;48h laborables</small>
-          </div>
+        <ul class="aud-list">
+          <li><span class="tick">✓</span> PDF white-label con tu logo y colores</li>
+          <li><span class="tick">✓</span> Multi-tenant: un cliente, su propio espacio</li>
+          <li><span class="tick">✓</span> Lotes de hasta 20 dominios en paralelo</li>
+          <li><span class="tick">✓</span> API REST para integrar en tu flujo de trabajo</li>
+          <li><span class="tick">✓</span> Lo que tardabas medio día, en 45 minutos</li>
+          <li><span class="tick">✓</span> Revenue sharing disponible para partners</li>
+        </ul>
+        <button class="aud-cta partner" onclick="document.getElementById('partners').scrollIntoView({behavior:'smooth'})">
+          Ver condiciones de partner →
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PROBLEMA ════════════════════════ -->
+<section class="section problem-section" id="por-que">
+  <div class="section-inner">
+    <div class="section-label">El problema real</div>
+    <h2 class="section-title">Lo que no sabes te puede costar muy caro</h2>
+    <p class="section-sub">
+      La mayoría de las brechas en pymes no son causadas por hackers sofisticados —
+      son fallos básicos de configuración que llevan meses expuestos sin que nadie lo sepa.
+    </p>
+
+    <div class="problem-grid">
+
+      <div class="problem-card">
+        <div class="pc-icon">💸</div>
+        <h4>Multa de la AEPD</h4>
+        <p>Una fuga de datos de clientes sin las medidas técnicas adecuadas del Art. 32 RGPD puede derivar en una sanción directa, incluso sin intención de incumplir.</p>
+        <span class="pc-stat">hasta 50.000 € en pymes</span>
+      </div>
+
+      <div class="problem-card">
+        <div class="pc-icon">📧</div>
+        <h4>Tu dominio manda spam</h4>
+        <p>Sin SPF, DKIM y DMARC bien configurados, cualquiera puede enviar emails suplantando tu dominio. Tus clientes reciben phishing en tu nombre.</p>
+        <span class="pc-stat">73% de pymes sin DMARC</span>
+      </div>
+
+      <div class="problem-card">
+        <div class="pc-icon">🔐</div>
+        <h4>SSL caducado o mal configurado</h4>
+        <p>Un certificado caducado o con cifrado débil expone los datos que tus clientes introducen en tu web. El navegador avisa "sitio no seguro" y se van.</p>
+        <span class="pc-stat">1 de cada 4 webs con fallo TLS</span>
+      </div>
+
+      <div class="problem-card">
+        <div class="pc-icon">🍪</div>
+        <h4>Banner de cookies ilegal</h4>
+        <p>La AEPD ya ha sancionado a pymes por banners de cookies que no cumplen con el requisito de consentimiento previo. La mayoría no lo sabe.</p>
+        <span class="pc-stat">inspector de cookies AEPD activo</span>
+      </div>
+
+      <div class="problem-card">
+        <div class="pc-icon">🔌</div>
+        <h4>Puertos y servicios expuestos</h4>
+        <p>Bases de datos, paneles de administración o servicios de gestión remota accesibles desde internet sin protección son la puerta de entrada preferida.</p>
+        <span class="pc-stat">exploit en 15 min desde detección</span>
+      </div>
+
+      <div class="problem-card">
+        <div class="pc-icon">📋</div>
+        <h4>Sin documentación para licitaciones</h4>
+        <p>Cada vez más concursos públicos exigen demostrar cumplimiento ENS o ISO 27001. Sin el documento de adecuación, quedas fuera antes de empezar.</p>
+        <span class="pc-stat">ENS obligatorio para proveedores AAP</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FEATURES ════════════════════════ -->
+<section class="section features-bg" id="funcionalidades">
+  <div class="section-inner">
+    <div class="section-label">Cómo lo resuelve GuardianOS</div>
+    <h2 class="section-title">Cada función existe para resolver un problema concreto</h2>
+    <p class="section-sub">
+      No un catálogo de tecnología — herramientas que responden a las preguntas que te mantienen despierto.
+    </p>
+
+    <div class="features-grid">
+
+      <div class="feat-card">
+        <div class="fi">🌐</div>
+        <h4>Escáner externo completo</h4>
+        <div class="before">❌ "No sé si mi web tiene vulnerabilidades conocidas"</div>
+        <div class="after">DNS, SSL/TLS, cabeceras HTTP, puertos abiertos (Nmap), CMS fingerprint y correlación con <strong>CVEs del NIST + INCIBE-CERT en tiempo real</strong>. Score 0-100 con desglose por área.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">🔒</div>
+        <h4>Auditoría RGPD automática</h4>
+        <div class="before">❌ "¿Mi banner de cookies cumple la ley? ¿Estoy transfiriendo datos a EE.UU.?"</div>
+        <div class="after">Detecta trackers, CDNs de terceros, banner de consentimiento y mapea <strong>transferencias internacionales</strong>. Referencia exacta al artículo RGPD infringido.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">🤖</div>
+        <h4>Análisis IA con Claude</h4>
+        <div class="before">❌ "El informe técnico es incomprensible para mi director o mi cliente"</div>
+        <div class="after">Claude analiza los hallazgos y genera un <strong>resumen ejecutivo en lenguaje de negocio</strong> con plan de acción priorizado por impacto económico.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">🖥️</div>
+        <h4>Agentes Linux &amp; Windows</h4>
+        <div class="before">❌ "Necesito saber qué pasa dentro de mis servidores, no solo en la web"</div>
+        <div class="after">Script Bash / PowerShell instalable en minutos. Audita servicios, usuarios, permisos y BD. <strong>Envío cifrado AES-256</strong>. Programable con cron.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">�</div>
+        <h4>OSINT &amp; Reputación externa</h4>
+        <div class="before">❌ “Tengo subdominios abandonados? Mi IP aparece en listas negras?”</div>
+        <div class="after">Shodan / InternetDB, VirusTotal (70+ motores), reputación IP, detección de <strong>subdomain takeover</strong> y exposición en cabeceras de respuesta.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">�📊</div>
+        <h4>Historial y comparativas</h4>
+        <div class="before">❌ "¿Estoy mejorando o empeorando con el tiempo?"</div>
+        <div class="after">Cada auditoría se compara con la anterior. <strong>Delta de score ▲/▼</strong>, nuevos hallazgos y tendencia de cada indicador. Evidencia de mejora continua para clientes y auditores.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">🏛️</div>
+        <h4>ENS + Declaración de Aplicabilidad</h4>
+        <div class="before">❌ "Me piden el Documento de Adecuación ENS para un contrato público y no sé ni por dónde empezar"</div>
+        <div class="after">Genera automáticamente el <strong>DoA prellenado</strong> con justificaciones basadas en tus hallazgos. Listo para entregar al auditor certificador.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">🎯</div>
+        <h4>SOC Dashboard &amp; Triage</h4>
+        <div class="before">❌ “Tengo hallazgos críticos pero no controlo qué se resuelve ni cuándo”</div>
+        <div class="after">Cola OPEN → INVESTIGATING → RESOLVED. <strong>MTTA / MTTR automático</strong>, SLA breach a las 4 h, notas de incidente y sugerencia IA por hallazgo.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">🏷️</div>
+        <h4>Inventario de activos + Mapa</h4>
+        <div class="before">❌ “No tengo ni idea de todos mis activos ni cuál es mi superficie real de ataque”</div>
+        <div class="after">Inventario automático por auditoría. <strong>Sparklines de evolución</strong>, delta score ▲/▼, mapa D3-force y veredicto IMPROVING / WORSENING / STABLE.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">🔔</div>
+        <h4>Lotes, programación y webhooks</h4>
+        <div class="before">❌ “Auditar 15 dominios de clientes uno a uno me lleva horas”</div>
+        <div class="after">Hasta <strong>20 auditorías en paralelo</strong>, programación automática diaria/semanal/mensual y 5 eventos webhook (Slack, Teams, SIEM) firmados HMAC-SHA256.</div>
+      </div>
+
+    </div>
+
+    <!-- INCIBE BANNER -->
+    <div class="incibe-banner">
+      <div class="incibe-badge">
+        <span class="bi">🇪🇸</span>
+        INCIBE<br>CERT
+      </div>
+      <div class="incibe-text">
+        <h4>Alertas CVE en español, indexadas por INCIBE-CERT</h4>
+        <p>
+          Las herramientas internacionales solo usan el feed genérico de NVD.
+          GuardianOS Audit cruza cada CVE que afecta a tu stack con
+          <strong>el boletín de INCIBE-CERT</strong> — el organismo nacional de respuesta a incidentes —
+          ofreciéndote alertas con contexto normativo español y priorización adaptada al mercado local.
+          Si sale un CVE crítico a las 3 AM, <strong>tu Slack avisa antes de que llegues al trabajo.</strong>
+        </p>
+        <div class="incibe-chips">
+          <span class="ichip">NVD + INCIBE-CERT</span>
+          <span class="ichip">CVSS 3.1 scoring</span>
+          <span class="ichip">Correlación con tu stack detectado</span>
+          <span class="ichip">Alerta por email / Slack / Teams</span>
+          <span class="ichip">Feed diario automático</span>
         </div>
-        <div class="contact-info-item">
-          <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-          <div>
-            <strong>Seguridad</strong>
-            <a href="/audit/security">guardianos.es/audit/security</a><br>
-            <small>Política de seguridad · Declaración CRA</small>
-          </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PRICING ═════════════════════════ -->
+<section class="section pricing-section" id="precios">
+  <div class="section-inner">
+    <div class="section-label">Precios</div>
+    <h2 class="section-title">Sin add-ons. Todo incluido desde el primer día.</h2>
+    <div class="price-intro section-sub">
+      IA (Claude), RGPD, ENS, PDF, certificado QR y soporte incluidos en todos los planes.
+      Sin sorpresas en la factura. Pago seguro con Stripe.
+    </div>
+
+    <!-- ── TRACK A ─── -->
+    <div style="margin-bottom:.4rem">
+      <div style="display:inline-flex;align-items:center;gap:.5rem;padding:.3rem .9rem;border-radius:99px;background:rgba(42,157,143,.1);border:1px solid rgba(42,157,143,.3);font-size:.78rem;font-weight:700;color:var(--p-lt);margin-bottom:1rem;">⚡ Track A — Diagnóstico puntual · Bolsa sin caducidad</div>
+    </div>
+    <div class="pricing-grid" style="margin-bottom:2.5rem">
+
+      <!-- PYME 149 -->
+      <div class="price-card">
+        <h3>Pyme / Despacho</h3>
+        <p class="pc-target">Gestorías, despachos, academias, agencias de viajes</p>
+        <div class="price-amount">149 €<span class="unit"> único</span></div>
+        <p class="price-freq">sin IVA · sin renovación · <span class="save">bolsa sin caducidad</span></p>
+        <div class="price-quota">⚡ 1 diagnóstico</div>
+        <ul class="price-feats">
+          <li>Escáner web completo (DNS, SSL, CVE, cabeceras)</li>
+          <li>Auditoría RGPD / LOPDGDD automática</li>
+          <li>Score 0-100 + 21 marcos normativos</li>
+          <li>Informe PDF técnico + ejecutivo</li>
+          <li>Certificado QR verificable</li>
+          <li>Análisis IA con plan de acción priorizado</li>
+        </ul>
+      </div>
+
+      <!-- E-COMMERCE 249 -->
+      <div class="price-card highlight">
+        <h3>E-commerce / Web</h3>
+        <p class="pc-target">Tiendas online, SaaS, plataformas web</p>
+        <div class="price-amount">249 €<span class="unit"> único</span></div>
+        <p class="price-freq">sin IVA · <span class="save">ahorra hasta 95 % vs. auditoría RGPD</span></p>
+        <div class="price-quota">⚡ 1 diagnóstico</div>
+        <ul class="price-feats">
+          <li>Todo lo de Pyme/Despacho</li>
+          <li>PCI DSS light para pasarelas de pago</li>
+          <li>Documento de Adecuación ENS prellenado</li>
+          <li>Plan de acción 90 días con prioridades</li>
+          <li>Análisis IA avanzado (Claude)</li>
+          <li>Soporte por email 15 días</li>
+        </ul>
+      </div>
+
+      <!-- PROFESIONAL 349 -->
+      <div class="price-card">
+        <h3>Profesional</h3>
+        <p class="pc-target">Clínicas, datos de salud, sector público, licitaciones</p>
+        <div class="price-amount">349 €<span class="unit"> único</span></div>
+        <p class="price-freq">sin IVA · <span class="save">ahorra hasta 96 % vs. auditoría ENS</span></p>
+        <div class="price-quota">⚡ 1 diagnóstico</div>
+        <ul class="price-feats">
+          <li>Todo lo de E-commerce/Web</li>
+          <li>ENS sanitario / categoría ALTA</li>
+          <li>Máxima documentación para auditor certificador</li>
+          <li>Reduce coste y tiempo de certificación ENS</li>
+          <li>Soporte por email 30 días</li>
+          <li>Apto como evidencia en certificación formal</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- ── TRACK B ─── -->
+    <div style="margin-bottom:.4rem">
+      <div style="display:inline-flex;align-items:center;gap:.5rem;padding:.3rem .9rem;border-radius:99px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.3);font-size:.78rem;font-weight:700;color:#93c5fd;margin-bottom:1rem;">🛡️ Track B — Suscripción mensual · Monitorización continua</div>
+    </div>
+    <div class="pricing-grid" style="margin-bottom:2.5rem">
+
+      <!-- PRO 79/mes -->
+      <div class="price-card">
+        <h3>Pro</h3>
+        <p class="pc-target">Monitorización continua para PYMEs</p>
+        <div class="price-amount">79 €<span class="unit">/mes</span></div>
+        <p class="price-freq">o <strong>59 €/mes</strong> anual · <span class="save">ahorra 240 €/año</span></p>
+        <div class="price-quota">⚡ 3 diagnósticos/mes</div>
+        <ul class="price-feats">
+          <li>IA + ENS + RGPD incluidos</li>
+          <li>Informe PDF + certificado QR</li>
+          <li>Comparativa histórica de scores</li>
+          <li>Alertas automáticas por email</li>
+          <li>Auditorías programadas</li>
+        </ul>
+      </div>
+
+      <!-- BUSINESS 149/mes -->
+      <div class="price-card highlight">
+        <h3>Business</h3>
+        <p class="pc-target">Multi-dominio, para equipos de seguridad</p>
+        <div class="price-amount">149 €<span class="unit">/mes</span></div>
+        <p class="price-freq">o <strong>119 €/mes</strong> anual · <span class="save">ahorra 360 €/año</span></p>
+        <div class="price-quota">⚡ 8 diagnósticos/mes</div>
+        <ul class="price-feats">
+          <li>Todo lo de Pro</li>
+          <li>Módulo OSINT incluido</li>
+          <li>Alertas Slack / Teams / Webhook</li>
+          <li>Acceso multi-usuario</li>
+          <li>SOC Dashboard + triage de hallazgos</li>
+          <li>Soporte prioritario</li>
+        </ul>
+      </div>
+
+      <!-- ENTERPRISE 249/mes -->
+      <div class="price-card">
+        <h3>Enterprise</h3>
+        <p class="pc-target">Organizaciones con auditorías recurrentes</p>
+        <div class="price-amount">249 €<span class="unit">/mes</span></div>
+        <p class="price-freq">o <strong>199 €/mes</strong> anual · <span class="save">máximo volumen, menor coste</span></p>
+        <div class="price-quota">⚡ Auditorías ilimitadas</div>
+        <ul class="price-feats">
+          <li>Todo lo de Business</li>
+          <li>Agentes Linux y Windows</li>
+          <li>Inventario de activos + alertas CVE por activo</li>
+          <li>Auditorías en lote (hasta 20 en paralelo)</li>
+          <li>Soporte &lt; 8 h</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- ── TRACK C nota ─── -->
+    <div style="border:1px solid rgba(244,165,53,.25);border-radius:12px;padding:1.5rem 1.8rem;background:rgba(244,165,53,.04);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.8rem;">
+      <div>
+        <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);margin-bottom:.4rem;">🏢 Track C — Agencia / Revendedor</div>
+        <p style="font-size:.9rem;color:var(--txt2);line-height:1.6;"><strong style="color:var(--txt)">Agencia 399 €/mes · 30 diagnósticos · White-label + Multi-tenant</strong><br>
+        <strong style="color:var(--txt)">Revendedor 699 €/mes · Diagnósticos ilimitados · API dedicada</strong><br>
+        Sin permanencia · Revenue sharing disponible · Soporte dedicado</p>
+      </div>
+      <a href="https://guardianos.es/audit/planes.html" style="flex-shrink:0;padding:.7rem 1.4rem;border-radius:8px;border:1.5px solid var(--acc);color:var(--acc);font-weight:700;font-size:.85rem;white-space:nowrap;">Ver plan completo →</a>
+    </div>
+
+    <div class="pricing-note">
+      <span class="ni">ℹ️</span>
+      <span>
+        Todos los precios sin IVA. Factura con IVA 21 % emitida automáticamente por Stripe.
+        <strong>Sin add-ons ocultos</strong> — IA (Claude), ENS, RGPD, PDF y certificado QR incluidos en todos los planes.
+        Escríbenos a <a href="mailto:audit@guardianos.es">audit@guardianos.es</a> para plan personalizado.
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PARTNERS B2B ════════════════════ -->
+<section class="section partner-section" id="partners">
+  <div class="section-inner">
+    <div class="section-label">Canal partner</div>
+    <h2 class="section-title">¿Eres consultor o empresa IT en Andalucía?</h2>
+    <p class="section-sub">
+      El canal partner es la forma más natural de llevar GuardianOS Audit a tus clientes ya existentes,
+      con tu marca y sin cambiar tu forma de trabajar.
+    </p>
+
+    <div class="partner-band">
+      <div>
+        <div class="pb-label">Propuesta para partners</div>
+        <h3>Entrega auditorías profesionales en 45 minutos, con tu marca</h3>
+        <p>
+          Como consultor o MSP ya tienes la confianza de tus clientes —
+          nosotros ponemos el motor. <strong>PDF con tu logo, multi-tenant, API REST</strong>
+          y soporte dedicado. Revenue sharing disponible para volumen.
+          Servicios presenciales en <strong>Sevilla y provincia</strong>.
+        </p>
+        <div class="partner-items">
+          <span class="pitem">White-label PDF</span>
+          <span class="pitem">Multi-tenant</span>
+          <span class="pitem">API REST</span>
+          <span class="pitem">Lotes 20 dominios</span>
+          <span class="pitem">Revenue sharing</span>
+          <span class="pitem">Soporte &lt; 4 h</span>
+          <span class="pitem">Onboarding gratuito</span>
         </div>
-        <div class="contact-info-item">
-          <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
-          <div>
-            <strong>Documentación API</strong>
-            <a href="/docs">guardianos.es/docs</a><br>
-            <small>OpenAPI / Swagger · Guías de integración</small>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <div>
-            <strong>Ubicación</strong>
-            Andalucía, España 🇪🇸<br>
-            <small>Servicios presenciales en Sevilla y provincia</small>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-          <div>
-            <strong>Confiamos en estándares abiertos</strong>
-            <div style="margin-top: 0.5rem;">
-              <span class="trust-badge-sm">Privacy by Design</span>
-              <span class="trust-badge-sm">Código Auditable</span>
-              <span class="trust-badge-sm">🇪🇺 GDPR+ENS</span>
-            </div>
-          </div>
-        </div>
+      </div>
+      <div class="pb-action">
+        <button class="btn-acc-solid" onclick="window.location.href='mailto:audit@guardianos.es?subject=Solicitud%20partner%20GuardianOS%20Audit'">
+          Solicitar condiciones partner
+        </button>
+        <button class="btn-acc" onclick="window.location.href='https://guardianos.es/audit/planes.html'">
+          Ver plan Agencia / Revendedor
+        </button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>GuardianOS Audit</h4>
-        <p>Plataforma de <strong>gestión de exposición</strong> para consultoras, MSPs y CISOs. Visibilidad continua, priorización con IA (Claude), 21 marcos normativos y API white-label. Sin vigilancia. Sin miedo.</p>
-        <div style="margin-top: 1rem;">
-          <span class="trust-badge-sm">Andalucía, España</span>
-          <span class="trust-badge-sm">AGPL-3.0</span>
+<!-- ═══════════════════════════════ TESTIMONIALS ════════════════════ -->
+<section class="section testimonials-section" id="testimonios">
+  <div class="section-inner">
+    <div class="section-label">Quienes ya lo usan</div>
+    <h2 class="section-title">Resultados reales, no demos</h2>
+
+    <div class="test-grid">
+
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>
+          Necesitábamos demostrar cumplimiento GDPR para un concurso público.
+          GuardianOS Audit generó el informe técnico en 10 minutos, evaluó 21 marcos normativos
+          y el <strong>certificado verificable nos dio credibilidad inmediata</strong> ante el cliente.
+        </p>
+        <div class="test-person">
+          <div class="test-avatar">LM</div>
+          <div>
+            <div class="test-name">Laura M.</div>
+            <div class="test-role">Responsable IT · Startup tecnológica, Sevilla</div>
+          </div>
         </div>
       </div>
-      <div class="footer-section">
-        <h4>Servicios</h4>
-        <ul>
-          <li><a href="/">GuardianOS App</a></li>
-          <li><a href="/shield">GuardianOS Shield</a></li>
-          <li><a href="/audit">GuardianOS Audit</a></li>
-          <li><a href="/audit#agentes">Agentes Linux &amp; Windows</a></li>
-          <li><a href="/audit#features">Auditorías en Lote</a></li>
-          <li><a href="/audit/planes.html">Planes y Precios</a></li>
-          <li><a href="/#servicios">Configuración de Dispositivos</a></li>
-          <li><a href="/#servicios">Talleres Educativos</a></li>
-        </ul>
+
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>
+          Como consultor, poder ofrecer auditorías profesionales con IA, badge verificable
+          y cobertura de 21 marcos normativos ha sido un diferenciador clave.
+          <strong>Lo que tardaba medio día ahora lo entrego en 45 minutos.</strong>
+        </p>
+        <div class="test-person">
+          <div class="test-avatar">JR</div>
+          <div>
+            <div class="test-name">Javier R.</div>
+            <div class="test-role">Consultor de Ciberseguridad · Málaga</div>
+          </div>
+        </div>
       </div>
-      <div class="footer-section">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="/aviso-legal.html">Aviso Legal</a></li>
-          <li><a href="/audit/privacidad">Política de Privacidad</a></li>
-          <li><a href="/terminos.html">Términos de Servicio</a></li>
-          <li><a href="/audit/security">Security Policy</a></li>
-        </ul>
+
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>
+          El agente Linux se programa en cron y nos avisa automáticamente si cambia algo crítico.
+          La <strong>cadena SHA-256 da tranquilidad forense</strong> cuando tenemos que demostrar
+          que algo no ocurrió en nuestros sistemas. Código abierto = confianza real.
+        </p>
+        <div class="test-person">
+          <div class="test-avatar">MV</div>
+          <div>
+            <div class="test-name">Miguel V.</div>
+            <div class="test-role">DevOps Lead · Empresa SaaS, Granada</div>
+          </div>
+        </div>
       </div>
-      <div class="footer-section">
-        <h4>Contacto</h4>
-        <ul>
-          <li><a href="mailto:info@guardianos.es">info@guardianos.es</a></li>
-          <li><a href="mailto:audit@guardianos.es">audit@guardianos.es</a></li>
-          <li><a href="tel:+34614837983">+34 614 83 79 83</a></li>
-          <li>Andalucía, España</li>
-        </ul>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FAQ ═════════════════════════════ -->
+<section class="section faq-section" id="faq">
+  <div class="section-inner">
+    <div class="section-label">Preguntas frecuentes</div>
+    <h2 class="section-title">Respuestas directas, sin rodeos</h2>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          ¿Necesito conocimientos técnicos para usar GuardianOS Audit?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          No. Introduces tu dominio, esperas 10 minutos y recibes un informe en lenguaje normal,
+          con un plan de acción paso a paso. El análisis IA (Claude) explica cada problema como
+          se lo explicarías a tu asesor o a tu abogado, sin jerga técnica.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          ¿Se envían mis datos a servidores externos?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          No. GuardianOS Audit es auto-hospedado (self-hosted) — los datos nunca salen de tu
+          infraestructura. El código es 100% abierto (AGPL-3.0) y auditable. La única conexión
+          externa son las APIs de terceros que tú configuras (Claude, VirusTotal, Slack…).
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          ¿Qué diferencia hay entre el análisis gratuito y el plan de pago?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          El análisis gratuito te da el score y la lista de problemas detectados. Los planes
+          de pago añaden el informe PDF completo con evidencias, el certificado QR verificable
+          firmado con SHA-256, el análisis IA con plan de acción priorizado, y toda la
+          documentación ENS / RGPD lista para entregar.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          ¿Qué es el Esquema Nacional de Seguridad (ENS) y por qué me importa?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          El ENS (RD 311/2022) es obligatorio para administraciones públicas españolas y para
+          las empresas privadas que les prestan servicios TI o de tratamiento de datos. Si facturas
+          a un ayuntamiento, consejería o entidad pública, necesitas acreditar cumplimiento ENS.
+          GuardianOS Audit genera automáticamente el Documento de Adecuación (DoA) prellenado.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          ¿Puedo integrar GuardianOS Audit en mi plataforma como MSP?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          Sí. Los planes Agencia y Revendedor incluyen API REST completa, PDF white-label
+          con tu logo, multi-tenant por cliente, webhooks configurables y opción de
+          revenue sharing. Escríbenos a audit@guardianos.es para hablar de condiciones.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          ¿El certificado QR que genera tiene validez legal?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          El certificado es un documento técnico con cadena forense SHA-256 que acredita el
+          resultado de la auditoría en un momento concreto. Es verificable públicamente 24/7
+          mediante URL única. No es equivalente a una certificación ISO 27001 emitida por un
+          organismo acreditado, pero sí sirve como evidencia técnica ante clientes, en
+          procesos de due diligence y como apoyo en procesos de certificación formal.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FINAL CTA ═══════════════════════ -->
+<section class="final-cta-section" id="prueba-gratis">
+  <div class="final-cta-box">
+    <h2>10 minutos para saber si estás expuesto</h2>
+    <p>
+      1 auditoría gratuita, sin tarjeta, sin contratos.<br>
+      <strong>Si quieres el PDF + certificado QR, desde 149 € pago único.</strong>
+    </p>
+    <div style="margin-bottom:1.5rem">
+      <div class="form-group" style="max-width:360px;margin:0 auto .8rem">
+        <input type="text" placeholder="tudominio.com" style="width:100%;padding:.75rem 1rem;background:#111620;border:1px solid #1e2d3d;border-radius:8px;color:#dde4ec;font-family:inherit;font-size:.95rem;">
+      </div>
+      <div class="form-group" style="max-width:360px;margin:0 auto .8rem">
+        <input type="email" placeholder="tu@email.com" style="width:100%;padding:.75rem 1rem;background:#111620;border:1px solid #1e2d3d;border-radius:8px;color:#dde4ec;font-family:inherit;font-size:.95rem;">
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 GuardianOS – Protección que crece contigo. Desarrollado con ❤️ en Andalucía.</p>
-      <p style="margin-top: 0.5rem;">
-        <a href="/audit/security">Política de seguridad</a> ·
-        <a href="/audit/verify">Verificar certificado</a> ·
-        <a href="https://status.guardianos.es">Estado del servicio</a>
-      </p>
+    <div class="cta-row">
+      <button class="btn-hero-main">⚡ Analizar gratis ahora →</button>
+      <button class="btn-hero-out" onclick="window.location.href='https://guardianos.es/audit/planes.html'">Ver todos los planes</button>
     </div>
+    <p style="margin-top:1rem;font-size:.78rem;color:#4f6070;">
+      Al continuar aceptas nuestra <a href="https://guardianos.es/audit/privacidad">política de privacidad</a>.
+      1 prueba por email. Sin spam, nunca.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ══════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img class="shield-sm" src="logo_guardianos_audit.jpg" alt="GuardianOS Audit">
+        GuardianOS Audit
+      </div>
+      <p>Plataforma de auditoría de ciberseguridad para pymes, consultoras y MSPs. Desarrollado en Andalucía, España.</p>
+      <div class="footer-badges">
+        <span class="fbadge">AGPL-3.0</span>
+        <span class="fbadge">Open Source</span>
+        <span class="fbadge">Privacy by Design</span>
+        <span class="fbadge">🇪🇺 GDPR + ENS</span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Producto</h5>
+      <ul>
+        <li><a href="#funcionalidades">Funcionalidades</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="https://guardianos.es/audit/planes.html">Todos los planes</a></li>
+        <li><a href="https://guardianos.es/audit/#agentes">Agentes Linux &amp; Windows</a></li>
+        <li><a href="https://guardianos.es/audit/verify">Verificar certificado</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Recursos</h5>
+      <ul>
+        <li><a href="https://guardianos.es/audit/security">Política de seguridad</a></li>
+        <li><a href="https://status.guardianos.es">Estado del servicio</a></li>
+        <li><a href="https://guardianos.es/audit/verify">Verificar certificado</a></li>
+        <li><a href="https://guardianos.es/shield">GuardianOS Shield</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <ul>
+        <li><a href="mailto:audit@guardianos.es">audit@guardianos.es</a></li>
+        <li><a href="tel:+34614837983">+34 614 83 79 83</a></li>
+        <li><a href="https://guardianos.es/audit/privacidad">Política de privacidad</a></li>
+        <li><a href="https://guardianos.es/aviso-legal.html">Aviso legal</a></li>
+        <li><a href="https://guardianos.es/terminos.html">Términos de servicio</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 GuardianOS · Protección que crece contigo · Andalucía, España ❤️</span>
+    <span>
+      <a href="https://guardianos.es/audit/security">Security Policy</a> ·
+      <a href="https://guardianos.es/audit/verify">Verificar certificado</a> ·
+      <a href="https://status.guardianos.es">Estado del servicio</a>
+    </span>
   </div>
 </footer>
 
 <script>
-function toggleMobileMenu() {
-  const navLinks = document.getElementById('navLinks');
-  navLinks.classList.toggle('active');
-  const btn = document.querySelector('.mobile-menu-btn');
-  if (btn) btn.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+function toggle(el) {
+  const item = el.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
 }
-function closeMobileMenu() {
-  const navLinks = document.getElementById('navLinks');
-  navLinks.classList.remove('active');
-  const btn = document.querySelector('.mobile-menu-btn');
-  if (btn) btn.setAttribute('aria-expanded', 'false');
-}
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); closeMobileMenu(); }
-  });
-});
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  if (window.scrollY > 50) {
-    header.style.boxShadow = '0 4px 20px rgba(0,230,118,0.2)';
-  } else {
-    header.style.boxShadow = '0 1px 3px rgba(0,230,118,0.1)';
-  }
-});
-(function() {
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
-})();
-const auditForm = document.querySelector('.contact-form-card');
-auditForm?.addEventListener('submit', function(e) {
-  const btn = this.querySelector('button[type="submit"]');
-  btn.innerHTML = '⏳ Enviando...';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.innerHTML = '✅ ¡Enviado!';
-    btn.style.background = 'linear-gradient(135deg, var(--primary), var(--secondary))';
-  }, 2000);
-});
-
-function verificarToken() {
-  const raw = (document.getElementById('verifyInput')?.value || '').trim();
-  if (!raw) {
-    document.getElementById('verifyInput').style.borderColor = '#e63946';
-    setTimeout(() => document.getElementById('verifyInput').style.borderColor = 'rgba(42,157,143,.35)', 1500);
-    return;
-  }
-  // Extraer solo el token si el usuario pegó la URL completa
-  const match = raw.match(/verify\/([^/?#\s]+)/) || raw.match(/^([a-zA-Z0-9_-]+)$/);
-  const token = match ? match[1] : raw;
-  window.location.href = '/audit/verify/' + encodeURIComponent(token);
-}
-
-// ── Verificación pública de certificados ─────────────────────────────────────
-// Actúa cuando la URL es: guardianos.es/audit/verify/TOKEN
-// El servidor debe servir este index_audit.html para rutas /audit/verify/*
-(function initVerify() {
-  const path  = window.location.pathname;          // /audit/verify/abc3mn2q8rvx
-  const match = path.match(/\/verify\/([^/?#]+)/); // extrae el token
-  if (!match) return;                              // URL normal, sin verify
-
-  const token = match[1];
-
-  // ── Ocultar todo el contenido de la landing ──────────────────────────────
-  document.querySelectorAll('header, main, footer, section').forEach(el => {
-    el.style.display = 'none';
-  });
-
-  // ── Crear y mostrar sección de verificación ──────────────────────────────
-  const section = document.createElement('div');
-  section.id = 'verify-root';
-  section.style.cssText = 'min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1rem;background:#0a0e12';
-  section.innerHTML = `
-    <div style="max-width:600px;width:100%;text-align:center;margin-bottom:1.5rem">
-      <p style="color:#7a8fa8;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase">
-        GUARDIANOS AUDIT — Verificación de Certificado
-      </p>
-    </div>
-    <div id="verify-card" style="max-width:600px;width:100%;background:#111620;
-         border:2px solid #1e2d3d;border-radius:16px;padding:2rem">
-      <p style="text-align:center;color:#7a8fa8;padding:2rem 0">
-        <span style="font-size:2rem;display:block;margin-bottom:.8rem">🔍</span>
-        Verificando certificado <code style="color:#fde68a;background:#1e293b;
-        padding:.2rem .5rem;border-radius:4px;font-size:.85rem">${token}</code>…
-      </p>
-    </div>
-    <div style="margin-top:1.5rem;font-size:.78rem;color:#475569">
-      <a href="/audit" style="color:#2a9d8f;text-decoration:none">← guardianos.es/audit</a>
-      &nbsp;·&nbsp; GuardianOS Audit © 2026
-      &nbsp;·&nbsp; <a href="mailto:audit@guardianos.es" style="color:#2a9d8f;text-decoration:none">audit@guardianos.es</a>
-    </div>`;
-  document.body.appendChild(section);
-
-  // ── Llamada al backend (JSON) via Cloudflare Worker proxy ────────────────
-  // Worker en guardianos.es/api/verify/* reenvía al backend real (VPS/ngrok)
-  const apiUrl = 'https://guardianos.es/api/verify/' + token;
-
-  fetch(apiUrl, { headers: { 'Accept': 'application/json' } })
-    .then(r => r.ok ? r.json() : Promise.reject(r.status))
-    .then(d  => renderCert(d))
-    .catch(() => renderError(token));
-
-  function scoreColor(s) {
-    return s >= 80 ? '#22c55e' : s >= 60 ? '#eab308' : s >= 40 ? '#f97316' : '#ef4444';
-  }
-  function scoreLabel(s) {
-    return s >= 80 ? 'Excelente' : s >= 60 ? 'Aceptable' : s >= 40 ? 'Mejorable' : 'Crítico';
-  }
-  function riskEs(r) {
-    return {LOW:'Bajo',MEDIUM:'Medio',HIGH:'Alto',CRITICAL:'Crítico'}[r.toUpperCase()] || r;
-  }
-  function statusInfo(d) {
-    if (!d.isValid && d.status === 'EXPIRED')     return ['#6b7280','⏱','EXPIRADO'];
-    if (!d.isValid && d.status === 'INVALIDATED') return ['#ef4444','🚫','REVOCADO'];
-    if (!d.isValid)                               return ['#6b7280','❓',d.status];
-    if (d.score >= 80) return ['#22c55e','✅','VÁLIDO'];
-    if (d.score >= 60) return ['#eab308','⚠️','VÁLIDO'];
-    return ['#ef4444','⚠️','VÁLIDO'];
-  }
-
-  function renderCert(d) {
-    const [bColor, icon, sLabel] = statusInfo(d);
-    const sc = scoreColor(d.score);
-    const card = document.getElementById('verify-card');
-    card.style.borderColor = bColor;
-    card.innerHTML = `
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;
-                  flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem">
-        <div>
-          <div style="font-size:1.35rem;font-weight:700;color:#f8fafc">${d.companyName}</div>
-          <div style="color:#7a8fa8;font-size:.9rem">${d.domain}</div>
-        </div>
-        <div style="width:72px;height:72px;border-radius:50%;border:3px solid ${sc};
-                    display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0">
-          <span style="font-size:1.6rem;font-weight:900;color:${sc};line-height:1">${d.score}</span>
-          <span style="font-size:.6rem;color:#7a8fa8">/ 100</span>
-        </div>
-      </div>
-
-      <div style="display:inline-flex;align-items:center;gap:.4rem;border:1px solid ${bColor};
-                  color:${bColor};padding:.35rem .9rem;border-radius:20px;font-weight:700;
-                  font-size:.88rem;margin-bottom:1.5rem">
-        ${icon} CERTIFICADO ${sLabel}
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
-        ${dataItem('Puntuación','<strong style="color:'+sc+'">' + d.score + '/100</strong> · ' + scoreLabel(d.score))}
-        ${dataItem('Nivel de riesgo', riskEs(d.riskLevel))}
-        ${dataItem('Emitido el', d.issuedAt.slice(0,10))}
-        ${dataItem('Válido hasta', d.validUntil.slice(0,10) + ' (' + d.daysRemaining + 'd)')}
-      </div>
-
-      <div style="background:#0d1117;border:1px solid #1e2d3d;border-radius:8px;padding:1rem;margin-bottom:1rem">
-        <p style="font-size:.7rem;color:#7a8fa8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem">
-          🔒 Hash SHA-256 del certificado
-        </p>
-        <code style="font-family:'Cascadia Code',Consolas,monospace;font-size:.73rem;color:#fde68a;
-                     word-break:break-all;line-height:1.6">${d.certificateHash}</code>
-      </div>
-
-      <div style="background:#052e16;border:1px solid #166534;border-radius:8px;
-                  padding:.75rem 1rem;font-size:.8rem;color:#86efac">
-        ⛓ Cadena hash verificada — integridad garantizada (blockchain-lite)
-      </div>
-
-      <div style="text-align:center;margin-top:1.2rem">
-        <img src="${window.location.origin}/certificate/qr/${token}.png"
-             alt="QR" style="max-width:120px;border-radius:8px;border:1px solid #1e2d3d"
-             onerror="this.style.display='none'" />
-        <p style="font-size:.7rem;color:#7a8fa8;margin-top:.4rem">Escanea para verificar en móvil</p>
-      </div>`;
-  }
-
-  function dataItem(label, val) {
-    return `<div>
-      <div style="font-size:.7rem;color:#7a8fa8;text-transform:uppercase;
-                  letter-spacing:.05em;margin-bottom:.2rem">${label}</div>
-      <div style="font-size:.88rem;color:#e2e8f0;font-weight:500">${val}</div>
-    </div>`;
-  }
-
-  function renderError(t) {
-    const card = document.getElementById('verify-card');
-    card.style.borderColor = '#ef4444';
-    card.innerHTML = `
-      <div style="text-align:center;padding:1.5rem 0">
-        <div style="font-size:2.5rem;margin-bottom:1rem">🔍</div>
-        <h2 style="color:#f87171;margin-bottom:.8rem">Certificado no encontrado</h2>
-        <p style="color:#7a8fa8;margin-bottom:.5rem">
-          No existe ningún certificado para el token:
-        </p>
-        <code style="background:#1e293b;color:#fde68a;padding:.3rem .7rem;
-                     border-radius:4px;font-size:.85rem;word-break:break-all">${t}</code>
-        <p style="color:#7a8fa8;font-size:.85rem;margin-top:1rem">
-          Puede que haya expirado, sido revocado o que el token sea incorrecto.
-        </p>
-      </div>`;
-  }
-})();
 </script>
 </body>
 </html>
