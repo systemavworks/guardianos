@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="GuardianOS Audit — Descubre en 10 minutos si tu empresa está expuesta. 1 auditoría gratuita, sin tarjeta. Informe PDF + certificado QR verificable. RGPD, ENS, ISO 27001.">
+<meta name="description" content="GuardianOS Audit — Descubre en 10 minutos si tu empresa está expuesta. 3 diagnósticos gratis durante 7 días, sin tarjeta. Informe PDF + certificado QR verificable. RGPD, ENS, ISO 27001.">
 <title>GuardianOS Audit — ¿Tu empresa está expuesta? Descúbrelo gratis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -645,20 +645,20 @@ footer {
       </div>
 
       <div class="trust-row">
-        <span class="trust-item"><span class="tick">✓</span> 1 auditoría gratis</span>
+        <span class="trust-item"><span class="tick">✓</span> 3 diagnósticos gratis</span>
         <span class="trust-sep">·</span>
-        <span class="trust-item"><span class="tick">✓</span> Sin tarjeta</span>
+        <span class="trust-item"><span class="tick">✓</span> 7 días · sin tarjeta</span>
         <span class="trust-sep">·</span>
         <span class="trust-item"><span class="tick">✓</span> Informe PDF en 10 min</span>
         <span class="trust-sep">·</span>
-        <span class="trust-item"><span class="tick">✓</span> Desde 149 € si quieres el certificado</span>
+        <span class="trust-item"><span class="tick">✓</span> Certificado QR desde 149 €</span>
       </div>
     </div>
 
     <!-- FORM -->
     <div class="hero-form-col">
       <div class="form-card">
-        <div class="form-card-badge">⚡ 1 análisis gratuito · sin tarjeta</div>
+        <div class="form-card-badge">⚡ 3 diagnósticos gratis · 7 días · sin tarjeta</div>
         <h3>Analiza tu dominio ahora</h3>
         <p class="fc-sub">
           Recibirás el score, los fallos detectados y el PDF completo.
@@ -1222,10 +1222,11 @@ footer {
           <span class="faq-arrow">▼</span>
         </div>
         <div class="faq-a">
-          El análisis gratuito te da el score y la lista de problemas detectados. Los planes
-          de pago añaden el informe PDF completo con evidencias, el certificado QR verificable
-          firmado con SHA-256, el análisis IA con plan de acción priorizado, y toda la
-          documentación ENS / RGPD lista para entregar.
+          El trial gratuito (3 diagnósticos · 7 días · sin tarjeta) te da el score, la lista
+          de hallazgos y acceso al panel completo. Los planes de pago añaden el informe PDF
+          con evidencias, el certificado QR verificable firmado con SHA-256, el análisis IA
+          con plan de acción priorizado, documentación ENS / RGPD lista para entregar,
+          y monitorización continua mensual / semanal.
         </div>
       </div>
 
@@ -1275,26 +1276,28 @@ footer {
 <!-- ═══════════════════════════════ FINAL CTA ═══════════════════════ -->
 <section class="final-cta-section" id="prueba-gratis">
   <div class="final-cta-box">
-    <h2>10 minutos para saber si estás expuesto</h2>
+    <h2>Descubre en 10 minutos si estás expuesto</h2>
     <p>
-      1 auditoría gratuita, sin tarjeta, sin contratos.<br>
-      <strong>Si quieres el PDF + certificado QR, desde 149 € pago único.</strong>
+      <strong>3 diagnósticos gratuitos · 7 días · sin tarjeta.</strong><br>
+      Score, hallazgos, informe PDF y acceso al panel completo incluidos.
     </p>
     <div style="margin-bottom:1.5rem">
       <div class="form-group" style="max-width:360px;margin:0 auto .8rem">
-        <input type="text" placeholder="tudominio.com" style="width:100%;padding:.75rem 1rem;background:#111620;border:1px solid #1e2d3d;border-radius:8px;color:#dde4ec;font-family:inherit;font-size:.95rem;">
+        <input type="text" id="domain-cta" placeholder="tudominio.com" autocomplete="off"
+               style="width:100%;padding:.75rem 1rem;background:#111620;border:1px solid #1e2d3d;border-radius:8px;color:#dde4ec;font-family:inherit;font-size:.95rem;">
       </div>
       <div class="form-group" style="max-width:360px;margin:0 auto .8rem">
-        <input type="email" placeholder="tu@email.com" style="width:100%;padding:.75rem 1rem;background:#111620;border:1px solid #1e2d3d;border-radius:8px;color:#dde4ec;font-family:inherit;font-size:.95rem;">
+        <input type="email" id="email-cta" placeholder="tu@email.com"
+               style="width:100%;padding:.75rem 1rem;background:#111620;border:1px solid #1e2d3d;border-radius:8px;color:#dde4ec;font-family:inherit;font-size:.95rem;">
       </div>
     </div>
     <div class="cta-row">
-      <button class="btn-hero-main">⚡ Analizar gratis ahora →</button>
+      <button id="cta-submit" class="btn-hero-main">⚡ Analizar gratis ahora →</button>
       <button class="btn-hero-out" onclick="window.location.href='https://guardianos.es/audit/planes.html'">Ver todos los planes</button>
     </div>
     <p style="margin-top:1rem;font-size:.78rem;color:#4f6070;">
       Al continuar aceptas nuestra <a href="https://guardianos.es/audit/privacidad">política de privacidad</a>.
-      1 prueba por email. Sin spam, nunca.
+      3 diagnósticos por email · 7 días · sin spam, nunca.
     </p>
   </div>
 </section>
@@ -1369,25 +1372,12 @@ function toggle(el) {
   if (!wasOpen) item.classList.add('open');
 }
 
-// ── Formulario de prueba gratuita ─────────────────────────────────────────────
+// ── Trial gratuito — lógica compartida ────────────────────────────────────────
 (function () {
-  const form     = document.querySelector('.form-card form');
-  const btn      = form && form.querySelector('button[type="submit"]');
-  const card     = form && form.closest('.form-card');
-  if (!form || !btn || !card) return;
 
-  // Elemento de resultado (se inyecta dinámicamente)
-  let resultEl = null;
-
-  function setResult(html) {
-    if (!resultEl) {
-      resultEl = document.createElement('div');
-      resultEl.className = 'trial-result';
-      card.appendChild(resultEl);
-    }
-    resultEl.innerHTML = html;
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
-
   function scoreColor(s) {
     if (s >= 80) return '#22c55e';
     if (s >= 60) return '#eab308';
@@ -1400,31 +1390,45 @@ function toggle(el) {
     if (s >= 40) return 'Riesgo alto';
     return 'Riesgo crítico';
   }
+  function setResult(container, html) {
+    let el = container.querySelector('.trial-result');
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'trial-result';
+      container.appendChild(el);
+    }
+    el.innerHTML = html;
+  }
 
-  let pollTimer = null;
-  let pollCount = 0;
-  const POLL_INTERVAL = 7000;
-  const POLL_MAX      = 90; // ~10 min
+  const PHASES = [
+    'Resolviendo DNS y certificados SSL…',
+    'Escaneando cabeceras HTTP y seguridad web…',
+    'Analizando CVEs y vulnerabilidades conocidas…',
+    'Verificando RGPD, ENS y marcos normativos…',
+    'Generando informe con IA (Claude)…',
+    'Preparando PDF y certificado QR…',
+  ];
 
-  function startPolling(auditId, domain) {
-    pollCount = 0;
-
-    const phases = [
-      'Resolviendo DNS y certificados SSL…',
-      'Escaneando cabeceras HTTP y seguridad web…',
-      'Analizando CVEs y vulnerabilidades conocidas…',
-      'Verificando RGPD, ENS y marcos normativos…',
-      'Generando informe con IA (Claude)…',
-      'Preparando PDF y certificado QR…',
-    ];
+  /**
+   * Arranca el polling y actualiza `container` con el progreso / resultado.
+   * @param {string} auditId
+   * @param {string} domain   (ya validado / sanitizado)
+   * @param {string|null} expiresAt  ISO-8601 del trialExpiresAt
+   * @param {HTMLElement} container
+   * @param {HTMLElement} btn
+   */
+  function startPolling(auditId, domain, expiresAt, container, btn) {
+    let pollCount = 0;
+    const POLL_INTERVAL = 7000;
+    const POLL_MAX      = 90;
 
     function updateProgress() {
-      const ph = phases[Math.min(Math.floor(pollCount / 3), phases.length - 1)];
+      const ph  = PHASES[Math.min(Math.floor(pollCount / 3), PHASES.length - 1)];
       const pct = Math.min(Math.round((pollCount / POLL_MAX) * 100), 95);
-      setResult(`
+      setResult(container, `
         <div style="margin-top:1.2rem;text-align:center">
           <div style="font-size:.85rem;color:var(--txt2);margin-bottom:.6rem">
-            ⚡ Analizando <strong>${domain}</strong>
+            ⚡ Analizando <strong>${escHtml(domain)}</strong>
           </div>
           <div style="background:#1e2d3d;border-radius:8px;height:6px;overflow:hidden;margin:.5rem 0">
             <div style="background:var(--p);height:100%;width:${pct}%;transition:width .6s ease"></div>
@@ -1438,36 +1442,43 @@ function toggle(el) {
 
     updateProgress();
 
-    pollTimer = setInterval(async () => {
+    const timer = setInterval(async () => {
       pollCount++;
       updateProgress();
 
       if (pollCount > POLL_MAX) {
-        clearInterval(pollTimer);
-        setResult(`<div style="margin-top:1rem;font-size:.83rem;color:var(--txt2);text-align:center">
-          El análisis continúa en segundo plano. <br>
-          Recibirás el informe completo en tu email cuando finalice.
+        clearInterval(timer);
+        btn.textContent = '⚡ Analizar gratis →';
+        btn.disabled = false;
+        setResult(container, `<div style="margin-top:1rem;font-size:.83rem;color:var(--txt2);text-align:center">
+          El an&aacute;lisis contin&uacute;a en segundo plano.<br>
+          Recibir&aacute;s el informe completo en tu email cuando finalice.
         </div>`);
         return;
       }
 
       try {
-        const r = await fetch(`/api/trial/status/${auditId}`);
-        if (!r.ok) return; // esperar siguiente tick
+        const r = await fetch('/api/v1/trial/status/' + auditId);
+        if (!r.ok) return;
         const d = await r.json();
 
         if (d.status === 'completed') {
-          clearInterval(pollTimer);
-          const col = scoreColor(d.score);
-          const lbl = scoreLabel(d.score);
+          clearInterval(timer);
           btn.textContent = '⚡ Analizar gratis →';
           btn.disabled = false;
-          setResult(`
+
+          const col = scoreColor(d.score);
+          const lbl = scoreLabel(d.score);
+          const expiryFmt = expiresAt
+            ? new Date(expiresAt).toLocaleDateString('es-ES', { day:'numeric', month:'long', year:'numeric' })
+            : null;
+
+          setResult(container, `
             <div style="margin-top:1.2rem;border:1px solid ${col}40;border-radius:12px;padding:1.1rem;background:${col}0a">
               <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem">
                 <span style="font-size:2rem;font-weight:800;color:${col}">${d.score}</span>
                 <div>
-                  <div style="font-size:.9rem;font-weight:700;color:var(--white)">${d.target}</div>
+                  <div style="font-size:.9rem;font-weight:700;color:var(--white)">${escHtml(d.target)}</div>
                   <div style="font-size:.78rem;color:${col}">${lbl}</div>
                 </div>
               </div>
@@ -1475,31 +1486,33 @@ function toggle(el) {
                 <span style="background:#1e2d3d;border-radius:6px;padding:.25rem .6rem;font-size:.75rem;color:var(--txt2)">
                   🔍 ${d.totalFindings} hallazgos
                 </span>
-                ${(d.critical||0) > 0 ? `<span style="background:#7f1d1d30;border-radius:6px;padding:.25rem .6rem;font-size:.75rem;color:#ef4444">
-                  🔴 ${d.critical} críticos
-                </span>` : ''}
-                ${(d.high||0) > 0 ? `<span style="background:#7c2d1230;border-radius:6px;padding:.25rem .6rem;font-size:.75rem;color:#f97316">
-                  🟠 ${d.high} altos
-                </span>` : ''}
+                ${(d.critical||0) > 0 ? `<span style="background:#7f1d1d30;border-radius:6px;padding:.25rem .6rem;font-size:.75rem;color:#ef4444">🔴 ${d.critical} cr&iacute;ticos</span>` : ''}
+                ${(d.high||0) > 0 ? `<span style="background:#7c2d1230;border-radius:6px;padding:.25rem .6rem;font-size:.75rem;color:#f97316">🟠 ${d.high} altos</span>` : ''}
               </div>
-              <div style="font-size:.8rem;color:var(--txt2);margin-bottom:.8rem">
-                ✉ El PDF completo con todos los hallazgos está en camino a tu email.
+              ${expiryFmt ? `<div style="font-size:.75rem;color:var(--txt3);margin-bottom:.7rem">⏱ Acceso al panel v&aacute;lido hasta el ${expiryFmt}</div>` : ''}
+              <div style="font-size:.8rem;color:var(--txt2);margin-bottom:.9rem">
+                ✉ El PDF completo con todos los hallazgos est&aacute; en camino a tu email.
               </div>
-              <a href="${d.pdfUrl || '#'}" download
-                 style="display:block;text-align:center;background:var(--p);color:#fff;border-radius:8px;padding:.6rem 1rem;font-size:.82rem;font-weight:600;text-decoration:none;margin-bottom:.5rem">
-                ⬇ Descargar PDF ahora
+              <a href="https://audit.guardianos.es"
+                 style="display:block;text-align:center;background:var(--p);color:#fff;border-radius:8px;padding:.65rem 1rem;font-size:.85rem;font-weight:700;text-decoration:none;margin-bottom:.5rem">
+                🔓 Ver informe completo en el panel →
               </a>
+              ${d.pdfUrl ? `<a href="${escHtml(d.pdfUrl)}" download
+                 style="display:block;text-align:center;background:#111620;color:var(--txt2);border:1px solid var(--bdr);border-radius:8px;padding:.55rem 1rem;font-size:.78rem;font-weight:600;text-decoration:none;margin-bottom:.5rem">
+                ⬇ Descargar PDF ahora
+              </a>` : ''}
               <a href="https://guardianos.es/audit/planes.html"
                  style="display:block;text-align:center;background:transparent;color:var(--p);border:1px solid var(--p);border-radius:8px;padding:.55rem 1rem;font-size:.78rem;text-decoration:none">
-                Ver planes para informe completo →
+                Ver planes para monitorizaci&oacute;n continua →
               </a>
             </div>`);
+
         } else if (d.status === 'failed') {
-          clearInterval(pollTimer);
+          clearInterval(timer);
           btn.textContent = '⚡ Analizar gratis →';
           btn.disabled = false;
-          setResult(`<div style="margin-top:1rem;font-size:.83rem;color:#ef4444;text-align:center">
-            El análisis de <strong>${domain}</strong> encontró un problema. Escríbenos a
+          setResult(container, `<div style="margin-top:1rem;font-size:.83rem;color:#ef4444;text-align:center">
+            El an&aacute;lisis de <strong>${escHtml(domain)}</strong> encontr&oacute; un problema. Esr&iacute;benos a
             <a href="mailto:audit@guardianos.es" style="color:var(--p)">audit@guardianos.es</a>.
           </div>`);
         }
@@ -1507,53 +1520,75 @@ function toggle(el) {
     }, POLL_INTERVAL);
   }
 
-  form.removeAttribute('onsubmit');
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    const domain = document.getElementById('domain')?.value?.trim() || '';
-    const email  = document.getElementById('email')?.value?.trim() || '';
-
+  /**
+   * Envía el formulario al backend y arranca el polling si OK.
+   */
+  function submitTrial(domain, email, container, btn) {
     if (!domain) {
-      setResult('<p style="color:#f97316;font-size:.82rem;margin-top:.6rem">Introduce un dominio o IP válido.</p>');
+      setResult(container, '<p style="color:#f97316;font-size:.82rem;margin-top:.6rem">Introduce un dominio o IP v&aacute;lido.</p>');
       return;
     }
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      setResult('<p style="color:#f97316;font-size:.82rem;margin-top:.6rem">Introduce un email válido.</p>');
+      setResult(container, '<p style="color:#f97316;font-size:.82rem;margin-top:.6rem">Introduce un email v&aacute;lido.</p>');
       return;
     }
 
-    btn.textContent = 'Iniciando análisis…';
+    btn.textContent = 'Iniciando an&aacute;lisis…';
     btn.disabled = true;
-    if (resultEl) resultEl.innerHTML = '';
+    setResult(container, '');
 
-    let data;
-    try {
-      const r = await fetch('/api/trial', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, domain }),
-      });
-      data = await r.json();
-
-      if (!r.ok) {
+    fetch('/api/v1/trial', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, domain }),
+    })
+    .then(r => r.json().then(d => ({ ok: r.ok, d })))
+    .then(({ ok, d }) => {
+      if (!ok) {
         btn.textContent = '⚡ Analizar gratis →';
         btn.disabled = false;
-        const msg = data.error || data.message || 'Error al iniciar el análisis.';
-        setResult(`<p style="color:#f97316;font-size:.82rem;margin-top:.6rem">${msg}</p>`);
+        const msg = escHtml(d.error || d.message || 'Error al iniciar el an&aacute;lisis.');
+        setResult(container, `<p style="color:#f97316;font-size:.82rem;margin-top:.6rem">${msg}</p>`);
         return;
       }
-    } catch (err) {
+      btn.textContent = 'Analizando…';
+      startPolling(d.auditId, domain, d.trialExpiresAt || null, container, btn);
+    })
+    .catch(() => {
       btn.textContent = '⚡ Analizar gratis →';
       btn.disabled = false;
-      setResult('<p style="color:#f97316;font-size:.82rem;margin-top:.6rem">No se pudo conectar. Inténtalo de nuevo.</p>');
-      return;
-    }
+      setResult(container, '<p style="color:#f97316;font-size:.82rem;margin-top:.6rem">No se pudo conectar. Int&eacute;ntalo de nuevo.</p>');
+    });
+  }
 
-    // Auditoría iniciada — comenzar polling
-    btn.textContent = 'Analizando…';
-    startPolling(data.auditId, domain);
-  });
+  // ── Formulario hero ─────────────────────────────────────────────────────────
+  const heroForm = document.querySelector('.form-card form');
+  if (heroForm) {
+    heroForm.removeAttribute('onsubmit');
+    heroForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitTrial(
+        (document.getElementById('domain')?.value || '').trim(),
+        (document.getElementById('email')?.value || '').trim(),
+        heroForm.closest('.form-card'),
+        heroForm.querySelector('button[type="submit"]')
+      );
+    });
+  }
+
+  // ── Formulario final CTA ────────────────────────────────────────────────────
+  const ctaBtn = document.getElementById('cta-submit');
+  if (ctaBtn) {
+    ctaBtn.addEventListener('click', function () {
+      submitTrial(
+        (document.getElementById('domain-cta')?.value || '').trim(),
+        (document.getElementById('email-cta')?.value || '').trim(),
+        ctaBtn.closest('.final-cta-box'),
+        ctaBtn
+      );
+    });
+  }
+
 })();
 </script>
 </body>
