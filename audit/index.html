@@ -1361,12 +1361,200 @@ footer {
 </footer>
 
 <script>
+// ── FAQ toggle ────────────────────────────────────────────────────────────────
 function toggle(el) {
   const item = el.closest('.faq-item');
   const wasOpen = item.classList.contains('open');
   document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
   if (!wasOpen) item.classList.add('open');
 }
+
+// ── Formulario de prueba gratuita ─────────────────────────────────────────────
+(function () {
+  const form     = document.querySelector('.form-card form');
+  const btn      = form && form.querySelector('button[type="submit"]');
+  const card     = form && form.closest('.form-card');
+  if (!form || !btn || !card) return;
+
+  // Elemento de resultado (se inyecta dinámicamente)
+  let resultEl = null;
+
+  function setResult(html) {
+    if (!resultEl) {
+      resultEl = document.createElement('div');
+      resultEl.className = 'trial-result';
+      card.appendChild(resultEl);
+    }
+    resultEl.innerHTML = html;
+  }
+
+  function scoreColor(s) {
+    if (s >= 80) return '#22c55e';
+    if (s >= 60) return '#eab308';
+    if (s >= 40) return '#f97316';
+    return '#ef4444';
+  }
+  function scoreLabel(s) {
+    if (s >= 80) return 'Riesgo bajo';
+    if (s >= 60) return 'Riesgo moderado';
+    if (s >= 40) return 'Riesgo alto';
+    return 'Riesgo crítico';
+  }
+
+  let pollTimer = null;
+  let pollCount = 0;
+  const POLL_INTERVAL = 7000;
+  const POLL_MAX      = 90; // ~10 min
+
+  function startPolling(auditId, domain) {
+    pollCount = 0;
+
+    const phases = [
+      'Resolviendo DNS y certificados SSL…',
+      'Escaneando cabeceras HTTP y seguridad web…',
+      'Analizando CVEs y vulnerabilidades conocidas…',
+      'Verificando RGPD, ENS y marcos normativos…',
+      'Generando informe con IA (Claude)…',
+      'Preparando PDF y certificado QR…',
+    ];
+
+    function updateProgress() {
+      const ph = phases[Math.min(Math.floor(pollCount / 3), phases.length - 1)];
+      const pct = Math.min(Math.round((pollCount / POLL_MAX) * 100), 95);
+      setResult(`
+        <div style="margin-top:1.2rem;text-align:center">
+          <div style="font-size:.85rem;color:var(--txt2);margin-bottom:.6rem">
+            ⚡ Analizando <strong>${domain}</strong>
+          </div>
+          <div style="background:#1e2d3d;border-radius:8px;height:6px;overflow:hidden;margin:.5rem 0">
+            <div style="background:var(--p);height:100%;width:${pct}%;transition:width .6s ease"></div>
+          </div>
+          <div style="font-size:.78rem;color:var(--txt3);margin-top:.4rem">${ph}</div>
+          <div style="font-size:.72rem;color:var(--txt3);margin-top:.2rem">
+            Recibirás el informe completo por email (~10 min)
+          </div>
+        </div>`);
+    }
+
+    updateProgress();
+
+    pollTimer = setInterval(async () => {
+      pollCount++;
+      updateProgress();
+
+      if (pollCount > POLL_MAX) {
+        clearInterval(pollTimer);
+        setResult(`<div style="margin-top:1rem;font-size:.83rem;color:var(--txt2);text-align:center">
+          El análisis continúa en segundo plano. <br>
+          Recibirás el informe completo en tu email cuando finalice.
+        </div>`);
+        return;
+      }
+
+      try {
+        const r = await fetch(`/api/trial/status/${auditId}`);
+        if (!r.ok) return; // esperar siguiente tick
+        const d = await r.json();
+
+        if (d.status === 'completed') {
+          clearInterval(pollTimer);
+          const col = scoreColor(d.score);
+          const lbl = scoreLabel(d.score);
+          btn.textContent = '⚡ Analizar gratis →';
+          btn.disabled = false;
+          setResult(`
+            <div style="margin-top:1.2rem;border:1px solid ${col}40;border-radius:12px;padding:1.1rem;background:${col}0a">
+              <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem">
+                <span style="font-size:2rem;font-weight:800;color:${col}">${d.score}</span>
+                <div>
+                  <div style="font-size:.9rem;font-weight:700;color:var(--white)">${d.target}</div>
+                  <div style="font-size:.78rem;color:${col}">${lbl}</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:.9rem">
+                <span style="background:#1e2d3d;border-radius:6px;padding:.25rem .6rem;font-size:.75rem;color:var(--txt2)">
+                  🔍 ${d.totalFindings} hallazgos
+                </span>
+                ${(d.critical||0) > 0 ? `<span style="background:#7f1d1d30;border-radius:6px;padding:.25rem .6rem;font-size:.75rem;color:#ef4444">
+                  🔴 ${d.critical} críticos
+                </span>` : ''}
+                ${(d.high||0) > 0 ? `<span style="background:#7c2d1230;border-radius:6px;padding:.25rem .6rem;font-size:.75rem;color:#f97316">
+                  🟠 ${d.high} altos
+                </span>` : ''}
+              </div>
+              <div style="font-size:.8rem;color:var(--txt2);margin-bottom:.8rem">
+                ✉ El PDF completo con todos los hallazgos está en camino a tu email.
+              </div>
+              <a href="${d.pdfUrl || '#'}" download
+                 style="display:block;text-align:center;background:var(--p);color:#fff;border-radius:8px;padding:.6rem 1rem;font-size:.82rem;font-weight:600;text-decoration:none;margin-bottom:.5rem">
+                ⬇ Descargar PDF ahora
+              </a>
+              <a href="https://guardianos.es/audit/planes.html"
+                 style="display:block;text-align:center;background:transparent;color:var(--p);border:1px solid var(--p);border-radius:8px;padding:.55rem 1rem;font-size:.78rem;text-decoration:none">
+                Ver planes para informe completo →
+              </a>
+            </div>`);
+        } else if (d.status === 'failed') {
+          clearInterval(pollTimer);
+          btn.textContent = '⚡ Analizar gratis →';
+          btn.disabled = false;
+          setResult(`<div style="margin-top:1rem;font-size:.83rem;color:#ef4444;text-align:center">
+            El análisis de <strong>${domain}</strong> encontró un problema. Escríbenos a
+            <a href="mailto:audit@guardianos.es" style="color:var(--p)">audit@guardianos.es</a>.
+          </div>`);
+        }
+      } catch (_) { /* ignorar errores de red transitorios */ }
+    }, POLL_INTERVAL);
+  }
+
+  form.removeAttribute('onsubmit');
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const domain = document.getElementById('domain')?.value?.trim() || '';
+    const email  = document.getElementById('email')?.value?.trim() || '';
+
+    if (!domain) {
+      setResult('<p style="color:#f97316;font-size:.82rem;margin-top:.6rem">Introduce un dominio o IP válido.</p>');
+      return;
+    }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      setResult('<p style="color:#f97316;font-size:.82rem;margin-top:.6rem">Introduce un email válido.</p>');
+      return;
+    }
+
+    btn.textContent = 'Iniciando análisis…';
+    btn.disabled = true;
+    if (resultEl) resultEl.innerHTML = '';
+
+    let data;
+    try {
+      const r = await fetch('/api/trial', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, domain }),
+      });
+      data = await r.json();
+
+      if (!r.ok) {
+        btn.textContent = '⚡ Analizar gratis →';
+        btn.disabled = false;
+        const msg = data.error || data.message || 'Error al iniciar el análisis.';
+        setResult(`<p style="color:#f97316;font-size:.82rem;margin-top:.6rem">${msg}</p>`);
+        return;
+      }
+    } catch (err) {
+      btn.textContent = '⚡ Analizar gratis →';
+      btn.disabled = false;
+      setResult('<p style="color:#f97316;font-size:.82rem;margin-top:.6rem">No se pudo conectar. Inténtalo de nuevo.</p>');
+      return;
+    }
+
+    // Auditoría iniciada — comenzar polling
+    btn.textContent = 'Analizando…';
+    startPolling(data.auditId, domain);
+  });
+})();
 </script>
 </body>
 </html>
