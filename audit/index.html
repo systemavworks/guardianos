@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="GuardianOS Audit — Descubre en 10 minutos si tu empresa está expuesta. 3 diagnósticos gratis durante 7 días, sin tarjeta. Informe PDF + certificado QR verificable. RGPD, ENS, ISO 27001.">
+<meta name="description" content="GuardianOS Audit — Descubre en 10 minutos si tu empresa está expuesta. Score 0-100, informe PDF, certificado QR verificable. RGPD, ENS, ISO 27001. Desde 149 € pago único.">
 <title>GuardianOS Audit — ¿Tu empresa está expuesta? Descúbrelo gratis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -610,7 +610,7 @@ footer {
     <a href="#precios">Precios</a>
     <a href="#partners" class="hide-mob">Partners</a>
     <a href="https://guardianos.es/audit/verify" class="hide-mob">Verificar certificado</a>
-    <a href="#prueba-gratis" class="nav-cta">⚡ Prueba gratis</a>
+    <a href="https://audit.guardianos.es" class="nav-cta">🔓 Entrar al panel</a>
   </div>
 </nav>
 
@@ -645,41 +645,48 @@ footer {
       </div>
 
       <div class="trust-row">
-        <span class="trust-item"><span class="tick">✓</span> 3 diagnósticos gratis</span>
+        <span class="trust-item"><span class="tick">✓</span> Score 0-100 en 10 min</span>
         <span class="trust-sep">·</span>
-        <span class="trust-item"><span class="tick">✓</span> 7 días · sin tarjeta</span>
+        <span class="trust-item"><span class="tick">✓</span> 21 marcos normativos</span>
         <span class="trust-sep">·</span>
-        <span class="trust-item"><span class="tick">✓</span> Informe PDF en 10 min</span>
+        <span class="trust-item"><span class="tick">✓</span> Informe PDF + certificado QR</span>
         <span class="trust-sep">·</span>
-        <span class="trust-item"><span class="tick">✓</span> Certificado QR desde 149 €</span>
+        <span class="trust-item"><span class="tick">✓</span> Desde 149 € pago único</span>
       </div>
     </div>
 
     <!-- FORM -->
     <div class="hero-form-col">
       <div class="form-card">
-        <div class="form-card-badge">⚡ 3 diagnósticos gratis · 7 días · sin tarjeta</div>
+        <div class="form-card-badge">🔒 Planes desde 149 € · sin suscripción</div>
         <h3>Analiza tu dominio ahora</h3>
         <p class="fc-sub">
           Recibirás el score, los fallos detectados y el PDF completo.
           <strong>Sin restricciones en el análisis técnico.</strong>
         </p>
 
-        <form onsubmit="return false">
-          <div class="form-group">
-            <label for="domain">Tu dominio o IP</label>
-            <input type="text" id="domain" placeholder="ejemplo.com" autocomplete="off">
-          </div>
-          <div class="form-group">
-            <label for="email">Tu email (para recibir el informe)</label>
-            <input type="email" id="email" placeholder="nombre@empresa.com">
-          </div>
-          <button type="submit" class="btn-primary">⚡ Analizar gratis →</button>
-        </form>
+        <!-- TRIAL CERRADO — acceso por invitación / plan de pago -->
+        <div style="background:rgba(42,157,143,.07);border:1px solid rgba(42,157,143,.3);border-radius:10px;padding:1.1rem;margin-bottom:1rem;text-align:center">
+          <div style="font-size:.8rem;font-weight:700;color:var(--p-lt);margin-bottom:.4rem">🔒 Acceso por plan</div>
+          <p style="font-size:.82rem;color:var(--txt2);line-height:1.55;margin-bottom:.8rem">
+            El acceso gratuito por invitación ha concluido.<br>
+            Adquiere un plan desde <strong style="color:var(--txt)">149 € pago único</strong>
+            o inicia sesión si ya tienes cuenta.
+          </p>
+          <a href="https://audit.guardianos.es" class="btn-primary" style="display:block;text-decoration:none;text-align:center;margin-bottom:.5rem">
+            🔓 Entrar al panel →
+          </a>
+        </div>
+
+        <!-- Disclaimer legal art. 197bis CP -->
+        <div style="background:rgba(244,165,53,.06);border:1px solid rgba(244,165,53,.2);border-radius:8px;padding:.8rem;font-size:.75rem;color:#c49040;line-height:1.55;margin-top:.6rem">
+          ⚖️ <strong>Uso autorizado únicamente.</strong> GuardianOS Audit solo puede utilizarse sobre dominios, IPs y sistemas sobre los que el usuario sea titular o cuente con autorización expresa y documentada del titular. El uso no autorizado puede constituir delito tipificado en el <strong>art. 197bis del Código Penal español</strong> (y legislación equivalente en cada jurisdicción). Al acceder aceptas esta condición.
+        </div>
 
         <p class="form-disclaimer">
-          Sin spam. 1 prueba por email. Al continuar aceptas nuestra
-          <a href="https://guardianos.es/audit/privacidad" target="_blank">política de privacidad</a>.
+          Al continuar aceptas nuestra
+          <a href="https://guardianos.es/audit/privacidad" target="_blank">política de privacidad</a>
+          y los <a href="https://guardianos.es/terminos.html" target="_blank">términos de servicio</a>.
         </p>
 
         <div class="form-price-note">
@@ -1218,15 +1225,16 @@ footer {
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggle(this)">
-          ¿Qué diferencia hay entre el análisis gratuito y el plan de pago?
+          ¿Puedo probar GuardianOS Audit antes de comprar?
           <span class="faq-arrow">▼</span>
         </div>
         <div class="faq-a">
-          El trial gratuito (3 diagnósticos · 7 días · sin tarjeta) te da el score, la lista
-          de hallazgos y acceso al panel completo. Los planes de pago añaden el informe PDF
-          con evidencias, el certificado QR verificable firmado con SHA-256, el análisis IA
-          con plan de acción priorizado, documentación ENS / RGPD lista para entregar,
-          y monitorización continua mensual / semanal.
+          El acceso gratuito por invitación ha concluido. Todos los planes incluyen el análisis
+          completo: score 0-100, hallazgos detallados, informe PDF con evidencias, certificado
+          QR verificable firmado con SHA-256, análisis IA con plan de acción y documentación
+          ENS / RGPD lista para entregar. El plan base (149 € pago único, sin renovación)
+          es la forma más económica de comenzar. Escríbenos a
+          <a href="mailto:audit@guardianos.es">audit@guardianos.es</a> si tienes dudas.
         </div>
       </div>
 
@@ -1278,26 +1286,26 @@ footer {
   <div class="final-cta-box">
     <h2>Descubre en 10 minutos si estás expuesto</h2>
     <p>
-      <strong>3 diagnósticos gratuitos · 7 días · sin tarjeta.</strong><br>
-      Score, hallazgos, informe PDF y acceso al panel completo incluidos.
+      <strong>Score 0-100 · 21 marcos normativos · sin restricciones técnicas.</strong><br>
+      Informe PDF + certificado QR verificable incluidos en todos los planes.
     </p>
-    <div style="margin-bottom:1.5rem">
-      <div class="form-group" style="max-width:360px;margin:0 auto .8rem">
-        <input type="text" id="domain-cta" placeholder="tudominio.com" autocomplete="off"
-               style="width:100%;padding:.75rem 1rem;background:#111620;border:1px solid #1e2d3d;border-radius:8px;color:#dde4ec;font-family:inherit;font-size:.95rem;">
-      </div>
-      <div class="form-group" style="max-width:360px;margin:0 auto .8rem">
-        <input type="email" id="email-cta" placeholder="tu@email.com"
-               style="width:100%;padding:.75rem 1rem;background:#111620;border:1px solid #1e2d3d;border-radius:8px;color:#dde4ec;font-family:inherit;font-size:.95rem;">
-      </div>
+
+    <!-- Disclaimer legal — art. 197bis CP -->
+    <div style="max-width:480px;margin:0 auto 1.5rem;background:rgba(244,165,53,.06);border:1px solid rgba(244,165,53,.22);border-radius:10px;padding:1rem 1.2rem;font-size:.78rem;color:#c49040;line-height:1.6;text-align:left">
+      ⚖️ <strong>Aviso de uso responsable.</strong> Esta herramienta solo puede usarse sobre
+      dominios, IPs y sistemas propios o con autorización expresa del titular.
+      El uso no autorizado puede constituir delito conforme al
+      <strong>art. 197bis del Código Penal</strong>. Al acceder declaras tener autorización.
     </div>
+
     <div class="cta-row">
-      <button id="cta-submit" class="btn-hero-main">⚡ Analizar gratis ahora →</button>
-      <button class="btn-hero-out" onclick="window.location.href='https://guardianos.es/audit/planes.html'">Ver todos los planes</button>
+      <a href="https://audit.guardianos.es" class="btn-hero-main" style="text-decoration:none">🔓 Acceder al panel →</a>
+      <button class="btn-hero-out"
+              onclick="window.location.href='https://guardianos.es/audit/planes.html'">Ver todos los planes</button>
     </div>
     <p style="margin-top:1rem;font-size:.78rem;color:#4f6070;">
-      Al continuar aceptas nuestra <a href="https://guardianos.es/audit/privacidad">política de privacidad</a>.
-      3 diagnósticos por email · 7 días · sin spam, nunca.
+      Al continuar aceptas nuestra <a href="https://guardianos.es/audit/privacidad">política de privacidad</a>
+      y los <a href="https://guardianos.es/terminos.html">términos de servicio</a>.
     </p>
   </div>
 </section>
@@ -1372,8 +1380,11 @@ function toggle(el) {
   if (!wasOpen) item.classList.add('open');
 }
 
-// ── Trial gratuito — lógica compartida ────────────────────────────────────────
+// ── Trial cerrado — formulario reemplazado por acceso directo al panel ──────────
 (function () {
+  // NOOP: el formulario de trial ha sido reemplazado por un enlace directo a audit.guardianos.es
+  // El bloque original de submitTrial/polling se mantiene por si se reactiva en el futuro.
+  return;
 
   function escHtml(s) {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
