@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Política de Privacidad — GuardianOS Audit</title>
-  <meta name="description" content="Política de privacidad de GuardianOS Audit: qué datos recogemos, cómo los usamos y tus derechos RGPD.">
+  <title>Política de Privacidad y Protección de Datos — GuardianOS Audit</title>
+  <meta name="description" content="Política de privacidad de GuardianOS Audit (AvWorks System): qué datos recogemos, cómo los usamos, tus derechos RGPD y medidas de seguridad implementadas.">
   <link rel="canonical" href="https://guardianos.es/audit/privacidad" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@
       line-height: 1.7;
       padding: 4rem 1rem 3rem;
     }
-    .container { max-width: 800px; margin: 0 auto; }
+    .container { max-width: 860px; margin: 0 auto; }
     nav {
       display: flex;
       align-items: center;
@@ -77,6 +77,7 @@
       margin-bottom: .75rem;
       padding-bottom: .5rem;
       border-bottom: 1px solid var(--border);
+      scroll-margin-top: 16px;
     }
     h3 {
       color: var(--primary);
@@ -90,6 +91,7 @@
     li { margin-bottom: .4rem; }
     a { color: var(--primary); }
     a:hover { text-decoration: underline; }
+    code { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: .25rem; padding: .1rem .4rem; font-size: .85em; color: #48cae4; }
     .info-box {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -100,11 +102,33 @@
     }
     .info-box p { margin: 0; color: var(--text-secondary); font-size: .9rem; }
     .info-box strong { color: var(--text-primary); }
+    .warn-box {
+      background: rgba(217,119,6,.08);
+      border: 1px solid rgba(217,119,6,.25);
+      border-left: 4px solid #d97706;
+      border-radius: .5rem;
+      padding: 1.1rem 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .warn-box p { margin: 0; color: var(--text-secondary); font-size: .9rem; }
+    .warn-box strong { color: #fbbf24; }
+    .toc {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: .5rem;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .toc-title { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--text-muted); margin-bottom: .75rem; }
+    .toc ol { margin: 0; padding-left: 1.2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: .2rem .5rem; }
+    .toc li { font-size: .875rem; color: var(--text-secondary); }
+    .toc a { color: var(--primary); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
     table {
       width: 100%;
       border-collapse: collapse;
       margin: 1.25rem 0;
-      font-size: .9rem;
+      font-size: .88rem;
     }
     th {
       background: var(--bg-elevated);
@@ -121,6 +145,42 @@
       vertical-align: top;
     }
     tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    .right-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: .5rem;
+      padding: 1rem 1.1rem;
+    }
+    .right-card h3 { color: var(--text-primary); margin-top: 0; margin-bottom: .4rem; font-size: .9rem; }
+    .right-card p { margin: 0; font-size: .85rem; color: var(--text-secondary); }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(42,157,143,.12), rgba(72,202,228,.06));
+      border: 1px solid rgba(42,157,143,.3);
+      border-radius: .75rem;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .cta-box h3 { margin: 0 0 .5rem; color: var(--text-primary); font-size: 1.05rem; }
+    .cta-box p { margin: 0 0 1rem; font-size: .9rem; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      padding: .6rem 1.5rem;
+      border-radius: .4rem;
+      font-size: .9rem;
+      font-weight: 600;
+      transition: background .15s;
+    }
+    .cta-btn:hover { background: var(--primary-dark); text-decoration: none; }
     footer {
       text-align: center;
       margin-top: 3.5rem;
@@ -142,110 +202,292 @@
   </nav>
 
   <header>
-    <div class="badge">Legal · RGPD</div>
+    <div class="badge">Legal · RGPD · LOPDGDD · NIS2</div>
     <h1>Política de Privacidad</h1>
-    <p class="subtitle">GuardianOS Audit — Última actualización: 13 de marzo de 2026</p>
+    <p class="subtitle">GuardianOS Audit — AvWorks System · Última actualización: 27 de marzo de 2026 · Versión 1.1</p>
   </header>
 
   <div class="info-box">
-    <p><strong>Resumen ejecutivo:</strong> Solo recogemos los datos estrictamente necesarios para prestarte el servicio de auditoría. No vendemos ni cedemos datos a terceros. Puedes ejercer tus derechos RGPD en cualquier momento escribiendo a <a href="mailto:audit@guardianos.es">audit@guardianos.es</a>.</p>
+    <p><strong>Resumen:</strong> Solo recogemos los datos estrictamente necesarios para prestarte el servicio de auditoría. No vendemos ni cedemos datos a terceros con fines comerciales. Todos los servidores están en la Unión Europea (<strong>Alemania — Hetzner</strong>). Puedes ejercer tus derechos RGPD en cualquier momento escribiendo a <a href="mailto:audit@guardianos.es">audit@guardianos.es</a>.</p>
   </div>
 
-  <h2>1. Responsable del tratamiento</h2>
+  <!-- ÍNDICE -->
+  <div class="toc">
+    <div class="toc-title">Índice de contenidos</div>
+    <ol>
+      <li><a href="#sec1">Responsable del tratamiento</a></li>
+      <li><a href="#sec2">Datos recogidos y finalidades</a></li>
+      <li><a href="#sec3">Base jurídica del tratamiento</a></li>
+      <li><a href="#sec4">Datos técnicos de ciberseguridad</a></li>
+      <li><a href="#sec5">Destinatarios y transferencias</a></li>
+      <li><a href="#sec6">Plazos de conservación</a></li>
+      <li><a href="#sec7">Tus derechos (RGPD)</a></li>
+      <li><a href="#sec8">Reclamación ante la AEPD</a></li>
+      <li><a href="#sec9">Seguridad de los datos</a></li>
+      <li><a href="#sec10">Cookies y analítica</a></li>
+      <li><a href="#sec11">Menores de edad</a></li>
+      <li><a href="#sec12">Cambios en esta política</a></li>
+    </ol>
+  </div>
+
+  <!-- 1 -->
+  <h2 id="sec1">1. Responsable del tratamiento</h2>
   <p>
-    <strong>Identidad:</strong> Víctor P. Lara<br>
-    <strong>NIF:</strong> 45658292A<br>
-    <strong>Actividad:</strong> Desarrollo y comercialización de software de ciberseguridad<br>
-    <strong>Correo de contacto:</strong> <a href="mailto:audit@guardianos.es">audit@guardianos.es</a><br>
-    <strong>Domicilio:</strong> Andalucía, España
+    <strong>Razón social:</strong> AvWorks System<br>
+    <strong>CIF:</strong> B41902420<br>
+    <strong>Domicilio:</strong> Sevilla, Andalucía, España<br>
+    <strong>Actividad:</strong> Desarrollo y comercialización de software de ciberseguridad (SaaS)<br>
+    <strong>Contacto RGPD:</strong> <a href="mailto:audit@guardianos.es">audit@guardianos.es</a> — Asunto: "Protección de Datos / RGPD"<br>
+    <strong>Web:</strong> <a href="https://guardianos.es/audit">guardianos.es/audit</a>
   </p>
 
-  <h2>2. Qué datos recogemos y para qué</h2>
+  <div class="warn-box">
+    <p><strong>Plataforma profesional:</strong> GuardianOS Audit está destinada exclusivamente a profesionales, empresas y auditores que analizan sistemas de su propiedad o sobre los que poseen autorización expresa del titular. No es un servicio de uso general al consumidor.</p>
+  </div>
 
-  <h3>2.1 Prueba gratuita (free trial)</h3>
+  <!-- 2 -->
+  <h2 id="sec2">2. Datos recogidos y finalidades del tratamiento</h2>
+
   <table>
-    <tr>
-      <th>Dato</th>
-      <th>Finalidad</th>
-      <th>Base legal</th>
-    </tr>
-    <tr>
-      <td>Dirección de email</td>
-      <td>Deduplicación (una prueba por email), comunicación de resultados, prevención de abusos</td>
-      <td>Interés legítimo + consentimiento</td>
-    </tr>
-    <tr>
-      <td>Dominio a auditar</td>
-      <td>Realizar el análisis técnico solicitado</td>
-      <td>Ejecución de contrato (servicio gratuito)</td>
-    </tr>
-    <tr>
-      <td>Dirección IP</td>
-      <td>Rate-limiting (máx. 3 solicitudes / IP / hora), prevención de abusos</td>
-      <td>Interés legítimo</td>
-    </tr>
+    <thead>
+      <tr>
+        <th>Categoría</th>
+        <th>Datos concretos</th>
+        <th>Finalidad</th>
+        <th>Base legal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Prueba gratuita</strong></td>
+        <td>Email, dominio a auditar, IP de origen</td>
+        <td>Realizar el análisis técnico, deduplicación (1 prueba/email), prevención de abuso, rate-limiting</td>
+        <td>Ejecución de contrato (servicio gratuito) + interés legítimo</td>
+      </tr>
+      <tr>
+        <td><strong>Cuenta de usuario</strong></td>
+        <td>Nombre, email, organización, contraseña (hash bcrypt)</td>
+        <td>Autenticación, gestión de cuenta, comunicaciones de servicio</td>
+        <td>Ejecución de contrato (Art. 6.1.b)</td>
+      </tr>
+      <tr>
+        <td><strong>Facturación</strong></td>
+        <td>Nombre fiscal, CIF/NIF, dirección, método de pago (tokenizado)</td>
+        <td>Emisión de facturas, gestión de suscripción, cumplimiento fiscal</td>
+        <td>Obligación legal (Art. 6.1.c) + contrato (Art. 6.1.b)</td>
+      </tr>
+      <tr>
+        <td><strong>Objetivos de auditoría</strong></td>
+        <td>Dominios, IPs y URLs introducidos para auditar</td>
+        <td>Ejecutar el análisis de seguridad contratado, generar informes</td>
+        <td>Ejecución de contrato (Art. 6.1.b)</td>
+      </tr>
+      <tr>
+        <td><strong>Resultados de auditoría</strong></td>
+        <td>Hallazgos técnicos, vulnerabilidades detectadas, informes PDF</td>
+        <td>Entrega del servicio, historial de auditorías</td>
+        <td>Ejecución de contrato (Art. 6.1.b)</td>
+      </tr>
+      <tr>
+        <td><strong>Audit trail legal</strong></td>
+        <td>Registro de quién auditó qué, cuándo y con qué autorización</td>
+        <td>Cumplimiento legal CP Art. 197bis, trazabilidad, defensa ante reclamaciones</td>
+        <td>Obligación legal (Art. 6.1.c) + interés legítimo (Art. 6.1.f)</td>
+      </tr>
+      <tr>
+        <td><strong>Telemetría de uso</strong></td>
+        <td>IP de acceso, navegador, timestamps de sesión, módulos utilizados</td>
+        <td>Seguridad de la plataforma, detección de fraude, mejora del servicio</td>
+        <td>Interés legítimo (Art. 6.1.f)</td>
+      </tr>
+      <tr>
+        <td><strong>Análisis IA (Anthropic / Claude)</strong></td>
+        <td>Resultados técnicos brutos del escaneo (sin datos de usuarios finales)</td>
+        <td>Generación del informe en lenguaje natural. No se transmiten datos de identificación personal.</td>
+        <td>Ejecución de contrato. Política de Anthropic en <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a></td>
+      </tr>
+    </tbody>
   </table>
 
-  <h3>2.2 Clientes de pago (planes Starter, Pro, Enterprise)</h3>
-  <p>Los datos de facturación, usuarios y la información de auditoría gestionada dentro de la plataforma se rigen por el contrato de servicio y los Términos de Servicio aceptados al registrarse.</p>
+  <div class="info-box">
+    <p><strong>Lo que NO recogemos:</strong> GuardianOS Audit no recoge datos de categorías especiales (Art. 9 RGPD): no solicitamos datos de salud, ideología política, origen racial ni datos biométricos.</p>
+  </div>
 
-  <h3>2.3 Datos de navegación (Plausible Analytics)</h3>
-  <p>Utilizamos <strong>Plausible Analytics</strong> para medir visitas de forma agregada y anónima. Plausible no utiliza cookies, no registra la IP completa y no permite identificar a usuarios individuales. No se comparten datos con Google ni otras plataformas de publicidad. Más información en <a href="https://plausible.io/privacy" target="_blank" rel="noopener">plausible.io/privacy</a>.</p>
-
-  <h2>3. Conservación de datos</h2>
+  <!-- 3 -->
+  <h2 id="sec3">3. Base jurídica del tratamiento</h2>
   <ul>
-    <li><strong>Email de trial:</strong> conservado indefinidamente para evitar duplicados (deduplicación). Solicita la eliminación en <a href="mailto:audit@guardianos.es">audit@guardianos.es</a>.</li>
-    <li><strong>Resultados de auditoría:</strong> disponibles durante 30 días. Eliminados automáticamente después.</li>
-    <li><strong>Logs de acceso:</strong> conservados 30 días, solo con fines de seguridad y diagnóstico.</li>
-    <li><strong>Datos de clientes de pago:</strong> durante la vigencia del contrato y, como máximo, 5 años tras la cancelación (obligaciones contable-fiscales).</li>
+    <li><strong>Art. 6.1.b — Ejecución de contrato:</strong> los datos de cuenta, objetivos y resultados de auditoría son necesarios para prestar el servicio.</li>
+    <li><strong>Art. 6.1.c — Obligación legal:</strong> el audit trail es obligatorio para acreditar la autorización previa exigida por el Código Penal (Arts. 197bis y 197ter) y la normativa NIS2/DORA. Los datos de facturación se conservan por obligación tributaria (Ley 58/2003 — 5 años).</li>
+    <li><strong>Art. 6.1.f — Interés legítimo:</strong> registros de acceso y telemetría para garantizar la seguridad de la plataforma y prevenir abusos. Puedes oponerte a este tratamiento (ver Sección 7).</li>
+    <li><strong>Art. 6.1.a — Consentimiento:</strong> únicamente para comunicaciones comerciales o newsletter. Puede retirarse en cualquier momento sin afectar al servicio.</li>
   </ul>
 
-  <h2>4. Cesiones y transferencias internacionales</h2>
-  <p>No vendemos ni cedemos datos personales a terceros con fines comerciales. Los datos únicamente pueden compartirse con:</p>
+  <!-- 4 -->
+  <h2 id="sec4">4. Datos técnicos de ciberseguridad</h2>
+
+  <p>Los informes de vulnerabilidades generados para cada cliente son <strong>estrictamente confidenciales</strong> y accesibles únicamente por:</p>
   <ul>
-    <li><strong>Proveedores de infraestructura:</strong> Hetzner Online GmbH (servidores en Alemania, UE) y Cloudflare, Inc. (CDN y DNS, con cláusulas contractuales tipo aprobadas por la CE).</li>
-    <li><strong>IA (Anthropic / Claude):</strong> los dominios auditados y los resultados técnicos brutos pueden enviarse a la API de Anthropic para generar el informe en lenguaje natural. No se envían datos de usuarios finales ni información personal. Consulta la política de privacidad de Anthropic en <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a>.</li>
-    <li><strong>Autoridades competentes:</strong> cuando exista obligación legal.</li>
+    <li>El propio cliente que realizó la auditoría.</li>
+    <li>Los usuarios con permisos asignados en la misma organización.</li>
+    <li>AvWorks System exclusivamente para soporte técnico y obligaciones legales, siempre bajo confidencialidad.</li>
+  </ul>
+  <p>Nunca se cruzan datos de auditorías entre distintos clientes. La arquitectura implementa <strong>aislamiento estricto por tenant</strong> a nivel de base de datos y capa de aplicación.</p>
+
+  <div class="warn-box">
+    <p><strong>Responsabilidad sobre los objetivos de auditoría:</strong> el cliente es el único responsable de que los dominios, IPs y sistemas que introduce sean de su propiedad o cuente con autorización expresa del titular. GuardianOS Audit implementa verificación de dominio por DNS TXT y registro de autorizaciones documentado per auditoría. Consulta nuestra <a href="/audit/uso-responsable">Política de Uso Responsable</a>.</p>
+  </div>
+
+  <!-- 5 -->
+  <h2 id="sec5">5. Destinatarios y transferencias internacionales</h2>
+
+  <p>No vendemos ni cedemos datos personales a terceros con fines comerciales. Las únicas comunicaciones posibles son:</p>
+  <table>
+    <thead>
+      <tr><th>Proveedor</th><th>País / UE</th><th>Finalidad</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Hetzner Online GmbH</strong></td>
+        <td>🇩🇪 Alemania (UE)</td>
+        <td>Infraestructura del servidor. DPA firmado. <a href="https://www.hetzner.com/legal/privacy-policy" target="_blank" rel="noopener">Política Hetzner</a></td>
+      </tr>
+      <tr>
+        <td><strong>Anthropic (Claude AI)</strong></td>
+        <td>🇺🇸 EE.UU. (cláusulas contractuales tipo)</td>
+        <td>Generación de informes en lenguaje natural. Solo datos técnicos del escaneo, sin PII.</td>
+      </tr>
+      <tr>
+        <td><strong>Plausible Analytics</strong></td>
+        <td>🇪🇺 UE (Estonia)</td>
+        <td>Analítica web anónima y agregada. Sin cookies. Sin tracking individual. <a href="https://plausible.io/privacy" target="_blank" rel="noopener">Política Plausible</a></td>
+      </tr>
+      <tr>
+        <td><strong>Pasarela de pago</strong></td>
+        <td>UE / PCI-DSS</td>
+        <td>Procesamiento de pagos. Los datos de tarjeta nunca pasan por servidores de AvWorks.</td>
+      </tr>
+      <tr>
+        <td><strong>Autoridades competentes</strong></td>
+        <td>España (UE)</td>
+        <td>Solo bajo mandato judicial o requerimiento legal formal.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Todos los servidores de producción están en territorio de la <strong>Unión Europea (Alemania)</strong>. Para proveedores fuera del EEE (como Anthropic) se aplican cláusulas contractuales tipo conforme al Art. 46 RGPD.</p>
+
+  <!-- 6 -->
+  <h2 id="sec6">6. Plazos de conservación</h2>
+  <ul>
+    <li><strong>Logs de acceso y telemetría:</strong> 90 días.</li>
+    <li><strong>Resultados de auditoría (trial):</strong> 30 días, eliminados automáticamente.</li>
+    <li><strong>Resultados de auditoría (planes de pago):</strong> según el plan (mínimo 12 meses, máximo 36 meses). El cliente puede eliminarlos en cualquier momento desde el panel.</li>
+    <li><strong>Verificaciones de dominio DNS:</strong> 365 días desde la última verificación exitosa.</li>
+    <li><strong>Audit trail legal:</strong> 5 años (obligación CP Art. 197bis + prescripción de delitos informáticos graves en España).</li>
+    <li><strong>Datos de facturación:</strong> 5 años (Ley 58/2003 General Tributaria).</li>
+    <li><strong>Cuenta activa:</strong> durante toda la vigencia del contrato. Tras cancelación: datos anonimizados o eliminados en 30 días, salvo los sujetos a obligación legal.</li>
+    <li><strong>Registros de ejercicio de derechos RGPD:</strong> 3 años para demostrar cumplimiento ante la AEPD.</li>
   </ul>
 
-  <h2>5. Seguridad</h2>
-  <p>GuardianOS Audit aplica las siguientes medidas técnicas y organizativas:</p>
+  <!-- 7 -->
+  <h2 id="sec7">7. Tus derechos (RGPD)</h2>
+
+  <p>Conforme a los Arts. 15–22 del RGPD y la LOPDGDD, tienes los siguientes derechos:</p>
+
+  <div class="rights-grid">
+    <div class="right-card">
+      <h3>👁️ Acceso (Art. 15)</h3>
+      <p>Obtener confirmación de si tratamos tus datos y recibir una copia de los mismos.</p>
+    </div>
+    <div class="right-card">
+      <h3>✏️ Rectificación (Art. 16)</h3>
+      <p>Corregir datos inexactos o completar datos incompletos.</p>
+    </div>
+    <div class="right-card">
+      <h3>🗑️ Supresión (Art. 17)</h3>
+      <p>Solicitar la eliminación de tus datos cuando ya no sean necesarios. Limitado cuando exista obligación legal de conservación.</p>
+    </div>
+    <div class="right-card">
+      <h3>⏸️ Limitación (Art. 18)</h3>
+      <p>Suspender el tratamiento mientras se verifica una impugnación sobre su exactitud o licitud.</p>
+    </div>
+    <div class="right-card">
+      <h3>📦 Portabilidad (Art. 20)</h3>
+      <p>Recibir tus datos en formato estructurado (JSON/CSV) y transmitirlos a otro responsable.</p>
+    </div>
+    <div class="right-card">
+      <h3>🚫 Oposición (Art. 21)</h3>
+      <p>Oponerte al tratamiento basado en interés legítimo (telemetría, logs de sesión).</p>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Ejercer tus derechos</h3>
+    <p>Envía tu solicitud indicando tu identidad y el derecho que ejerces. Respondemos en máximo <strong>1 mes</strong> (prorrogable 2 meses en casos complejos).</p>
+    <a href="mailto:audit@guardianos.es?subject=RGPD%20-%20Ejercicio%20de%20derechos%20GuardianOS%20Audit" class="cta-btn">✉ audit@guardianos.es — Asunto: "RGPD"</a>
+  </div>
+
+  <!-- 8 -->
+  <h2 id="sec8">8. Reclamación ante la AEPD</h2>
+  <p>Si consideras que el tratamiento no es conforme al RGPD o no hemos atendido correctamente tu solicitud, puedes presentar una reclamación ante la <a href="https://www.aepd.es" target="_blank" rel="noopener"><strong>Agencia Española de Protección de Datos (AEPD)</strong></a>:</p>
   <ul>
-    <li>Comunicaciones cifradas con TLS 1.3 en todos los endpoints.</li>
-    <li>Contraseñas almacenadas con bcrypt (nunca en texto plano).</li>
-    <li>Tokens JWT con expiración y rotación.</li>
-    <li>Separación de datos por tenant (multi-tenancy con aislamiento estricto).</li>
-    <li>Acceso a producción restringido a personal autorizado mediante claves SSH.</li>
-    <li>Copias de seguridad cifradas en infraestructura separada.</li>
+    <li><strong>Web:</strong> <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a> · Sede electrónica: <a href="https://sedeagpd.gob.es" target="_blank" rel="noopener">sedeagpd.gob.es</a></li>
+    <li><strong>Dirección:</strong> C/ Jorge Juan, 6 — 28001 Madrid, España</li>
+    <li><strong>Teléfono:</strong> 901 100 099</li>
   </ul>
-  <p>Para notificar una vulnerabilidad de seguridad, consulta nuestra <a href="/audit/security">Security Policy</a>.</p>
+  <p>No obstante, te invitamos a contactarnos primero en <a href="mailto:audit@guardianos.es">audit@guardianos.es</a> para intentar resolver cualquier incidencia directamente.</p>
 
-  <h2>6. Tus derechos (RGPD)</h2>
-  <p>Como interesado, tienes derecho a:</p>
+  <!-- 9 -->
+  <h2 id="sec9">9. Seguridad de los datos</h2>
+  <p>De conformidad con el Art. 32 RGPD, AvWorks System aplica las siguientes medidas técnicas y organizativas:</p>
   <ul>
-    <li><strong>Acceso:</strong> solicitar una copia de los datos que tratamos sobre ti.</li>
-    <li><strong>Rectificación:</strong> corregir datos inexactos.</li>
-    <li><strong>Supresión («derecho al olvido»):</strong> solicitar la eliminación de tus datos cuando no sean necesarios.</li>
-    <li><strong>Limitación:</strong> solicitar que pausemos el tratamiento mientras se resuelve una reclamación.</li>
-    <li><strong>Portabilidad:</strong> recibir tus datos en formato estructurado y legible por máquina.</li>
-    <li><strong>Oposición:</strong> oponerte al tratamiento basado en interés legítimo.</li>
+    <li><strong>Cifrado en tránsito:</strong> TLS 1.2/1.3 en todos los endpoints públicos.</li>
+    <li><strong>Contraseñas:</strong> almacenadas con hash <strong>bcrypt</strong> (sal única por usuario, nunca en texto plano).</li>
+    <li><strong>Autenticación:</strong> JWT con expiración por sesión + API Keys con rotación. Doble factor disponible.</li>
+    <li><strong>Aislamiento multi-tenant:</strong> los datos de cada cliente son inaccesibles para otros clientes, garantizado a nivel de base de datos y capa de aplicación.</li>
+    <li><strong>Verificación de objetivos:</strong> todos los targets se validan contra rangos privados (RFC 1918, 169.254.x.x, etc.) antes de ejecutar cualquier escaneo.</li>
+    <li><strong>Audit trail inmutable:</strong> registro de toda actividad de auditoría con timestamp, autor y referencia de autorización.</li>
+    <li><strong>Backups:</strong> copias de seguridad cifradas de la base de datos PostgreSQL con retención documentada.</li>
+    <li><strong>Notificación de brechas:</strong> protocolo documentado. Notificación a la AEPD en 72 horas si una brecha afecta a datos personales (Art. 33 RGPD).</li>
+    <li><strong>Acceso a producción:</strong> restringido a personal autorizado mediante claves SSH. Sin acceso por contraseña.</li>
   </ul>
-  <p>Ejerce cualquiera de estos derechos enviando un correo a <a href="mailto:audit@guardianos.es">audit@guardianos.es</a> indicando el derecho que deseas ejercer. Responderemos en un plazo máximo de 30 días.</p>
-  <p>Si consideras que el tratamiento no es conforme al RGPD, puedes presentar una reclamación ante la <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos (AEPD)</a>.</p>
+  <p>Para notificar una vulnerabilidad de seguridad: <a href="/audit/security">Security Policy</a> o escribe a <a href="mailto:audit@guardianos.es">audit@guardianos.es</a> con asunto "Responsible Disclosure".</p>
 
-  <h2>7. Cookies</h2>
-  <p>GuardianOS Audit (<code>audit.guardianos.es</code>) no utiliza cookies de rastreo ni publicidad. Solo se usan cookies de sesión estrictamente necesarias para mantener la autenticación dentro de la plataforma (cuando has iniciado sesión). Plausible Analytics no requiere cookies.</p>
+  <!-- 10 -->
+  <h2 id="sec10">10. Cookies y analítica web</h2>
 
-  <h2>8. Cambios en esta política</h2>
-  <p>Podemos actualizar esta política para reflejar cambios en el servicio o en la legislación. La fecha de «Última actualización» en la cabecera siempre indica la versión vigente. Para cambios materiales, notificaremos a los usuarios registrados por email.</p>
+  <h3>Plausible Analytics (sin cookies)</h3>
+  <p>La web pública <code>guardianos.es/audit</code> usa <strong>Plausible Analytics</strong>, herramienta de analítica respetuosa con la privacidad. Características:</p>
+  <ul>
+    <li>No utiliza cookies de ningún tipo.</li>
+    <li>No registra la IP completa ni permite identificar usuarios individuales.</li>
+    <li>No comparte datos con Google ni plataformas publicitarias.</li>
+    <li>Los datos se procesan en servidores dentro de la UE.</li>
+  </ul>
+  <p>Más información en <a href="https://plausible.io/privacy" target="_blank" rel="noopener">plausible.io/privacy</a>.</p>
 
-  <h2>9. Contacto</h2>
-  <p>Para cualquier consulta sobre privacidad: <a href="mailto:audit@guardianos.es">audit@guardianos.es</a></p>
+  <h3>Dashboard de la plataforma</h3>
+  <p>El dashboard de GuardianOS Audit usa únicamente <strong>cookies de sesión técnicas</strong> (JWT, preferencias de UI — tema claro/oscuro). Estas cookies son estrictamente necesarias para el funcionamiento del servicio y no requieren consentimiento.</p>
+
+  <!-- 11 -->
+  <h2 id="sec11">11. Menores de edad</h2>
+  <p>GuardianOS Audit es una plataforma <strong>exclusivamente profesional</strong>. No está dirigida a menores de 14 años (límite establecido por la LOPDGDD art. 7). Si tuviéramos conocimiento de que un menor ha proporcionado datos sin el consentimiento parental requerido, los eliminaremos de inmediato. Contacta con nosotros en <a href="mailto:audit@guardianos.es">audit@guardianos.es</a>.</p>
+
+  <!-- 12 -->
+  <h2 id="sec12">12. Cambios en esta política</h2>
+  <p>Cuando realicemos modificaciones relevantes:</p>
+  <ul>
+    <li>Publicaremos la nueva versión con la fecha de actualización actualizada.</li>
+    <li>Si los cambios son materiales (nueva finalidad, nuevos destinatarios, etc.), notificaremos por email a todos los usuarios registrados <strong>al menos 30 días antes</strong> de la entrada en vigor.</li>
+    <li>El uso continuado de la plataforma tras la entrada en vigor implica la aceptación de la nueva política.</li>
+  </ul>
+  <p>El historial de versiones está disponible bajo petición en <a href="mailto:audit@guardianos.es">audit@guardianos.es</a>.</p>
 
   <footer>
     <p>
-      &copy; 2026 GuardianOS Audit ·
+      &copy; 2026 <strong>GuardianOS Audit</strong> · AvWorks System · CIF B41902420 · Sevilla, Andalucía, España<br>
+      Política de Privacidad v1.1 · 27 de marzo de 2026 · Conforme al RGPD (UE) 2016/679, LOPDGDD 3/2018 y NIS2<br><br>
       <a href="/audit">Inicio</a> ·
+      <a href="/audit/uso-responsable">Uso Responsable</a> ·
       <a href="/audit/security">Security Policy</a> ·
       <a href="/aviso-legal.html">Aviso Legal</a>
     </p>

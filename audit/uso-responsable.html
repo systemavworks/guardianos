@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Uso Responsable — GuardianOS Audit</title>
+  <meta name="description" content="Política de Uso Responsable y Uso Aceptable de GuardianOS Audit. Qué sistemas puedes auditar, qué requiere autorización previa y qué está prohibido.">
+  <link rel="canonical" href="https://guardianos.es/audit/uso-responsable" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script defer data-domain="guardianos.es" src="https://plausible.io/js/script.js"></script>
+  <style>
+    :root {
+      --bg-main: #0b1120;
+      --bg-card: #131e30;
+      --bg-elevated: #1a2740;
+      --text-primary: #e2e8f0;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --primary: #2a9d8f;
+      --primary-dark: #21867a;
+      --border: #1e3050;
+      --ok: #16a34a;
+      --warn: #d97706;
+      --danger: #dc2626;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-main);
+      color: var(--text-primary);
+      line-height: 1.7;
+      padding: 4rem 1rem 3rem;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+    nav {
+      display: flex; align-items: center; gap: .75rem;
+      margin-bottom: 2.5rem; font-size: .9rem; color: var(--text-muted);
+    }
+    nav a { color: var(--primary); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    header {
+      text-align: center; margin-bottom: 3rem; padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(42,157,143,.15); color: var(--primary);
+      border: 1px solid rgba(42,157,143,.3);
+      border-radius: 2rem; padding: .25rem .9rem;
+      font-size: .8rem; font-weight: 600; letter-spacing: .04em; margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.2rem; font-weight: 700; margin-bottom: .5rem;
+      background: linear-gradient(135deg, var(--primary) 0%, #48cae4 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .subtitle { color: var(--text-secondary); font-size: .95rem; }
+    h2 {
+      color: var(--text-primary); font-size: 1.2rem; font-weight: 600;
+      margin-top: 2.5rem; margin-bottom: .75rem;
+      padding-bottom: .5rem; border-bottom: 1px solid var(--border); scroll-margin-top: 16px;
+    }
+    h3 { color: var(--primary); font-size: 1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: .5rem; }
+    p { margin-bottom: .9rem; color: var(--text-secondary); }
+    ul, ol { margin-left: 1.5rem; margin-bottom: .9rem; color: var(--text-secondary); }
+    li { margin-bottom: .4rem; }
+    a { color: var(--primary); }
+    a:hover { text-decoration: underline; }
+    code { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: .25rem; padding: .1rem .4rem; font-size: .85em; color: #48cae4; }
+    strong { color: var(--text-primary); }
+    .ok-box {
+      background: rgba(22,163,74,.08); border: 1px solid rgba(22,163,74,.25);
+      border-left: 4px solid var(--ok); border-radius: .5rem;
+      padding: 1.1rem 1.25rem; margin: 1.25rem 0;
+    }
+    .ok-box p, .ok-box li { color: var(--text-secondary); font-size: .9rem; }
+    .ok-box p { margin: 0 0 .5rem; }
+    .ok-box ul { margin-bottom: 0; }
+    .warn-box {
+      background: rgba(217,119,6,.08); border: 1px solid rgba(217,119,6,.25);
+      border-left: 4px solid var(--warn); border-radius: .5rem;
+      padding: 1.1rem 1.25rem; margin: 1.25rem 0;
+    }
+    .warn-box p, .warn-box li { color: var(--text-secondary); font-size: .9rem; }
+    .warn-box p { margin: 0 0 .5rem; }
+    .warn-box ul { margin-bottom: 0; }
+    .danger-box {
+      background: rgba(220,38,38,.08); border: 1px solid rgba(220,38,38,.25);
+      border-left: 4px solid var(--danger); border-radius: .5rem;
+      padding: 1.1rem 1.25rem; margin: 1.25rem 0;
+    }
+    .danger-box p, .danger-box li { color: var(--text-secondary); font-size: .9rem; }
+    .danger-box p { margin: 0 0 .5rem; }
+    .danger-box ul { margin-bottom: 0; }
+    .info-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-left: 4px solid var(--primary); border-radius: .5rem;
+      padding: 1.1rem 1.25rem; margin: 1.5rem 0;
+    }
+    .info-box p { margin: 0; color: var(--text-secondary); font-size: .9rem; }
+    /* Tabla de casos */
+    .case-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .case-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: .5rem;
+      padding: 1.1rem 1.2rem;
+    }
+    .case-card .icon { font-size: 1.5rem; margin-bottom: .4rem; display: block; }
+    .case-card h3 { color: var(--text-primary); margin: 0 0 .4rem; font-size: .9rem; }
+    .case-card p { margin: 0; font-size: .85rem; color: var(--text-secondary); }
+    .status-ok { border-top: 3px solid var(--ok); }
+    .status-warn { border-top: 3px solid var(--warn); }
+    .status-danger { border-top: 3px solid var(--danger); }
+    .step-list { counter-reset: steps; list-style: none; margin: 0 0 1rem; padding: 0; }
+    .step-list li {
+      counter-increment: steps; display: flex; align-items: flex-start; gap: .75rem;
+      padding: .75rem 0; border-bottom: 1px solid var(--border); font-size: .9rem;
+      color: var(--text-secondary);
+    }
+    .step-list li:last-child { border-bottom: none; }
+    .step-list li::before {
+      content: counter(steps); min-width: 24px; height: 24px; background: var(--primary);
+      color: white; border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: .75rem; font-weight: 700; flex-shrink: 0; margin-top: .1rem;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(42,157,143,.12), rgba(72,202,228,.06));
+      border: 1px solid rgba(42,157,143,.3); border-radius: .75rem;
+      padding: 1.5rem 2rem; text-align: center; margin: 2rem 0;
+    }
+    .cta-box h3 { margin: 0 0 .5rem; color: var(--text-primary); font-size: 1.05rem; }
+    .cta-box p { margin: 0 0 1rem; font-size: .9rem; }
+    .cta-btn {
+      display: inline-block; background: var(--primary); color: #fff; text-decoration: none;
+      padding: .6rem 1.5rem; border-radius: .4rem; font-size: .9rem; font-weight: 600;
+    }
+    .cta-btn:hover { background: var(--primary-dark); text-decoration: none; }
+    footer {
+      text-align: center; margin-top: 3.5rem; padding-top: 2rem;
+      border-top: 1px solid var(--border); color: var(--text-muted); font-size: .85rem;
+    }
+    footer a { color: var(--primary); }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <nav>
+    <a href="/audit">GuardianOS Audit</a>
+    <span>›</span>
+    <span>Uso Responsable</span>
+  </nav>
+
+  <header>
+    <div class="badge">Legal · Uso Aceptable · CP Art. 197bis</div>
+    <h1>Política de Uso Responsable</h1>
+    <p class="subtitle">GuardianOS Audit — AvWorks System · Versión 1.0 · Marzo 2026</p>
+  </header>
+
+  <div class="info-box">
+    <p><strong>Resumen:</strong> GuardianOS Audit es una herramienta de auditoría de ciberseguridad autorizada para uso profesional legítimo. <strong>Solo puedes auditar sistemas que sean de tu propiedad o sobre los que tengas autorización expresa del titular.</strong> El uso indebido puede constituir delito conforme al Código Penal español.</p>
+  </div>
+
+  <!-- 1 -->
+  <h2 id="sec1">1. ¿Para qué está diseñado GuardianOS Audit?</h2>
+  <p>
+    GuardianOS Audit es una plataforma profesional de <strong>auditoría activa de ciberseguridad</strong> destinada a:
+  </p>
+  <ul>
+    <li>Empresas que quieren auditar su propia infraestructura digital (dominios, servidores, aplicaciones web).</li>
+    <li>Profesionales de seguridad (pentesters, auditores, consultores) que auditan sistemas de sus clientes con autorización documentada.</li>
+    <li>Equipos de TI que monitorizan la postura de seguridad de sus activos.</li>
+    <li>Empresas que deben acreditar conformidad con normativas como ENS, ISO 27001, NIS2 o DORA.</li>
+  </ul>
+  <p>
+    <strong>No es una herramienta de hacking ofensivo, reconocimiento de terceros, ni de pruebas no autorizadas.</strong>
+  </p>
+
+  <!-- 2 -->
+  <h2 id="sec2">2. Marco legal aplicable — España</h2>
+  <p>El escaneo activo de sistemas de terceros sin autorización previa es un <strong>delito en España</strong>:</p>
+  <ul>
+    <li>
+      <strong>Art. 197bis CP — Acceso ilícito a sistemas informáticos:</strong> pena de prisión de 6 meses a 2 años por acceder o mantenerse en un sistema sin autorización, incluso sin causar daño y sin ánimo de lucro.
+    </li>
+    <li>
+      <strong>Art. 197ter CP — Daños informáticos:</strong> pena de 1 a 3 años por interferir en el funcionamiento de sistemas o datos ajenos.
+    </li>
+    <li>
+      <strong>RGPD / LOPDGDD:</strong> los escaneos pueden revelar datos personales de terceros. El tratamiento no autorizado de esos datos conlleva sanciones de hasta 20 M€ o el 4% de la facturación global.
+    </li>
+  </ul>
+  <div class="warn-box">
+    <p><strong>Aclaración importante:</strong> la simple ejecución de un escaneo de puertos o un análisis de vulnerabilidades sobre un sistema ajeno, aunque no se acceda ni se extraigan datos, puede ya constituir el tipo penal del Art. 197bis. La jurisprudencia española y el TJUE avalan esta interpretación.</p>
+  </div>
+
+  <!-- 3 -->
+  <h2 id="sec3">3. ¿Qué puedes auditar?</h2>
+
+  <div class="case-grid">
+    <div class="case-card status-ok">
+      <span class="icon">✅</span>
+      <h3>Infraestructura propia</h3>
+      <p>Dominios, servidores, APIs y aplicaciones web de tu empresa o negocio. Sin pasos adicionales — puedes auditar directamente.</p>
+    </div>
+    <div class="case-card status-ok">
+      <span class="icon">✅</span>
+      <h3>Con dominio verificado</h3>
+      <p>Si verificas la propiedad del dominio mediante registro DNS TXT, confirmamos que eres el titular. Proceso automático desde el panel.</p>
+    </div>
+    <div class="case-card status-warn">
+      <span class="icon">⚠️</span>
+      <h3>Clientes (escenario reseller)</h3>
+      <p>Si eres auditor o consultor auditando sistemas de tus clientes, debes adjuntar la referencia del documento de autorización firmado (<em>clientAuthorizationRef</em>).</p>
+    </div>
+    <div class="case-card status-danger">
+      <span class="icon">🚫</span>
+      <h3>Sin autorización documentada</h3>
+      <p>No está permitido auditar dominios o IPs de terceros sin autorización expresa. La plataforma bloqueará el intento y generará un registro legal.</p>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <h2 id="sec4">4. Verificación de dominio — cómo funciona</h2>
+  <p>
+    Para garantizar que solo auditas sistemas que te pertenecen, GuardianOS Audit implementa un sistema de <strong>verificación de propiedad de dominio antes de cada auditoría</strong>:
+  </p>
+
+  <ol class="step-list">
+    <li>Introduces el dominio que deseas auditar en el panel de control.</li>
+    <li>La plataforma te genera un token único (<code>guardianos-verify=TOKEN</code>).</li>
+    <li>Añades ese token como registro TXT en el DNS de tu dominio.</li>
+    <li>GuardianOS Audit verifica el registro DNS de forma automática.</li>
+    <li>Una vez verificado, puedes auditar ese dominio durante 365 días sin repetir el proceso.</li>
+  </ol>
+
+  <div class="ok-box">
+    <p><strong>Escenario reseller / auditor externo:</strong> si auditáis sistemas de clientes como parte de un servicio de consultoría, no siempre es posible modificar el DNS del cliente. En ese caso, la plataforma acepta una <strong>referencia de autorización</strong> (número de contrato, orden de trabajo, etc.) que queda registrada en el audit trail junto a la auditoría.</p>
+  </div>
+
+  <p>Las <strong>IPs</strong> (no dominios) no requieren verificación DNS por su naturaleza técnica. El auditor asume la responsabilidad de auditar solo sus propias IPs o aquellas sobre las que tiene autorización.</p>
+
+  <!-- 5 -->
+  <h2 id="sec5">5. Usos prohibidos</h2>
+
+  <div class="danger-box">
+    <p><strong>Las siguientes actividades están terminantemente prohibidas y pueden resultar en la suspensión inmediata de la cuenta, reporte a las autoridades y acciones legales:</strong></p>
+    <ul>
+      <li>Auditar dominios, IPs o sistemas que no sean de tu propiedad ni tengas autorización expresa del titular.</li>
+      <li>Usar la plataforma para realizar reconocimiento de objetivos que no vas a auditar legítimamente.</li>
+      <li>Intentar utilizar GuardianOS Audit como vector para lanzar ataques reales contra sistemas (DoS, explotación activa, inyección).</li>
+      <li>Auditar infraestructura crítica nacional (hospitales, redes eléctricas, sistemas financieros) sin autorización expresa de la entidad y del INCIBE.</li>
+      <li>Utilizar los resultados de auditoría para extorsión, chantaje o cualquier actividad ilícita.</li>
+      <li>Compartir credenciales de acceso con terceros no autorizados en tu organización.</li>
+      <li>Intentar eludir los controles de seguridad y verificación implementados en la plataforma.</li>
+    </ul>
+  </div>
+
+  <!-- 6 -->
+  <h2 id="sec6">6. Auditores y consultores de ciberseguridad</h2>
+  <p>
+    GuardianOS Audit está diseñado para ser utilizado como herramienta de trabajo por auditores y consultores profesionales. La cadena legal de responsabilidad es la siguiente:
+  </p>
+  <ul>
+    <li><strong>El auditor / consultor</strong> es responsable de obtener y conservar la autorización expresa de su cliente antes de iniciar cualquier auditoría.</li>
+    <li><strong>AvWorks System</strong> proporciona la plataforma técnica y registra el audit trail, pero no puede verificar la autenticidad de los documentos de autorización aportados por el auditor.</li>
+    <li>La referencia de autorización (<em>número de contrato, orden de trabajo, SOW</em>) queda registrada en el audit trail de cada auditoría, constituyendo la prueba documental ante cualquier reclamación.</li>
+  </ul>
+
+  <div class="info-box">
+    <p><strong>Recomendación:</strong> incluye en tus contratos de auditoría una cláusula que autorice expresamente el uso de herramientas SaaS de terceros (como GuardianOS Audit) para la realización del trabajo. Guarda copia firmada del contrato durante al menos 5 años.</p>
+  </div>
+
+  <!-- 7 -->
+  <h2 id="sec7">7. Consecuencias del incumplimiento</h2>
+  <p>
+    AvWorks System se reserva el derecho a tomar las siguientes acciones ante un uso indebido de la plataforma:
+  </p>
+  <ul>
+    <li><strong>Suspensión inmediata</strong> de la cuenta sin previo aviso y sin derecho a reembolso.</li>
+    <li><strong>Preservación del audit trail</strong> completo (registros de la actividad sospechosa) durante el tiempo necesario para su aportación como prueba.</li>
+    <li><strong>Reporte a las autoridades competentes</strong> (Guardia Civil — GDT, Policía Nacional — UDEV, INCIBE-CERT) cuando existan indicios de actividad delictiva.</li>
+    <li><strong>Colaboración con investigaciones judiciales</strong> y aportación de todos los registros requeridos por mandato judicial.</li>
+    <li><strong>Reclamación de daños y perjuicios</strong> derivados del uso indebido.</li>
+  </ul>
+
+  <!-- 8 -->
+  <h2 id="sec8">8. Responsible Disclosure — si encuentras una vulnerabilidad en nosotros</h2>
+  <p>
+    Si durante el proceso de evaluación de GuardianOS Audit descubres una vulnerabilidad en nuestra propia plataforma, te pedimos que la comuniques de forma responsable <strong>antes</strong> de cualquier divulgación pública:
+  </p>
+  <ul>
+    <li>Escríbenos a <a href="mailto:audit@guardianos.es">audit@guardianos.es</a> con el asunto <strong>"Responsible Disclosure"</strong>.</li>
+    <li>Describe la vulnerabilidad con suficiente detalle técnico para que podamos reproducirla.</li>
+    <li>No accedas ni extraigas datos de otros usuarios durante la investigación.</li>
+    <li>La gestionaremos de forma confidencial y reconoceremos tu contribución si lo deseas.</li>
+  </ul>
+  <p>Consulta nuestra <a href="/audit/security">Security Policy completa</a> para más detalles sobre el programa de divulgación responsable.</p>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h3>¿Tienes dudas sobre si tu caso de uso está permitido?</h3>
+    <p>Antes de auditar, escríbenos. Te confirmamos en menos de 24 horas si tu caso está cubierto y cómo documentarlo correctamente.</p>
+    <a href="mailto:audit@guardianos.es?subject=Consulta%20uso%20responsable%20GuardianOS%20Audit" class="cta-btn">✉ audit@guardianos.es — Consulta</a>
+  </div>
+
+  <footer>
+    <p>
+      &copy; 2026 <strong>GuardianOS Audit</strong> · AvWorks System · CIF B41902420 · Sevilla, Andalucía, España<br>
+      Política de Uso Responsable v1.0 · Marzo 2026<br><br>
+      <a href="/audit">Inicio</a> ·
+      <a href="/audit/privacidad">Privacidad</a> ·
+      <a href="/audit/security">Security Policy</a> ·
+      <a href="/aviso-legal.html">Aviso Legal</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
