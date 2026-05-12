@@ -8,22 +8,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* ══════════════════════════════════════════════════════
-   TOKENS
+   TOKENS — paleta profesional clara
 ══════════════════════════════════════════════════════ */
 :root {
-  --p:      #2a9d8f;
-  --p-dk:   #1a7a6e;
-  --p-lt:   #3dbdae;
-  --acc:    #f4a535;
-  --red:    #e05252;
-  --dark:   #0a0e12;
-  --card:   #111620;
-  --elev:   #171e2c;
-  --bdr:    #1e2d3d;
-  --txt:    #dde4ec;
-  --txt2:   #8899aa;
-  --txt3:   #4f6070;
+  --p:      #1d4ed8;
+  --p-dk:   #1e40af;
+  --p-lt:   #3b82f6;
+  --acc:    #d97706;
+  --red:    #dc2626;
+  --bg:     #f8fafc;
+  --card:   #ffffff;
+  --elev:   #f1f5f9;
+  --bdr:    #e2e8f0;
+  --txt:    #1e293b;
+  --txt2:   #475569;
+  --txt3:   #94a3b8;
+  --dark:   #0f172a;
   --white:  #ffffff;
   --r:      8px;
 }
@@ -31,7 +31,7 @@
 html { scroll-behavior: smooth; }
 body {
   font-family:'Inter', system-ui, sans-serif;
-  background: var(--dark);
+  background: var(--bg);
   color: var(--txt);
   line-height: 1.6;
   overflow-x: hidden;
@@ -47,209 +47,19 @@ nav {
   position: sticky; top: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: .9rem 2rem;
-  background: rgba(10,14,18,.92);
+  background: rgba(248,250,252,.97);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--bdr);
+  box-shadow: 0 1px 4px rgba(15,23,42,.06);
 }
 .nav-brand {
   display: flex; align-items: center; gap: .6rem;
-  font-weight: 800; font-size: 1.05rem; color: var(--white);
+  font-weight: 800; font-size: 1.05rem; color: var(--txt);
 }
 .nav-shield {
   width: 38px; height: 38px; border-radius: 7px;
   flex-shrink:0; object-fit:contain; display:block;
 }
-.nav-brand span { color: var(--p-lt); }
-.nav-links { display:flex; align-items:center; gap:1.5rem; }
-.nav-links a { font-size:.88rem; color: var(--txt2); transition:color .2s; }
-.nav-links a:hover { color: var(--txt); }
-.nav-cta {
-  padding: .5rem 1.2rem; border-radius: var(--r);
-  background: var(--p); color: var(--white) !important;
-  font-weight: 700; font-size: .85rem;
-  transition: background .2s, transform .15s;
-}
-.nav-cta:hover { background: var(--p-lt) !important; transform: translateY(-1px); }
-@media(max-width:700px){
-  .nav-links .hide-mob { display:none; }
-}
-
-/* ══════════════════════════════════════════════════════
-   HERO
-══════════════════════════════════════════════════════ */
-.hero {
-  min-height: 88vh;
-  display: flex; align-items: center;
-  padding: 5rem 2rem 4rem;
-  position: relative; overflow: hidden;
-}
-.hero::before {
-  content:'';
-  position:absolute; inset:0;
-  background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(42,157,143,.12) 0%, transparent 70%);
-  pointer-events:none;
-}
-.hero-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 420px; gap: 4rem; align-items: center;
-}
-@media(max-width:900px){
-  .hero-inner { grid-template-columns:1fr; }
-  .hero-form-col { order:-1; }
-}
-.hero-eyebrow {
-  display:inline-flex; align-items:center; gap:.5rem;
-  padding:.35rem .9rem; border-radius:99px;
-  border:1px solid rgba(42,157,143,.4); background:rgba(42,157,143,.08);
-  font-size:.8rem; font-weight:600; color: var(--p-lt);
-  margin-bottom:1.4rem;
-}
-.hero-eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--p-lt); animation:pulse 2s infinite; }
-@keyframes pulse{ 0%,100%{opacity:1} 50%{opacity:.4} }
-
-.hero h1 {
-  font-size: clamp(2rem, 4vw, 2.9rem);
-  font-weight: 900; line-height: 1.15;
-  color: var(--white); margin-bottom: 1.2rem;
-  letter-spacing: -.03em;
-}
-.hero h1 em {
-  font-style: normal;
-  background: linear-gradient(90deg, var(--p-lt), #7de1d5);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero-sub {
-  font-size: 1.05rem; color: var(--txt2);
-  max-width: 520px; margin-bottom: 1.8rem; line-height: 1.7;
-}
-.hero-sub strong { color: var(--txt); }
-
-/* Mini pain cards */
-.pain-row {
-  display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2rem;
-}
-.pain-chip {
-  display:inline-flex; align-items:center; gap:.45rem;
-  padding: .35rem .8rem; border-radius:99px;
-  background: rgba(224,82,82,.1); border:1px solid rgba(224,82,82,.3);
-  font-size:.8rem; color:#f08080; font-weight:500;
-}
-.pain-chip .icon { font-size:.9rem; }
-
-/* Trust row */
-.trust-row {
-  display:flex; flex-wrap:wrap; gap:.8rem; align-items:center;
-}
-.trust-item {
-  display:flex; align-items:center; gap:.4rem;
-  font-size:.82rem; color: var(--txt2);
-}
-.trust-item .tick { color:var(--p); font-weight:800; }
-.trust-sep { color:var(--txt3); }
-
-/* ── FORM CARD ── */
-.hero-form-col .form-card {
-  background: var(--card);
-  border: 1px solid var(--bdr);
-  border-radius: 14px;
-  padding: 2rem;
-  box-shadow: 0 20px 60px rgba(0,0,0,.5);
-}
-.form-card-badge {
-  display:inline-flex; align-items:center; gap:.4rem;
-  padding:.3rem .8rem; border-radius:99px;
-  background:rgba(42,157,143,.12); border:1px solid rgba(42,157,143,.3);
-  color:var(--p-lt); font-size:.78rem; font-weight:700;
-  margin-bottom:1rem;
-}
-.form-card h3 { font-size:1.2rem; font-weight:800; color:var(--white); margin-bottom:.35rem; }
-.form-card .fc-sub { font-size:.84rem; color:var(--txt2); margin-bottom:1.4rem; line-height:1.5; }
-.fc-sub strong { color: var(--acc); }
-
-.form-group { margin-bottom:.9rem; }
-.form-group label { display:block; font-size:.8rem; color:var(--txt2); margin-bottom:.35rem; font-weight:500; }
-.form-group input {
-  width:100%; padding:.7rem .9rem;
-  background: var(--elev); border:1px solid var(--bdr);
-  border-radius: var(--r); color:var(--txt);
-  font-family:inherit; font-size:.9rem;
-  transition:border .2s;
-}
-.form-group input:focus { outline:none; border-color:var(--p); }
-.form-group input::placeholder { color:var(--txt3); }
-
-.btn-primary {
-  width:100%; padding:.85rem;
-  background: linear-gradient(135deg, var(--p), var(--p-lt));
-  color:#fff; border:none; border-radius:var(--r);
-  font-family:inherit; font-size:.95rem; font-weight:700;
-  cursor:pointer; transition:opacity .2s, transform .15s;
-}
-.btn-primary:hover { opacity:.9; transform:translateY(-2px); }
-
-.form-disclaimer {
-  margin-top:.8rem; font-size:.75rem; color:var(--txt3);
-  text-align:center; line-height:1.5;
-}
-.form-price-note {
-  margin-top:1rem; padding:.7rem;
-  border-radius:var(--r); border:1px solid rgba(244,165,53,.25);
-  background:rgba(244,165,53,.07);
-  font-size:.78rem; color:#f4c06a; text-align:center; line-height:1.5;
-}
-.form-price-note strong { color:var(--acc); }
-
-/* ══════════════════════════════════════════════════════
-   LOGO STRIP
-══════════════════════════════════════════════════════ */
-.logo-strip {
-  border-top:1px solid var(--bdr); border-bottom:1px solid var(--bdr);
-  padding:1.3rem 2rem;
-  display:flex; align-items:center; justify-content:center;
-  gap:2.5rem; flex-wrap:wrap;
-}
-.logo-strip .label { font-size:.78rem; color:var(--txt3); white-space:nowrap; }
-.norm-pill {
-  display:inline-flex; align-items:center; gap:.35rem;
-  padding:.28rem .75rem; border-radius:99px;
-  border:1px solid var(--bdr); background:var(--elev);
-  font-size:.76rem; color:var(--txt2); font-weight:600; white-space:nowrap;
-}
-.norm-pill.hl { border-color:rgba(42,157,143,.4); color:var(--p-lt); background:rgba(42,157,143,.08); }
-
-/* ══════════════════════════════════════════════════════
-   DUAL AUDIENCE SECTION
-══════════════════════════════════════════════════════ */
-.section { padding: 5rem 2rem; }
-.section-inner { max-width:1100px; margin:0 auto; }
-.section-label {
-  font-size:.78rem; font-weight:700; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--p); margin-bottom:.7rem;
-}
-.section-title {
-  font-size:clamp(1.5rem,3vw,2.1rem); font-weight:900;
-  color:var(--white); line-height:1.2; letter-spacing:-.02em;
-  margin-bottom:.8rem;
-}
-.section-sub { font-size:1rem; color:var(--txt2); max-width:560px; line-height:1.7; }
-
-.audience-grid {
-  display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem;
-}
-@media(max-width:700px){ .audience-grid { grid-template-columns:1fr; } }
-
-.aud-card {
-  border-radius:12px; padding:1.8rem;
-  border:1px solid var(--bdr);
-  background: var(--card);
-  position:relative; overflow:hidden;
-}
-.aud-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:3px;
-}
-.aud-card.pyme::before { background:linear-gradient(90deg, var(--p), var(--p-lt)); }
-.aud-card.partner::before { background:linear-gradient(90deg, var(--acc), #f7c95a); }
 .aud-icon { font-size:1.8rem; margin-bottom:.8rem; }
 .aud-card h3 { font-size:1.1rem; font-weight:800; color:var(--white); margin-bottom:.4rem; }
 .aud-card .aud-who { font-size:.82rem; color:var(--txt2); margin-bottom:1.1rem; line-height:1.5; }
@@ -622,7 +432,7 @@ footer {
     <div>
       <div class="hero-eyebrow">
         <span class="dot"></span>
-        Desarrollado en Andalucía · AGPL-3.0 · Open Source
+        Desarrollado en Andalucía · AGPL-3.0 · Open Source · R.T.P.I. 04/2026/2247
       </div>
 
       <h1>
@@ -658,7 +468,7 @@ footer {
     <!-- FORM -->
     <div class="hero-form-col">
       <div class="form-card">
-        <div class="form-card-badge">🔒 Planes desde 199 € · sin suscripción</div>
+        <div class="form-card-badge">🔒 Planes desde 199 € · sin suscripción · Registro 04/2026/2247</div>
         <h3>Analiza tu dominio ahora</h3>
         <p class="fc-sub">
           Recibirás el score, los fallos detectados y el PDF completo.
@@ -666,8 +476,8 @@ footer {
         </p>
 
         <!-- TRIAL CERRADO — acceso por invitación / plan de pago -->
-        <div style="background:rgba(42,157,143,.07);border:1px solid rgba(42,157,143,.3);border-radius:10px;padding:1.1rem;margin-bottom:1rem;text-align:center">
-          <div style="font-size:.8rem;font-weight:700;color:var(--p-lt);margin-bottom:.4rem">🔒 Acceso por plan</div>
+        <div style="background:rgba(29,78,216,.05);border:1px solid rgba(29,78,216,.18);border-radius:10px;padding:1.1rem;margin-bottom:1rem;text-align:center">
+          <div style="font-size:.8rem;font-weight:700;color:var(--p);margin-bottom:.4rem">🔒 Acceso por plan</div>
           <p style="font-size:.82rem;color:var(--txt2);line-height:1.55;margin-bottom:.8rem">
             El acceso gratuito por invitación ha concluido.<br>
             Adquiere un plan desde <strong style="color:var(--txt)">199 € pago único</strong>
@@ -679,7 +489,7 @@ footer {
         </div>
 
         <!-- Disclaimer legal art. 197bis CP -->
-        <div style="background:rgba(244,165,53,.06);border:1px solid rgba(244,165,53,.2);border-radius:8px;padding:.8rem;font-size:.75rem;color:#c49040;line-height:1.55;margin-top:.6rem">
+        <div style="background:rgba(217,119,6,.06);border:1px solid rgba(217,119,6,.18);border-radius:8px;padding:.8rem;font-size:.75rem;color:#92400e;line-height:1.55;margin-top:.6rem">
           ⚖️ <strong>Uso autorizado únicamente.</strong> GuardianOS Audit solo puede utilizarse sobre dominios, IPs y sistemas sobre los que el usuario sea titular o cuente con autorización expresa y documentada del titular. El uso no autorizado puede constituir delito tipificado en el <strong>art. 197bis del Código Penal español</strong> (y legislación equivalente en cada jurisdicción). Al acceder aceptas esta condición.
         </div>
 
@@ -1291,7 +1101,7 @@ footer {
     </p>
 
     <!-- Disclaimer legal — art. 197bis CP -->
-    <div style="max-width:480px;margin:0 auto 1.5rem;background:rgba(244,165,53,.06);border:1px solid rgba(244,165,53,.22);border-radius:10px;padding:1rem 1.2rem;font-size:.78rem;color:#c49040;line-height:1.6;text-align:left">
+    <div style="max-width:480px;margin:0 auto 1.5rem;background:rgba(29,78,216,.05);border:1px solid rgba(29,78,216,.18);border-radius:10px;padding:1rem 1.2rem;font-size:.78rem;color:var(--txt2);line-height:1.6;text-align:left">
       ⚖️ <strong>Aviso de uso responsable.</strong> Esta herramienta solo puede usarse sobre
       dominios, IPs y sistemas propios o con autorización expresa del titular.
       El uso no autorizado puede constituir delito conforme al
@@ -1362,7 +1172,7 @@ footer {
 
   </div>
   <div class="footer-bottom">
-    <span>© 2026 GuardianOS · v1.6.0 · Protección que crece contigo · Andalucía, España ❤️</span>
+    <span>© 2026 GuardianOS · v1.6.0 · Protección que crece contigo · Andalucía, España · R.T.P.I. 04/2026/2247</span>
     <span>
       <a href="https://guardianos.es/audit/security">Security Policy</a> ·
       <a href="https://guardianos.es/audit/verify">Verificar certificado</a> ·
