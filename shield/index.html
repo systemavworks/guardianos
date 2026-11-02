@@ -1,1401 +1,1379 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- ========== SCHEMA.ORG STRUCTURED DATA ========== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "GuardianOS Shield",
-      "alternateName": "guardianos-shield",
-      "description": "Aplicación open-source de control parental 100% transparente para Android. Filtrado DNS local, VPN transparente y perfiles parentales sin rastreo ni analytics. Compatible con entornos deGoogled (LineageOS, /e/ OS).",
-      "operatingSystem": "Android 7.0+",
-      "applicationCategory": "ParentalControlSoftware",
-      "applicationSubCategory": "SecurityApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock"
-      },
-      "url": "https://guardianos.es/shield",
-      "downloadUrl": "https://github.com/systemavworks/guardianos-shield/releases/download/v1.2.0/guardianos-shield-v1.2.0-release.apk",
-      "softwareVersion": "1.2.0",
-      "fileSize": "3,6 MB",
-      "author": {
-        "@type": "Person",
-        "name": "Víctor Shift Lara",
-        "jobTitle": "Digital Sovereignty Engineer",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "GuardianOS",
-          "url": "https://guardianos.es",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "",
-            "postalCode": "41000",
-            "addressLocality": "Sevilla",
-            "addressRegion": "Andalucía",
-            "addressCountry": "ES"
-          }
-        }
-      },
-"logo": "https://guardianos.es/logo_guardianos.jpg",
-      "screenshot": "https://guardianos.es/shield/assets/screenshots/main.png",
-      "featureList": "Filtrado DNS Local, VPN Transparente, Perfiles Parentales con PIN, Estadísticas en Tiempo Real, Navegador Seguro Integrado, Bloqueo de Apps Sensibles, Sin Analytics ni Tracking, 100% Open Source",
-      "license": "https://github.com/systemavworks/guardianos-shield/blob/main/LICENSE",
-      "isAccessibleForFree": true,
-      "inLanguage": "es-ES"
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ══════════════ SCHEMA.ORG ══════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "GuardianOS Shield",
+  "alternateName": "guardianos-shield",
+  "description": "Aplicación open-source (Apache 2.0) de control parental para Android. Filtrado DNS local, VPN transparente, bloqueo de apps por categoría y Pacto Digital Familiar. Sin rastreo, sin cuentas y sin servidores externos.",
+  "operatingSystem": "Android 7.0+",
+  "applicationCategory": "ParentalControlSoftware",
+  "applicationSubCategory": "SecurityApplication",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
+  "url": "https://guardianos.es/shield/",
+  "downloadUrl": "https://github.com/systemavworks/guardianos-shield/releases/download/v1.2.0/guardianos-shield-v1.2.0-release.apk",
+  "softwareVersion": "1.2.0",
+  "fileSize": "3,6 MB",
+  "author": {
+    "@type": "Person",
+    "name": "Víctor Shift Lara",
+    "jobTitle": "Digital Sovereignty Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "GuardianOS",
+      "url": "https://guardianos.es",
+      "address": { "@type": "PostalAddress", "addressLocality": "Sevilla", "addressRegion": "Andalucía", "postalCode": "41000", "addressCountry": "ES" }
     }
-    </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GuardianOS Shield – Control Parental 100% DeGoogled | guardianos.es</title>
-    <meta name="description" content="GuardianOS Shield - Control parental open-source sin rastreo ni analytics. Filtrado DNS local y VPN transparente para Android. 100% privado, 100% tuyo.">
-    <meta name="keywords" content="control parental Android, app privacidad menores, GuardianOS Shield, filtrado DNS, VPN local, DeGoogled, open source, Victor Shift, Sevilla">
-    <link rel="canonical" href="https://guardianos.es/shield/" />
-    
-    <!-- ✅ Google Fonts corregido (sin espacios) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <meta name="msapplication-TileColor" content="#c9883a">
-    <meta name="theme-color" content="#0d0f11">
-
-    <style>
-        /* ========== VARIABLES — Carbon & Amber ========== */
-        :root {
-            --primary: #c9883a;
-            --primary-dark: #9e6520;
-            --secondary: #4a7a8a;
-            --accent: #8b7355;
-            --pink: #c96b8a;
-            --dark: #080a0b;
-            --gray: #6b7280;
-            --light: #0d0f11;
-            --bg-main: #0d0f11;
-            --bg-card: #151a1e;
-            --bg-elevated: #1c2228;
-            --white: #ffffff;
-            --text-primary: #e0ddd8;
-            --text-secondary: #8896a4;
-            --border: #252c32;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-main);
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* ========== WATERMARK DE LOGO EN FONDO ========== */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 120vw;
-            height: 120vh;
-            background-image: url('/logo_guardianos.jpg');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.08;
-            transform: translate(-50%, -50%) rotate(-0deg);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        @media (max-width: 768px) {
-            body::before {
-                display: none;
-            }
-        }
-
-        /* ========== HEADER / NAVIGATION ========== */
-        header {
-            background: rgba(15, 28, 46, 0.95);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 1px 3px rgba(59, 130, 246, 0.2);
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-img {
-            height: 60px;
-            width: auto;
-            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
-            transition: filter 0.3s ease;
-            vertical-align: middle;
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            white-space: nowrap;
-        }
-
-        .logo:hover .logo-img {
-            filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6));
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .mobile-menu-btn:hover {
-            color: var(--secondary);
-        }
-
-        /* ========== HERO SECTION ========== */
-        .hero {
-            background: linear-gradient(135deg, #0f1c2e 0%, #1e3a5f 50%, #2d5a8c 100%);
-            color: white;
-            padding: 8rem 0 6rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-50px) scale(1.05); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease-out;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        }
-
-        .hero-badges {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease-out 0.3s backwards;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 2rem;
-            font-size: 0.95rem;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .badge:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 0.75rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        /* ========== FEATURES SECTION ========== */
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
-            border-color: var(--primary);
-            background: var(--bg-elevated);
-        }
-
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .feature-icon svg {
-            color: var(--primary);
-        }
-
-        .feature-card:hover .feature-icon {
-            transform: scale(1.2) rotate(5deg);
-        }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-card p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ========== SCREENSHOTS ========== */
-        .screenshots {
-            background: var(--bg-card);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .screenshots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .screenshot-card {
-            background: var(--bg-elevated);
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s ease;
-            border: 1px solid var(--border);
-        }
-
-        .screenshot-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
-        }
-
-        .screenshot-img {
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-            border-bottom: 2px solid var(--primary);
-            background: #0f172a;
-        }
-
-        .screenshot-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .screenshot-card:hover .screenshot-img img {
-            transform: scale(1.05);
-        }
-
-        .screenshot-caption {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .screenshot-caption h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-
-        .screenshot-caption p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        /* ========== DOWNLOAD SECTION ========== */
-        .download {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            padding: 6rem 0;
-        }
-
-        .download h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .download-options {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .play-store-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .play-store-badge {
-            display: inline-block;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-        }
-
-        .play-store-badge:hover {
-            transform: scale(1.05);
-            opacity: 0.9;
-        }
-
-        .play-store-badge img {
-            height: 60px;
-            width: auto;
-            display: block;
-        }
-
-        .play-store-label {
-            font-size: 0.75rem;
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 20px;
-            padding: 0.2rem 0.75rem;
-            color: rgba(255,255,255,0.9);
-            letter-spacing: 0.03em;
-        }
-
-        .download p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.95;
-        }
-
-        .download-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1rem 2.5rem;
-            border-radius: 2rem;
-            margin: 1.5rem 0;
-            font-size: 1.25rem;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-        }
-
-        .download-meta {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .download-meta-item {
-            text-align: center;
-        }
-
-        .download-meta-value {
-            font-size: 2rem;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .download-meta-label {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        .instructions {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 1rem;
-            max-width: 700px;
-            margin: 2rem auto 0;
-            text-align: left;
-        }
-
-        .instructions h3 {
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
-        .instructions ol {
-            margin-left: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        .instructions li {
-            margin-bottom: 0.75rem;
-        }
-
-        /* ========== COMPATIBILITY ========== */
-        .compatibility {
-            background: var(--bg-card);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .compat-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
-            text-align: center;
-            align-items: stretch;
-        }
-
-        .compat-item {
-            padding: 2rem 1.5rem;
-            border-radius: 1rem;
-            background: var(--bg-elevated);
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .compat-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 8px 24px rgba(59,130,246,0.2);
-        }
-
-        .compat-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: rgba(59,130,246,0.1);
-            flex-shrink: 0;
-        }
-
-        .compat-item.success .compat-icon {
-            background: rgba(34,197,94,0.12);
-            color: #22c55e;
-        }
-
-        .compat-item.warning .compat-icon {
-            background: rgba(245,158,11,0.12);
-            color: #f59e0b;
-        }
-
-        .compat-item h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 0;
-            color: var(--text-primary);
-        }
-
-        .compat-item p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 768px) {
-            .compat-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 480px) {
-            .compat-grid { grid-template-columns: 1fr; }
-        }
-
-        /* ========== CTA ========== */
-        .cta {
-            background: linear-gradient(135deg, var(--primary-dark), var(--accent));
-            color: white;
-            text-align: center;
-            padding: 5rem 0;
-        }
-
-        .cta h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta p {
-            font-size: 1.15rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.95;
-        }
-
-        /* ========== FOOTER ========== */
-        footer {
-            background: var(--dark);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 3rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            color: white;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-section p {
-            margin-bottom: 1rem;
-            line-height: 1.7;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            padding: 0.5rem 0;
-        }
-
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--secondary);
-            padding-left: 5px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: rgba(15, 28, 46, 0.98);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1rem;
-                transition: left 0.3s ease;
-                border-right: 1px solid var(--border);
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-
-            .download-meta {
-                gap: 1.5rem;
-            }
-
-            .logo-img {
-                height: 45px;
-            }
-
-            .logo-text {
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.75rem;
-            }
-
-            .hero p {
-                font-size: 0.95rem;
-            }
-
-            .btn {
-                padding: 0.875rem 1.5rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Scroll-reveal */
-        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
-        .reveal.visible { opacity: 1; transform: none; }
-        @media (prefers-reduced-motion: reduce) {
-          .reveal { opacity: 1; transform: none; transition: none; }
-          .hero::before { animation: none; }
-          @keyframes float { 0%,100% { transform: none; } }
-        }
-    </style>
+  },
+  "logo": "https://guardianos.es/logo_guardianos.jpg",
+  "screenshot": "https://guardianos.es/shield/img/shield-home.jpg",
+  "featureList": "Filtrado DNS local, VPN transparente, Perfiles parentales con PIN, Bloqueo de apps por categoría, Modo Precaución con racha, Pacto Digital Familiar, Navegador seguro integrado, Estadísticas en tiempo real, Sin analytics ni rastreo, 100% Open Source",
+  "license": "https://github.com/systemavworks/guardianos-shield/blob/main/LICENSE",
+  "isAccessibleForFree": true,
+  "inLanguage": "es-ES"
+}
+</script>
+
+<title>GuardianOS Shield — Control parental 100% local y open source | guardianos.es</title>
+<meta name="description" content="Control parental open-source para Android: filtrado DNS local, bloqueo de apps por categoría y Pacto Digital Familiar. Sin rastreo, sin cuentas y sin servidores. Gratis. APK 3,6 MB, Android 7.0+.">
+<meta name="keywords" content="control parental Android, app privacidad menores, GuardianOS Shield, filtrado DNS, VPN local, DeGoogled, open source, Victor Shift, Sevilla">
+<link rel="canonical" href="https://guardianos.es/shield/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GuardianOS Shield — Control parental 100% local y open source">
+<meta property="og:description" content="Filtrado DNS local, bloqueo de apps por categoría y Pacto Digital Familiar. Sin rastreo, sin cuentas, sin servidores. Gratis y open source (Apache 2.0).">
+<meta property="og:url" content="https://guardianos.es/shield/">
+<meta property="og:image" content="https://guardianos.es/shield/img/shield-home.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#1d4ed8">
+
+<style>
+/* ══════════════════════════════════════════════════════
+   TOKENS — mismos que GuardianOS Audit
+══════════════════════════════════════════════════════ */
+:root {
+  --p:      #1d4ed8;
+  --p-dk:   #1e40af;
+  --p-lt:   #3b82f6;
+  --acc:    #d97706;
+  --red:    #dc2626;
+  --green:  #059669;
+  --bg:     #f8fafc;
+  --card:   #ffffff;
+  --elev:   #f1f5f9;
+  --bdr:    #e2e8f0;
+  --txt:    #1e293b;
+  --txt2:   #475569;
+  --txt3:   #94a3b8;
+  --dark:   #0f172a;
+  --dk-card:#1e293b;
+  --dk-bdr: #334155;
+  --dk-txt: #e2e8f0;
+  --dk-txt2:#94a3b8;
+  --white:  #ffffff;
+  --r:      8px;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family:'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--txt);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: var(--p); text-decoration: none; }
+a:hover { color: var(--p-lt); }
+img { max-width:100%; }
+/* ══════════════════════════════════════════════════════
+   NAV
+══════════════════════════════════════════════════════ */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .9rem 2rem;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--bdr);
+  box-shadow: 0 1px 4px rgba(15,23,42,.06);
+}
+.nav-brand {
+  display: flex; align-items: center; gap: .6rem;
+  font-weight: 800; font-size: 1.05rem; color: var(--dark);
+}
+.nav-logo {
+  width: 38px; height: 38px; border-radius: 7px;
+  flex-shrink:0; object-fit:contain; display:block;
+}
+.nav-brand span { color: var(--p); }
+.nav-links { display:flex; align-items:center; gap:1.5rem; }
+.nav-links a { font-size:.88rem; color: var(--txt2); transition:color .2s; }
+.nav-links a:hover { color: var(--dark); }
+.nav-cta {
+  padding: .5rem 1.2rem; border-radius: var(--r);
+  background: var(--p); color: var(--white) !important;
+  font-weight: 700; font-size: .85rem;
+  transition: background .2s, transform .15s;
+}
+.nav-cta:hover { background: var(--p-lt) !important; transform: translateY(-1px); }
+.nav-burger { display:none; background:none; border:none; cursor:pointer; color:var(--dark); }
+.nav-burger svg { width:26px; height:26px; }
+@media(max-width:880px){
+  .nav-links {
+    display:none; position:absolute; top:100%; left:0; right:0;
+    flex-direction:column; align-items:stretch; gap:0;
+    background:var(--card); border-bottom:1px solid var(--bdr);
+    padding:.5rem 1.5rem 1rem;
+  }
+  .nav-links.open { display:flex; }
+  .nav-links a { padding:.6rem 0; border-bottom:1px solid var(--bdr); }
+  .nav-links a.nav-cta { margin-top:.7rem; text-align:center; border-bottom:none; }
+  .nav-burger { display:block; }
+}
+
+/* ══════════════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════════════ */
+.hero {
+  min-height: 88vh;
+  display: flex; align-items: center;
+  padding: 5rem 2rem 4rem;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(29,78,216,.07) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 420px; gap: 4rem; align-items: center;
+  position:relative;
+}
+@media(max-width:900px){
+  .hero-inner { grid-template-columns:1fr; gap:2.5rem; }
+  .hero-card-col { order:-1; }
+}
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.35rem .9rem; border-radius:99px;
+  border:1px solid rgba(29,78,216,.3); background:rgba(29,78,216,.07);
+  font-size:.8rem; font-weight:600; color: var(--p);
+  margin-bottom:1.4rem;
+}
+.hero-eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--p); animation:pulse 2s infinite; }
+@keyframes pulse{ 0%,100%{opacity:1} 50%{opacity:.4} }
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-weight: 900; line-height: 1.15;
+  color: var(--dark); margin-bottom: 1.2rem;
+  letter-spacing: -.03em;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--p), var(--p-lt));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 1.05rem; color: var(--txt2);
+  max-width: 520px; margin-bottom: 1.8rem; line-height: 1.7;
+}
+.hero-sub strong { color: var(--txt); }
+
+.pain-row { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2rem; }
+.pain-chip {
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding: .35rem .8rem; border-radius:99px;
+  background: rgba(224,82,82,.1); border:1px solid rgba(224,82,82,.3);
+  font-size:.8rem; color:#b91c1c; font-weight:500;
+}
+.pain-chip .icon { font-size:.9rem; }
+
+.trust-row { display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; }
+.trust-item { display:flex; align-items:center; gap:.4rem; font-size:.82rem; color: var(--txt2); }
+.trust-item .tick { color:var(--p); font-weight:800; }
+.trust-sep { color:var(--txt3); }
+/* ── TARJETA DE DESCARGA (columna derecha del hero) ── */
+.hero-card-col .dl-card {
+  background: var(--card);
+  border: 1px solid var(--bdr);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(15,23,42,.13);
+}
+.dl-card-badge {
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:.3rem .8rem; border-radius:99px;
+  background:rgba(29,78,216,.08); border:1px solid rgba(29,78,216,.25);
+  color:var(--p); font-size:.78rem; font-weight:700;
+  margin-bottom:1rem;
+}
+.dl-card h3 { font-size:1.2rem; font-weight:800; color:var(--dark); margin-bottom:.35rem; }
+.dl-card .dc-sub { font-size:.84rem; color:var(--txt2); margin-bottom:1.3rem; line-height:1.5; }
+.dl-card .dc-sub strong { color: var(--txt); }
+.btn-dl {
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+  width:100%; padding:.9rem 1rem;
+  background: linear-gradient(135deg, var(--p), var(--p-lt));
+  color:#fff !important; border:none; border-radius:var(--r);
+  font-family:inherit; font-size:.95rem; font-weight:700;
+  cursor:pointer; transition:opacity .2s, transform .15s;
+  box-shadow: 0 4px 12px rgba(29,78,216,.25);
+}
+.btn-dl:hover { opacity:.9; transform:translateY(-2px); }
+.dl-meta {
+  display:flex; justify-content:space-between; gap:.5rem;
+  margin-top:1rem; padding-top:1rem; border-top:1px solid var(--bdr);
+}
+.dl-meta div { text-align:center; flex:1; }
+.dl-meta .v { display:block; font-size:.92rem; font-weight:800; color:var(--dark); }
+.dl-meta .l { display:block; font-size:.7rem; color:var(--txt3); }
+.play-store-wrap { display:flex; align-items:center; gap:.7rem; margin-top:1.1rem; }
+.play-store-wrap img { height:46px; width:auto; }
+.play-store-label { font-size:.74rem; color:var(--txt3); line-height:1.35; }
+.dl-note {
+  margin-top:1rem; padding:.7rem;
+  border-radius:var(--r); border:1px solid rgba(5,150,105,.25);
+  background:rgba(5,150,105,.07);
+  font-size:.78rem; color:#047857; text-align:center; line-height:1.5;
+}
+.dl-note strong { color:var(--green); }
+
+/* ══════════════════════════════════════════════════════
+   LOGO STRIP
+══════════════════════════════════════════════════════ */
+.logo-strip {
+  border-top:1px solid var(--bdr); border-bottom:1px solid var(--bdr);
+  padding:1.3rem 2rem;
+  display:flex; align-items:center; justify-content:center;
+  gap:.9rem; flex-wrap:wrap;
+  background: var(--card);
+}
+.logo-strip .label { font-size:.78rem; color:var(--txt3); white-space:nowrap; font-weight:600; }
+.norm-pill {
+  display:inline-flex; align-items:center; gap:.35rem;
+  padding:.28rem .75rem; border-radius:99px;
+  border:1px solid var(--bdr); background:var(--elev);
+  font-size:.76rem; color:var(--txt2); font-weight:600; white-space:nowrap;
+}
+.norm-pill.hl { border-color:rgba(29,78,216,.35); color:var(--p); background:rgba(29,78,216,.08); }
+/* ══════════════════════════════════════════════════════
+   SECCIONES GENÉRICAS
+══════════════════════════════════════════════════════ */
+.section { padding: 5rem 2rem; }
+.section-inner { max-width:1100px; margin:0 auto; }
+.section-label {
+  font-size:.78rem; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--p); margin-bottom:.7rem;
+}
+.section-title {
+  font-size:clamp(1.5rem,3vw,2.1rem); font-weight:900;
+  color:var(--dark); line-height:1.2; letter-spacing:-.02em;
+  margin-bottom:.8rem;
+}
+.section-sub { font-size:1rem; color:var(--txt2); max-width:560px; line-height:1.7; }
+
+/* ── A QUIÉN VA ── */
+.audience-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
+@media(max-width:700px){ .audience-grid { grid-template-columns:1fr; } }
+.aud-card {
+  border-radius:12px; padding:1.8rem;
+  border:1px solid var(--bdr);
+  background: var(--card);
+  position:relative; overflow:hidden;
+}
+.aud-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.aud-card.pyme::before { background:linear-gradient(90deg, var(--p), var(--p-lt)); }
+.aud-card.partner::before { background:linear-gradient(90deg, var(--acc), #f7c95a); }
+.aud-icon { font-size:1.8rem; margin-bottom:.8rem; }
+.aud-card h3 { font-size:1.1rem; font-weight:800; color:var(--dark); margin-bottom:.4rem; }
+.aud-card .aud-who { font-size:.82rem; color:var(--txt2); margin-bottom:1.1rem; line-height:1.5; }
+.aud-list { list-style:none; }
+.aud-list li {
+  display:flex; align-items:flex-start; gap:.6rem;
+  font-size:.88rem; color:var(--txt); padding:.4rem 0;
+  border-bottom:1px solid rgba(15,23,42,.07); line-height:1.45;
+}
+.aud-list li:last-child { border-bottom:none; }
+.aud-list li .tick { color:var(--p); flex-shrink:0; }
+.aud-card.partner .aud-list li .tick { color:var(--acc); }
+.aud-cta {
+  display:inline-flex; align-items:center; gap:.4rem;
+  margin-top:1.3rem; padding:.6rem 1.2rem; border-radius:var(--r);
+  font-size:.85rem; font-weight:700; font-family:inherit;
+  cursor:pointer; border:none; transition:all .2s; text-decoration:none;
+}
+.aud-cta.pyme { background:var(--p); color:#fff; }
+.aud-cta.pyme:hover { background:var(--p-lt); color:#fff; }
+.aud-cta.partner { background:transparent; border:1.5px solid var(--acc); color:var(--acc); }
+.aud-cta.partner:hover { background:rgba(217,119,6,.1); color:var(--acc); }
+
+/* ── PROBLEMA (sección oscura) ── */
+.problem-section { background: linear-gradient(180deg, var(--dark) 0%, #0d1219 100%); }
+.problem-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.5rem; }
+@media(max-width:800px){ .problem-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:500px){ .problem-grid { grid-template-columns:1fr; } }
+.problem-card {
+  border-radius:10px; padding:1.4rem;
+  background:rgba(224,82,82,.06); border:1px solid rgba(224,82,82,.2);
+}
+.problem-card .pc-icon { font-size:1.4rem; margin-bottom:.6rem; }
+.problem-card h4 { font-size:.92rem; font-weight:700; color:#f08080; margin-bottom:.4rem; }
+.problem-card p { font-size:.83rem; color:var(--dk-txt2); line-height:1.6; }
+.problem-card .pc-stat {
+  display:inline-block; margin-top:.7rem;
+  padding:.25rem .65rem; border-radius:99px;
+  background:rgba(224,82,82,.15); border:1px solid rgba(224,82,82,.3);
+  font-size:.75rem; font-weight:700; color:#ff9090;
+}
+.problem-section .section-title { color:var(--white); }
+.problem-section .section-label { color:var(--p-lt); }
+.problem-section .section-sub { color:var(--dk-txt2); }
+
+/* ── FUNCIONALIDADES ── */
+.features-bg { background:var(--elev); }
+.features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.5rem; }
+@media(max-width:800px){ .features-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:500px){ .features-grid { grid-template-columns:1fr; } }
+.feat-card {
+  background:var(--card); border:1px solid var(--bdr);
+  border-radius:12px; padding:1.5rem;
+  transition:border-color .2s, transform .2s;
+}
+.feat-card:hover { border-color:rgba(29,78,216,.35); transform:translateY(-3px); }
+.feat-card .fi { font-size:1.5rem; margin-bottom:.8rem; }
+.feat-card h4 { font-size:.95rem; font-weight:800; color:var(--dark); margin-bottom:.35rem; }
+.feat-card .before {
+  font-size:.8rem; color:var(--red); margin-bottom:.35rem;
+  display:flex; align-items:flex-start; gap:.3rem;
+}
+.feat-card .after { font-size:.82rem; color:var(--txt2); line-height:1.55; }
+.feat-card .after strong { color:var(--p-dk); }
+.feat-more {
+  margin-top:2rem; padding:1.2rem 1.4rem;
+  border-radius:12px; border:1px solid var(--bdr); background:var(--card);
+  display:flex; flex-wrap:wrap; gap:.5rem; align-items:center;
+}
+.feat-more .fm-label { font-size:.8rem; font-weight:700; color:var(--txt2); margin-right:.3rem; }
+.fchip {
+  padding:.25rem .7rem; border-radius:99px;
+  background:rgba(29,78,216,.08); border:1px solid rgba(29,78,216,.22);
+  font-size:.76rem; color:var(--p); font-weight:600;
+}
+/* ══════════════════════════════════════════════════════
+   CAPTURAS DE PANTALLA
+══════════════════════════════════════════════════════ */
+.shots-section { background: var(--card); }
+.shots-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:2.5rem; }
+@media(max-width:1000px){ .shots-grid { grid-template-columns:repeat(3,1fr); } }
+@media(max-width:780px){ .shots-grid { grid-template-columns:repeat(2,1fr); } }
+@media(max-width:440px){ .shots-grid { grid-template-columns:1fr; } }
+.shot { display:flex; flex-direction:column; gap:.8rem; }
+.shot-phone {
+  border-radius:18px; overflow:hidden;
+  border:1px solid var(--bdr);
+  background:var(--elev);
+  box-shadow: 0 8px 24px rgba(15,23,42,.10);
+  transition: transform .25s, box-shadow .25s;
+}
+.shot:hover .shot-phone { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(15,23,42,.16); }
+.shot-phone img { display:block; width:100%; height:auto; }
+.shot-cap h4 { font-size:.9rem; font-weight:800; color:var(--dark); margin-bottom:.2rem; }
+.shot-cap p { font-size:.78rem; color:var(--txt2); line-height:1.5; }
+
+/* ══════════════════════════════════════════════════════
+   DESCARGA (sección oscura)
+══════════════════════════════════════════════════════ */
+.download-section { background: var(--dark); padding:5rem 2rem; }
+.dl-box {
+  max-width:720px; margin:0 auto; text-align:center;
+  border:1px solid rgba(29,78,216,.25); border-radius:16px;
+  padding:3rem 2rem;
+  background: linear-gradient(160deg, rgba(29,78,216,.08), transparent);
+}
+.dl-box h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:900; color:var(--white); margin-bottom:.8rem; }
+.dl-box > p { font-size:.95rem; color:var(--dk-txt2); margin-bottom:2rem; line-height:1.6; }
+.dl-box > p strong { color:var(--dk-txt); }
+.cta-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.btn-hero-main {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.9rem 2rem; border-radius:var(--r);
+  background:linear-gradient(135deg,var(--p),var(--p-lt));
+  color:#fff !important; border:none; font-family:inherit;
+  font-size:.95rem; font-weight:700; cursor:pointer;
+  transition:opacity .2s, transform .15s;
+}
+.btn-hero-main:hover { opacity:.9; transform:translateY(-2px); }
+.btn-hero-out {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.9rem 2rem; border-radius:var(--r);
+  background:transparent; border:1.5px solid var(--dk-bdr);
+  color:var(--dk-txt2) !important; font-family:inherit;
+  font-size:.95rem; font-weight:600; cursor:pointer;
+  transition:all .2s;
+}
+.btn-hero-out:hover { border-color:var(--dk-txt2); color:var(--dk-txt) !important; }
+.dl-stats { display:flex; justify-content:center; gap:2.4rem; margin-top:2.4rem; flex-wrap:wrap; }
+.dl-stat .n { display:block; font-size:1.5rem; font-weight:900; color:var(--p-lt); line-height:1.2; }
+.dl-stat .t { display:block; font-size:.76rem; color:var(--dk-txt2); }
+.dl-steps { text-align:left; max-width:560px; margin:2.4rem auto 0; }
+.dl-steps h3 { font-size:.95rem; font-weight:800; color:var(--white); margin-bottom:.9rem; }
+.dl-steps ol { margin-left:1.1rem; }
+.dl-steps li { font-size:.85rem; color:var(--dk-txt2); padding:.25rem 0; line-height:1.55; }
+.dl-steps li strong { color:var(--dk-txt); }
+.dl-sha {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size:.68rem; color:#64748b; word-break:break-all;
+  margin-top:1.6rem; line-height:1.6;
+}
+.dl-sha strong { color:#94a3b8; font-family:'Inter',sans-serif; }
+
+/* ══════════════════════════════════════════════════════
+   COMPATIBILIDAD
+══════════════════════════════════════════════════════ */
+.compat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.5rem; }
+@media(max-width:800px){ .compat-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:500px){ .compat-grid { grid-template-columns:1fr; } }
+.compat-item { background:var(--card); border:1px solid var(--bdr); border-radius:12px; padding:1.3rem; }
+.compat-item .ci {
+  width:44px; height:44px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(5,150,105,.1); color:var(--green);
+  margin-bottom:.8rem;
+}
+.compat-item.warning .ci { background:rgba(217,119,6,.12); color:var(--acc); }
+.compat-item.info .ci { background:rgba(29,78,216,.08); color:var(--p); }
+.compat-item h4 { font-size:.92rem; font-weight:800; color:var(--dark); margin-bottom:.2rem; }
+.compat-item p { font-size:.8rem; color:var(--txt2); line-height:1.5; }
+.report-box {
+  margin-top:2.5rem; padding:2rem; text-align:center;
+  background:var(--card); border:1px solid var(--bdr); border-radius:12px;
+}
+.report-box h3 { font-size:1rem; font-weight:800; color:var(--dark); margin-bottom:.6rem; }
+.report-box p { font-size:.88rem; color:var(--txt2); margin-bottom:1.2rem; }
+/* ══════════════════════════════════════════════════════
+   FAQ
+══════════════════════════════════════════════════════ */
+.faq-section { background:var(--elev); }
+.faq-list { max-width:720px; margin-top:2rem; }
+.faq-item { border-bottom:1px solid var(--bdr); }
+.faq-q {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:1.1rem 0; cursor:pointer;
+  font-size:.95rem; font-weight:600; color:var(--txt);
+  user-select:none;
+}
+.faq-q:hover { color:var(--dark); }
+.faq-arrow { color:var(--txt3); font-size:1.1rem; transition:transform .25s; flex-shrink:0; }
+.faq-item.open .faq-arrow { transform:rotate(180deg); }
+.faq-a {
+  overflow:hidden; max-height:0;
+  font-size:.87rem; color:var(--txt2); line-height:1.7;
+  transition:max-height .35s ease, padding .35s;
+}
+.faq-item.open .faq-a { max-height:420px; padding-bottom:1.1rem; }
+
+/* ══════════════════════════════════════════════════════
+   HISTORIAL DE VERSIONES
+══════════════════════════════════════════════════════ */
+.log-section { background:var(--card); }
+.log-list { max-width:780px; margin:2.5rem auto 0; display:flex; flex-direction:column; gap:1.2rem; }
+.log-card {
+  background:var(--bg); border:1px solid var(--bdr);
+  border-radius:12px; padding:1.6rem; position:relative;
+}
+.log-card.latest {
+  border-color:rgba(29,78,216,.35);
+  background:linear-gradient(160deg, rgba(29,78,216,.05), var(--bg));
+}
+.log-badge {
+  position:absolute; top:1.3rem; right:1.3rem;
+  padding:.2rem .7rem; border-radius:99px;
+  background:linear-gradient(135deg,var(--p),var(--p-lt));
+  color:#fff; font-size:.68rem; font-weight:800; letter-spacing:.06em;
+}
+.log-head { display:flex; align-items:baseline; gap:.7rem; flex-wrap:wrap; margin-bottom:.9rem; padding-right:5rem; }
+.log-head .ver { font-size:1.05rem; font-weight:900; color:var(--dark); }
+.log-head .date { font-size:.8rem; color:var(--txt3); }
+.log-head .apk {
+  font-size:.72rem; font-weight:700; color:var(--p);
+  background:rgba(29,78,216,.08); border:1px solid rgba(29,78,216,.22);
+  padding:.15rem .55rem; border-radius:99px;
+}
+.log-card ul { list-style:none; display:flex; flex-direction:column; gap:.4rem; }
+.log-card li { display:flex; gap:.6rem; font-size:.85rem; color:var(--txt2); line-height:1.55; }
+.log-card li .tick { color:var(--green); flex-shrink:0; }
+.log-card.old li .tick { color:var(--p-lt); }
+.log-cta { text-align:center; margin-top:2.2rem; }
+.log-cta a { font-size:.9rem; font-weight:600; display:inline-flex; align-items:center; gap:.4rem; }
+
+/* ══════════════════════════════════════════════════════
+   CTA FINAL
+══════════════════════════════════════════════════════ */
+.final-cta-section { background:var(--dark); padding:5rem 2rem; }
+.final-cta-box {
+  max-width:680px; margin:0 auto; text-align:center;
+  border:1px solid rgba(29,78,216,.25); border-radius:16px;
+  padding:3rem 2rem;
+  background: linear-gradient(160deg, rgba(29,78,216,.08), transparent);
+}
+.final-cta-box h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:900; color:var(--white); margin-bottom:.8rem; }
+.final-cta-box p { font-size:.95rem; color:var(--dk-txt2); margin-bottom:2rem; line-height:1.6; }
+.final-cta-box p strong { color:var(--dk-txt); }
+
+/* ══════════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════════ */
+footer { border-top:1px solid var(--bdr); padding:3rem 2rem 2rem; background:var(--dark); }
+.footer-inner {
+  max-width:1100px; margin:0 auto;
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:2rem;
+}
+@media(max-width:820px){ .footer-inner { grid-template-columns:1fr 1fr; } }
+.footer-logo {
+  display:flex; align-items:center; gap:.5rem;
+  font-weight:800; font-size:1rem; color:var(--white); margin-bottom:.7rem;
+}
+.footer-logo img {
+  width:28px; height:28px; border-radius:5px;
+  object-fit:contain; flex-shrink:0; display:block;
+}
+.footer-brand p { font-size:.82rem; color:var(--dk-txt2); line-height:1.6; max-width:270px; }
+.footer-brand .footer-badges { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.8rem; }
+.fbadge {
+  padding:.2rem .6rem; border-radius:99px;
+  border:1px solid var(--dk-bdr); background:rgba(255,255,255,.04);
+  font-size:.7rem; color:var(--dk-txt2);
+}
+.footer-col h5 { font-size:.82rem; font-weight:700; color:var(--white); margin-bottom:.8rem; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:.4rem; }
+.footer-col ul li a, .footer-col ul li span { font-size:.82rem; color:var(--dk-txt2); }
+.footer-col ul li a:hover { color:var(--dk-txt); }
+.footer-bottom {
+  max-width:1100px; margin:2rem auto 0;
+  padding-top:1.2rem; border-top:1px solid var(--dk-bdr);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem;
+  font-size:.76rem; color:var(--txt3);
+}
+.footer-bottom a { color:var(--txt3); }
+.footer-bottom a:hover { color:var(--dk-txt2); }
+
+/* ══════════════════════════════════════════════════════
+   UTILS / ANIMACIÓN
+══════════════════════════════════════════════════════ */
+.centered { text-align:center; }
+.centered .section-sub { margin:0 auto; }
+.mt-m { margin-top:2rem; }
+.reveal { opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity:1; transform:none; transition:none; }
+  html { scroll-behavior:auto; }
+}
+</style>
 </head>
 <body>
-    <!-- ========== HEADER ========== -->
-    <header>
-        <nav class="container">
-            <a href="https://guardianos.es" class="logo">
-                <img src="/logo_guardianos.jpg" alt="GuardianOS Logo" class="logo-img">
-                <span class="logo-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> GuardianOS</span>
-            </a>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#caracteristicas" onclick="closeMobileMenu()">Características</a></li>
-                <li><a href="#capturas" onclick="closeMobileMenu()">Capturas</a></li>
-                <li><a href="#descargar" onclick="closeMobileMenu()">Descargar</a></li>
-                <li><a href="#compatibilidad" onclick="closeMobileMenu()">Compatibilidad</a></li>
-                <li><a href="https://guardianos.es" onclick="closeMobileMenu()">← Volver</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- ========== HERO ========== -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-badges">
-                <span class="badge">100% Privado</span>
-                <span class="badge">Sin Rastreo</span>
-                <span class="badge">Andalucía, España</span>
-                <span class="badge">Open Source</span>
-            </div>
-            <h1>Control Parental sin Comprometer la Privacidad</h1>
-            <p>GuardianOS Shield protege a tus hijos del contenido inapropiado con filtrado DNS local y VPN transparente. Sin analytics, sin tracking, sin datos personales.</p>
-            <div class="hero-buttons">
-                <a href="#descargar" class="btn btn-primary">Descargar APK</a>
-                <a href="#caracteristicas" class="btn btn-secondary">Características</a>
-            </div>
+<!-- ═══════════════════════════════ NAV ═════════════════════════════ -->
+<nav>
+  <a href="/shield/" class="nav-brand" style="text-decoration:none">
+    <img class="nav-logo" src="/logo_guardianos.jpg" alt="GuardianOS Shield">
+    GuardianOS <span>&nbsp;Shield</span>
+  </a>
+  <button class="nav-burger" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false" id="burger">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="#funcionalidades" onclick="closeMenu()">Funcionalidades</a>
+    <a href="#capturas" onclick="closeMenu()">Capturas</a>
+    <a href="#compatibilidad" onclick="closeMenu()">Compatibilidad</a>
+    <a href="#faq" onclick="closeMenu()">FAQ</a>
+    <a href="https://guardianos.es" onclick="closeMenu()">← guardianos.es</a>
+    <a href="#descargar" class="nav-cta" onclick="closeMenu()">⬇ Descargar APK</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════ HERO ════════════════════════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+
+    <div>
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Open Source · Apache 2.0 · Desarrollado en Andalucía
+      </div>
+
+      <h1>
+        Control parental de verdad.<br>
+        <em>Sin vender los datos de tus hijos.</em>
+      </h1>
+
+      <p class="hero-sub">
+        Las apps de control parental más conocidas se financian con los datos de los menores:
+        ubicación, apps instaladas, hábitos de navegación. GuardianOS Shield hace lo contrario:
+        <strong>todo el filtrado ocurre dentro del propio móvil</strong>. Sin cuentas, sin servidores,
+        sin analytics. Y es gratis para siempre.
+      </p>
+
+      <div class="pain-row">
+        <span class="pain-chip"><span class="icon">📡</span> Datos de menores en servidores ajenos</span>
+        <span class="pain-chip"><span class="icon">💳</span> Suscripciones de 8–15 €/mes</span>
+        <span class="pain-chip"><span class="icon">🔒</span> Código cerrado: no puedes auditarlo</span>
+        <span class="pain-chip"><span class="icon">🐛</span> Apps que no funcionan en DeGoogled</span>
+      </div>
+
+      <div class="trust-row">
+        <span class="trust-item"><span class="tick">✓</span> 100% local</span>
+        <span class="trust-sep">·</span>
+        <span class="trust-item"><span class="tick">✓</span> Sin registro</span>
+        <span class="trust-sep">·</span>
+        <span class="trust-item"><span class="tick">✓</span> Sin root</span>
+        <span class="trust-sep">·</span>
+        <span class="trust-item"><span class="tick">✓</span> Android 7.0+</span>
+        <span class="trust-sep">·</span>
+        <span class="trust-item"><span class="tick">✓</span> Código auditable</span>
+      </div>
+    </div>
+
+    <div class="hero-card-col">
+      <div class="dl-card">
+        <div class="dl-card-badge">🛡️ v1.2.0 · Última versión</div>
+        <h3>Descarga GuardianOS Shield</h3>
+        <p class="dc-sub">
+          APK universal firmada · <strong>3,6 MB</strong> · Android 7.0+.
+          Sin cuenta, sin anuncios, sin suscripción.
+        </p>
+        <a href="https://github.com/systemavworks/guardianos-shield/releases/download/v1.2.0/guardianos-shield-v1.2.0-release.apk" class="btn-dl" id="btnDl">
+          ⬇ Descargar APK (v1.2.0)
+        </a>
+        <div class="dl-meta">
+          <div><span class="v">3,6 MB</span><span class="l">Tamaño</span></div>
+          <div><span class="v">Android 7.0+</span><span class="l">Requisito</span></div>
+          <div><span class="v">Apache 2.0</span><span class="l">Licencia</span></div>
         </div>
-    </section>
-
-    <!-- ========== FEATURES ========== -->
-    <section id="caracteristicas">
-        <div class="container">
-            <div class="section-header">
-                <h2>Características Principales</h2>
-                <p>Todo el poder de protección sin sacrificar tu privacidad</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-                    <h3>Filtrado DNS Local</h3>
-                    <p>Bloquea contenido inapropiado a nivel de red con listas de bloqueo integradas y actualizables. Todo procesado localmente, sin enviar datos a internet.</p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-                    <h3>VPN Transparente</h3>
-                    <p>Modo avanzado con VPN local que no corta el tráfico de internet. Compatible con Android 12, 13, 14 y 15. Sin ralentización perceptible.</p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-                    <h3>Perfiles Parentales</h3>
-                    <p>Crea perfiles con PIN de seguridad, horarios de uso y restricciones personalizadas por usuario. Control total sin invadir la privacidad.</p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
-                    <h3>Estadísticas en Tiempo Real</h3>
-                    <p>Monitoriza el uso, dominios bloqueados y actividad de apps sensibles. Todo almacenado localmente en tu dispositivo, nunca en la nube.</p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
-                    <h3>Navegador Seguro Integrado</h3>
-                    <p>Navegador web con filtros adicionales para mayor protección durante la navegación. Sin rastreadores, sin cookies de terceros.</p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></span>
-                    <h3>Bloqueo de Apps Sensibles</h3>
-                    <p>Restringe el acceso a apps específicas según horarios y perfiles configurados. WhatsApp, Instagram, TikTok y más bajo control parental.</p>
-                </div>
-            </div>
+        <div class="play-store-wrap">
+          <a href="https://play.google.com/apps/testing/com.guardianos.shield" target="_blank" rel="noopener" aria-label="Disponible en Google Play — acceso de prueba alpha">
+            <img src="GetItOnGooglePlay_Badge_Web_color_Spanish.svg" alt="Disponible en Google Play">
+          </a>
+          <span class="play-store-label">Acceso alpha<br>prueba anticipada</span>
         </div>
-    </section>
+        <div class="dl-note">🔒 <strong>100% local.</strong> No hay servidor, no hay cuenta, no hay telemetría.</div>
+      </div>
+    </div>
 
-    <!-- ========== SCREENSHOTS ========== -->
-    <section id="capturas" class="screenshots">
-        <div class="container">
-            <div class="section-header">
-                <h2>Capturas de Pantalla</h2>
-                <p>Interfaz moderna y funcional con Material Design 3</p>
-            </div>
+  </div>
+</section>
 
-            <div class="screenshots-grid">
-                <div class="screenshot-card">
-                    <div class="screenshot-img">
-                        <img src="../01_dashboard.jpg" alt="GuardianOS Shield – Pantalla principal con panel de control y estado de protección" loading="lazy" width="540" height="400">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h4>Pantalla Principal</h4>
-                        <p>Panel de control con estado de protección y resumen de actividad</p>
-                    </div>
-                </div>
+<!-- ═══════════════════════════════ STRIP ═══════════════════════════ -->
+<div class="logo-strip">
+  <span class="label">Incluye:</span>
+  <span class="norm-pill hl">Filtrado DNS local</span>
+  <span class="norm-pill hl">VPN transparente</span>
+  <span class="norm-pill">Perfiles con PIN</span>
+  <span class="norm-pill">Bloqueo por categoría</span>
+  <span class="norm-pill">Modo Precaución</span>
+  <span class="norm-pill">Pacto Digital Familiar</span>
+  <span class="norm-pill">Navegador seguro</span>
+  <span class="norm-pill">Estadísticas locales</span>
+  <span class="norm-pill">Sin analytics</span>
+  <span class="norm-pill">Android 7.0+</span>
+</div>
+<!-- ═══════════════════════════════ PARA QUIÉN ══════════════════════ -->
+<section class="section" id="para-quien">
+  <div class="section-inner">
+    <div class="section-label">¿Para quién es?</div>
+    <h2 class="section-title">Dos perfiles, la misma exigencia de privacidad</h2>
+    <p class="section-sub">
+      Tanto si quieres proteger a tus hijos sin montar un laboratorio, como si eres
+      técnico y no quieres depender de los servicios de Google, GuardianOS Shield
+      funciona igual de bien.
+    </p>
 
-                <div class="screenshot-card">
-                    <div class="screenshot-img">
-                        <img src="../08_parental_control_2.jpg" alt="GuardianOS Shield – Control parental con PIN, horarios de uso y restricciones por perfil" loading="lazy" width="540" height="400">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h4>Control Parental</h4>
-                        <p>Configura PIN, horarios de uso y restricciones por perfil</p>
-                    </div>
-                </div>
+    <div class="audience-grid">
 
-                <div class="screenshot-card">
-                    <div class="screenshot-img">
-                        <img src="../05_statistics.jpg" alt="GuardianOS Shield – Estadísticas de dominios bloqueados y uso de aplicaciones" loading="lazy" width="540" height="400">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h4>Estadísticas</h4>
-                        <p>Visualiza dominios bloqueados, tiempo de uso y actividad</p>
-                    </div>
-                </div>
+      <div class="aud-card pyme">
+        <div class="aud-icon">👨‍👩‍👧</div>
+        <h3>Soy madre o padre</h3>
+        <p class="aud-who">
+          Quieres saber qué hace tu hijo con el móvil y bloquear lo que no toca,
+          sin que una empresa ajena acumule su historial.
+        </p>
+        <ul class="aud-list">
+          <li><span class="tick">✓</span> Instalas el APK y funciona en 2 minutos</li>
+          <li><span class="tick">✓</span> Bloqueo por categorías: adulto, apuestas, redes, juegos</li>
+          <li><span class="tick">✓</span> PIN de 6 dígitos: el menor no puede desactivarlo</li>
+          <li><span class="tick">✓</span> Modo Precaución con racha para negociar sin castigar</li>
+          <li><span class="tick">✓</span> Pacto Digital Familiar: pide permiso desde el móvil</li>
+          <li><span class="tick">✓</span> Estadísticas solo en tu dispositivo, nunca en la nube</li>
+        </ul>
+        <a href="#descargar" class="aud-cta pyme">Descargar gratis →</a>
+      </div>
 
-                <div class="screenshot-card">
-                    <div class="screenshot-img">
-                        <img src="../12_safe_browser.jpg" alt="GuardianOS Shield – Navegador seguro con filtros DNS activos" loading="lazy" width="540" height="400">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h4>Navegador Seguro</h4>
-                        <p>Navegación protegida con filtros DNS integrados</p>
-                    </div>
-                </div>
-            </div>
+      <div class="aud-card partner">
+        <div class="aud-icon">🧑‍💻</div>
+        <h3>Soy técnico o uso un Android DeGoogled</h3>
+        <p class="aud-who">
+          Llevas LineageOS, /e/OS o GrapheneOS, no quieres Google Play Services
+          en el móvil de tu familia y necesitas poder leer el código que ejecutas.
+        </p>
+        <ul class="aud-list">
+          <li><span class="tick">✓</span> Cero dependencias de Google Play Services</li>
+          <li><span class="tick">✓</span> 100% Open Source — Apache 2.0, auditable línea a línea</li>
+          <li><span class="tick">✓</span> APK universal: arm64-v8a, armeabi-v7a, x86, x86_64</li>
+          <li><span class="tick">✓</span> Sin backend: no hay endpoint al que enviar telemetría</li>
+          <li><span class="tick">✓</span> Servidor DNS configurable (por defecto CleanBrowsing Family)</li>
+          <li><span class="tick">✓</span> Room + Compose, sin librerías propietarias</li>
+        </ul>
+        <a href="https://github.com/systemavworks/guardianos-shield" target="_blank" rel="noopener" class="aud-cta partner">Ver el código en GitHub →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PROBLEMA ════════════════════════ -->
+<section class="section problem-section" id="por-que">
+  <div class="section-inner">
+    <div class="section-label">El problema</div>
+    <h2 class="section-title">Si no pagas por el producto, el producto es tu hijo</h2>
+    <p class="section-sub">
+      El control parental se ha convertido en un negocio de datos. Estas son las
+      tres cosas que GuardianOS Shield hace distintas por diseño.
+    </p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="pc-icon">📡</div>
+        <h4>Los datos del menor salen del móvil</h4>
+        <p>
+          La mayoría de apps de control parental suben ubicación, apps instaladas,
+          historial de navegación y contactos a sus servidores para "mejorar el servicio".
+        </p>
+        <span class="pc-stat">Tú no controlas ese servidor</span>
+      </div>
+
+      <div class="problem-card">
+        <div class="pc-icon">💳</div>
+        <h4>Gratis con trampa o de pago mensual</h4>
+        <p>
+          Los planes gratuitos monetizan con publicidad y datos; los completos
+          pasan de 100 €/año por familia. Y la privacidad se convierte en un lujo.
+        </p>
+        <span class="pc-stat">8–15 €/mes de media</span>
+      </div>
+
+      <div class="problem-card">
+        <div class="pc-icon">🔒</div>
+        <h4>No puedes verificar lo que dicen</h4>
+        <p>
+          Si el código es cerrado, la promesa de "no recopilamos datos" es una frase
+          en una web. No hay forma de comprobarlo y no depende de ti.
+        </p>
+        <span class="pc-stat">Confianza ciega</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════ FUNCIONALIDADES ══════════════════ -->
+<section class="section features-bg" id="funcionalidades">
+  <div class="section-inner">
+    <div class="section-label">Funcionalidades</div>
+    <h2 class="section-title">Cada función resuelve un problema concreto</h2>
+    <p class="section-sub">
+      Nada de listas infinitas de funciones que no usarás. Esto es lo que
+      GuardianOS Shield hace y lo que evita que sigas dependiendo de terceros.
+    </p>
+
+    <div class="features-grid">
+
+      <div class="feat-card">
+        <div class="fi">🛡️</div>
+        <h4>Filtrado DNS local</h4>
+        <div class="before"><span>✕</span> Listas en la nube del proveedor</div>
+        <div class="after">Bloqueo de dominios en el propio dispositivo con <strong>CleanBrowsing Family</strong> y servidor configurable. Nada sale del móvil.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">🔐</div>
+        <h4>VPN transparente</h4>
+        <div class="before"><span>✕</span> Túneles que cortan internet o gastan batería</div>
+        <div class="after">La VPN local de Android intercepta solo el DNS: <strong>la navegación va directa y a velocidad completa</strong>.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">👨‍👩‍👧‍👦</div>
+        <h4>Perfiles parentales con PIN</h4>
+        <div class="before"><span>✕</span> Una sola configuración para todos</div>
+        <div class="after">Hasta <strong>3 perfiles</strong> con PIN de 6 dígitos, horarios de uso y acceso del tutor separado del perfil del menor.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">🚫</div>
+        <h4>Bloqueo de apps por categoría</h4>
+        <div class="before"><span>✕</span> Bloquear app a app manualmente</div>
+        <div class="after">Reglas por categoría: <strong>contenido adulto, apuestas y casino, redes sociales y mensajería, videojuegos</strong>, con excepciones por app.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">⏳</div>
+        <h4>Modo Precaución + racha</h4>
+        <div class="before"><span>✕</span> Castigos que acaban en conflicto</div>
+        <div class="after">Al abrir una app bloqueada aparece una <strong>espera de 14 s</strong> y una racha de días: si vuelve atrás, la mantiene.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">🤝</div>
+        <h4>Pacto Digital Familiar</h4>
+        <div class="before"><span>✕</span> Discusiones para pedir más tiempo</div>
+        <div class="after">El menor envía peticiones (<strong>más tiempo, desbloquear una app o una web</strong>) y el tutor aprueba o rechaza desde su panel.</div>
+      </div>
+
+    </div>
+
+    <div class="feat-more">
+      <span class="fm-label">También incluye:</span>
+      <span class="fchip">Navegador seguro integrado</span>
+      <span class="fchip">Estadísticas y amenazas bloqueadas</span>
+      <span class="fchip">Bloqueo automático de malware</span>
+      <span class="fchip">Notificaciones de bloqueo</span>
+      <span class="fchip">Retención de datos configurable</span>
+      <span class="fchip">Protección frente a desinstalación</span>
+      <span class="fchip">Accesibilidad TalkBack</span>
+      <span class="fchip">Español e inglés</span>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════ CAPTURAS ═════════════════════════ -->
+<section class="section shots-section" id="capturas">
+  <div class="section-inner">
+    <div class="section-label">Capturas de pantalla</div>
+    <h2 class="section-title">Así se ve GuardianOS Shield v1.2.0</h2>
+    <p class="section-sub">
+      Cinco pestañas, todo en el dispositivo: Inicio, Protección, Familia,
+      Actividad y Ajustes. Estas son las pantallas reales de la versión 1.2.0.
+    </p>
+
+    <div class="shots-grid">
+
+      <div class="shot">
+        <div class="shot-phone">
+          <img src="img/shield-home.jpg" alt="GuardianOS Shield – Pantalla de inicio con estado de protección y actividad del día" loading="lazy" width="720" height="1600">
         </div>
-    </section>
-
-    <!-- ========== DOWNLOAD ========== -->
-    <section id="descargar" class="download">
-        <div class="container">
-            <h2>⬇️ Descarga GuardianOS Shield</h2>
-            <p>Protege a tus hijos hoy mismo. Instalación rápida y sencilla.</p>
-            
-            <div class="download-options">
-                <a href="https://github.com/systemavworks/guardianos-shield/releases/download/v1.2.0/guardianos-shield-v1.2.0-release.apk" class="btn btn-primary" style="font-size: 1.25rem; padding: 1.25rem 3rem;">
-                    Descargar APK (Versión 1.2.0)
-                </a>
-
-                <div class="play-store-wrap">
-                    <a href="https://play.google.com/apps/testing/com.guardianos.shield" target="_blank" rel="noopener" class="play-store-badge" aria-label="Disponible en Google Play – Acceso de prueba alpha">
-                        <img src="GetItOnGooglePlay_Badge_Web_color_Spanish.svg" alt="Disponible en Google Play" loading="lazy" width="200" height="60">
-                    </a>
-                    <span class="play-store-label">Acceso alpha – Prueba anticipada</span>
-                </div>
-            </div>
-
-            <a href="https://github.com/systemavworks/guardianos-shield" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;">
-                <img src="https://img.shields.io/github/stars/systemavworks/guardianos-shield?style=social&label=GitHub%20Stars" alt="GitHub stars de GuardianOS Shield" loading="lazy" width="130" height="20">
-            </a>
-
-            <div class="download-badge">
-                Gratuito · Open Source · 3,6 MB
-            </div>
-
-            <div class="download-meta">
-                <div class="download-meta-item">
-                    <span class="download-meta-value">100%</span>
-                    <span class="download-meta-label">Sin Rastreo</span>
-                </div>
-                <div class="download-meta-item">
-                    <span class="download-meta-value">0</span>
-                    <span class="download-meta-label">Permisos Innecesarios</span>
-                </div>
-                <div class="download-meta-item">
-                    <span class="download-meta-value">Apache 2.0</span>
-                    <span class="download-meta-label">Licencia Libre</span>
-                </div>
-            </div>
-
-            <div class="instructions">
-                <h3>📝 Instrucciones de Instalación</h3>
-                <ol>
-                    <li>Descarga el APK haciendo clic en el botón de arriba</li>
-                    <li>Activa "Orígenes desconocidos" en Ajustes → Seguridad</li>
-                    <li>Instala la aplicación y abre GuardianOS Shield</li>
-                    <li>Configura tu primer perfil parental y activa la protección</li>
-                </ol>
-            </div>
+        <div class="shot-cap">
+          <h4>Inicio</h4>
+          <p>Estado de este dispositivo, actividad de hoy y acceso directo al navegador seguro.</p>
         </div>
-    </section>
+      </div>
 
-    <!-- ========== COMPATIBILITY ========== -->
-    <section id="compatibilidad" class="compatibility">
-        <div class="container">
-            <div class="section-header">
-                <h2>Compatibilidad</h2>
-                <p>Probado y funcionando en múltiples dispositivos y versiones de Android</p>
-            </div>
-
-            <div class="compat-grid">
-                <div class="compat-item success">
-                    <span class="compat-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    </span>
-                    <h4>Android 12</h4>
-                    <p>OPPO A53s &mdash; Estable</p>
-                </div>
-
-                <div class="compat-item success">
-                    <span class="compat-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    </span>
-                    <h4>Android 15</h4>
-                    <p>OPPO A80 &mdash; Estable</p>
-                </div>
-
-                <div class="compat-item warning">
-                    <span class="compat-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                    </span>
-                    <h4>LineageOS</h4>
-                    <p>Motorola G34 &mdash; En test</p>
-                </div>
-
-                <div class="compat-item">
-                    <span class="compat-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                    </span>
-                    <h4>Requisitos</h4>
-                    <p>Android 7.0+ (API 24)</p>
-                </div>
-
-                <div class="compat-item">
-                    <span class="compat-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    </span>
-                    <h4>Permisos</h4>
-                    <p>VPN &middot; Estadísticas</p>
-                </div>
-
-                <div class="compat-item">
-                    <span class="compat-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
-                    </span>
-                    <h4>Arquitecturas</h4>
-                    <p>ARM64 &middot; ARMv7 &middot; x86_64</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--bg-elevated); border-radius: 1rem; border: 1px solid var(--border);">
-                <h3 style="color: var(--text-primary); margin-bottom: 1rem;">¿Tu dispositivo no está listado?</h3>
-                <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">GuardianOS Shield está en fase alpha. Si encuentras algún problema, por favor reporta en GitHub:</p>
-                <a href="https://github.com/systemavworks/guardianos-shield/issues" target="_blank" class="btn btn-secondary">
-                    🐛 Reportar Issue
-                </a>
-            </div>
+      <div class="shot">
+        <div class="shot-phone">
+          <img src="img/shield-proteccion.jpg" alt="GuardianOS Shield – Pantalla de protección con filtrado web y seguimiento de aplicaciones" loading="lazy" width="720" height="1600">
         </div>
-    </section>
-
-    <!-- ========== FAQ ========== -->
-    <section id="faq" style="padding:5rem 0;background:var(--bg-card,#1a2332);">
-        <div class="container">
-            <div style="text-align:center;margin-bottom:3rem;">
-                <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:0.75rem;">Preguntas Frecuentes</h2>
-                <p style="color:var(--text-secondary,#94a3b8);font-size:1.1rem;">Todo lo que necesitas saber sobre GuardianOS Shield</p>
-            </div>
-            <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:1rem;">
-
-                <details style="background:var(--bg-elevated,#1e2937);border:1px solid var(--border,#1e3a5f);border-radius:1rem;overflow:hidden;">
-                    <summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary,#e2e8f0);">
-                        ¿Necesita root GuardianOS Shield?
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;"><polyline points="6 9 12 15 18 9"/></svg>
-                    </summary>
-                    <p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary,#94a3b8);line-height:1.7;margin:0;">No. GuardianOS Shield funciona en cualquier Android 7.0+ sin root. Usa la API VPN de Android para el filtrado DNS de forma completamente local.</p>
-                </details>
-
-                <details style="background:var(--bg-elevated,#1e2937);border:1px solid var(--border,#1e3a5f);border-radius:1rem;overflow:hidden;">
-                    <summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary,#e2e8f0);">
-                        ¿Qué servidor DNS usa CleanBrowsing?
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;"><polyline points="6 9 12 15 18 9"/></svg>
-                    </summary>
-                    <p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary,#94a3b8);line-height:1.7;margin:0;">Shield usa CleanBrowsing Family Filter (185.228.168.168) de forma predeterminada. El usuario puede personalizar el servidor DNS desde los ajustes avanzados de la app.</p>
-                </details>
-
-                <details style="background:var(--bg-elevated,#1e2937);border:1px solid var(--border,#1e3a5f);border-radius:1rem;overflow:hidden;">
-                    <summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary,#e2e8f0);">
-                        ¿Puede el menor desactivar la VPN o desinstalar la app?
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;"><polyline points="6 9 12 15 18 9"/></svg>
-                    </summary>
-                    <p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary,#94a3b8);line-height:1.7;margin:0;">No sin el PIN parental. El perfil de seguridad protege la desactivación de la VPN y la desinstalación de la app mediante un PIN de 6 dígitos que solo conoce el tutor.</p>
-                </details>
-
-                <details style="background:var(--bg-elevated,#1e2937);border:1px solid var(--border,#1e3a5f);border-radius:1rem;overflow:hidden;">
-                    <summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary,#e2e8f0);">
-                        ¿Se envían datos a internet?
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;"><polyline points="6 9 12 15 18 9"/></svg>
-                    </summary>
-                    <p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary,#94a3b8);line-height:1.7;margin:0;">No. Shield no tiene ningún backend, analytics ni telemetría. Todo funciona localmente en el dispositivo. Puedes verificarlo auditando el código fuente en GitHub.</p>
-                </details>
-
-                <details style="background:var(--bg-elevated,#1e2937);border:1px solid var(--border,#1e3a5f);border-radius:1rem;overflow:hidden;">
-                    <summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary,#e2e8f0);">
-                        ¿Es compatible con entornos deGoogled (LineageOS, /e/OS)?
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;"><polyline points="6 9 12 15 18 9"/></svg>
-                    </summary>
-                    <p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary,#94a3b8);line-height:1.7;margin:0;">Sí. Shield está diseñado desde cero para funcionar en entornos deGoogled. No depende de los servicios de Google Play ni de ninguna librería propietaria.</p>
-                </details>
-
-            </div>
+        <div class="shot-cap">
+          <h4>Protección</h4>
+          <p>Filtrado web activo (DNS CleanBrowsing), seguimiento de apps y reglas del dispositivo.</p>
         </div>
-    </section>
+      </div>
 
-    <!-- ========== CHANGELOG ========== -->
-    <section id="changelog" style="padding:5rem 0;background:var(--bg-main,#0f1c2e);">
-        <div class="container">
-            <div style="text-align:center;margin-bottom:3rem;">
-                <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:0.75rem;">Historial de versiones</h2>
-                <p style="color:var(--text-secondary,#94a3b8);font-size:1.1rem;">Transparencia total en cada actualización</p>
-            </div>
-            <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:2rem;">
-
-                <div style="background:var(--bg-card,#1a2332);border:1px solid var(--border,#1e3a5f);border-radius:1rem;padding:2rem;position:relative;">
-                    <span style="position:absolute;top:1.5rem;right:1.5rem;background:linear-gradient(135deg,#3b82f6,#06b6d4);color:white;font-size:0.75rem;font-weight:700;padding:0.25rem 0.75rem;border-radius:2rem;">LATEST</span>
-                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-                        <span style="font-size:1.1rem;font-weight:700;color:var(--text-primary,#e2e8f0);">v1.2.0 Release</span>
-                        <span style="color:var(--text-secondary,#94a3b8);font-size:0.85rem;">— Noviembre 2026</span>
-                    </div>
-                    <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;">
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Rediseño familiar: Inicio / Navegar / Peticiones</li>
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Zona de adultos protegida por PIN</li>
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Tema claro único y accesibilidad (TalkBack)</li>
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> APK universal: arm64-v8a, armeabi-v7a, x86, x86_64</li>
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Compatible Android 7.0+ &mdash; 3,6 MB</li>
-                    </ul>
-                </div>
-
-                <div style="background:var(--bg-card,#1a2332);border:1px solid var(--border,#1e3a5f);border-radius:1rem;padding:2rem;">
-                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-                        <span style="font-size:1.1rem;font-weight:700;color:var(--text-primary,#e2e8f0);">v1.1.0 Release</span>
-                        <span style="color:var(--text-secondary,#94a3b8);font-size:0.85rem;">— Febrero 2026</span>
-                    </div>
-                    <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;">
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Perfiles parentales con PIN de 6 dígitos</li>
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Estadísticas de bloqueo en tiempo real</li>
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Protección frente a desinstalación</li>
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Soporte Android 12, 13 y 14</li>
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#10b981;">✓</span> Tamaño reducido: 7,66 MB</li>
-                    </ul>
-                </div>
-
-                <div style="background:var(--bg-card,#1a2332);border:1px solid var(--border,#1e3a5f);border-radius:1rem;padding:2rem;">
-                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-                        <span style="font-size:1.1rem;font-weight:700;color:var(--text-primary,#e2e8f0);">v1.0.0 &mdash; Lanzamiento inicial</span>
-                        <span style="color:var(--text-secondary,#94a3b8);font-size:0.85rem;">— Enero 2026</span>
-                    </div>
-                    <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;">
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#3b82f6;">✓</span> Filtrado DNS local con VPN transparente</li>
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#3b82f6;">✓</span> Integración con CleanBrowsing Family Filter</li>
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#3b82f6;">✓</span> Sin tracking, sin analytics, sin cloud</li>
-                        <li style="color:var(--text-secondary,#94a3b8);display:flex;gap:0.6rem;"><span style="color:#3b82f6;">✓</span> 100% Open Source — Apache 2.0</li>
-                    </ul>
-                </div>
-
-                <div style="text-align:center;">
-                    <a href="https://github.com/systemavworks/guardianos-shield/releases" target="_blank" rel="noopener" style="color:var(--primary,#3b82f6);font-size:0.95rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;">Ver todas las versiones en GitHub <svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/><polyline points='15 3 21 3 21 9'/><line x1='10' y1='14' x2='21' y2='3'/></svg></a>
-                </div>
-            </div>
+      <div class="shot">
+        <div class="shot-phone">
+          <img src="img/shield-familia.jpg" alt="GuardianOS Shield – Pantalla de familia con perfiles, horarios, pacto y racha" loading="lazy" width="720" height="1600">
         </div>
-    </section>
-    <style>details[open] .faq-chevron { transform: rotate(180deg); } details summary::-webkit-details-marker { display:none; }</style>
-
-    <!-- ========== CTA ========== -->
-    <section class="cta">
-        <div class="container">
-            <h2>Protege a tus Hijos sin Rastrearlos</h2>
-            <p>La mayoría de apps de control parental recopilan datos de tus hijos para vendérselos a terceros. GuardianOS Shield es diferente: 100% local, 100% privado, 100% tuyo.</p>
-            <a href="#descargar" class="btn btn-primary" style="font-size: 1.25rem; padding: 1.25rem 3rem;">
-                Comenzar Ahora
-            </a>
+        <div class="shot-cap">
+          <h4>Familia</h4>
+          <p>Perfiles y horarios, acuerdos familiares y racha de uso responsable con hitos a 3, 7 y 30 días.</p>
         </div>
-    </section>
+      </div>
 
-    <!-- ========== FOOTER ========== -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>GuardianOS Shield</h4>
-                    <p>Control parental 100% DeGoogled sin rastreo ni analytics. Filtrado DNS local y VPN transparente para Android. Compromiso con la privacidad.</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>Victor Shift</strong><br>
-                        Digital Sovereignty Engineer<br>
-                        Founder, guardianos<br>
-                        Privacy-by-Design · Android Audits · dGoogled
-                    </p>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Enlaces Rápidos</h4>
-                    <ul>
-                        <li><a href="#caracteristicas">Características</a></li>
-                        <li><a href="#capturas">Capturas</a></li>
-                        <li><a href="#descargar">Descargar</a></li>
-                        <li><a href="#compatibilidad">Compatibilidad</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Proyecto</h4>
-                    <ul>
-                        <li><a href="https://github.com/systemavworks/guardianos-shield" target="_blank">GitHub Repository</a></li>
-                        <li><a href="https://github.com/systemavworks/guardianos-shield/releases" target="_blank">Última Versión</a></li>
-                        <li><a href="https://github.com/systemavworks/guardianos-shield/issues" target="_blank">Reportar Bug</a></li>
-                        <li><a href="https://guardianos.es" target="_blank">guardianos.es</a></li>
-                    </ul>
-                </div>
-
-                <!-- ✅ SECCIÓN LEGAL con enlace a Términos (RUTA RELATIVA) -->
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li>
-                            <!-- ✅ CLAVE: href="terminos.html" → apunta a https://guardianos.es/shield/terminos-condiciones.html -->
-                            <a href="https://guardianos.es/shield/terminos-condiciones.html" 
-                               style="color: var(--primary); font-weight: 500;">
-                                📄 Términos y Condiciones
-                            </a>
-                        </li>
-                        <li><a href="https://guardianos.es/politica-privacidad" target="_blank">Política de Privacidad</a></li>
-                        <li><a href="https://github.com/systemavworks/guardianos-shield/blob/main/LICENSE" target="_blank">Licencia Apache 2.0</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Tecnología</h4>
-                    <ul>
-                        <li><span>Kotlin 2.0.21</span></li>
-                        <li><span>Jetpack Compose</span></li>
-                        <li><span>Room Database</span></li>
-                        <li><span>Local VPN Service</span></li>
-                        <li><span>DNS Filtering</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 GuardianOS - Sistema de Protección Digital. Todos los derechos reservados.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.85rem;">
-                    Desarrollado con ❤️ en Andalucía, España | Licencia Apache 2.0 | 100% Open Source
-                </p>
-            </div>
+      <div class="shot">
+        <div class="shot-phone">
+          <img src="img/shield-categorias.jpg" alt="GuardianOS Shield – Control parental con bloqueo por categoría" loading="lazy" width="720" height="1600">
         </div>
-    </footer>
+        <div class="shot-cap">
+          <h4>Control parental</h4>
+          <p>Bloqueo por categoría: contenido adulto, apuestas y casino, redes sociales y videojuegos.</p>
+        </div>
+      </div>
 
-    <!-- ========== JAVASCRIPT ========== -->
-    <script>
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
+      <div class="shot">
+        <div class="shot-phone">
+          <img src="img/shield-bloqueo.jpg" alt="GuardianOS Shield – Modo Precaución al abrir una app bloqueada, con racha y espera de 14 segundos" loading="lazy" width="720" height="1600">
+        </div>
+        <div class="shot-cap">
+          <h4>Modo Precaución</h4>
+          <p>Al abrir una app bloqueada: racha de días, espera de 14 s y opción de volver sin romperla.</p>
+        </div>
+      </div>
 
-        function closeMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.remove('active');
-        }
+      <div class="shot">
+        <div class="shot-phone">
+          <img src="img/shield-pacto.jpg" alt="GuardianOS Shield – Pacto Digital Familiar con buzón de peticiones y panel del tutor" loading="lazy" width="720" height="1600">
+        </div>
+        <div class="shot-cap">
+          <h4>Pacto Digital Familiar</h4>
+          <p>Buzón de peticiones: pedir más tiempo o desbloquear una app, con aprobación del tutor.</p>
+        </div>
+      </div>
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    closeMobileMenu();
-                }
-            });
-        });
+      <div class="shot">
+        <div class="shot-phone">
+          <img src="img/shield-stats.jpg" alt="GuardianOS Shield – Estadísticas de amenazas bloqueadas por día y desglose por categoría" loading="lazy" width="720" height="1600">
+        </div>
+        <div class="shot-cap">
+          <h4>Estadísticas</h4>
+          <p>Amenazas bloqueadas por día y desglose por categoría, con vistas de semana, mes y año.</p>
+        </div>
+      </div>
 
-        // Header Shadow on Scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 4px 20px rgba(59, 130, 246, 0.3)';
-            } else {
-                header.style.boxShadow = '0 1px 3px rgba(59, 130, 246, 0.2)';
-            }
-        });
+      <div class="shot">
+        <div class="shot-phone">
+          <img src="img/shield-config.jpg" alt="GuardianOS Shield – Configuración de notificaciones, protección y retención de datos" loading="lazy" width="720" height="1600">
+        </div>
+        <div class="shot-cap">
+          <h4>Configuración</h4>
+          <p>Notificaciones de bloqueo, protección de malware y retención de datos (30 días por defecto).</p>
+        </div>
+      </div>
 
-        // Download button click tracking (local only)
-        const downloadBtn = document.querySelector('.btn[href*="apk"]');
-        if (downloadBtn) {
-            downloadBtn.addEventListener('click', function() {
-                console.log('📥 APK descargado - GuardianOS Shield v1.2.0');
-            });
-        }
+    </div>
+  </div>
+</section>
 
-        // Scroll-reveal
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.feature-card, .section-header, .screenshot-card, .compat-item, .instructions').forEach(el => {
-            el.classList.add('reveal');
-            revealObserver.observe(el);
-        });
-    </script>
+<!-- ═══════════════════════════════ DESCARGA ════════════════════════ -->
+<section class="download-section" id="descargar">
+  <div class="dl-box">
+    <h2>Descarga GuardianOS Shield v1.2.0</h2>
+    <p>
+      APK universal firmada, <strong>3,6 MB</strong>, compatible con Android 7.0+ y
+      con cualquier arquitectura. Instalación directa: <strong>sin cuenta, sin registro y sin coste</strong>.
+    </p>
+
+    <div class="cta-row">
+      <a href="https://github.com/systemavworks/guardianos-shield/releases/download/v1.2.0/guardianos-shield-v1.2.0-release.apk" class="btn-hero-main" id="btnDl2">
+        ⬇ Descargar APK (v1.2.0)
+      </a>
+      <a href="https://github.com/systemavworks/guardianos-shield/releases" target="_blank" rel="noopener" class="btn-hero-out">
+        Ver todas las versiones
+      </a>
+    </div>
+
+    <div class="dl-stats">
+      <div class="dl-stat"><span class="n">3,6 MB</span><span class="t">Tamaño del APK</span></div>
+      <div class="dl-stat"><span class="n">100%</span><span class="t">Sin rastreo</span></div>
+      <div class="dl-stat"><span class="n">0</span><span class="t">Permisos innecesarios</span></div>
+      <div class="dl-stat"><span class="n">Apache 2.0</span><span class="t">Licencia libre</span></div>
+    </div>
+
+    <div class="dl-steps">
+      <h3>📝 Cómo instalarlo</h3>
+      <ol>
+        <li>Descarga el APK con el botón de arriba.</li>
+        <li>Activa <strong>"Instalar apps desconocidas"</strong> para tu navegador en Ajustes → Seguridad.</li>
+        <li>Abre el archivo descargado e instala GuardianOS Shield.</li>
+        <li>Configura tu perfil parental, activa la protección y define el PIN de 6 dígitos.</li>
+      </ol>
+    </div>
+
+    <p class="dl-sha">
+      <strong>SHA-256 del APK v1.2.0:</strong><br>
+      6294894149d0b7ece2f3c2646ff94843f111d89236c3f4d5e0e5e0849ae1fe7a
+    </p>
+  </div>
+</section>
+<!-- ═══════════════════════════════ COMPATIBILIDAD ═══════════════════ -->
+<section class="section" id="compatibilidad">
+  <div class="section-inner">
+    <div class="section-label">Compatibilidad</div>
+    <h2 class="section-title">Probado en dispositivos reales, no en un emulador</h2>
+    <p class="section-sub">
+      GuardianOS Shield se prueba sobre hardware de uso diario, incluidos
+      móviles con Android modificado sin servicios de Google.
+    </p>
+
+    <div class="compat-grid">
+
+      <div class="compat-item">
+        <span class="ci">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </span>
+        <h4>Android 12</h4>
+        <p>OPPO A53s — estable</p>
+      </div>
+
+      <div class="compat-item">
+        <span class="ci">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </span>
+        <h4>Android 15</h4>
+        <p>OPPO A80 — estable</p>
+      </div>
+
+      <div class="compat-item warning">
+        <span class="ci">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </span>
+        <h4>LineageOS / DeGoogled</h4>
+        <p>Motorola G34 — en pruebas</p>
+      </div>
+
+      <div class="compat-item info">
+        <span class="ci">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </span>
+        <h4>Requisitos</h4>
+        <p>Android 7.0+ (API 24)</p>
+      </div>
+
+      <div class="compat-item info">
+        <span class="ci">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </span>
+        <h4>Permisos</h4>
+        <p>Solo VPN y acceso de uso — nada más</p>
+      </div>
+
+      <div class="compat-item info">
+        <span class="ci">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+        </span>
+        <h4>Arquitecturas</h4>
+        <p>arm64-v8a · armeabi-v7a · x86 · x86_64</p>
+      </div>
+
+    </div>
+
+    <div class="report-box">
+      <h3>¿Tu dispositivo no aparece o has encontrado un fallo?</h3>
+      <p>
+        GuardianOS Shield está en fase alpha y cada reporte ayuda a que la versión
+        final funcione en más móviles. Abre un issue en GitHub con tu modelo y versión de Android.
+      </p>
+      <a href="https://github.com/systemavworks/guardianos-shield/issues" target="_blank" rel="noopener" class="btn-hero-main" style="display:inline-flex">
+        🐛 Reportar un problema
+      </a>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════ FAQ ═════════════════════════════ -->
+<section class="section faq-section" id="faq">
+  <div class="section-inner">
+    <div class="section-label">Preguntas frecuentes</div>
+    <h2 class="section-title">Respuestas directas, sin rodeos</h2>
+    <p class="section-sub">Lo que nos preguntan antes de instalar GuardianOS Shield.</p>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          ¿Es realmente gratis?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Sí. GuardianOS Shield es software libre bajo licencia <strong>Apache 2.0</strong>:
+          sin cuentas, sin suscripciones, sin publicidad y sin versión "premium" que
+          bloquee funciones. El código está completo en GitHub y puedes compilarlo tú mismo.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          ¿Necesita root o algún permiso especial?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          No necesita root. Usa la <strong>API VPN de Android</strong> para interceptar solo
+          las consultas DNS, así que no toca el sistema ni requiere desbloquear el gestor de arranque.
+          Los permisos se limitan a VPN y acceso de uso.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          ¿Qué servidor DNS utiliza?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Por defecto usa <strong>CleanBrowsing Family Filter</strong> (185.228.168.168),
+          que filtra contenido adulto y dominios maliciosos. Puedes cambiar el servidor
+          desde los ajustes avanzados de la aplicación.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          ¿Puede el menor desactivar la VPN o desinstalar la app?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          No sin el PIN parental. El perfil del tutor protege la desactivación de la VPN
+          y la desinstalación mediante un <strong>PIN de 6 dígitos</strong> que solo conoce
+          la persona responsable.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          ¿Se envían datos a internet?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          No. GuardianOS Shield no tiene backend, ni analytics, ni telemetría, ni
+          crash reporting. Todo se guarda en la base de datos local del dispositivo y
+          puedes borrarla cuando quieras. Si quieres comprobarlo, audita el código.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          ¿Funciona en móviles sin servicios de Google (LineageOS, /e/OS)?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Sí, está diseñado para ello. No depende de Google Play Services ni de ninguna
+          librería propietaria, así que funciona igual en un Android DeGoogled que en
+          un móvil de fábrica.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          ¿En qué móviles puedo instalarlo?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          En cualquier Android <strong>7.0 o superior</strong> (API 24). El APK es universal e
+          incluye las cuatro arquitecturas habituales: arm64-v8a, armeabi-v7a, x86 y x86_64.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════ CHANGELOG ════════════════════════ -->
+<section class="section log-section" id="changelog">
+  <div class="section-inner centered">
+    <div class="section-label">Historial de versiones</div>
+    <h2 class="section-title">Transparencia total en cada actualización</h2>
+    <p class="section-sub">Cada versión queda publicada en GitHub con su APK y su hash de verificación.</p>
+
+    <div class="log-list" style="text-align:left">
+
+      <div class="log-card latest">
+        <span class="log-badge">LATEST</span>
+        <div class="log-head">
+          <span class="ver">v1.2.0 — Rediseño familiar</span>
+          <span class="date">Octubre 2026</span>
+          <span class="apk">APK 3,6 MB · Android 7.0+</span>
+        </div>
+        <ul>
+          <li><span class="tick">✓</span> Nueva estructura de cinco pestañas: Inicio, Protección, Familia, Actividad y Ajustes</li>
+          <li><span class="tick">✓</span> <strong>Pacto Digital Familiar</strong>: buzón de peticiones con panel de aprobación del tutor</li>
+          <li><span class="tick">✓</span> <strong>Modo Precaución</strong> con racha de días, espera de 14 s e hitos a 3, 7 y 30 días</li>
+          <li><span class="tick">✓</span> Bloqueo por categorías: contenido adulto, apuestas y casino, redes sociales y videojuegos</li>
+          <li><span class="tick">✓</span> Bloqueo automático de malware y notificaciones de bloqueo</li>
+          <li><span class="tick">✓</span> Tema claro único y mejoras de accesibilidad (TalkBack)</li>
+          <li><span class="tick">✓</span> APK universal: arm64-v8a, armeabi-v7a, x86 y x86_64 — Android 7.0+ (API 24)</li>
+        </ul>
+      </div>
+
+      <div class="log-card old">
+        <div class="log-head">
+          <span class="ver">v1.1.0</span>
+          <span class="date">Febrero 2026</span>
+        </div>
+        <ul>
+          <li><span class="tick">✓</span> Perfiles parentales con PIN de 6 dígitos</li>
+          <li><span class="tick">✓</span> Estadísticas de bloqueo en tiempo real</li>
+          <li><span class="tick">✓</span> Protección frente a la desinstalación de la app</li>
+          <li><span class="tick">✓</span> Soporte verificado en Android 12, 13 y 14</li>
+          <li><span class="tick">✓</span> Reducción del tamaño del APK</li>
+        </ul>
+      </div>
+
+      <div class="log-card old">
+        <div class="log-head">
+          <span class="ver">v1.0.0 — Lanzamiento inicial</span>
+          <span class="date">Enero 2026</span>
+        </div>
+        <ul>
+          <li><span class="tick">✓</span> Filtrado DNS local con VPN transparente</li>
+          <li><span class="tick">✓</span> Integración con CleanBrowsing Family Filter</li>
+          <li><span class="tick">✓</span> Sin tracking, sin analytics y sin cloud</li>
+          <li><span class="tick">✓</span> 100% Open Source — licencia Apache 2.0</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="log-cta">
+      <a href="https://github.com/systemavworks/guardianos-shield/releases" target="_blank" rel="noopener">
+        Ver todas las versiones y notas de publicación en GitHub
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CTA FINAL ═══════════════════════ -->
+<section class="final-cta-section" id="proteger">
+  <div class="final-cta-box">
+    <h2>Protege a tus hijos sin rastrearlos</h2>
+    <p>
+      <strong>Gratis, open source y 100% local.</strong><br>
+      La privacidad de un menor no debería ser el precio de su protección.
+    </p>
+    <div class="cta-row">
+      <a href="https://github.com/systemavworks/guardianos-shield/releases/download/v1.2.0/guardianos-shield-v1.2.0-release.apk" class="btn-hero-main" id="btnDl3">
+        ⬇ Descargar APK (v1.2.0)
+      </a>
+      <a href="https://github.com/systemavworks/guardianos-shield" target="_blank" rel="noopener" class="btn-hero-out">
+        Ver el código en GitHub
+      </a>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════ FOOTER ══════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="/logo_guardianos.jpg" alt="GuardianOS Shield">
+        GuardianOS Shield
+      </div>
+      <p>
+        Control parental 100% local y open source para Android. Sin rastreo,
+        sin cuentas y sin servidores. Desarrollado en Andalucía, España.
+      </p>
+      <div class="footer-badges">
+        <span class="fbadge">Apache 2.0</span>
+        <span class="fbadge">Open Source</span>
+        <span class="fbadge">100% local</span>
+        <span class="fbadge">Privacy by Design</span>
+        <span class="fbadge">🇪🇺 RGPD</span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Producto</h5>
+      <ul>
+        <li><a href="#funcionalidades">Funcionalidades</a></li>
+        <li><a href="#capturas">Capturas</a></li>
+        <li><a href="#descargar">Descargar APK</a></li>
+        <li><a href="#compatibilidad">Compatibilidad</a></li>
+        <li><a href="#changelog">Historial de versiones</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Proyecto</h5>
+      <ul>
+        <li><a href="https://github.com/systemavworks/guardianos-shield" target="_blank" rel="noopener">Repositorio en GitHub</a></li>
+        <li><a href="https://github.com/systemavworks/guardianos-shield/releases" target="_blank" rel="noopener">Últimas versiones</a></li>
+        <li><a href="https://github.com/systemavworks/guardianos-shield/issues" target="_blank" rel="noopener">Reportar un problema</a></li>
+        <li><a href="https://guardianos.es/audit/" target="_blank" rel="noopener">GuardianOS Audit</a></li>
+        <li><a href="https://guardianos.es">guardianos.es</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="https://guardianos.es/shield/terminos-condiciones.html">Términos y condiciones</a></li>
+        <li><a href="https://guardianos.es/politica-privacidad">Política de privacidad</a></li>
+        <li><a href="https://github.com/systemavworks/guardianos-shield/blob/main/LICENSE" target="_blank" rel="noopener">Licencia Apache 2.0</a></li>
+      </ul>
+      <h5 style="margin-top:1.2rem">Tecnología</h5>
+      <ul>
+        <li><span>Kotlin · Jetpack Compose</span></li>
+        <li><span>Room · VPN local</span></li>
+        <li><span>Filtrado DNS</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 GuardianOS · Shield v1.2.0 · Protección que crece contigo · Andalucía, España ❤️</span>
+    <span>
+      <a href="https://github.com/systemavworks/guardianos-shield" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="#changelog">Versiones</a> ·
+      <a href="https://guardianos.es">guardianos.es</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+// ── Menú móvil ────────────────────────────────────────────────────────────────
+function toggleMenu() {
+  const links = document.getElementById('navLinks');
+  const burger = document.getElementById('burger');
+  const open = links.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+function closeMenu() {
+  const links = document.getElementById('navLinks');
+  const burger = document.getElementById('burger');
+  links.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+}
+
+// ── FAQ (acordeón, una abierta a la vez) ──────────────────────────────────────
+function toggle(el) {
+  const item = el.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ── Scroll suave + cierre del menú en enlaces internos ────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      closeMenu();
+    }
+  });
+});
+
+// ── Reveal al hacer scroll ────────────────────────────────────────────────────
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.aud-card, .problem-card, .feat-card, .shot, .compat-item, .log-card, .report-box, .section-title').forEach(el => {
+  el.classList.add('reveal');
+  revealObserver.observe(el);
+});
+// Red de seguridad: si el IntersectionObserver no dispara, se muestra todo igualmente.
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+}, 1500);
+
+// ── Traza local de descarga (sin enviar nada) ─────────────────────────────────
+['btnDl', 'btnDl2', 'btnDl3'].forEach(id => {
+  const b = document.getElementById(id);
+  if (b) b.addEventListener('click', () => console.log('📥 APK descargado — GuardianOS Shield v1.2.0'));
+});
+</script>
 </body>
 </html>
