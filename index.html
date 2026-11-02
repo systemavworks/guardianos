@@ -3,2390 +3,1374 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ══════════════ SCHEMA.ORG ══════════════ -->
 <script type="application/ld+json">
 {
-"@context": "https://schema.org",
-"@type": "ProfessionalService",
-"name": "GuardianOS – Servicios de Ciberseguridad para la protección digital ética de menores en Android",
-"description": "Auditorías técnicas de dispositivos Android, configuración segura sin root, y talleres educativos para familias y colegios en Sevilla. Enfoque ético, sin vigilancia invasiva, compatible con entornos deGoogleizados.",
-"url": "https://guardianos.es",
-"telephone": "+34614837983",
-"priceRange": "49 - 200",
-"address": {
-"@type": "PostalAddress",
-"streetAddress": "",
-"postalCode": "41000",
-"addressLocality": "Sevilla",
-"addressRegion": "Andalucía",
-"addressCountry": "ES"
-},
-"geo": {
-"@type": "GeoCoordinates",
-"latitude": 37.3891,
-"longitude": -5.9845
-},
-"areaServed": ["Sevilla", "Provincia de Sevilla", "Andalucía"],
-"serviceType": [
-"Auditoría de Seguridad Móvil",
-"Configuración Ética de Dispositivos Android",
-"Talleres Educativos sobre Privacidad Digital",
-"Asesoría Técnica en Entornos deGoogled (LineageOS, GrapheneOS, e/OS)"
-],
-"provider": {
-"@type": "Person",
-"name": "Víctor Shift",
-"jobTitle": "Digital Sovereignty Engineer",
-"url": "https://guardianos.es",
-"sameAs": [
-"https://github.com/systemavworks"
-]
-},
-"logo": "https://guardianos.es/logo_guardianos.jpg",
-"image": "https://guardianos.es/logo_guardianos.jpg",
-"openingHoursSpecification": {
-"@type": "OpeningHoursSpecification",
-"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-"opens": "09:00",
-"closes": "20:00"
-},
-"contactPoint": {
-"@type": "ContactPoint",
-"contactType": "Soporte técnico y consultas",
-"telephone": "+34614837983",
-"email": "info@guardianos.es",
-"availableLanguage": ["es-ES"]
-},
-"hasOfferCatalog": {
-"@type": "OfferCatalog",
-"name": "Servicios GuardianOS",
-"itemListElement": [
-{
-"@type": "OfferCatalog",
-"name": "Auditoría Express",
-"itemListElement": [
-{
-"@type": "Offer",
-"itemOffered": {
-"@type": "Service",
-"name": "Auditoría Express de Seguridad"
-}
-}
-]
-},
-{
-"@type": "OfferCatalog",
-"name": "Configuración Completa",
-"itemListElement": [
-{
-"@type": "Offer",
-"itemOffered": {
-"@type": "Service",
-"name": "Configuración Segura de Dispositivo"
-}
-}
-]
-},
-{
-"@type": "OfferCatalog",
-"name": "Talleres Educativos",
-"itemListElement": [
-{
-"@type": "Offer",
-"itemOffered": {
-"@type": "Service",
-"name": "Taller para Colegios y AMPAs"
-}
-}
-]
-}
-]
-}
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "GuardianOS — Ecosistema de Soberanía Digital y Ciberseguridad",
+  "description": "Ecosistema integral de ciberseguridad y soberanía digital. Protegemos desde el dispositivo personal del usuario hasta la infraestructura crítica de la organización, bajo los estándares más estrictos de privacidad y código abierto: GuardianOS (auditoría móvil offline), GuardianOS Shield (control parental 100% local) y GuardianOS Audit (auditoría SaaS).",
+  "url": "https://guardianos.es",
+  "telephone": "+34614837983",
+  "email": "info@guardianos.es",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "postalCode": "41000",
+    "addressLocality": "Sevilla",
+    "addressRegion": "Andalucía",
+    "addressCountry": "ES"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 37.3891, "longitude": -5.9845 },
+  "areaServed": ["Sevilla", "Provincia de Sevilla", "Andalucía", "España"],
+  "serviceType": [
+    "Auditoría de seguridad móvil",
+    "Configuración segura de dispositivos Android",
+    "Talleres de privacidad digital para familias y colegios",
+    "Asesoría en entornos DeGoogled (LineageOS, GrapheneOS, /e/OS)",
+    "Auditoría de ciberseguridad para pymes y consultoras"
+  ],
+  "provider": {
+    "@type": "Person",
+    "name": "Víctor Shift",
+    "jobTitle": "Digital Sovereignty Engineer",
+    "url": "https://guardianos.es",
+    "sameAs": ["https://github.com/systemavworks"]
+  },
+  "logo": "https://guardianos.es/logo_guardianos.jpg",
+  "image": "https://guardianos.es/logo_guardianos.jpg",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Soporte técnico y consultas",
+    "telephone": "+34614837983",
+    "email": "info@guardianos.es",
+    "availableLanguage": ["es-ES"]
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Ecosistema GuardianOS",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "GuardianOS", "applicationCategory": "SecurityApplication", "operatingSystem": "Android" } },
+      { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "GuardianOS Shield", "applicationCategory": "ParentalControlSoftware", "operatingSystem": "Android", "url": "https://guardianos.es/shield/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "GuardianOS Audit", "applicationCategory": "SecurityApplication", "url": "https://guardianos.es/audit/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Configuración segura de dispositivos" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Talleres para colegios y AMPAs" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Auditoría express de seguridad" } }
+    ]
+  }
 }
 </script>
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "SoftwareApplication",
-"name": "GuardianOS",
-"alternateName": "guardianos",
-"description": "Aplicación open-source para la protección digital ética de menores en Android. Realiza auditorías locales sin enviar datos a internet. Enfocada en privacidad, transparencia y entornos deGooogleizados (LineageOS, /e/ OS).",
-"operatingSystem": "Android",
-"applicationCategory": "SecurityApplication",
-"applicationSubCategory": "ParentalControlSoftware",
-"offers": {
-"@type": "Offer",
-"price": "0",
-"priceCurrency": "EUR",
-"availability": "https://schema.org/InStock"
-},
-"url": "https://guardianos.es",
-"downloadUrl": "https://github.com/systemavworks/guardianos-android/releases",
-"softwareVersion": "1.0",
-"fileSize": "5MB",
-"author": {
-"@type": "Person",
-"name": "Víctor Shift Lara",
-"jobTitle": "Digital Sovereignty Engineer",
-"affiliation": {
-"@type": "Organization",
-"name": "GuardianOS",
-"url": "https://guardianos.es",
-"address": {
-"@type": "PostalAddress",
-"streetAddress": "",
-"postalCode": "41000",
-"addressLocality": "Sevilla",
-"addressRegion": "Andalucía",
-"addressCountry": "ES"
-}
-}
-},
-"logo": "https://guardianos.es/logo_guardianos.jpg",
-"screenshot": "https://guardianos.es/screenshot-guardianos-app.png",
-"featureList": "Auditoría offline de apps, detección de trackers, análisis de permisos sensibles, recomendaciones éticas para menores, compatible con ROMs libres (LineageOS, /e/ OS)",
-"license": "https://github.com/systemavworks/guardianos-android/blob/main/LICENSE",
-"isAccessibleForFree": true,
-"inLanguage": "es-ES"
-}
-</script>
-<!-- ✅ Schema.org para GuardianOS Shield App -->
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "SoftwareApplication",
-"name": "GuardianOS Shield",
-"alternateName": "guardianos-shield",
-"description": "Aplicación open-source de control parental 100% DeGoogled para Android. Filtrado DNS local, VPN transparente y perfiles parentales sin rastreo ni analytics. Compatible con entornos deGoogled (LineageOS, /e/ OS).",
-"operatingSystem": "Android 12+",
-"applicationCategory": "ParentalControlSoftware",
-"applicationSubCategory": "SecurityApplication",
-"offers": {
-"@type": "Offer",
-"price": "0",
-"priceCurrency": "EUR",
-"availability": "https://schema.org/InStock"
-},
-"url": "https://guardianos.es/shield",
-"downloadUrl": "https://github.com/systemavworks/guardianos-shield/releases/latest/download/GuardianOS_Shield_debug.apk",
-"softwareVersion": "1.0.0-alpha",
-"fileSize": "8.5MB",
-"author": {
-"@type": "Person",
-"name": "Víctor Shift Lara",
-"jobTitle": "Digital Sovereignty Engineer",
-"affiliation": {
-"@type": "Organization",
-"name": "GuardianOS",
-"url": "https://guardianos.es",
-"address": {
-"@type": "PostalAddress",
-"streetAddress": "",
-"postalCode": "41000",
-"addressLocality": "Sevilla",
-"addressRegion": "Andalucía",
-"addressCountry": "ES"
-}
-}
-},
-"logo": "https://guardianos.es/logo_guardianos.jpg",
-"screenshot": "https://guardianos.es/shield/assets/screenshots/main.png",
-"featureList": "Filtrado DNS Local, VPN Transparente, Perfiles Parentales con PIN, Estadísticas en Tiempo Real, Navegador Seguro Integrado, Bloqueo de Apps Sensibles, Sin Analytics ni Tracking, 100% Open Source",
-"license": "https://github.com/systemavworks/guardianos-shield/blob/main/LICENSE",
-"isAccessibleForFree": true,
-"inLanguage": "es-ES"
-}
-</script>
-<!-- ✅ Schema.org para GuardianOS PRO App -->
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "SoftwareApplication",
-"name": "GuardianOS PRO",
-"alternateName": "guardianos-pro",
-"description": "Versión premium de GuardianOS con análisis de privacidad avanzado, bóveda de documentos cifrada y reportes PDF forenses. Pago único de 9,99€ con activación offline.",
-"operatingSystem": "Android",
-"applicationCategory": "SecurityApplication",
-"applicationSubCategory": "ParentalControlSoftware",
-"offers": {
-"@type": "Offer",
-"price": "9.99",
-"priceCurrency": "EUR",
-"availability": "https://schema.org/InStock",
-"url": "https://guardianos.es/pro"
-},
-"url": "https://guardianos.es/pro",
-"softwareVersion": "1.0.1",
-"fileSize": "6MB",
-"author": {
-"@type": "Person",
-"name": "Víctor Shift Lara",
-"jobTitle": "Digital Sovereignty Engineer",
-"affiliation": {
-"@type": "Organization",
-"name": "GuardianOS",
-"url": "https://guardianos.es",
-"address": {
-"@type": "PostalAddress",
-"streetAddress": "",
-"postalCode": "41000",
-"addressLocality": "Sevilla",
-"addressRegion": "Andalucía",
-"addressCountry": "ES"
-}
-}
-},
-"logo": "https://guardianos.es/logo_guardianos.jpg",
-"featureList": "Análisis de privacidad avanzado, bóveda de documentos cifrada AES-256, reportes PDF forenses con firma SHA-256, sin anuncios, soporte prioritario",
-"license": "https://github.com/systemavworks/guardianos-android/blob/main/LICENSE",
-"inLanguage": "es-ES"
-}
-</script>
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "FAQPage",
-"mainEntity": [
-{
-"@type": "Question",
-"name": "¿Qué es GuardianOS?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "GuardianOS es una app open-source gratuita y un conjunto de servicios profesionales para proteger de forma ética la privacidad digital de menores en Android. Sin vigilancia invasiva, sin envío de datos, sin rastreo."
-}
-},
-{
-"@type": "Question",
-"name": "¿Es necesario root para usar GuardianOS o GuardianOS Shield?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "No. Ni GuardianOS ni GuardianOS Shield requieren root. Funcionan en dispositivos Android convencionales (Android 8+) y en entornos deGoogled como LineageOS o /e/OS."
-}
-},
-{
-"@type": "Question",
-"name": "¿Se envían los datos del menor a servidores externos?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "No. Toda la información procesada por la app permanece en el propio dispositivo. No existe ningún backend de telemetría, analítica ni almacenamiento en nube."
-}
-},
-{
-"@type": "Question",
-"name": "¿Qué diferencia hay entre la auditoría y la configuración completa?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "La Auditoría Express (49€) es un análisis diagnóstico del dispositivo: apps con permisos excesivos, riesgos detectados y recomendaciones. La Configuración Completa (desde 89€) incluye además la implementación de todas las medidas de seguridad y privacidad de forma guiada."
-}
-},
-{
-"@type": "Question",
-"name": "¿El servicio está disponible fuera de Sevilla?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "Los servicios presenciales están centrados en Sevilla y provincia. Las sesiones de configuración y los talleres también pueden realizarse de forma remota para cualquier punto de España."
-}
-},
-{
-"@type": "Question",
-"name": "¿Cuánto tarda la configuración de un dispositivo?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "Una configuración estándar dura entre 90 minutos y 3 horas según el estado del dispositivo. Se realiza con el tutor o padre/madre presente para explicar cada decisión tomada."
-}
-}
-]
-}
-</script>
-<title>GuardianOS – Protección Digital Ética para Menores</title>
-<meta name="description" content="GuardianOS — App open-source gratuita + servicios profesionales de auditoría para móviles Android de menores en Sevilla. Sin vigilancia, con privacidad real.">
-<!-- Open Graph -->
-<meta property="og:title" content="GuardianOS – Protección Digital Ética para Menores">
-<meta property="og:description" content="App open-source gratuita + servicios profesionales de auditoría para Android de menores en Sevilla. Sin vigilancia, con privacidad real.">
-<meta property="og:image" content="https://guardianos.es/logo_guardianos.jpg">
-<meta property="og:url" content="https://guardianos.es/">
+
+<title>GuardianOS — Ecosistema de Soberanía Digital y Ciberseguridad</title>
+<meta name="description" content="Ecosistema integral de ciberseguridad y soberanía digital: GuardianOS, GuardianOS Shield y GuardianOS Audit, más servicios profesionales de configuración segura, talleres y auditoría. Open source y privacy by design. Andalucía.">
+<meta name="keywords" content="soberanía digital, ciberseguridad Andalucía, control parental Android, auditoría de seguridad, privacidad menores, DeGoogled, LineageOS, open source, Sevilla, GuardianOS">
+<link rel="canonical" href="https://guardianos.es/">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="es_ES">
-<meta property="og:site_name" content="GuardianOS">
-<!-- Twitter Cards -->
+<meta property="og:title" content="GuardianOS — Ecosistema de Soberanía Digital y Ciberseguridad">
+<meta property="og:description" content="Protegemos desde el dispositivo personal hasta la infraestructura crítica de tu organización. Open source, privacy by design y 100% local.">
+<meta property="og:url" content="https://guardianos.es/">
+<meta property="og:image" content="https://guardianos.es/logo_guardianos.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GuardianOS – Protección Digital Ética para Menores">
-<meta name="twitter:description" content="App open-source gratuita + servicios de auditoría para Android de menores en Sevilla.">
-<meta name="twitter:image" content="https://guardianos.es/logo_guardianos.jpg">
-<link rel="canonical" href="https://guardianos.es/" />
-<link rel="manifest" href="/site.webmanifest">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<script defer data-domain="guardianos.es" src="https://plausible.io/js/script.js"></script>
-<!-- Favicon Generated by RealFaviconGenerator -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<meta name="msapplication-TileColor" content="#5b6fd4">
-<meta name="theme-color" content="#0c0e14">
+<meta name="theme-color" content="#1d4ed8">
+
 <style>
+/* ══════════════════════════════════════════════════════
+   TOKENS — misma línea de diseño que guardianos.es/audit y /shield
+══════════════════════════════════════════════════════ */
 :root {
---primary: #5b6fd4;
---primary-dark: #3d4fa8;
---secondary: #4a90a4;
---accent: #c9a94e;
---pink: #c96b8a;
---dark: #07080f;
---gray: #6b7280;
---light: #0c0e14;
---bg-main: #0c0e14;
---bg-card: #13172a;
---bg-elevated: #1a2035;
---white: #ffffff;
---text-primary: #e2e8f0;
---text-secondary: #8896b3;
---border: #252d4a;
+  --p:      #1d4ed8;
+  --p-dk:   #1e40af;
+  --p-lt:   #3b82f6;
+  --acc:    #d97706;
+  --red:    #dc2626;
+  --green:  #059669;
+  --bg:     #f8fafc;
+  --card:   #ffffff;
+  --elev:   #f1f5f9;
+  --bdr:    #e2e8f0;
+  --txt:    #1e293b;
+  --txt2:   #475569;
+  --txt3:   #94a3b8;
+  --dark:   #0f172a;
+  --dk-card:#1e293b;
+  --dk-bdr: #334155;
+  --dk-txt: #e2e8f0;
+  --dk-txt2:#94a3b8;
+  --white:  #ffffff;
+  --r:      8px;
 }
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
 body {
-font-family: 'Inter', sans-serif;
-line-height: 1.6;
-color: var(--text-primary);
-background: var(--bg-main);
-overflow-x: hidden;
+  font-family:'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--txt);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
-.container {
-width: 100%;
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 2rem;
-}
-/* Watermark de logo en fondo */
-body::before {
-content: '';
-position: fixed;
-top: 50%;
-left: 50%;
-width: 120vw;
-height: 120vh;
-background-image: url('/logo_guardianos.jpg');
-background-size: contain;
-background-position: center;
-background-repeat: no-repeat;
-opacity: 0.08;
-transform: translate(-50%, -50%) rotate(-0deg);
-pointer-events: none;
-z-index: -1;
-}
-/* Desactivar en móvil para mejor rendimiento y legibilidad */
-@media (max-width: 768px) {
-body::before {
-display: none;
-}
-}
-/* Header / Navigation */
-header {
-background: rgba(15, 28, 46, 0.95);
-backdrop-filter: blur(10px);
-position: sticky;
-top: 0;
-z-index: 1000;
-box-shadow: 0 1px 3px rgba(59, 130, 246, 0.2);
-border-bottom: 1px solid var(--border);
-transition: all 0.3s ease;
-}
+a { color: var(--p); text-decoration: none; }
+a:hover { color: var(--p-lt); }
+img { max-width:100%; }
+.container { width:100%; max-width:1100px; margin:0 auto; padding:0 2rem; }
+
+/* ══════════════════════════════════════════════════════
+   NAV
+══════════════════════════════════════════════════════ */
 nav {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 1rem 0;
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .9rem 2rem;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--bdr);
+  box-shadow: 0 1px 4px rgba(15,23,42,.06);
 }
-.logo {
-display: flex;
-align-items: center;
-gap: 1rem;
-font-size: 1.5rem;
-font-weight: 700;
-color: var(--primary);
-text-decoration: none;
-transition: transform 0.3s ease;
+.nav-brand {
+  display: flex; align-items: center; gap: .6rem;
+  font-weight: 800; font-size: 1.05rem; color: var(--dark);
 }
-.logo:hover {
-transform: scale(1.05);
+.nav-logo {
+  width: 38px; height: 38px; border-radius: 7px;
+  flex-shrink:0; object-fit:contain; display:block;
 }
-.logo-img {
-height: 80px;
-width: auto;
-filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
-transition: filter 0.3s ease;
-vertical-align: middle;
+.nav-brand span { color: var(--p); }
+.nav-links { display:flex; align-items:center; gap:1.5rem; }
+.nav-links a { font-size:.88rem; color: var(--txt2); transition:color .2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--dark); }
+.nav-cta {
+  padding: .5rem 1.2rem; border-radius: var(--r);
+  background: var(--p); color: var(--white) !important;
+  font-weight: 700; font-size: .85rem;
+  transition: background .2s, transform .15s;
 }
-.logo-text {
-font-size: 1.5rem;
-font-weight: 700;
-color: var(--primary);
-white-space: nowrap;
-margin-left: 0.5rem;
+.nav-cta:hover { background: var(--p-lt) !important; transform: translateY(-1px); }
+.nav-burger { display:none; background:none; border:none; cursor:pointer; color:var(--dark); }
+.nav-burger svg { width:26px; height:26px; }
+@media(max-width:900px){
+  .nav-links {
+    display:none; position:absolute; top:100%; left:0; right:0;
+    flex-direction:column; align-items:stretch; gap:0;
+    background:var(--card); border-bottom:1px solid var(--bdr);
+    padding:.5rem 1.5rem 1rem;
+  }
+  .nav-links.open { display:flex; }
+  .nav-links a { padding:.6rem 0; border-bottom:1px solid var(--bdr); }
+  .nav-links a.nav-cta { margin-top:.7rem; text-align:center; border-bottom:none; }
+  .nav-burger { display:block; }
 }
-.logo:hover .logo-img {
-filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6));
-}
-.nav-links {
-display: flex;
-gap: 1.5rem;
-list-style: none;
-}
-.nav-links a {
-color: var(--text-primary);
-text-decoration: none;
-font-weight: 500;
-transition: all 0.3s ease;
-position: relative;
-}
-.nav-links a::after {
-content: '';
-position: absolute;
-bottom: -5px;
-left: 0;
-width: 0;
-height: 2px;
-background: linear-gradient(90deg, var(--secondary), var(--accent));
-transition: width 0.3s ease;
-}
-.nav-links a:hover {
-color: var(--secondary);
-}
-.nav-links a:hover::after {
-width: 100%;
-}
-/* Mobile Menu */
-.mobile-menu-btn {
-display: none;
-background: none;
-border: none;
-color: var(--text-primary);
-font-size: 1.5rem;
-cursor: pointer;
-padding: 0.5rem;
-transition: color 0.3s ease;
-}
-.mobile-menu-btn:hover {
-color: var(--secondary);
-}
-/* Hero Section */
+/* ══════════════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════════════ */
 .hero {
-background: linear-gradient(135deg, #0f1c2e 0%, #1e3a5f 50%, #2d5a8c 100%);
-color: white;
-padding: 8rem 0 6rem;
-text-align: center;
-position: relative;
-overflow: hidden;
+  min-height: 88vh;
+  display: flex; align-items: center;
+  padding: 5rem 2rem 4rem;
+  position: relative; overflow: hidden;
 }
 .hero::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background:
-radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
-animation: float 20s ease-in-out infinite;
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(29,78,216,.07) 0%, transparent 70%);
+  pointer-events:none;
 }
-@keyframes float {
-0%, 100% { transform: translateY(0) scale(1); }
-50% { transform: translateY(-50px) scale(1.05); }
+.hero-inner {
+  max-width: 1100px; margin: 0 auto; position:relative;
+  display: grid; grid-template-columns: 1fr 420px; gap: 4rem; align-items: center;
 }
-.hero-content {
-position: relative;
-z-index: 1;
+@media(max-width:900px){
+  .hero-inner { grid-template-columns:1fr; gap:2.5rem; }
+  .hero-card-col { order:-1; }
 }
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.35rem .9rem; border-radius:99px;
+  border:1px solid rgba(29,78,216,.3); background:rgba(29,78,216,.07);
+  font-size:.78rem; font-weight:600; color: var(--p);
+  margin-bottom:1.4rem; line-height:1.4;
+}
+.hero-eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--p); animation:pulse 2s infinite; flex-shrink:0; }
+@keyframes pulse{ 0%,100%{opacity:1} 50%{opacity:.4} }
+
 .hero h1 {
-font-size: 3.5rem;
-font-weight: 700;
-margin-bottom: 1.5rem;
-animation: fadeInUp 0.8s ease-out;
-line-height: 1.2;
-}
-.hero p {
-font-size: 1.4rem;
-max-width: 700px;
-margin: 0 auto 2.5rem;
-opacity: 0.95;
-animation: fadeInUp 0.8s ease-out 0.2s backwards;
-}
-.hero-buttons {
-display: flex;
-gap: 1rem;
-justify-content: center;
-flex-wrap: wrap;
-animation: fadeInUp 0.8s ease-out 0.4s backwards;
-}
-@keyframes fadeInUp {
-from {
-opacity: 0;
-transform: translateY(30px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
-.btn {
-display: inline-block;
-padding: 1rem 2rem;
-text-decoration: none;
-border-radius: 0.75rem;
-font-weight: 600;
-transition: all 0.3s ease;
-cursor: pointer;
-border: none;
-font-size: 1rem;
-}
-.btn-primary {
-background: linear-gradient(135deg, var(--primary), var(--secondary));
-color: white;
-box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-}
-.btn-primary:hover {
-transform: translateY(-3px);
-box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
-}
-.btn-secondary {
-background: rgba(255, 255, 255, 0.1);
-color: white;
-border: 2px solid rgba(255, 255, 255, 0.3);
-backdrop-filter: blur(10px);
-}
-.btn-secondary:hover {
-background: rgba(255, 255, 255, 0.2);
-border-color: var(--secondary);
-transform: translateY(-3px);
-}
-/* Trust Badges */
-.trust-badges {
-background: var(--bg-card);
-padding: 2.5rem 0;
-border-bottom: 1px solid var(--border);
-}
-.badges-grid {
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 3rem;
-flex-wrap: wrap;
-}
-.badge {
-display: flex;
-align-items: center;
-gap: 0.75rem;
-color: var(--text-secondary);
-font-size: 0.95rem;
-transition: all 0.3s ease;
-padding: 1rem;
-border-radius: 0.5rem;
-}
-.badge:hover {
-transform: translateY(-5px);
-color: var(--text-primary);
-}
-.badge-icon {
-font-size: 1.8rem;
-}
-/* Features Section */
-section {
-padding: 5rem 0;
-}
-.section-header {
-text-align: center;
-margin-bottom: 4rem;
-animation: fadeIn 0.8s ease-out;
-}
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-.section-header h2 {
-font-size: 2.5rem;
-color: var(--text-primary);
-margin-bottom: 1rem;
-}
-.section-header p {
-font-size: 1.1rem;
-color: var(--text-secondary);
-max-width: 600px;
-margin: 0 auto;
-}
-.features-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 2rem;
-align-items: stretch;
-}
-.feature-card {
-background: var(--bg-card);
-padding: 2.5rem;
-border-radius: 1rem;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-border: 1px solid var(--border);
-position: relative;
-overflow: hidden;
-display: flex;
-flex-direction: column;
-}
-.feature-card::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-opacity: 0;
-transition: opacity 0.4s ease;
-}
-.feature-card:hover {
-transform: translateY(-10px);
-box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
-border-color: var(--primary);
-background: var(--bg-elevated);
-}
-.feature-card:hover::before {
-opacity: 1;
-}
-.feature-icon {
-font-size: 2.5rem;
-margin-bottom: 1rem;
-display: block;
-transition: transform 0.4s ease;
-}
-.feature-card:hover .feature-icon {
-transform: scale(1.2) rotate(5deg);
-}
-.feature-card h3 {
-font-size: 1.3rem;
-color: var(--text-primary);
-margin-bottom: 1rem;
-position: relative;
-z-index: 1;
-}
-.feature-card p {
-color: var(--text-secondary);
-line-height: 1.7;
-position: relative;
-z-index: 1;
-}
-.feature-list {
-list-style: none;
-margin-top: 1rem;
-position: relative;
-z-index: 1;
-}
-.feature-list li {
-padding: 0.5rem 0;
-color: var(--text-secondary);
-display: flex;
-align-items: center;
-gap: 0.5rem;
-transition: color 0.3s ease;
-}
-.feature-card:hover .feature-list li {
-color: var(--text-primary);
-}
-.feature-list li::before {
-content: '✓';
-color: var(--secondary);
-font-weight: bold;
-}
-/* Services Section */
-.services {
-background: var(--bg-main);
-}
-.service-card {
-background: var(--bg-card);
-padding: 3rem;
-border-radius: 1rem;
-margin-bottom: 2rem;
-display: grid;
-grid-template-columns: 80px 1fr;
-gap: 2rem;
-align-items: start;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-border: 1px solid var(--border);
-}
-.service-card:hover {
-transform: translateX(10px);
-box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
-border-color: var(--primary);
-}
-.service-number {
-width: 60px;
-height: 60px;
-background: linear-gradient(135deg, var(--primary), var(--accent));
-color: white;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 1.5rem;
-font-weight: 700;
-box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-transition: all 0.4s ease;
-}
-.service-card:hover .service-number {
-transform: scale(1.1) rotate(360deg);
-}
-.service-content h3 {
-font-size: 1.5rem;
-margin-bottom: 1rem;
-color: var(--text-primary);
-}
-/* Contact Form Section */
-.contact-form-section {
-background: var(--bg-card);
-padding: 2.5rem 0;
-}
-.form-container {
-max-width: 700px;
-margin: 0 auto;
-background: var(--bg-elevated);
-padding: 1.5rem;
-border-radius: 1rem;
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-border: 1px solid var(--border);
-}
-.form-group {
-margin-bottom: 0.85rem;
-}
-.form-group label {
-display: block;
-margin-bottom: 0.5rem;
-color: var(--text-primary);
-font-weight: 500;
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-width: 100%;
-padding: 0.65rem 0.85rem;
-border: 2px solid var(--border);
-border-radius: 0.5rem;
-background: var(--bg-card);
-color: var(--text-primary);
-font-family: 'Inter', sans-serif;
-font-size: 1rem;
-transition: all 0.3s ease;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-outline: none;
-border-color: var(--primary);
-box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-.form-group textarea {
-min-height: 90px;
-resize: vertical;
-}
-.form-row {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 0.85rem;
-}
-.form-submit {
-text-align: center;
-margin-top: 0.75rem;
-}
-.form-message {
-padding: 1rem;
-border-radius: 0.5rem;
-margin-bottom: 1rem;
-display: none;
-}
-.form-message.success {
-background: rgba(34, 197, 94, 0.2);
-border: 1px solid rgba(34, 197, 94, 0.5);
-color: #86efac;
-}
-.form-message.error {
-background: rgba(239, 68, 68, 0.2);
-border: 1px solid rgba(239, 68, 68, 0.5);
-color: #fca5a5;
-}
-/* ✅ Pricing Section — TU versión original, intacta */
-.pricing-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 2rem;
-max-width: 1000px;
-margin: 0 auto;
-}
-.pricing-card {
-background: var(--bg-card);
-border: 2px solid var(--border);
-border-radius: 1rem;
-padding: 2.5rem;
-text-align: center;
-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-position: relative;
-}
-.pricing-card.featured {
-border-color: var(--primary);
-transform: scale(1.05);
-box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
-background: var(--bg-elevated);
-}
-.pricing-card.featured::before {
-content: 'MÁS POPULAR';
-position: absolute;
-top: -15px;
-left: 50%;
-transform: translateX(-50%);
-background: linear-gradient(135deg, var(--primary), var(--accent));
-color: white;
-padding: 0.5rem 1.5rem;
-border-radius: 2rem;
-font-size: 0.75rem;
-font-weight: 700;
-letter-spacing: 1px;
-}
-.pricing-card:hover {
-transform: translateY(-10px);
-box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
-border-color: var(--primary);
-}
-.pricing-card.featured:hover {
-transform: scale(1.05) translateY(-10px);
-}
-.pricing-header {
-margin-bottom: 2rem;
-}
-.pricing-header h3 {
-font-size: 1.5rem;
-margin-bottom: 0.5rem;
-color: var(--text-primary);
-}
-.price {
-font-size: 3rem;
-font-weight: 700;
-background: linear-gradient(135deg, var(--primary), var(--secondary));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
-.price span {
-font-size: 1.2rem;
-color: var(--text-secondary);
-}
-.pricing-features {
-list-style: none;
-margin: 2rem 0;
-text-align: left;
-}
-.pricing-features li {
-padding: 0.75rem 0;
-color: var(--text-secondary);
-display: flex;
-align-items: center;
-gap: 0.75rem;
-transition: all 0.3s ease;
-}
-.pricing-card:hover .pricing-features li {
-color: var(--text-primary);
-}
-.pricing-features li::before {
-content: '✓';
-color: var(--secondary);
-font-weight: bold;
-font-size: 1.2rem;
-}
-/* PRO Activation Section - Stripe Payment */
-#pro-activation {
-background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-padding: 5rem 0;
-}
-.payment-card {
-max-width: 800px;
-margin: 0 auto;
-background: rgba(30, 41, 59, 0.8);
-border-radius: 1rem;
-padding: 2.5rem;
-border: 2px solid var(--accent);
-box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-}
-.payment-hero {
-text-align: center;
-margin-bottom: 2rem;
-}
-.payment-hero h2 {
-font-size: 2.5rem;
-color: var(--text-primary);
-margin-bottom: 0.5rem;
-}
-.payment-hero p {
-color: var(--text-secondary);
-margin-bottom: 1.5rem;
-}
-.pro-badge {
-font-size: 4rem;
-margin-bottom: 1rem;
-}
-.pro-title {
-font-size: 1.8rem;
-font-weight: 700;
-color: var(--text-primary);
-margin-bottom: 0.5rem;
-}
-.pro-subtitle {
-color: var(--text-secondary);
-margin-bottom: 1.5rem;
-}
-.pro-price {
-background: linear-gradient(135deg, var(--accent), #7c3aed);
-color: white;
-font-size: 2.5rem;
-font-weight: 700;
-padding: 1rem;
-border-radius: 0.75rem;
-margin: 1.5rem 0;
-display: inline-block;
-}
-.pro-price span {
-font-size: 1.2rem;
-font-weight: 400;
-}
-.payment-methods {
-margin-bottom: 2rem;
-}
-.payment-methods h4 {
-color: var(--text-primary);
-margin-bottom: 1rem;
-text-align: center;
-}
-.payment-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-gap: 1rem;
-margin-top: 1rem;
-}
-.payment-option {
-background: #1e293b;
-padding: 1.5rem;
-border-radius: 0.75rem;
-text-align: center;
-cursor: pointer;
-transition: all 0.3s ease;
-border: 2px solid transparent;
-}
-.payment-option:hover {
-transform: translateY(-5px);
-border-color: var(--accent);
-}
-.payment-option.active {
-border-color: var(--accent);
-background: rgba(139, 92, 246, 0.15);
-}
-.payment-option-icon {
-font-size: 2.5rem;
-margin-bottom: 0.5rem;
-}
-.payment-option-title {
-font-weight: 600;
-color: var(--text-primary);
-margin-bottom: 0.25rem;
-font-size: 0.95rem;
-}
-.payment-option-desc {
-font-size: 0.85rem;
-color: var(--text-secondary);
-}
-.payment-form {
-margin-bottom: 2rem;
-}
-.stripe-info {
-background: #0f172a;
-padding: 1.5rem;
-border-radius: 0.75rem;
-margin-bottom: 1.5rem;
-text-align: center;
-}
-.stripe-badge {
-font-size: 3rem;
-margin-bottom: 1rem;
-}
-.stripe-text {
-font-weight: 600;
-color: var(--text-primary);
-margin-bottom: 0.5rem;
-font-size: 1.2rem;
-}
-.stripe-desc {
-color: var(--text-secondary);
-margin-bottom: 1rem;
-font-size: 0.9rem;
-}
-.payment-icons {
-display: flex;
-justify-content: center;
-gap: 1rem;
-flex-wrap: wrap;
-margin-top: 1rem;
-}
-.payment-icon {
-font-size: 2rem;
-}
-.stripe-button {
-background: linear-gradient(135deg, var(--accent), #7c3aed);
-color: white;
-padding: 1rem 2rem;
-border: none;
-border-radius: 0.75rem;
-font-weight: 600;
-font-size: 1.1rem;
-cursor: pointer;
-width: 100%;
-box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
-transition: all 0.3s ease;
-text-decoration: none;
-display: inline-block;
-text-align: center;
-}
-.stripe-button:hover {
-transform: translateY(-2px);
-box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
-}
-.pro-features {
-margin-top: 2rem;
-background: #0f172a;
-padding: 1.5rem;
-border-radius: 0.75rem;
-}
-.pro-features h5 {
-color: var(--text-primary);
-margin-bottom: 1rem;
-text-align: center;
-}
-.feature-item {
-display: flex;
-align-items: center;
-gap: 0.5rem;
-margin-bottom: 0.5rem;
-color: var(--text-secondary);
-font-size: 0.95rem;
-}
-.feature-check {
-color: #10b981;
-font-weight: bold;
-}
-.info-grid {
-margin-top: 2rem;
-padding-top: 1.5rem;
-border-top: 1px solid #334155;
-}
-.info-item {
-text-align: center;
-}
-.info-icon {
-font-size: 2rem;
-margin-bottom: 0.5rem;
-}
-.info-title {
-font-weight: 600;
-color: var(--text-primary);
-font-size: 0.95rem;
-margin-bottom: 0.25rem;
-}
-.info-desc {
-font-size: 0.8rem;
-color: var(--text-secondary);
-}
-.faq-section {
-margin-top: 2rem;
-background: #0f172a;
-padding: 1.5rem;
-border-radius: 0.75rem;
-}
-.faq-section h5 {
-color: var(--text-primary);
-margin-bottom: 1rem;
-}
-.faq-item {
-color: var(--text-secondary);
-font-size: 0.95rem;
-line-height: 1.6;
-margin-bottom: 0.75rem;
-}
-.faq-item strong {
-color: var(--text-primary);
-}
-.bizum-form,
-.transfer-form {
-display: none;
-}
-/* Contact Section */
-.contact {
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-color: white;
-text-align: center;
-}
-.contact h2 {
-font-size: 1.5rem;
-margin-bottom: 0.5rem;
-}
-.contact-info {
-display: flex;
-justify-content: center;
-gap: 3rem;
-flex-wrap: wrap;
-margin-top: 2rem;
-}
-.contact-item {
-display: flex;
-align-items: center;
-gap: 1rem;
-font-size: 1.1rem;
-transition: transform 0.3s ease;
-padding: 1rem;
-border-radius: 0.5rem;
-background: rgba(255, 255, 255, 0.1);
-backdrop-filter: blur(10px);
-}
-.contact-item:hover {
-transform: translateY(-5px);
-background: rgba(255, 255, 255, 0.2);
-}
-.contact-item-icon {
-font-size: 2rem;
-}
-/* Footer */
-footer {
-background: var(--dark);
-color: rgba(255, 255, 255, 0.8);
-padding: 3rem 0 2rem;
-}
-.footer-content {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 3rem;
-margin-bottom: 2rem;
-}
-.footer-section h4 {
-color: white;
-margin-bottom: 1rem;
-font-size: 1.1rem;
-}
-.footer-section ul {
-list-style: none;
-}
-.footer-section ul li {
-padding: 0.5rem 0;
-}
-.footer-section a {
-color: rgba(255, 255, 255, 0.7);
-text-decoration: none;
-transition: all 0.3s ease;
-}
-.footer-section a:hover {
-color: var(--secondary);
-padding-left: 5px;
-}
-.footer-bottom {
-text-align: center;
-padding-top: 2rem;
-border-top: 1px solid rgba(255, 255, 255, 0.1);
-color: rgba(255, 255, 255, 0.6);
-}
-/* Trust & Tech Logos */
-.trust-logos-section {
-padding: 2rem 0;
-background: var(--bg-card);
-border-top: 1px solid var(--border);
-}
-/* ✅ Responsive — tu versión original */
-@media (max-width: 768px) {
-.hero h1 {
-font-size: 2rem;
-}
-.hero p {
-font-size: 1rem;
-}
-.nav-links {
-position: fixed;
-top: 70px;
-left: -100%;
-width: 100%;
-height: calc(100vh - 70px);
-background: rgba(15, 28, 46, 0.98);
-backdrop-filter: blur(10px);
-flex-direction: column;
-padding: 2rem;
-gap: 1rem;
-transition: left 0.3s ease;
-border-right: 1px solid var(--border);
-}
-.nav-links.active {
-left: 0;
-}
-.mobile-menu-btn {
-display: block;
-}
-.service-card {
-grid-template-columns: 1fr;
-text-align: center;
-padding: 2rem;
-}
-.service-number {
-margin: 0 auto 1rem;
-}
-.section-header h2 {
-font-size: 2rem;
-}
-.pricing-card.featured {
-transform: scale(1);
-}
-.form-row {
-grid-template-columns: 1fr;
-}
-.form-container {
-padding: 2rem 1.5rem;
-}
-.container {
-padding: 0 1rem;
-}
-.badges-grid {
-gap: 1.5rem;
-}
-.contact-info {
-gap: 1.5rem;
-}
-.logo-img {
-height: 50px;
-}
-.logo-text {
-font-size: 1.3rem;
-margin-left: 0.3rem;
-}
-.payment-grid {
-grid-template-columns: 1fr;
-}
-.features-grid {
-grid-template-columns: repeat(2, 1fr);
-}
-}
-@media (max-width: 480px) {
-.hero h1 {
-font-size: 1.75rem;
-}
-.btn {
-padding: 0.875rem 1.5rem;
-font-size: 0.9rem;
-}
-.features-grid {
-grid-template-columns: 1fr;
-}
-.logo-img {
-height: 45px;
-}
-.logo-text {
-font-size: 1.2rem;
-}
-.pro-price {
-font-size: 2rem;
-}
-}
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-weight: 900; line-height: 1.15;
+  color: var(--dark); margin-bottom: 1.2rem;
+  letter-spacing: -.03em;
+}
+.hero h1 em {
+  font-style: normal; display:block;
+  background: linear-gradient(90deg, var(--p), var(--p-lt));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 1.02rem; color: var(--txt2);
+  max-width: 540px; margin-bottom: 1.8rem; line-height: 1.75;
+}
+.hero-sub strong { color: var(--txt); }
+.hero-buttons { display:flex; gap:.8rem; flex-wrap:wrap; margin-bottom:1.8rem; }
+.btn-hero-main {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.85rem 1.7rem; border-radius:var(--r);
+  background:linear-gradient(135deg,var(--p),var(--p-lt));
+  color:#fff !important; border:none; font-family:inherit;
+  font-size:.93rem; font-weight:700; cursor:pointer;
+  transition:opacity .2s, transform .15s;
+  box-shadow: 0 4px 12px rgba(29,78,216,.25);
+}
+.btn-hero-main:hover { opacity:.9; transform:translateY(-2px); }
+.btn-hero-out {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.85rem 1.7rem; border-radius:var(--r);
+  background:transparent; border:1.5px solid var(--bdr);
+  color:var(--txt2) !important; font-family:inherit;
+  font-size:.93rem; font-weight:600; cursor:pointer;
+  transition:all .2s;
+}
+.btn-hero-out:hover { border-color:var(--txt2); color:var(--txt) !important; }
 
-/* ===== INLINE SVG ICONS ===== */
-.feature-icon {
-width: 3.2rem; height: 3.2rem;
-background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(139,92,246,0.15));
-border: 1px solid rgba(59,130,246,0.3);
-border-radius: 0.875rem;
-display: flex; align-items: center; justify-content: center;
-margin-bottom: 1.25rem;
-color: var(--primary);
-transition: background 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
-flex-shrink: 0;
-}
-.feature-icon svg {
-width: 1.5rem; height: 1.5rem;
-stroke: currentColor; fill: none;
-stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-}
-.feature-card:hover .feature-icon {
-background: linear-gradient(135deg, rgba(59,130,246,0.28), rgba(139,92,246,0.28));
-border-color: var(--primary);
-transform: scale(1.08) rotate(0deg);
-}
-.badge-icon {
-width: 2.8rem; height: 2.8rem;
-background: rgba(59,130,246,0.12);
-border-radius: 50%;
-display: flex; align-items: center; justify-content: center;
-color: var(--primary); flex-shrink: 0;
-}
-.badge-icon svg {
-width: 1.2rem; height: 1.2rem;
-stroke: currentColor; fill: none;
-stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-}
-.contact-item-icon {
-width: 2.8rem; height: 2.8rem;
-background: rgba(255,255,255,0.15);
-border-radius: 50%;
-display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.contact-item-icon svg {
-width: 1.2rem; height: 1.2rem;
-stroke: white; fill: none;
-stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-}
-.nav-icon {
-display: inline-flex; align-items: center; gap: 0.35rem;
-}
-.nav-icon svg {
-width: 0.9rem; height: 0.9rem;
-stroke: currentColor; fill: none;
-stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-}
-.mobile-menu-btn svg { width: 1.4rem; height: 1.4rem; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; }
-.btn svg { width: 1rem; height: 1rem; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; margin-right: 0.3rem; }
+.trust-row { display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; }
+.trust-item { display:flex; align-items:center; gap:.4rem; font-size:.82rem; color: var(--txt2); }
+.trust-item .tick { color:var(--p); font-weight:800; }
+.trust-sep { color:var(--txt3); }
 
-/* ===== STATS SECTION ===== */
-.stats-section {
-background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(139,92,246,0.06));
-border-top: 1px solid var(--border);
-border-bottom: 1px solid var(--border);
-padding: 3rem 0;
-}
-.stats-grid {
-display: grid; grid-template-columns: repeat(4, 1fr);
-gap: 1.5rem; text-align: center;
-}
-.stat-item { padding: 1rem 0.5rem; }
-.stat-number {
-font-size: 2.6rem; font-weight: 800;
-background: linear-gradient(135deg, var(--primary), var(--secondary));
--webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-line-height: 1.1; margin-bottom: 0.3rem;
-}
-.stat-label { color: var(--text-secondary); font-size: 0.85rem; font-weight: 500; line-height: 1.4; }
-@media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
-
-/* ===== SCROLL REVEAL ===== */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-d1 { transition-delay: 0.08s; }
-.reveal-d2 { transition-delay: 0.16s; }
-.reveal-d3 { transition-delay: 0.24s; }
-.reveal-d4 { transition-delay: 0.32s; }
-.reveal-d5 { transition-delay: 0.40s; }
-.reveal-d6 { transition-delay: 0.48s; }
-
-/* ===== HOW IT WORKS ===== */
-.how-it-works { background: var(--bg-card); padding: 5rem 0; border-bottom: 1px solid var(--border); }
-.steps-grid {
-display: grid; grid-template-columns: repeat(3,1fr);
-gap: 3rem; margin-top: 3.5rem; position: relative;
-}
-.steps-grid::before {
-content: ''; position: absolute;
-top: 2.35rem; left: 22%; right: 22%;
-height: 2px;
-background: linear-gradient(90deg, var(--primary), var(--accent));
-opacity: 0.35;
-}
-.step-item { text-align: center; }
-.step-number {
-width: 4.7rem; height: 4.7rem;
-background: linear-gradient(135deg, var(--primary), var(--accent));
-border-radius: 50%;
-display: flex; align-items: center; justify-content: center;
-margin: 0 auto 1.5rem; position: relative; z-index: 1;
-box-shadow: 0 4px 20px rgba(59,130,246,0.4);
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.step-number svg { width: 1.8rem; height: 1.8rem; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.step-item:hover .step-number { transform: scale(1.1); box-shadow: 0 8px 30px rgba(59,130,246,0.6); }
-.step-tag {
-display: inline-block;
-background: rgba(59,130,246,0.1);
-border: 1px solid rgba(59,130,246,0.3);
-border-radius: 2rem;
-color: var(--primary);
-font-size: 0.72rem; font-weight: 700;
-padding: 0.2rem 0.7rem;
-margin-bottom: 0.75rem;
-letter-spacing: 0.06em;
-text-transform: uppercase;
-}
-.step-item h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
-.step-item p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
-@media (max-width: 768px) { .steps-grid { grid-template-columns: 1fr; gap: 2rem; } .steps-grid::before { display: none; } }
-
-/* ===== TESTIMONIALS ===== */
-.testimonials-section { background: var(--bg-main); padding: 5rem 0; }
-.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 2rem; margin-top: 3rem; }
-.testimonial-card {
-background: var(--bg-card);
-border: 1px solid var(--border);
-border-radius: 1rem; padding: 2rem;
-transition: all 0.35s ease; position: relative;
-}
-.testimonial-card:hover { border-color: var(--primary); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(59,130,246,0.2); }
-.testimonial-quote { font-size: 3.5rem; font-family: Georgia, serif; line-height: 0.8; color: var(--primary); opacity: 0.22; margin-bottom: 0.75rem; user-select: none; }
-.testimonial-stars { color: #fbbf24; font-size: 0.9rem; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
-.testimonial-text { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.75; font-style: italic; margin-bottom: 1.5rem; }
-.testimonial-author { display: flex; align-items: center; gap: 0.875rem; }
-.testimonial-avatar {
-width: 2.75rem; height: 2.75rem; border-radius: 50%;
-background: linear-gradient(135deg, var(--primary), var(--accent));
-display: flex; align-items: center; justify-content: center;
-font-weight: 700; font-size: 0.95rem; color: white; flex-shrink: 0;
-}
-.testimonial-name { font-weight: 600; color: var(--text-primary); font-size: 0.9rem; }
-.testimonial-role { font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.1rem; }
-
-/* ===== TERMINAL HERO ===== */
+/* ── TERMINAL (elemento de marca del hero) ── */
 .terminal-card {
-max-width: 500px; margin: 2.5rem auto 0;
-background: #0d1117; border-radius: 0.875rem;
-border: 1px solid rgba(59,130,246,0.22);
-overflow: hidden;
-box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 50px rgba(59,130,246,0.07);
-text-align: left;
+  background: #0b1020;
+  border: 1px solid var(--dk-bdr);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(15,23,42,.28);
 }
 .terminal-titlebar {
-background: #161b22; padding: 0.65rem 1rem;
-display: flex; align-items: center; gap: 0.4rem;
-border-bottom: 1px solid rgba(255,255,255,0.05);
+  display:flex; align-items:center; gap:.45rem;
+  padding:.7rem .9rem; background:#141a2e;
+  border-bottom:1px solid #1f2740;
 }
-.terminal-dot { width: 0.65rem; height: 0.65rem; border-radius: 50%; }
-.terminal-dot.red    { background: #ff5f57; }
-.terminal-dot.yellow { background: #febc2e; }
-.terminal-dot.green  { background: #28c840; }
-.terminal-wintitle { margin-left: 0.5rem; color: rgba(255,255,255,0.3); font-size: 0.74rem; font-family: 'SF Mono','Fira Code','Consolas',monospace; }
+.terminal-dot { width:11px; height:11px; border-radius:50%; display:inline-block; }
+.terminal-dot.red { background:#ff5f57; }
+.terminal-dot.yellow { background:#febc2e; }
+.terminal-dot.green { background:#28c840; }
+.terminal-wintitle { margin-left:auto; font-size:.72rem; color:#7c89a8; font-family:ui-monospace,Menlo,monospace; }
 .terminal-body {
-padding: 1.2rem 1.5rem;
-font-family: 'SF Mono','Fira Code','Consolas',monospace;
-font-size: 0.8rem; line-height: 1.9; min-height: 160px;
+  padding:1.1rem; min-height:250px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size:.78rem; line-height:1.85; color:#c9d4ea;
 }
-.t-prompt { color: #58a6ff; }
-.t-ok     { color: #3fb950; }
-.t-warn   { color: #d29922; }
-.t-info   { color: #8b949e; }
-.t-cursor {
-display: inline-block; width: 0.45rem; height: 0.9em;
-background: #58a6ff; vertical-align: text-bottom;
-animation: cur-blink 1s step-end infinite;
+.terminal-body > div { white-space:pre-wrap; }
+.t-prompt { color:#8ab4ff; }
+.t-info   { color:#93a4c4; }
+.t-ok     { color:#4ade80; }
+.t-warn   { color:#fbbf24; }
+.t-cursor { display:inline-block; width:8px; height:14px; background:#8ab4ff; animation:blink 1s step-end infinite; vertical-align:-2px; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* ══════════════════════════════════════════════════════
+   FRANJA DE PRINCIPIOS
+══════════════════════════════════════════════════════ */
+.logo-strip {
+  border-top:1px solid var(--bdr); border-bottom:1px solid var(--bdr);
+  padding:1.3rem 2rem; background: var(--card);
+  display:flex; align-items:center; justify-content:center;
+  gap:.8rem; flex-wrap:wrap;
 }
-@keyframes cur-blink { from,to{opacity:1} 50%{opacity:0} }
-
-/* ===== TOAST ===== */
-.toast-container { position: fixed; bottom: 1.5rem; right: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; z-index: 9999; pointer-events: none; }
-.toast {
-background: var(--bg-elevated); border: 1px solid var(--border);
-border-radius: 0.75rem; padding: 0.9rem 1.1rem;
-display: flex; align-items: flex-start; gap: 0.75rem;
-min-width: 260px; max-width: 360px;
-box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-transform: translateX(110%);
-transition: transform 0.35s cubic-bezier(.4,0,.2,1);
-pointer-events: all; font-size: 0.88rem; color: var(--text-primary); line-height: 1.4;
+.logo-strip .label { font-size:.78rem; color:var(--txt3); white-space:nowrap; font-weight:600; }
+.norm-pill {
+  display:inline-flex; align-items:center; gap:.35rem;
+  padding:.28rem .75rem; border-radius:99px;
+  border:1px solid var(--bdr); background:var(--elev);
+  font-size:.76rem; color:var(--txt2); font-weight:600; white-space:nowrap;
 }
-.toast.show { transform: translateX(0); }
-.toast-success { border-left: 3px solid #10b981; }
-.toast-error   { border-left: 3px solid #ef4444; }
-.toast-warning { border-left: 3px solid #f59e0b; }
-.toast-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.05rem; }
-.toast-msg  { flex: 1; }
-
-/* ===== STICKY MOBILE CTA ===== */
-.sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 800; padding: 0.65rem 1rem; background: rgba(15,28,46,0.97); border-top: 1px solid var(--border); backdrop-filter: blur(12px); gap: 0.6rem; }
-@media (max-width: 768px) {
-  .sticky-cta { display: flex; }
-  .sticky-cta .btn { flex: 1; text-align: center; font-size: 0.82rem; padding: 0.65rem 0.4rem; }
-  body { padding-bottom: 3.5rem; }
+.norm-pill.hl { border-color:rgba(29,78,216,.35); color:var(--p); background:rgba(29,78,216,.08); }
+/* ══════════════════════════════════════════════════════
+   SECCIONES GENÉRICAS
+══════════════════════════════════════════════════════ */
+.section { padding: 5rem 2rem; }
+.section-inner { max-width:1100px; margin:0 auto; }
+.section-label {
+  font-size:.78rem; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--p); margin-bottom:.7rem;
 }
+.section-title {
+  font-size:clamp(1.5rem,3vw,2.1rem); font-weight:900;
+  color:var(--dark); line-height:1.2; letter-spacing:-.02em;
+  margin-bottom:.8rem;
+}
+.section-sub { font-size:1rem; color:var(--txt2); max-width:640px; line-height:1.75; }
+.centered { text-align:center; }
+.centered .section-sub { margin:0 auto; }
 
-/* ===== ACTIVE NAV ===== */
-.nav-links a.active { color: var(--primary); }
-.nav-links a.active::after { width: 100%; }
+/* ── PRODUCTOS / ECOSISTEMA ── */
+.products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:2.6rem; }
+@media(max-width:900px){ .products-grid { grid-template-columns:1fr; } }
+.product-card {
+  display:flex; flex-direction:column;
+  background:var(--card); border:1px solid var(--bdr);
+  border-radius:14px; padding:1.7rem; position:relative; overflow:hidden;
+  transition:border-color .2s, transform .2s, box-shadow .2s;
+}
+.product-card:hover { transform:translateY(-4px); box-shadow:0 16px 36px rgba(15,23,42,.10); }
+.product-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.product-card.app::before    { background:linear-gradient(90deg,#5b6fd4,#7b8fd9); }
+.product-card.shield::before { background:linear-gradient(90deg,var(--p),var(--p-lt)); }
+.product-card.audit::before  { background:linear-gradient(90deg,var(--green),#34d399); }
+.product-icon {
+  width:48px; height:48px; border-radius:12px; margin-bottom:1rem;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.product-card.app .product-icon    { background:rgba(91,111,212,.12); color:#5b6fd4; }
+.product-card.shield .product-icon { background:rgba(29,78,216,.10); color:var(--p); }
+.product-card.audit .product-icon  { background:rgba(5,150,105,.10); color:var(--green); }
+.product-tags { display:flex; gap:.4rem; flex-wrap:wrap; margin-bottom:.9rem; }
+.ptag {
+  padding:.2rem .6rem; border-radius:99px; font-size:.7rem; font-weight:700;
+  border:1px solid var(--bdr); background:var(--elev); color:var(--txt2);
+}
+.ptag.blue   { border-color:rgba(29,78,216,.28); background:rgba(29,78,216,.08); color:var(--p); }
+.ptag.green  { border-color:rgba(5,150,105,.28); background:rgba(5,150,105,.08); color:var(--green); }
+.ptag.violet { border-color:rgba(91,111,212,.28); background:rgba(91,111,212,.08); color:#4c5cc0; }
+.product-card h3 { font-size:1.12rem; font-weight:800; color:var(--dark); margin-bottom:.5rem; }
+.product-card > p { font-size:.87rem; color:var(--txt2); line-height:1.65; margin-bottom:1rem; }
+.product-feats { list-style:none; margin-bottom:1.3rem; flex:1; }
+.product-feats li {
+  display:flex; gap:.55rem; align-items:flex-start;
+  font-size:.83rem; color:var(--txt2); padding:.3rem 0; line-height:1.5;
+}
+.product-feats li .tick { color:var(--p); flex-shrink:0; font-weight:800; }
+.product-card.audit .product-feats li .tick { color:var(--green); }
+.product-cta {
+  display:block; text-align:center; padding:.7rem 1rem; border-radius:var(--r);
+  font-size:.87rem; font-weight:700; transition:all .2s;
+}
+.product-cta.main { background:linear-gradient(135deg,var(--p),var(--p-lt)); color:#fff !important; }
+.product-cta.main:hover { opacity:.9; transform:translateY(-2px); }
+.product-cta.ghost { border:1.5px solid var(--bdr); color:var(--txt2) !important; }
+.product-cta.ghost:hover { border-color:var(--p); color:var(--p) !important; }
+.product-note { margin-top:.9rem; font-size:.74rem; color:var(--txt3); text-align:center; }
+.product-note a { font-weight:600; }
 
-/* ===== SUBMIT SPINNER ===== */
-@keyframes spin-btn { to { transform: rotate(360deg); } }
-.btn-spinner { display: inline-block; width: 0.9rem; height: 0.9rem; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin-btn 0.65s linear infinite; vertical-align: middle; margin-right: 0.4rem; }
+/* ── SERVICIOS ── */
+.services-bg { background: var(--elev); }
+.services-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem; margin-top:2.6rem; }
+@media(max-width:760px){ .services-grid { grid-template-columns:1fr; } }
+.service-card {
+  display:flex; gap:1.1rem; align-items:flex-start;
+  background:var(--card); border:1px solid var(--bdr);
+  border-radius:12px; padding:1.5rem;
+  transition:border-color .2s, transform .2s;
+}
+.service-card:hover { border-color:rgba(29,78,216,.35); transform:translateY(-3px); }
+.service-num {
+  flex-shrink:0; width:42px; height:42px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--p),var(--p-lt)); color:#fff;
+  font-weight:900; font-size:.9rem;
+}
+.service-card h3 { font-size:1rem; font-weight:800; color:var(--dark); margin-bottom:.4rem; }
+.service-card p { font-size:.85rem; color:var(--txt2); line-height:1.65; }
+.service-card p + p { margin-top:.5rem; }
+.service-card p strong { color:var(--txt); }
+/* ── QUÉ PROTEGEMOS ── */
+.features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.6rem; }
+@media(max-width:800px){ .features-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:520px){ .features-grid { grid-template-columns:1fr; } }
+.feat-card {
+  background:var(--card); border:1px solid var(--bdr);
+  border-radius:12px; padding:1.5rem;
+  transition:border-color .2s, transform .2s;
+}
+.feat-card:hover { border-color:rgba(29,78,216,.35); transform:translateY(-3px); }
+.feat-card .fi { font-size:1.5rem; margin-bottom:.8rem; }
+.feat-card h4 { font-size:.95rem; font-weight:800; color:var(--dark); margin-bottom:.35rem; }
+.feat-card .after { font-size:.82rem; color:var(--txt2); line-height:1.6; }
+.feat-card .after strong { color:var(--p-dk); }
+.feat-card ul { list-style:none; margin-top:.6rem; }
+.feat-card ul li { font-size:.79rem; color:var(--txt2); line-height:1.6; padding-left:.85rem; position:relative; }
+.feat-card ul li::before { content:'·'; position:absolute; left:.15rem; color:var(--p); font-weight:900; }
 
-/* ===== PREFERS REDUCED MOTION ===== */
+/* ── POR QUÉ (sección oscura) ── */
+.problem-section { background: linear-gradient(180deg, var(--dark) 0%, #0d1219 100%); }
+.problem-section .section-title { color:var(--white); }
+.problem-section .section-label { color:var(--p-lt); }
+.problem-section .section-sub { color:var(--dk-txt2); }
+.problem-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.6rem; }
+@media(max-width:800px){ .problem-grid { grid-template-columns:1fr; } }
+.problem-card {
+  border-radius:12px; padding:1.5rem;
+  background:rgba(224,82,82,.06); border:1px solid rgba(224,82,82,.2);
+}
+.problem-card .pc-icon { font-size:1.4rem; margin-bottom:.6rem; }
+.problem-card h4 { font-size:.92rem; font-weight:700; color:#f08080; margin-bottom:.4rem; }
+.problem-card p { font-size:.83rem; color:var(--dk-txt2); line-height:1.6; }
+.problem-card .pc-stat {
+  display:inline-block; margin-top:.7rem; padding:.25rem .65rem; border-radius:99px;
+  background:rgba(224,82,82,.15); border:1px solid rgba(224,82,82,.3);
+  font-size:.75rem; font-weight:700; color:#ff9090;
+}
+.compare-box {
+  margin-top:2.6rem; border-radius:14px; padding:1.8rem;
+  border:1px solid rgba(29,78,216,.25);
+  background:linear-gradient(160deg, rgba(29,78,216,.10), transparent);
+}
+.compare-box h3 { font-size:1.05rem; font-weight:800; color:var(--white); margin-bottom:1rem; }
+.compare-list { list-style:none; display:grid; gap:.6rem; }
+.compare-list li { display:flex; gap:.7rem; align-items:flex-start; font-size:.88rem; color:var(--dk-txt2); line-height:1.6; }
+.compare-list li .tick { color:#34d399; flex-shrink:0; font-weight:900; }
+
+/* ── CÓMO TRABAJAMOS ── */
+.steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.6rem; }
+@media(max-width:800px){ .steps-grid { grid-template-columns:1fr; } }
+.step-card { background:var(--card); border:1px solid var(--bdr); border-radius:12px; padding:1.6rem; }
+.step-card .step-n {
+  width:38px; height:38px; border-radius:10px; margin-bottom:.9rem;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(29,78,216,.08); color:var(--p); font-weight:900; font-size:.9rem;
+}
+.step-card h4 { font-size:.98rem; font-weight:800; color:var(--dark); margin-bottom:.4rem; }
+.step-card p { font-size:.85rem; color:var(--txt2); line-height:1.65; }
+
+/* ── TESTIMONIOS ── */
+.testimonials-bg { background: var(--elev); }
+.test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.6rem; }
+@media(max-width:800px){ .test-grid { grid-template-columns:1fr; } }
+.test-card { background:var(--card); border:1px solid var(--bdr); border-radius:12px; padding:1.5rem; }
+.test-stars { color:var(--acc); font-size:.9rem; margin-bottom:.8rem; }
+.test-card p { font-size:.86rem; color:var(--txt2); line-height:1.7; font-style:italic; margin-bottom:1.1rem; }
+.test-person { display:flex; align-items:center; gap:.7rem; }
+.test-avatar {
+  width:36px; height:36px; border-radius:50%;
+  background:linear-gradient(135deg,var(--p-dk),var(--p));
+  display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:.85rem; color:#fff; flex-shrink:0;
+}
+.test-name { font-size:.82rem; font-weight:700; color:var(--dark); }
+.test-role { font-size:.75rem; color:var(--txt3); line-height:1.4; }
+
+/* ── FAQ ── */
+.faq-list { max-width:760px; margin:2rem auto 0; }
+.faq-item { border-bottom:1px solid var(--bdr); }
+.faq-q {
+  display:flex; justify-content:space-between; align-items:center; gap:1rem;
+  padding:1.1rem 0; cursor:pointer; font-size:.95rem; font-weight:600;
+  color:var(--txt); user-select:none;
+}
+.faq-q:hover { color:var(--dark); }
+.faq-arrow { color:var(--txt3); font-size:1.1rem; transition:transform .25s; flex-shrink:0; }
+.faq-item.open .faq-arrow { transform:rotate(180deg); }
+.faq-a { overflow:hidden; max-height:0; font-size:.87rem; color:var(--txt2); line-height:1.75; transition:max-height .35s ease, padding .35s; }
+.faq-item.open .faq-a { max-height:520px; padding-bottom:1.1rem; }
+/* ── CONTACTO ── */
+.contact-section { background:var(--card); }
+.form-card {
+  max-width:720px; margin:2.6rem auto 0;
+  background:var(--bg); border:1px solid var(--bdr);
+  border-radius:14px; padding:2rem;
+}
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+@media(max-width:640px){ .form-row { grid-template-columns:1fr; } }
+.form-group { margin-bottom:1rem; }
+.form-group label { display:block; font-size:.8rem; color:var(--txt2); margin-bottom:.35rem; font-weight:600; }
+.form-group input, .form-group select, .form-group textarea {
+  width:100%; padding:.75rem .9rem;
+  background:var(--card); border:1px solid var(--bdr); border-radius:var(--r);
+  color:var(--txt); font-family:inherit; font-size:.9rem; transition:border .2s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--p); }
+.form-group textarea { min-height:120px; resize:vertical; }
+.form-submit { text-align:center; margin-top:.5rem; }
+.btn-submit {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.85rem 2rem; border-radius:var(--r);
+  background:linear-gradient(135deg,var(--p),var(--p-lt));
+  color:#fff; border:none; font-family:inherit; font-size:.93rem; font-weight:700;
+  cursor:pointer; transition:opacity .2s, transform .15s;
+}
+.btn-submit:hover { opacity:.9; transform:translateY(-2px); }
+.btn-submit:disabled { opacity:.6; cursor:wait; transform:none; }
+.form-note { margin-top:1rem; font-size:.76rem; color:var(--txt3); text-align:center; line-height:1.6; }
+.contact-info { display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; margin-top:1.5rem; }
+.contact-item { display:flex; align-items:center; gap:.6rem; font-size:.88rem; color:var(--txt2); }
+.contact-item strong { color:var(--dark); }
+
+/* ── CTA FINAL ── */
+.final-cta-section { background:var(--dark); padding:5rem 2rem; }
+.final-cta-box {
+  max-width:680px; margin:0 auto; text-align:center;
+  border:1px solid rgba(29,78,216,.25); border-radius:16px;
+  padding:3rem 2rem; background: linear-gradient(160deg, rgba(29,78,216,.08), transparent);
+}
+.final-cta-box h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:900; color:var(--white); margin-bottom:.8rem; }
+.final-cta-box p { font-size:.95rem; color:var(--dk-txt2); margin-bottom:2rem; line-height:1.7; }
+.final-cta-box p strong { color:var(--dk-txt); }
+.cta-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.final-cta-section .btn-hero-out { border-color:var(--dk-bdr); color:var(--dk-txt2) !important; }
+.final-cta-section .btn-hero-out:hover { border-color:var(--dk-txt2); color:var(--dk-txt) !important; }
+
+/* ── FOOTER ── */
+footer { border-top:1px solid var(--bdr); padding:3rem 2rem 2rem; background:var(--dark); }
+.footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:2rem; }
+@media(max-width:820px){ .footer-inner { grid-template-columns:1fr 1fr; } }
+.footer-logo { display:flex; align-items:center; gap:.5rem; font-weight:800; font-size:1rem; color:var(--white); margin-bottom:.7rem; }
+.footer-logo img { width:28px; height:28px; border-radius:5px; object-fit:contain; flex-shrink:0; display:block; }
+.footer-brand p { font-size:.82rem; color:var(--dk-txt2); line-height:1.6; max-width:280px; }
+.footer-brand .footer-badges { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.8rem; }
+.fbadge { padding:.2rem .6rem; border-radius:99px; border:1px solid var(--dk-bdr); background:rgba(255,255,255,.04); font-size:.7rem; color:var(--dk-txt2); }
+.footer-col h5 { font-size:.82rem; font-weight:700; color:var(--white); margin-bottom:.8rem; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:.4rem; }
+.footer-col ul li a, .footer-col ul li span { font-size:.82rem; color:var(--dk-txt2); }
+.footer-col ul li a:hover { color:var(--dk-txt); }
+.footer-bottom {
+  max-width:1100px; margin:2rem auto 0; padding-top:1.2rem;
+  border-top:1px solid var(--dk-bdr);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem;
+  font-size:.76rem; color:var(--txt3);
+}
+.footer-bottom a { color:var(--txt3); }
+.footer-bottom a:hover { color:var(--dk-txt2); }
+
+/* ── UTILS ── */
+.reveal { opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity:1; transform:none; }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-  .reveal { opacity: 1; transform: none; }
+  .reveal { opacity:1; transform:none; transition:none; }
+  html { scroll-behavior:auto; }
 }
+.toast {
+  position:fixed; left:50%; bottom:1.5rem; transform:translateX(-50%) translateY(20px);
+  background:var(--dark); color:var(--white); padding:.8rem 1.2rem; border-radius:var(--r);
+  font-size:.85rem; z-index:999; opacity:0; transition:opacity .25s, transform .25s;
+  max-width:90vw; box-shadow:0 12px 30px rgba(0,0,0,.3);
+}
+.toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+.toast.warning { background:#b45309; }
+.toast.error { background:#b91c1c; }
+.btn-spinner {
+  display:inline-block; width:14px; height:14px; margin-right:.4rem;
+  border:2px solid rgba(255,255,255,.4); border-top-color:#fff; border-radius:50%;
+  animation:spin .7s linear infinite; vertical-align:-2px;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
 </style>
 </head>
 <body>
-<header>
-<nav class="container">
-<a href="#" class="logo">
-<img src="/logo_guardianos.jpg" alt="GuardianOS Logo" class="logo-img">
-<span class="logo-text">🛡️ GuardianOS</span>
-</a>
-<button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-<ul class="nav-links" id="navLinks">
-<li><a href="#app" onclick="closeMobileMenu()" class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg> App GuardianOS</a></li>
-<li><a href="/shield/" onclick="closeMobileMenu()" class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Shield App</a></li>
-<li><a href="/audit/" onclick="closeMobileMenu()" class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Audit</a></li>
-<li><a href="#servicios" onclick="closeMobileMenu()">Servicios</a></li>
-<li><a href="#productos" onclick="closeMobileMenu()">Productos</a></li>
-<li><a href="#contacto" onclick="closeMobileMenu()">Contacto</a></li>
-</ul>
+
+<!-- ═══════════════════════════════ NAV ═════════════════════════════ -->
+<nav>
+  <a href="/" class="nav-brand" style="text-decoration:none">
+    <img class="nav-logo" src="/logo_guardianos.jpg" alt="GuardianOS">
+    GuardianOS
+  </a>
+  <button class="nav-burger" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false" id="burger">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="#productos" onclick="closeMenu()">Ecosistema</a>
+    <a href="#servicios" onclick="closeMenu()">Servicios</a>
+    <a href="#por-que" onclick="closeMenu()">Por qué</a>
+    <a href="#faq" onclick="closeMenu()">FAQ</a>
+    <a href="#contacto" class="nav-cta" onclick="closeMenu()">Contacto</a>
+  </div>
 </nav>
-</header>
-<section class="hero">
-<div class="container hero-content">
-<h1>Protección Digital Ética para Menores</h1>
-<p>Herramientas open-source <strong>y</strong> servicios profesionales para que tú y tus hijos naveguen seguros sin vigilancia invasiva.</p>
-<div class="hero-buttons">
-<a href="#app" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descargar App Gratuita</a>
-<a href="#servicios" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Servicios Profesionales</a>
-</div>
-<div class="terminal-card" aria-hidden="true">
-<div class="terminal-titlebar">
-<span class="terminal-dot red"></span>
-<span class="terminal-dot yellow"></span>
-<span class="terminal-dot green"></span>
-<span class="terminal-wintitle">guardianos — scan</span>
-</div>
-<div class="terminal-body" id="terminalBody"><span class="t-cursor"></span></div>
-</div>
-</div>
-</section>
-<section class="trust-badges">
-<div class="container">
-<div class="badges-grid">
-<div class="badge">
-<span class="badge-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-<div><strong>Encriptación E2E</strong><br>Comunicaciones seguras</div>
-</div>
-<div class="badge">
-<span class="badge-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
-<div><strong>Sin Root Requerido</strong><br>Garantía del fabricante intacta</div>
-</div>
-<div class="badge">
-<span class="badge-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-<div><strong>+120 Familias</strong><br>Confían en nosotros</div>
-</div>
-<div class="badge" style="background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(139,92,246,0.15)); border: 2px solid var(--primary);">
-<span class="badge-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-<div><strong><a href="https://guardianos.es/shield" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">GuardianOS Shield</a></strong><br>App 100% DeGoogled</div>
-</div>
-</div>
-</div>
-</section>
 
-<!-- ===== STATS SECTION ===== -->
-<section class="stats-section">
-<div class="container">
-<div class="stats-grid">
-<div class="stat-item reveal">
-<div class="stat-number" data-target="120" data-suffix="+">0</div>
-<div class="stat-label">Familias protegidas</div>
-</div>
-<div class="stat-item reveal reveal-d2">
-<div class="stat-number" data-target="3" data-suffix="">0</div>
-<div class="stat-label">Apps open-source gratuitas</div>
-</div>
-<div class="stat-item reveal reveal-d4">
-<div class="stat-number" data-static="true">100%</div>
-<div class="stat-label">Privado. Sin rastreo</div>
-</div>
-<div class="stat-item reveal reveal-d6">
-<div class="stat-number" data-target="0" data-suffix=" KB">0</div>
-<div class="stat-label">Datos enviados a terceros</div>
-</div>
-</div>
-</div>
+<!-- ═══════════════════════════════ HERO ════════════════════════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+
+    <div>
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Ecosistema de Soberanía Digital y Ciberseguridad · Open Source · Andalucía
+      </div>
+
+      <h1>
+        Protege tu mundo digital.
+        <em>Desde el móvil de tu hijo hasta la infraestructura de tu empresa.</em>
+      </h1>
+
+      <p class="hero-sub">
+        <strong>GuardianOS</strong> es un ecosistema integral de ciberseguridad y soberanía digital:
+        protegemos desde el dispositivo personal del usuario hasta la infraestructura crítica de tu
+        organización, bajo los estándares más estrictos de privacidad y código abierto.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#productos" class="btn-hero-main">Ver el ecosistema</a>
+        <a href="#servicios" class="btn-hero-out">Nuestros servicios</a>
+      </div>
+
+      <div class="trust-row">
+        <span class="trust-item"><span class="tick">✓</span> Open Source</span>
+        <span class="trust-sep">·</span>
+        <span class="trust-item"><span class="tick">✓</span> Privacy by Design</span>
+        <span class="trust-sep">·</span>
+        <span class="trust-item"><span class="tick">✓</span> Sin root</span>
+        <span class="trust-sep">·</span>
+        <span class="trust-item"><span class="tick">✓</span> 100% local</span>
+        <span class="trust-sep">·</span>
+        <span class="trust-item"><span class="tick">✓</span> Android 7.0+</span>
+      </div>
+    </div>
+
+    <div class="hero-card-col">
+      <div class="terminal-card" aria-hidden="true">
+        <div class="terminal-titlebar">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-wintitle">guardianos — scan</span>
+        </div>
+        <div class="terminal-body" id="terminalBody"><span class="t-cursor"></span></div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<!-- ===== CÓMO FUNCIONA ===== -->
-<section class="how-it-works">
-<div class="container">
-<div class="section-header">
-<h2>Cómo funciona</h2>
-<p>Tres pasos para proteger el dispositivo de tu hijo sin comprometer su privacidad</p>
+<!-- ═══════════════════════════════ PRINCIPIOS ══════════════════════ -->
+<div class="logo-strip">
+  <span class="label">Nuestros principios:</span>
+  <span class="norm-pill hl">Open Source</span>
+  <span class="norm-pill hl">Privacy by Design</span>
+  <span class="norm-pill">Sin rastreo</span>
+  <span class="norm-pill">Sin root</span>
+  <span class="norm-pill">100% local</span>
+  <span class="norm-pill">RGPD / LOPDGDD</span>
+  <span class="norm-pill">Compatible DeGoogled</span>
+  <span class="norm-pill">Código auditable</span>
+  <span class="norm-pill">Andalucía</span>
 </div>
-<div class="steps-grid">
-<div class="step-item reveal">
-<div class="step-number">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-</div>
-<div class="step-tag">Paso 1</div>
-<h3>Descarga</h3>
-<p>Instala GuardianOS App desde GitHub sin pasar por tiendas de apps. 100% open-source y gratuita.</p>
-</div>
-<div class="step-item reveal reveal-d3">
-<div class="step-number">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-</div>
-<div class="step-tag">Paso 2</div>
-<h3>Escanea</h3>
-<p>La app analiza las aplicaciones instaladas en busca de malware, trackers y permisos excesivos.</p>
-</div>
-<div class="step-item reveal reveal-d6">
-<div class="step-number">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-</div>
-<div class="step-tag">Paso 3</div>
-<h3>Actúa</h3>
-<p>Recibe un informe claro con recomendaciones éticas. O contrata un servicio profesional.</p>
-</div>
-</div>
-</div>
+<!-- ═══════════════════════════════ ¿QUÉ OFRECEMOS? ═════════════════ -->
+<section class="section" id="productos">
+  <div class="section-inner">
+    <div class="section-label">¿Qué ofrecemos?</div>
+    <h2 class="section-title">Ecosistema de Soberanía Digital y Ciberseguridad</h2>
+    <p class="section-sub">
+      Ofrecemos un ecosistema integral de ciberseguridad y soberanía digital. Protegemos desde el
+      dispositivo personal del usuario hasta la infraestructura crítica de tu organización, bajo los
+      estándares más estrictos de privacidad y código abierto.
+    </p>
+
+    <div class="products-grid">
+
+      <!-- 1 · GuardianOS (solo mención) -->
+      <div class="product-card app">
+        <div class="product-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>
+        </div>
+        <div class="product-tags">
+          <span class="ptag violet">OPEN SOURCE</span>
+          <span class="ptag">ANDROID</span>
+        </div>
+        <h3>GuardianOS</h3>
+        <p>
+          App Android de <strong>autoauditoría de seguridad</strong>. Analiza las aplicaciones
+          instaladas en busca de malware, stalkerware y permisos excesivos, con todo el
+          procesamiento dentro del propio dispositivo.
+        </p>
+        <ul class="product-feats">
+          <li><span class="tick">✓</span> Análisis 100% offline</li>
+          <li><span class="tick">✓</span> Informe PDF firmado con SHA-256</li>
+          <li><span class="tick">✓</span> Sin telemetría, sin cuentas, sin nube</li>
+        </ul>
+        <div class="product-note">
+          Proyecto open source · <a href="https://github.com/systemavworks/guardianos-android" target="_blank" rel="noopener">ver en GitHub</a>
+        </div>
+      </div>
+
+      <!-- 2 · GuardianOS Shield -->
+      <div class="product-card shield">
+        <div class="product-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="product-tags">
+          <span class="ptag blue">CONTROL PARENTAL</span>
+          <span class="ptag blue">DEGOOGLED</span>
+        </div>
+        <h3>GuardianOS Shield</h3>
+        <p>
+          Control parental <strong>100% local</strong> para Android. Filtrado DNS, bloqueo de apps
+          por categoría y Pacto Digital Familiar, sin rastreo, sin cuentas y sin servidores externos.
+        </p>
+        <ul class="product-feats">
+          <li><span class="tick">✓</span> Filtrado DNS y VPN transparente</li>
+          <li><span class="tick">✓</span> Perfiles parentales con PIN</li>
+          <li><span class="tick">✓</span> Sin analytics ni almacenamiento en la nube</li>
+        </ul>
+        <a href="/shield/" class="product-cta main">Ver GuardianOS Shield</a>
+      </div>
+
+      <!-- 3 · GuardianOS Audit -->
+      <div class="product-card audit">
+        <div class="product-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+        <div class="product-tags">
+          <span class="ptag green">SAAS</span>
+          <span class="ptag green">COMPLIANCE</span>
+        </div>
+        <h3>GuardianOS Audit</h3>
+        <p>
+          Plataforma <strong>en la nube</strong> de auditoría de ciberseguridad para pymes,
+          consultoras y MSPs. Score 0-100, detección de vulnerabilidades y plan de acción priorizado.
+        </p>
+        <ul class="product-feats">
+          <li><span class="tick">✓</span> Score 0-100 en 10 minutos</li>
+          <li><span class="tick">✓</span> RGPD, ENS, ISO 27001 y 21 marcos</li>
+          <li><span class="tick">✓</span> Informe PDF + certificado QR verificable</li>
+        </ul>
+        <a href="/audit/" class="product-cta main">Ver GuardianOS Audit</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════ SERVICIOS ════════════════════════ -->
+<section class="section services-bg" id="servicios">
+  <div class="section-inner">
+    <div class="section-label">Servicios profesionales</div>
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <p class="section-sub">
+      Soluciones personalizadas a nivel usuario o para familias, colegios y organizaciones.
+      Todo con el mismo enfoque: proteger sin vigilar, y dejar el control en tus manos.
+    </p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div>
+          <h3>Configuración Segura de Dispositivo</h3>
+          <p>
+            Configuramos tu móvil y el de tu hijo/a desde cero con las mejores prácticas de
+            seguridad. Compatible con OPPO, Xiaomi, Samsung y otros Android <strong>sin root</strong>.
+          </p>
+          <p><strong>Incluye:</strong> WhatsApp seguro, bloqueo de redes sociales peligrosas, filtrado DNS, eliminación automática de metadatos en fotos, privacidad en apps populares y sesión formativa con la familia.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div>
+          <h3>Talleres para Colegios y AMPAs</h3>
+          <p>
+            Charlas prácticas e interactivas para padres y profesores sobre cómo proteger a los
+            menores en el mundo digital <strong>sin invadir su privacidad</strong>.
+          </p>
+          <p><strong>Temas:</strong> «Móvil seguro para tu hijo/a: sin espiarle, sin prohibirle», riesgos reales de TikTok e Instagram, cómo hablar de privacidad con adolescentes y configuración práctica en vivo.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div>
+          <h3>Auditoría Express de Seguridad</h3>
+          <p>
+            Análisis técnico profundo del dispositivo para detectar riesgos, apps peligrosas,
+            rastreadores ocultos y configuraciones inseguras.
+          </p>
+          <p><strong>Entregamos:</strong> informe técnico con hallazgos, recomendaciones personalizadas y plan de acción priorizado.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div>
+          <h3>Migración a Android DeGoogled</h3>
+          <p>
+            Te acompañamos a dejar de depender de los servicios de Google: <strong>LineageOS, /e/OS o GrapheneOS</strong>,
+            con migración de datos, cuentas y apps.
+          </p>
+          <p><strong>Incluye:</strong> elección de sistema según tu dispositivo, instalación guiada, alternativas éticas a las apps de Google (F-Droid, Aurora Store, Nextcloud) y formación de uso.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <div>
+          <h3>Protección de Metadatos y Huella Digital</h3>
+          <p>
+            Reducimos tu <strong>huella digital</strong> y la de tu familia: metadatos en fotos, permisos
+            de apps, rastreadores publicitarios y exposición en redes sociales.
+          </p>
+          <p><strong>Incluye:</strong> limpieza y automatización de EXIF, revisión de permisos por app, bloqueo de rastreadores y guía para publicar sin revelar ubicación ni identidad.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <div>
+          <h3>Acompañamiento y Revisión Continua</h3>
+          <p>
+            La seguridad no es un día, es un hábito. Revisamos periódicamente la configuración
+            familiar y te avisamos de <strong>cambios que te afectan</strong>.
+          </p>
+          <p><strong>Incluye:</strong> revisión de configuración, actualización de filtros y listas de bloqueo, y soporte directo por email o teléfono cuando surge una duda.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="section-sub" style="margin-top:2.2rem">
+      ¿No sabes cuál necesitas? <a href="#contacto" style="font-weight:600">Escríbenos</a> y te orientamos sin compromiso.
+    </p>
+  </div>
+</section>
+<!-- ═══════════════════════════════ QUÉ PROTEGEMOS ═══════════════════ -->
+<section class="section" id="que-protegemos">
+  <div class="section-inner">
+    <div class="section-label">Áreas de protección</div>
+    <h2 class="section-title">¿Qué protegemos?</h2>
+    <p class="section-sub">
+      Seguridad integral para dispositivos móviles a nivel usuario y también de menores, sin
+      comprometer su privacidad ni su independencia.
+    </p>
+
+    <div class="features-grid">
+
+      <div class="feat-card">
+        <div class="fi">🔐</div>
+        <h4>Encriptación Total</h4>
+        <div class="after">Cifrado y comunicaciones seguras sin depender de servicios ajenos.</div>
+        <ul>
+          <li>WhatsApp con configuración mínima segura, sin metadatos compartidos ni backups en la nube</li>
+          <li>Alternativas éticas: Signal, SimpleX, Briar</li>
+          <li>Bloqueo opcional de redes con algoritmos adictivos</li>
+          <li>Navegador privado: Firefox Focus + bloqueadores</li>
+        </ul>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">📱</div>
+        <h4>Apps Seguras</h4>
+        <div class="after">Configuración profesional de las aplicaciones que más usan los menores.</div>
+        <ul>
+          <li>WhatsApp: privacidad máxima</li>
+          <li>Instagram: cuenta privada + filtros</li>
+          <li>TikTok: tiempo limitado + filtros</li>
+          <li>YouTube: modo restringido</li>
+        </ul>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">🌐</div>
+        <h4>Filtrado DNS</h4>
+        <div class="after">Control de contenido a nivel de red, <strong>sin apps espía</strong>.</div>
+        <ul>
+          <li>Bloqueo de contenido adulto</li>
+          <li>Filtrado de sitios maliciosos</li>
+          <li>Protección contra phishing</li>
+          <li>Sin afectar a la velocidad de navegación</li>
+        </ul>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">⏰</div>
+        <h4>Gestión de Tiempo</h4>
+        <div class="after">Límites saludables sin vigilancia excesiva.</div>
+        <ul>
+          <li>Horarios de uso personalizados</li>
+          <li>Descansos automáticos</li>
+          <li>Modo noche activado</li>
+          <li>Estadísticas de uso en el propio dispositivo</li>
+        </ul>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">🖼️</div>
+        <h4>Metadatos Eliminados</h4>
+        <div class="after">Protección de la información que viaja dentro de fotos y archivos.</div>
+        <ul>
+          <li>Eliminación automática de EXIF</li>
+          <li>Ubicación GPS eliminada</li>
+          <li>Datos de cámara borrados</li>
+          <li>Privacidad al publicar en redes sociales</li>
+        </ul>
+      </div>
+
+      <div class="feat-card">
+        <div class="fi">🔍</div>
+        <h4>Auditoría Completa</h4>
+        <div class="after">Análisis técnico profesional del dispositivo, con informe claro.</div>
+        <ul>
+          <li>Apps con permisos excesivos</li>
+          <li>Rastreadores detectados</li>
+          <li>Vulnerabilidades del sistema</li>
+          <li>Informe detallado y plan de acción</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════ POR QUÉ ══════════════════════════ -->
+<section class="section problem-section" id="por-que">
+  <div class="section-inner">
+    <div class="section-label">Por qué GuardianOS</div>
+    <h2 class="section-title">Otras herramientas te piden los datos de tus hijos. Nosotros no.</h2>
+    <p class="section-sub">
+      El control parental y la seguridad móvil se han convertido en un negocio de datos.
+      Nuestro ecosistema está construido al revés: primero la privacidad, después todo lo demás.
+    </p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="pc-icon">📡</div>
+        <h4>Los datos salen del dispositivo</h4>
+        <p>
+          La mayoría de apps de control parental suben ubicación, apps instaladas, historial de
+          navegación y contactos a sus servidores para «mejorar el servicio».
+        </p>
+        <span class="pc-stat">Tú no controlas ese servidor</span>
+      </div>
+
+      <div class="problem-card">
+        <div class="pc-icon">💳</div>
+        <h4>Gratis con trampa o cuota mensual</h4>
+        <p>
+          Los planes gratuitos monetizan con publicidad y datos; los completos pasan de 100 € al año
+          por familia. La privacidad acaba siendo un lujo.
+        </p>
+        <span class="pc-stat">Suscripciones que nunca terminan</span>
+      </div>
+
+      <div class="problem-card">
+        <div class="pc-icon">🔒</div>
+        <h4>No puedes verificar lo que dicen</h4>
+        <p>
+          Si el código es cerrado, la promesa de «no recopilamos datos» es una frase en una web.
+          No hay forma de comprobarlo y no depende de ti.
+        </p>
+        <span class="pc-stat">Confianza ciega</span>
+      </div>
+    </div>
+
+    <div class="compare-box">
+      <h3>Nuestro compromiso, verificable</h3>
+      <ul class="compare-list">
+        <li><span class="tick">✓</span> <span><strong>Todo local</strong> en el dispositivo: sin backend, sin cuentas y sin telemetría.</span></li>
+        <li><span class="tick">✓</span> <span><strong>Código abierto y auditable</strong>: puedes leer exactamente qué hace cada herramienta.</span></li>
+        <li><span class="tick">✓</span> <span><strong>Sin root</strong> ni manipulación del sistema: tu garantía y tu móvil quedan intactos.</span></li>
+        <li><span class="tick">✓</span> <span><strong>Compatible con entornos DeGoogled</strong> (LineageOS, /e/OS, GrapheneOS).</span></li>
+        <li><span class="tick">✓</span> <span><strong>Proteger sin vigilar</strong>: el objetivo es la autonomía del menor, no el control absoluto.</span></li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<section id="caracteristicas">
-<div class="container">
-<div class="section-header">
-<h2>¿Qué Protegemos?</h2>
-<p>Seguridad integral para dispositivos móviles a nivel usuario, también de menores, sin comprometer su privacidad ni independencia</p>
-</div>
-<div class="features-grid">
-<div class="feature-card reveal">
-<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-<h3>Encriptación Total</h3>
-<p>Implementamos cifrado end-to-end en todas las comunicaciones</p>
-<ul class="feature-list">
-<li> WhatsApp: configuración mínima segura (sin metadatos compartidos, sin backups en la nube)</li>
-<li> Alternativas éticas: Signal, SimpleX, Briar (sin rastreo, sin nube)</li>
-<li> Bloqueo parcial de TikTok, Instagram y redes con algoritmos adictivos (opcional)</li>
-<li> Navegador privado: Firefox Focus + bloqueadores</li>
-</ul>
-</div>
-<div class="feature-card reveal reveal-d1">
-<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg></span>
-<h3>Apps Seguras</h3>
-<p>Configuración profesional de aplicaciones populares</p>
-<ul class="feature-list">
-<li>WhatsApp: privacidad máxima</li>
-<li>Instagram: cuenta privada + filtros</li>
-<li>TikTok: tiempo limitado + filtros</li>
-<li>YouTube: modo restringido</li>
-</ul>
-</div>
-<div class="feature-card reveal reveal-d2">
-<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
-<h3>Filtrado DNS</h3>
-<p>Control de contenido a nivel de red sin apps espía</p>
-<ul class="feature-list">
-<li>Bloqueo de contenido adulto</li>
-<li>Filtrado de sitios maliciosos</li>
-<li>Protección contra phishing</li>
-<li>Sin afectar la velocidad</li>
-</ul>
-</div>
-<div class="feature-card reveal reveal-d3">
-<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-<h3>Gestión de Tiempo</h3>
-<p>Límites saludables sin vigilancia excesiva</p>
-<ul class="feature-list">
-<li>Horarios de uso personalizados</li>
-<li>Descansos automáticos</li>
-<li>Modo noche activado</li>
-<li>Estadísticas de uso</li>
-</ul>
-</div>
-<div class="feature-card reveal reveal-d4">
-<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span>
-<h3>Metadatos Eliminados</h3>
-<p>Protección de la información en fotos y archivos</p>
-<ul class="feature-list">
-<li>Scrambled Exif automático</li>
-<li>Ubicación GPS eliminada</li>
-<li>Datos de cámara borrados</li>
-<li>Privacidad en redes sociales</li>
-</ul>
-</div>
-<div class="feature-card reveal reveal-d5">
-<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-<h3>Auditoría Completa</h3>
-<p>Análisis técnico profesional del dispositivo</p>
-<ul class="feature-list">
-<li>Apps con permisos excesivos</li>
-<li>Rastreadores detectados</li>
-<li>Vulnerabilidades del sistema</li>
-<li>Informe detallado</li>
-</ul>
-</div>
-</div>
-</div>
+<!-- ═══════════════════════════════ CÓMO TRABAJAMOS ═════════════════ -->
+<section class="section" id="como-trabajamos">
+  <div class="section-inner">
+    <div class="section-label">Cómo trabajamos</div>
+    <h2 class="section-title">Tres pasos, sin tecnicismos y sin sorpresas</h2>
+    <p class="section-sub">
+      Da igual si empiezas por una app, por un servicio o por los dos: el proceso siempre es claro.
+    </p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-n">01</div>
+        <h4>Diagnóstico</h4>
+        <p>
+          Analizamos la situación real: dispositivos, apps instaladas, permisos y hábitos.
+          Recibes un informe claro de qué está bien y qué hay que cambiar.
+        </p>
+      </div>
+      <div class="step-card">
+        <div class="step-n">02</div>
+        <h4>Implementación</h4>
+        <p>
+          Configuramos todo contigo delante: filtrado, perfiles, horarios y privacidad de las apps.
+          Nada se instala sin que sepas para qué sirve.
+        </p>
+      </div>
+      <div class="step-card">
+        <div class="step-n">03</div>
+        <h4>Acompañamiento</h4>
+        <p>
+          Te enseñamos a mantenerlo y quedamos disponibles para dudas, cambios y revisiones
+          periódicas. La protección no acaba el día de la instalación.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- ========== GUARDIANOS APP SECTION ========== -->
-<!-- ========== SECCIÓN SHOWCASE DE PRODUCTOS ========== -->
-<section id="productos" style="background: linear-gradient(135deg, #080a11 0%, #0c0e14 100%); padding: 5rem 0;">
-<div class="container">
-<div class="section-header">
-<h2>Nuestro Ecosistema</h2>
-<p>Tres herramientas complementarias para proteger tu privacidad digital con un enfoque 100% ético y open-source</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+<!-- ═══════════════════════════════ TESTIMONIOS ═══════════════════════ -->
+<section class="section testimonials-bg" id="testimonios">
+  <div class="section-inner">
+    <div class="section-label">Testimonios</div>
+    <h2 class="section-title">Lo que dicen las familias</h2>
+    <p class="section-sub">Más de 120 familias en Andalucía ya protegen a sus hijos con un enfoque ético.</p>
 
-<!-- Card 1: GuardianOS App -->
-<a href="#app" class="feature-card reveal" style="display: flex; flex-direction: column; border: 2px solid rgba(91,111,212,0.7); background: linear-gradient(135deg, rgba(91,111,212,0.08), rgba(61,79,168,0.05)); text-decoration: none; color: inherit; cursor: pointer;">
-<div style="width:3.5rem;height:3.5rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;background:rgba(91,111,212,0.15);border-radius:0.875rem;border:1px solid rgba(91,111,212,0.3);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7b8fd9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1" fill="#7b8fd9"/></svg></div>
-<div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-<span style="background: rgba(91,111,212,0.2); color: #a5b4fc; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600;">GRATIS</span>
-<span style="background: rgba(42,157,143,0.15); color: #86d9d1; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600;">OPEN SOURCE</span>
-</div>
-<h3 style="color: #e2e8f0; margin-bottom: 0.75rem;">GuardianOS App</h3>
-<p style="color: var(--text-secondary); line-height: 1.7; flex: 1;">Auditoría de seguridad <strong>offline</strong> para Android. Detecta malware, stalkerware y permisos excesivos sin enviar ningún dato a internet.</p>
-<ul style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8; padding-left: 1.25rem; margin: 1rem 0;">
-<li>Análisis local 100% offline</li>
-<li>Informe PDF con firma SHA-256</li>
-<li>Versión PRO disponible (9,99€)</li>
-</ul>
-<div style="display: block; margin-top: auto; text-align: center; padding: 0.85rem 1.5rem; background: linear-gradient(135deg, #5b6fd4, #3d4fa8); color: #fff; border-radius: 0.6rem; font-weight: 600; font-size: 0.95rem;">Ver GuardianOS App ↗</div>
-</a>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>Configuraron el móvil de mi hija de 13 años en dos horas. Ahora sé que está protegida sin tener que espiarle el WhatsApp. La diferencia es enorme.</p>
+        <div class="test-person">
+          <div class="test-avatar">ML</div>
+          <div>
+            <div class="test-name">María L.</div>
+            <div class="test-role">Madre de familia · Sevilla</div>
+          </div>
+        </div>
+      </div>
 
-<!-- Card 2: GuardianOS Shield -->
-<a href="https://guardianos.es/shield" class="feature-card reveal reveal-d3" style="display: flex; flex-direction: column; border: 2px solid rgba(74,144,164,0.7); background: linear-gradient(135deg, rgba(74,144,164,0.08), rgba(91,111,212,0.05)); text-decoration: none; color: inherit; cursor: pointer;">
-<div style="width:3.5rem;height:3.5rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;background:rgba(74,144,164,0.15);border-radius:0.875rem;border:1px solid rgba(74,144,164,0.3);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6aaabb" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-<div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-<span style="background: rgba(74,144,164,0.2); color: #a8d8e4; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600;">CONTROL PARENTAL</span>
-<span style="background: rgba(42,157,143,0.15); color: #86d9d1; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600;">DEGOOGLED</span>
-</div>
-<h3 style="color: #e2e8f0; margin-bottom: 0.75rem;">GuardianOS Shield</h3>
-<p style="color: var(--text-secondary); line-height: 1.7; flex: 1;">App de control parental <strong>sin rastreo ni analytics</strong>. Filtrado DNS local, VPN transparente y perfiles personalizados para Android.</p>
-<ul style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8; padding-left: 1.25rem; margin: 1rem 0;">
-<li>Filtrado DNS 100% local</li>
-<li>Sin datos enviados a servidores</li>
-<li>Compatible Android 12–15</li>
-</ul>
-<div style="display: block; margin-top: auto; text-align: center; padding: 0.85rem 1.5rem; background: linear-gradient(135deg, #0891b2, #3b82f6); color: #fff; border-radius: 0.6rem; font-weight: 600; font-size: 0.95rem;">🛡 Ver GuardianOS Shield</div>
-</a>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>Hicieron una charla en nuestro AMPA sobre riesgos de TikTok. Fue práctica, sin alarmismos, y los padres se fueron con herramientas reales. Muy recomendable.</p>
+        <div class="test-person">
+          <div class="test-avatar">CR</div>
+          <div>
+            <div class="test-name">Carlos R.</div>
+            <div class="test-role">Presidente AMPA · Dos Hermanas</div>
+          </div>
+        </div>
+      </div>
 
-<!-- Card 3: GuardianOS Audit -->
-<a href="https://guardianos.es/audit" class="feature-card reveal reveal-d6" style="display: flex; flex-direction: column; border: 2px solid rgba(42,157,143,0.7); background: linear-gradient(135deg, rgba(42,157,143,0.08), rgba(201,169,78,0.05)); text-decoration: none; color: inherit; cursor: pointer;">
-<div style="width:3.5rem;height:3.5rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;background:rgba(42,157,143,0.15);border-radius:0.875rem;border:1px solid rgba(42,157,143,0.3);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3dc4b4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg></div>
-<div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-<span style="background: rgba(42,157,143,0.2); color: #81d4c9; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600;">PYMES</span>
-<span style="background: rgba(201,169,78,0.15); color: #e0c97a; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600;">COMPLIANCE</span>
-</div>
-<h3 style="color: #e2e8f0; margin-bottom: 0.75rem;">GuardianOS Audit</h3>
-<p style="color: var(--text-secondary); line-height: 1.7; flex: 1;">Auditorías de seguridad profesionales para <strong>empresas y organizaciones</strong>. Análisis técnico ISO 27001, detección de vulnerabilidades y plan de acción.</p>
-<ul style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8; padding-left: 1.25rem; margin: 1rem 0;">
-<li>Análisis técnico exhaustivo</li>
-<li>Informe ejecutivo + técnico</li>
-<li>Plan de acción priorizado</li>
-</ul>
-<div style="display: block; margin-top: auto; text-align: center; padding: 0.85rem 1.5rem; background: linear-gradient(135deg, #2a9d8f, #1a7a6e); color: #fff; border-radius: 0.6rem; font-weight: 600; font-size: 0.95rem;">Ver GuardianOS Audit ↗</div>
-</a>
-
-</div>
-</div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>La auditoría detectó que tres apps populares tenían acceso al micrófono activado. Simple, honesta y sin rastreo. Exactamente lo que necesitaba.</p>
+        <div class="test-person">
+          <div class="test-avatar">AP</div>
+          <div>
+            <div class="test-name">Ana P.</div>
+            <div class="test-role">Madre · Tomares, Sevilla</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+<!-- ═══════════════════════════════ FAQ ═════════════════════════════ -->
+<section class="section" id="faq">
+  <div class="section-inner">
+    <div class="section-label">Preguntas frecuentes</div>
+    <h2 class="section-title">Respuestas directas, sin rodeos</h2>
+    <p class="section-sub">Todo lo que necesitas saber antes de empezar.</p>
 
-<section id="app" style="background: linear-gradient(135deg, #0c0e14 0%, #13172a 100%);"><div class="container">
-<div class="section-header">
-<h2>GuardianOS App — Tu auditoría en las manos</h2>
-<p>App open-source gratuita que realiza auditorías técnicas <strong>offline y sin enviar datos a internet</strong>. Complementa nuestros servicios profesionales o úsala de forma autónoma.</p>
-</div>
-<div class="features-grid">
-<div class="feature-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-color: var(--primary);">
-<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-<h3>Auditoría Offline</h3>
-<p>Escanea apps instaladas directamente en tu dispositivo. <strong>Nunca envía datos a servidores externos</strong>. Todo el análisis se realiza localmente.</p>
-</div>
-<div class="feature-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-color: var(--primary);">
-<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-<h3>Detección Ética</h3>
-<p>Identifica malware, stalkerware y apps con permisos excesivos <strong>sin vigilancia invasiva</strong>. Respetamos la privacidad de tus hijos.</p>
-</div>
-<div class="feature-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-color: var(--primary);">
-<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
-<h3>Informe en PDF</h3>
-<p>Exporta resultados como PDF firmado digitalmente. Válido para compartir con profesionales o como documento personal.</p>
-</div>
-</div>
-<div style="max-width: 800px; margin: 3rem auto 0; background: var(--bg-card); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border);">
-<h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text-primary);">¿FREE o PRO?</h3>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
-<div style="background: rgba(30, 41, 59, 0.7); padding: 1.5rem; border-radius: 0.75rem; border: 2px solid #5b6fd4;">
-<h4 style="text-align: center; color: var(--primary); margin-bottom: 1rem;">Versión FREE</h4>
-<ul style="color: var(--text-secondary); line-height: 1.6; padding-left: 1.5rem;">
-<li>Escaneo de malware/stalkerware</li>
-<li>Auditoría ISO 27001 básica</li>
-<li>Monitor de red</li>
-<li>Exportación PDF estándar</li>
-<li>100% open-source y gratuita</li>
-</ul>
-<div style="text-align: center; margin-top: 1.5rem;">
-<a href="https://github.com/systemavworks/guardianos-android/releases" target="_blank" class="btn btn-primary" style="font-size: 0.95rem; padding: 0.75rem 1.5rem;">
-⬇️ Descargar FREE (GitHub)
-</a>
-</div>
-</div>
-<div style="background: rgba(30, 41, 59, 0.7); padding: 1.5rem; border-radius: 0.75rem; border: 2px solid var(--accent);">
-<h4 style="text-align: center; color: var(--accent); margin-bottom: 1rem;">Versión PRO (9,99€)</h4>
-<ul style="color: var(--text-secondary); line-height: 1.6; padding-left: 1.5rem;">
-<li>&#10003; Todo lo de FREE</li>
-<li>&#10003; Análisis de privacidad avanzado</li>
-<li>&#10003; Bóveda de documentos cifrada (AES-256)</li>
-<li>&#10003; Reportes PDF forenses con firma SHA-256</li>
-<li>&#10003; Sin anuncios</li>
-<li>&#10003; Soporte prioritario</li>
-</ul>
-<div style="text-align: center; margin-top: 1.5rem;">
-<a href="#pro-activation" class="btn btn-primary" style="background: linear-gradient(135deg, var(--accent), #b89038); font-size: 0.95rem; padding: 0.75rem 1.5rem;">
-Activar PRO — 9,99€
-</a>
-</div>
-</div>
-</div>
-<div style="background: rgba(91,111,212,0.08); border-left: 4px solid #5b6fd4; padding: 1.5rem; border-radius: 0 0.5rem 0.5rem 0;">
-<p style="font-style: italic; color: var(--text-secondary); line-height: 1.7;">
-<strong>Nota:</strong> La app GuardianOS es una herramienta de <em>autoauditoría</em>. Para análisis profesionales completos (configuración segura, talleres familiares, auditorías certificadas), <a href="#servicios" style="color: var(--primary); text-decoration: underline;">contrata nuestros servicios</a>. La app y los servicios se complementan perfectamente.
-</p>
-</div>
-</div>
-</div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ¿Qué diferencia hay entre GuardianOS, GuardianOS Shield y GuardianOS Audit?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Son las tres piezas del mismo ecosistema: <strong>GuardianOS</strong> es la app Android de
+          autoauditoría (analiza tu propio móvil), <strong>GuardianOS Shield</strong> es el control
+          parental 100% local para el móvil de los menores y <strong>GuardianOS Audit</strong> es la
+          plataforma de auditoría de ciberseguridad para empresas y consultoras. Comparten la misma
+          filosofía: código abierto, privacidad por diseño y nada de datos en la nube.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ¿Es necesario root para usar GuardianOS?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          No. Ni GuardianOS ni GuardianOS Shield requieren root. Funcionan en Android convencional y
+          también en entornos DeGoogled como LineageOS, /e/OS o GrapheneOS.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ¿Se envían datos del menor a servidores externos?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          No. Toda la información se procesa y se guarda en el propio dispositivo. No existe ningún
+          backend de telemetría, analytics ni almacenamiento en la nube, y puedes borrar los datos
+          cuando quieras.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ¿Qué diferencia hay entre la Auditoría Express y la Configuración Completa?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          La <strong>Auditoría Express</strong> es un análisis diagnóstico: apps con permisos
+          excesivos, riesgos detectados y recomendaciones escritas. La
+          <strong>Configuración Completa</strong> incluye además la implementación guiada de todas las
+          medidas de seguridad, con el tutor presente. Te pasamos el detalle y el presupuesto sin
+          compromiso.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ¿Funciona en entornos DeGoogled (LineageOS, /e/OS, GrapheneOS)?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Sí, está diseñado para ello. Ninguna de nuestras herramientas depende de los servicios de
+          Google Play ni de librerías propietarias, así que funcionan igual en un Android DeGoogled
+          que en un móvil de fábrica. También ofrecemos un servicio específico de migración.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ¿El servicio está disponible fuera de Sevilla?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Trabajamos presencialmente en Sevilla y su provincia, y en remoto para el resto de Andalucía
+          y España. Los talleres para colegios y AMPAs se imparten en directo o en formato online,
+          según prefieras.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ¿Por dónde empiezo si no sé qué necesito?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Escríbenos contando tu situación y te orientamos sin compromiso: qué herramienta encaja
+          mejor, si merece la pena un servicio profesional o si con la opción gratuita te basta.
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
-<!-- ========== GUARDIANOS SHIELD APP SECTION ========== -->
-<section id="shield" style="background: linear-gradient(135deg, #1a2035 0%, #0c0e14 100%);">
-<div class="container">
-<div class="section-header">
-<h2>GuardianOS Shield — App Open Source</h2>
-<p>Control parental 100% privado sin rastreo ni analytics. Filtrado DNS local y VPN transparente para Android.</p>
-</div>
-<div class="features-grid">
-<div class="feature-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-color: var(--primary);">
-<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
-<h3>Filtrado DNS Local</h3>
-<p>Bloquea contenido inapropiado a nivel de red con listas integradas. Todo procesado localmente sin enviar datos a internet.</p>
-</div>
-<div class="feature-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-color: var(--primary);">
-<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-<h3>VPN Transparente</h3>
-<p>Modo avanzado con VPN local que no corta el tráfico. Compatible con Android 12, 13, 14 y 15. Sin ralentización perceptible.</p>
-</div>
-<div class="feature-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-color: var(--primary);">
-<span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-<h3>Perfiles Parentales</h3>
-<p>PIN de seguridad, horarios de uso y restricciones personalizadas. Control total sin invadir la privacidad de tus hijos.</p>
-</div>
-</div>
-<div style="text-align: center; margin-top: 3rem;">
-<a href="https://guardianos.es/shield" target="_blank" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">
-Descargar GuardianOS Shield
-</a>
-<p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem;">
-Gratuito • Open Source • 100% Privado • Sin Analytics • Compatibilidad Android 12+
-</p>
-</div>
-</div>
+<!-- ═══════════════════════════════ CONTACTO ═════════════════════════ -->
+<section class="section contact-section" id="contacto">
+  <div class="section-inner">
+    <div class="section-label">Contacto</div>
+    <h2 class="section-title">¿Hablamos?</h2>
+    <p class="section-sub">Cuéntanos tu situación y te orientamos sin compromiso.</p>
+
+    <div class="form-card">
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="telefono">Teléfono *</label>
+            <input type="tel" id="telefono" name="telefono" required autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="servicio">¿Qué te interesa? *</label>
+            <select id="servicio" name="servicio" required>
+              <option value="">Selecciona una opción</option>
+              <option value="GuardianOS Shield (control parental)">GuardianOS Shield (control parental)</option>
+              <option value="GuardianOS Audit (empresas)">GuardianOS Audit (empresas)</option>
+              <option value="Configuración segura de dispositivo">Configuración segura de dispositivo</option>
+              <option value="Talleres para colegios y AMPAs">Talleres para colegios y AMPAs</option>
+              <option value="Auditoría express de seguridad">Auditoría express de seguridad</option>
+              <option value="Migración a Android DeGoogled">Migración a Android DeGoogled</option>
+              <option value="Consulta general">Consulta general</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje">Cuéntanos tu situación</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Ej: tengo un hijo de 12 años con móvil Android y me preocupa su seguridad online..."></textarea>
+        </div>
+
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-submit">
+          <button type="submit" class="btn-submit">Enviar solicitud</button>
+        </div>
+        <p class="form-note">
+          Al enviar aceptas nuestra <a href="/politica-privacidad.html">política de privacidad</a>.
+          No compartimos tus datos con terceros.
+        </p>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <span>✉️</span>
+        <div><strong>Email</strong><br><a href="mailto:info@guardianos.es">info@guardianos.es</a></div>
+      </div>
+      <div class="contact-item">
+        <span>📞</span>
+        <div><strong>Teléfono</strong><br><a href="tel:+34614837983">+34 614 83 79 83</a></div>
+      </div>
+      <div class="contact-item">
+        <span>📍</span>
+        <div><strong>Ubicación</strong><br>Andalucía, España</div>
+      </div>
+    </div>
+  </div>
 </section>
-<section id="servicios" class="services">
-<div class="container">
-<div class="section-header">
-<h2>Nuestros Servicios</h2>
-<p>Soluciones personalizadas a nivel usuario o para familias, colegios y organizaciones</p>
-</div>
-<div class="service-card">
-<div class="service-number">01</div>
-<div class="service-content">
-<h3>Configuración Segura de Dispositivo</h3>
-<p>Configuramos tu móvil y el de tu hijo/a desde cero con las mejores prácticas de seguridad. Compatible con OPPO, Xiaomi, Samsung y otros Android sin necesidad de root.</p>
-<p><strong>Incluye:</strong> WhatsApp seguro, bloqueo de redes sociales peligrosas, filtrado DNS, eliminación automática de metadatos en fotos, configuración de privacidad en apps populares, y sesión formativa con la familia.</p>
-</div>
-</div>
-<div class="service-card">
-<div class="service-number">02</div>
-<div class="service-content">
-<h3>Talleres para Colegios y AMPAs</h3>
-<p>Charlas prácticas e interactivas para padres y profesores sobre cómo proteger a los menores en el mundo digital sin invadir su privacidad.</p>
-<p><strong>Temas:</strong> "Móvil seguro para tu hijo/a: sin espiarle, sin prohibirle", Riesgos reales de TikTok e Instagram, Cómo hablar de privacidad con adolescentes, Configuración práctica en vivo.</p>
-</div>
-</div>
-<div class="service-card">
-<div class="service-number">03</div>
-<div class="service-content">
-<h3>Auditoría Express de Seguridad</h3>
-<p>Análisis técnico profundo del dispositivo actual para detectar riesgos, apps peligrosas, rastreadores ocultos y configuraciones inseguras.</p>
-<p><strong>Entregamos:</strong> Informe técnico general con hallazgos, recomendaciones personalizadas de mejora, y plan de acción prioritizado.</p>
-</div>
-</div>
-</div>
+<!-- ═══════════════════════════════ CTA FINAL ════════════════════════ -->
+<section class="final-cta-section">
+  <div class="final-cta-box">
+    <h2>Protege tu mundo digital sin renunciar a tu privacidad</h2>
+    <p>
+      Elige la herramienta que necesitas o cuéntanos tu caso.<br>
+      <strong>Open source, 100% local y sin sorpresas.</strong>
+    </p>
+    <div class="cta-row">
+      <a href="#productos" class="btn-hero-main">Ver el ecosistema</a>
+      <a href="#contacto" class="btn-hero-out">Hablar con nosotros</a>
+    </div>
+  </div>
 </section>
 
-<!-- ========== SECCIÓN PRO (COMPACTA) ========== -->
-<section id="pro-activation" style="background: linear-gradient(135deg, #0c0e14 0%, #13172a 100%); padding: 2rem 0;">
-<div class="container">
-<div style="max-width: 700px; margin: 0 auto;">
-<div style="background: var(--bg-card); border: 1px solid rgba(201,169,78,0.35); border-radius: 1rem; padding: 1.5rem; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-<!-- Izq: título + precio -->
-<div style="flex: 1 1 220px; text-align: center;">
-<div style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(201,169,78,0.15); color: #e0c97a; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; border: 1px solid rgba(201,169,78,0.4); margin-bottom: 0.6rem;">Premium</div>
-<div style="font-size: 1.1rem; font-weight: 700; color: #e2e8f0; margin-bottom: 0.25rem;">GuardianOS App PRO</div>
-<div style="font-size: 1.9rem; font-weight: 800; color: #e0c97a; line-height: 1.1;">9,99€</div>
-<div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.75rem;">pago único · para siempre</div>
-<div style="display: flex; flex-direction: column; gap: 0.4rem;">
-<a href="https://buy.stripe.com/3cI5kDc6t1Y1aZO6FW00001" target="_blank" rel="noopener" style="display: block; padding: 0.55rem 1rem; background: linear-gradient(135deg, #5b6fd4, #3d4fa8); color: #fff; border-radius: 0.5rem; font-weight: 600; text-decoration: none; font-size: 0.85rem;">Tarjeta / Google Pay</a>
-<a href="mailto:info@guardianos.es?subject=GuardianOS%20PRO%20%E2%80%93%20Bizum&body=Hola%2C%20quiero%20pagar%20con%20Bizum.%20Mi%20email%20es%3A" style="display: block; padding: 0.55rem 1rem; background: rgba(30,41,59,0.8); border: 1px solid var(--border); color: #e2e8f0; border-radius: 0.5rem; font-weight: 600; text-decoration: none; font-size: 0.85rem;">Bizum · 614 83 79 83</a>
-<a href="mailto:info@guardianos.es?subject=GuardianOS%20PRO%20%E2%80%93%20Transferencia" style="display: block; padding: 0.55rem 1rem; background: rgba(30,41,59,0.8); border: 1px solid var(--border); color: #e2e8f0; border-radius: 0.5rem; font-weight: 600; text-decoration: none; font-size: 0.85rem;">Transferencia bancaria</a>
-</div>
-</div>
-<!-- Der: features -->
-<ul style="flex: 1 1 220px; list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem;">
-<li style="display: flex; align-items: center; gap: 0.6rem; color: var(--text-secondary); font-size: 0.9rem;"><span style="color: #a78bfa;">✓</span> Análisis de privacidad avanzado</li>
-<li style="display: flex; align-items: center; gap: 0.6rem; color: var(--text-secondary); font-size: 0.9rem;"><span style="color: #a78bfa;">✓</span> Bóveda de documentos cifrada AES-256</li>
-<li style="display: flex; align-items: center; gap: 0.6rem; color: var(--text-secondary); font-size: 0.9rem;"><span style="color: #a78bfa;">✓</span> Reportes PDF forenses con firma SHA-256</li>
-<li style="display: flex; align-items: center; gap: 0.6rem; color: var(--text-secondary); font-size: 0.9rem;"><span style="color: #a78bfa;">✓</span> Sin anuncios — interfaz limpia</li>
-<li style="display: flex; align-items: center; gap: 0.6rem; color: var(--text-secondary); font-size: 0.9rem;"><span style="color: #a78bfa;">✓</span> Soporte prioritario por email</li>
-<li style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-secondary);">SSL · Código GUAR-XXXX por email · Sin caducidad</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ===== TESTIMONIOS ===== -->
-<section class="testimonials-section">
-<div class="container">
-<div class="section-header">
-<h2>Lo que dicen las familias</h2>
-<p>Más de 120 familias en Andalucía ya protegen a sus hijos con un enfoque ético</p>
-</div>
-<div class="testimonials-grid">
-<div class="testimonial-card reveal">
-<div class="testimonial-quote">&ldquo;</div>
-<div class="testimonial-stars">★★★★★</div>
-<p class="testimonial-text">Configuraron el móvil de mi hija de 13 años en dos horas. Ahora sé que está protegida sin tener que espiarle el WhatsApp. La diferencia es enorme.</p>
-<div class="testimonial-author">
-<div class="testimonial-avatar" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);display:flex;align-items:center;justify-content:center;">
-<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-</div>
-<div><div class="testimonial-name">María L.</div><div class="testimonial-role">Madre de familia · Sevilla</div></div>
-</div>
-</div>
-<div class="testimonial-card reveal reveal-d2">
-<div class="testimonial-quote">&ldquo;</div>
-<div class="testimonial-stars">★★★★★</div>
-<p class="testimonial-text">Hicieron una charla en nuestro AMPA sobre riesgos de TikTok. Fue práctica, sin alarmismos, y los padres se fueron con herramientas reales. Muy recomendable.</p>
-<div class="testimonial-author">
-<div class="testimonial-avatar" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);display:flex;align-items:center;justify-content:center;">
-<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-</div>
-<div><div class="testimonial-name">Carlos R.</div><div class="testimonial-role">Presidente AMPA · Dos Hermanas</div></div>
-</div>
-</div>
-<div class="testimonial-card reveal reveal-d4">
-<div class="testimonial-quote">&ldquo;</div>
-<div class="testimonial-stars">★★★★★</div>
-<p class="testimonial-text">La app GuardianOS detectó que tres apps populares tenían acceso al micrófono activado. Simple, gratuita y honesta. Exactamente lo que necesitaba.</p>
-<div class="testimonial-author">
-<div class="testimonial-avatar" style="background:linear-gradient(135deg,#06b6d4,#10b981);display:flex;align-items:center;justify-content:center;">
-<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-</div>
-<div><div class="testimonial-name">Ana P.</div><div class="testimonial-role">Madre · Tomares, Sevilla</div></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ===== FAQ ===== -->
-<section id="faq" class="faq-section" style="padding:5rem 0;background:var(--bg-card);">
-<div class="container">
-<div class="section-header">
-<h2>Preguntas frecuentes</h2>
-<p>Todo lo que necesitas saber antes de empezar</p>
-</div>
-<div class="faq-list" style="max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:1rem;">
-
-<details class="faq-item reveal" style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:1rem;overflow:hidden;">
-<summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary);">
-¿Es necesario root para usar GuardianOS?
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;color:var(--primary)"><polyline points="6 9 12 15 18 9"/></svg>
-</summary>
-<p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary);line-height:1.7;margin:0;">No. Ni GuardianOS ni GuardianOS Shield requieren root. Funcionan en Android convencional (Android 8+) y también en entornos deGoogled como LineageOS o /e/OS.</p>
-</details>
-
-<details class="faq-item reveal reveal-d2" style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:1rem;overflow:hidden;">
-<summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary);">
-¿Se envían datos del menor a servidores externos?
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;color:var(--primary)"><polyline points="6 9 12 15 18 9"/></svg>
-</summary>
-<p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary);line-height:1.7;margin:0;">No. Toda la información procesada por la app permanece en el propio dispositivo. No existe ningún backend de telemetría, analytics ni almacenamiento en nube.</p>
-</details>
-
-<details class="faq-item reveal reveal-d2" style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:1rem;overflow:hidden;">
-<summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary);">
-¿Qué diferencia hay entre la Auditoría y la Configuración Completa?
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;color:var(--primary)"><polyline points="6 9 12 15 18 9"/></svg>
-</summary>
-<p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary);line-height:1.7;margin:0;">La Auditoría Express (49€) es un análisis diagnóstico: apps con permisos excesivos, riesgos detectados y recomendaciones escritas. La Configuración Completa (desde 89€) incluye además la implementación guiada de todas las medidas de seguridad con el tutor presente.</p>
-</details>
-
-<details class="faq-item reveal reveal-d4" style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:1rem;overflow:hidden;">
-<summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary);">
-¿El servicio está disponible fuera de Sevilla?
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;color:var(--primary)"><polyline points="6 9 12 15 18 9"/></svg>
-</summary>
-<p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary);line-height:1.7;margin:0;">Los servicios presenciales están centrados en Sevilla y provincia. Las sesiones de configuración y talleres también pueden realizarse de forma remota para cualquier punto de España.</p>
-</details>
-
-<details class="faq-item reveal reveal-d4" style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:1rem;overflow:hidden;">
-<summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary);">
-¿Cuánto tarda la configuración de un dispositivo?
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;color:var(--primary)"><polyline points="6 9 12 15 18 9"/></svg>
-</summary>
-<p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary);line-height:1.7;margin:0;">Una configuración estándar dura entre 90 minutos y 3 horas según el estado del dispositivo. Se realiza con el tutor o padre/madre presente para explicar cada decisión tomada.</p>
-</details>
-
-<details class="faq-item reveal reveal-d4" style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:1rem;overflow:hidden;">
-<summary style="padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary);">
-¿Puede el menor desinstalar la app GuardianOS Shield?
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron" style="transition:transform 0.3s;flex-shrink:0;color:var(--primary)"><polyline points="6 9 12 15 18 9"/></svg>
-</summary>
-<p style="padding:0 1.5rem 1.25rem;color:var(--text-secondary);line-height:1.7;margin:0;">Shield puede protegerse frente a desinstalaciones mediante el perfil parental con PIN. Sin conocer el PIN del tutor, el menor no puede desactivar ni eliminar la app.</p>
-</details>
-
-</div>
-</div>
-</section>
-<style>
-details.faq-item[open] .faq-chevron { transform: rotate(180deg); }
-details.faq-item summary::-webkit-details-marker { display: none; }
-</style>
-
-<!-- ✅ Contacto — ahora con id="contacto" y formulario corregido -->
-<section id="contacto" class="contact-form-section">
-<div class="container">
-<div class="section-header">
-<h2>¿Hablamos?</h2>
-<p>Estamos aquí para ayudarte a proteger lo más importante</p>
-</div>
-<div class="form-container">
-<form id="contactForm">
-<div class="form-row">
-<div class="form-group">
-<label for="nombre">Nombre completo *</label>
-<input type="text" id="nombre" name="nombre" required autocomplete="name">
-</div>
-<div class="form-group">
-<label for="email">Email *</label>
-<input type="email" id="email" name="email" required autocomplete="email">
-</div>
-</div>
-<div class="form-row">
-<div class="form-group">
-<label for="telefono">Teléfono *</label>
-<input type="tel" id="telefono" name="telefono" required autocomplete="tel">
-</div>
-<div class="form-group">
-<label for="servicio">Servicio de interés *</label>
-<select id="servicio" name="servicio" required
-style="
-width: 100%;
-padding: 1rem;
-font-size: 1rem;
-border: 2px solid var(--border);
-border-radius: 0.5rem;
-background: var(--bg-card);
-color: var(--text-primary);
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none;
-background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 24 24%22%3E%3Cpath d%3D%22M7 10l5 5 5-5z%22%2F%3E%3C%2Fsvg%3E');
-background-repeat: no-repeat;
-background-position: right 1rem center;
-background-size: 16px;
-">
-<option value="">Selecciona un servicio</option>
-<option value="Auditoría Express (49€)">Auditoría Express (49€)</option>
-<option value="Configuración Completa (Desde 89€)">Configuración Completa (Desde 89€)</option>
-<option value="Taller para Colegios">Taller para Colegios</option>
-<option value="GuardianOS Shield App">GuardianOS Shield App</option>
-<option value="GuardianOS PRO App">GuardianOS PRO App</option>
-<option value="Consulta General">Consulta General</option>
-</select>
-</div>
-</div>
-<div class="form-group">
-<label for="mensaje">Cuéntanos tu situación</label>
-<textarea id="mensaje" name="mensaje" placeholder="Ej: Tengo un hijo de 12 años con móvil Android y me preocupa su seguridad online..."></textarea>
-</div>
-<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-<div class="form-submit">
-<button type="submit" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Enviar Solicitud</button>
-</div>
-</form>
-</div>
-</div>
-</section>
-<section class="contact" style="padding: 2rem 0;">
-<div class="container">
-<h2>¿Prefieres contactarnos directamente?</h2>
-<p style="font-size: 1rem; margin: 0.75rem 0;">Estamos aquí para ayudarte a proteger lo más importante</p>
-<div class="contact-info">
-<div class="contact-item">
-<span class="contact-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
-<div>
-<strong>Email</strong><br>
-info@guardianos.es
-</div>
-</div>
-<div class="contact-item">
-<span class="contact-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-<div>
-<strong>Teléfono</strong><br>
-+34 614 83 79 83
-</div>
-</div>
-<div class="contact-item">
-<span class="contact-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-<div>
-<strong>Ubicación</strong><br>
-Andalucía, España
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Trust Logos — como antes -->
-<section class="trust-logos-section">
-<div class="container">
-<div style="text-align: center; margin-bottom: 1.5rem;">
-<h3 style="color: var(--text-primary); font-weight: 600; font-size: 1.25rem;">
-Confiamos en estándares abiertos, éticos y verificables
-</h3>
-<p style="color: var(--text-secondary); max-width: 600px; margin: 0.5rem auto; font-size: 0.95rem;">
-Tecnología transparente. Sin backdoors. Sin tracking. Código abierto siempre que sea posible.
-</p>
-</div>
-<div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem;">
-<div style="text-align: center; max-width: 120px;">
-<div style="width:2.5rem;height:2.5rem;margin:0 auto 0.5rem;display:flex;align-items:center;justify-content:center;color:var(--primary);"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-<div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">Código Abierto</div>
-<div style="font-size: 0.75rem; color: var(--text-secondary);">Auditable y comunitario</div>
-</div>
-<div style="text-align: center; max-width: 120px;">
-<div style="width:2.5rem;height:2.5rem;margin:0 auto 0.5rem;display:flex;align-items:center;justify-content:center;color:var(--primary);"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div>
-<div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">Sin Vigilancia</div>
-<div style="font-size: 0.75rem; color: var(--text-secondary);">Control sin espiar</div>
-</div>
-<div style="text-align: center; max-width: 120px;">
-<div style="width:2.5rem;height:2.5rem;margin:0 auto 0.5rem;display:flex;align-items:center;justify-content:center;color:var(--primary);"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
-<div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">E2E Segura</div>
-<div style="font-size: 0.75rem; color: var(--text-secondary);">Solo tú y el receptor</div>
-</div>
-<div style="text-align: center; max-width: 120px;">
-<div style="width:2.5rem;height:2.5rem;margin:0 auto 0.5rem;display:flex;align-items:center;justify-content:center;color:var(--primary);"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg></div>
-<div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">GDPR+LOPD</div>
-<div style="font-size: 0.75rem; color: var(--text-secondary);">Cumplimiento legal</div>
-</div>
-<div style="text-align: center; max-width: 120px;">
-<div style="width:2.5rem;height:2.5rem;margin:0 auto 0.5rem;display:flex;align-items:center;justify-content:center;color:var(--primary);"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1" fill="currentColor"/><path d="M9 6h6M9 10h6"/></svg></div>
-<div style="font-size: 0.85rem; font-weight: 500; color: var(--text-primary);">Android Ético</div>
-<div style="font-size: 0.75rem; color: var(--text-secondary);">LineageOS • e/OS • Calyx</div>
-</div>
-</div>
-</div>
-</section>
+<!-- ═══════════════════════════════ FOOTER ══════════════════════════ -->
 <footer>
-<div class="container">
-<div class="footer-content">
-<div class="footer-section">
-<h4>GuardianOS</h4>
-<p>Protección digital ética para menores. Sin vigilancia. Sin miedo.🛡️ "GuardianOS no te dice qué hacer. Te muestra qué está pasando."
-Mientras otros venden guías, nosotros te damos una linterna para que explores tú mismo el interior de tus apps…
-sin internet, sin rastreo,con total respeto a la privacidad de tus hijos/as y la tuya.</p>
-<p style="margin-top: 1rem; font-size: 0.9rem;">
-<strong>Victor Shift Lara</strong><br>
-Digital Sovereignty Engineer<br>
-Founder, guardianos<br>
-Privacy-by-Design · Android Audits · dGoogled
-</p>
-</div>
-<div class="footer-section">
-<h4>Servicios</h4>
-<ul>
-<li><a href="#app">GuardianOS App</a></li>
-<li><a href="#servicios">Configuración de Dispositivos</a></li>
-<li><a href="#servicios">Talleres Educativos</a></li>
-<li><a href="#servicios">Auditorías de Seguridad</a></li>
-<li><a href="#pro-activation">GuardianOS PRO App</a></li>
-<li><a href="/shield/">GuardianOS Shield App</a></li>
-<li><a href="/audit/">GuardianOS Audit</a></li>
-</ul>
-</div>
-<div class="footer-section">
-<h4>Legal</h4>
-<ul>
-<li><a href="aviso-legal.html">Aviso Legal</a></li>
-<li><a href="politica-privacidad.html">Política de Privacidad</a></li>
-<li><a href="terminos.html">Términos de Servicio</a></li>
-</ul>
-</div>
-<div class="footer-section">
-<h4>Contacto</h4>
-<ul>
-<li><a href="mailto:info@guardianos.es">info@guardianos.es</a></li>
-<li><a href="tel:+34614837983">+34 614 83 79 83</a></li>
-<li>Andalucía, España</li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2026 GuardianOS – Protección que crece contigo.</p>
-</div>
-</div>
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="/logo_guardianos.jpg" alt="GuardianOS">
+        GuardianOS
+      </div>
+      <p>
+        Ecosistema de soberanía digital y ciberseguridad. Protegemos desde el dispositivo
+        personal hasta la infraestructura crítica de tu organización.
+      </p>
+      <div class="footer-badges">
+        <span class="fbadge">Open Source</span>
+        <span class="fbadge">Privacy by Design</span>
+        <span class="fbadge">Sin rastreo</span>
+        <span class="fbadge">🇪🇺 RGPD</span>
+        <span class="fbadge">Andalucía</span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Ecosistema</h5>
+      <ul>
+        <li><a href="#productos">GuardianOS</a></li>
+        <li><a href="/shield/">GuardianOS Shield</a></li>
+        <li><a href="/audit/">GuardianOS Audit</a></li>
+        <li><a href="#que-protegemos">Áreas de protección</a></li>
+        <li><a href="https://github.com/systemavworks" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Servicios</h5>
+      <ul>
+        <li><a href="#servicios">Configuración segura</a></li>
+        <li><a href="#servicios">Talleres y AMPAs</a></li>
+        <li><a href="#servicios">Auditoría express</a></li>
+        <li><a href="#servicios">Migración DeGoogled</a></li>
+        <li><a href="#contacto">Acompañamiento</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Legal y contacto</h5>
+      <ul>
+        <li><a href="mailto:info@guardianos.es">info@guardianos.es</a></li>
+        <li><a href="tel:+34614837983">+34 614 83 79 83</a></li>
+        <li><a href="/aviso-legal.html">Aviso legal</a></li>
+        <li><a href="/politica-privacidad.html">Política de privacidad</a></li>
+        <li><a href="/terminos.html">Términos de servicio</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 GuardianOS · Protección que crece contigo · Andalucía, España</span>
+    <span>
+      <a href="/shield/">Shield</a> ·
+      <a href="/audit/">Audit</a> ·
+      <a href="#contacto">Contacto</a>
+    </span>
+  </div>
 </footer>
 <script>
-// Mobile Menu Toggle
-function toggleMobileMenu() {
-const navLinks = document.getElementById('navLinks');
-navLinks.classList.toggle('active');
-const btn = document.querySelector('.mobile-menu-btn');
-if (btn) btn.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+// ── Menú móvil ────────────────────────────────────────────────────────────────
+function toggleMenu() {
+  const links = document.getElementById('navLinks');
+  const burger = document.getElementById('burger');
+  const open = links.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
-function closeMobileMenu() {
-const navLinks = document.getElementById('navLinks');
-navLinks.classList.remove('active');
-const btn = document.querySelector('.mobile-menu-btn');
-if (btn) btn.setAttribute('aria-expanded', 'false');
+function closeMenu() {
+  const links = document.getElementById('navLinks');
+  const burger = document.getElementById('burger');
+  links.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
 }
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-e.preventDefault();
-const target = document.querySelector(this.getAttribute('href'));
-if (target) {
-target.scrollIntoView({
-behavior: 'smooth',
-block: 'start'
-});
-closeMobileMenu();
-}
-});
-});
-// Header Shadow on Scroll
-window.addEventListener('scroll', () => {
-const header = document.querySelector('header');
-if (window.scrollY > 50) {
-header.style.boxShadow = '0 4px 20px rgba(59, 130, 246, 0.3)';
-} else {
-header.style.boxShadow = '0 1px 3px rgba(59, 130, 246, 0.2)';
-}
-});
-// ✅ Formulario: envío a Formspree + redirección a gracias.html
-document.addEventListener('DOMContentLoaded', function() {
-const form = document.getElementById('contactForm');
-if (!form) return;
-form.addEventListener('submit', function(e) {
-e.preventDefault();
-const btn = form.querySelector('button[type="submit"]');
-const origText = btn.innerHTML;
-btn.disabled = true;
-btn.innerHTML = '<span class="btn-spinner"></span> Enviando…';
-const data = {
-nombre: form.nombre.value,
-email: form.email.value,
-telefono: form.telefono.value,
-servicio: form.servicio.value,
-mensaje: form.mensaje.value,
-_subject: "📩 Nueva solicitud – guardianos.es",
-_replyto: form.email.value
-};
-fetch('https://formspree.io/f/xdaoraeo', {
-method: 'POST',
-headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-body: JSON.stringify(data)
-})
-.then(res => res.json())
-.then(json => {
-if (json.ok) {
-window.location.href = 'gracias.html';
-} else {
-showToast('warning', json.error || 'Intenta de nuevo o escríbenos a info@guardianos.es');
-btn.disabled = false;
-btn.innerHTML = origText;
-}
-})
-.catch(() => {
-showToast('error', 'Error de red. Escríbenos directamente a info@guardianos.es');
-btn.disabled = false;
-btn.innerHTML = origText;
-});
-});
-});
-</script>
 
-<!-- Sticky CTA (only mobile) -->
-<div class="sticky-cta">
-<a href="https://github.com/systemavworks/guardianos-android/releases" target="_blank" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> App Gratuita</a>
-<a href="#contacto" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Contactar</a>
-</div>
+// ── FAQ (acordeón, una abierta a la vez) ──────────────────────────────────────
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
 
-<!-- Toast container -->
-<div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
-
-<script>
-// ===== TOAST =====
-function showToast(type, msg) {
-  var container = document.getElementById('toastContainer');
-  if (!container) return;
-  var icons = { success: '✅', error: '❌', warning: '⚠️' };
-  var toast = document.createElement('div');
-  toast.className = 'toast toast-' + type;
-  toast.innerHTML = '<span class="toast-icon">' + (icons[type] || 'ℹ️') + '</span><span class="toast-msg">' + msg + '</span>';
-  container.appendChild(toast);
-  requestAnimationFrame(function() {
-    requestAnimationFrame(function() { toast.classList.add('show'); });
+// ── Scroll suave + cierre del menú ────────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      closeMenu();
+    }
   });
-  setTimeout(function() {
-    toast.classList.remove('show');
-    toast.addEventListener('transitionend', function() { if (toast.parentNode) toast.remove(); }, { once: true });
-  }, 5000);
+});
+
+// ── Aviso flotante ────────────────────────────────────────────────────────────
+function showToast(kind, msg) {
+  let toast = document.querySelector('.toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    document.body.appendChild(toast);
+  }
+  toast.className = 'toast ' + kind;
+  toast.textContent = msg;
+  requestAnimationFrame(() => toast.classList.add('show'));
+  setTimeout(() => { toast.classList.remove('show'); }, 5000);
 }
 
-// ===== SCROLL REVEAL =====
-(function() {
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
-})();
-
-// ===== STATS COUNTER =====
-(function() {
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (!e.isIntersecting) return;
-      var el = e.target;
-      if (el.dataset.static === 'true') { obs.unobserve(el); return; }
-      var target = parseInt(el.dataset.target, 10);
-      var suffix = el.dataset.suffix || '';
-      var start = performance.now();
-      var dur = 1400;
-      function step(now) {
-        var p = Math.min((now - start) / dur, 1);
-        var ease = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(target * ease) + suffix;
-        if (p < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-      obs.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.stat-number[data-target]').forEach(function(el) { obs.observe(el); });
-})();
-
-// ===== TERMINAL ANIMATION =====
-(function() {
+// ── Reveal al hacer scroll ────────────────────────────────────────────────────
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('visible'); revealObserver.unobserve(en.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.product-card, .service-card, .feat-card, .problem-card, .compare-box, .step-card, .test-card, .form-card, .section-title').forEach(el => {
+  el.classList.add('reveal');
+  revealObserver.observe(el);
+});
+// Red de seguridad: si el IntersectionObserver no dispara, se muestra todo igualmente.
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+}, 1500);
+// ── Terminal animado del hero ─────────────────────────────────────────────────
+(function () {
   var body = document.getElementById('terminalBody');
   if (!body) return;
   var lines = [
@@ -2398,13 +1382,10 @@ function showToast(type, msg) {
     { cls: 't-ok',     text: '✓ WhatsApp: privacidad configurada' },
     { cls: 't-ok',     text: '✓ Filtrado DNS: activo' },
     { cls: 't-info',   text: '→ Generando informe PDF...' },
-    { cls: 't-ok',     text: '✓ guardianos_report.pdf generado' },
+    { cls: 't-ok',     text: '✓ guardianos_report.pdf generado' }
   ];
   var i = 0;
-  function reset() {
-    body.innerHTML = '<span class="t-cursor"></span>';
-    i = 0; setTimeout(run, 600);
-  }
+  function reset() { body.innerHTML = '<span class="t-cursor"></span>'; i = 0; setTimeout(run, 600); }
   function run() {
     if (i >= lines.length) { setTimeout(reset, 3500); return; }
     var line = lines[i++];
@@ -2414,28 +1395,71 @@ function showToast(type, msg) {
     div.textContent = line.text;
     var cursor = body.querySelector('.t-cursor');
     if (cursor) body.insertBefore(div, cursor); else body.appendChild(div);
-    requestAnimationFrame(function() {
-      setTimeout(function() { div.style.transition = 'opacity 0.25s'; div.style.opacity = '1'; }, 10);
+    requestAnimationFrame(function () {
+      setTimeout(function () { div.style.transition = 'opacity 0.25s'; div.style.opacity = '1'; }, 10);
     });
     setTimeout(run, i === 1 ? 350 : 580);
   }
-  setTimeout(run, 1400);
+  setTimeout(run, 1200);
 })();
 
-// ===== ACTIVE NAV =====
-(function() {
+// ── Formulario de contacto (Formspree) ────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var origText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="btn-spinner"></span> Enviando…';
+    var data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      telefono: form.telefono.value,
+      servicio: form.servicio.value,
+      mensaje: form.mensaje.value,
+      _subject: '📩 Nueva solicitud – guardianos.es',
+      _replyto: form.email.value
+    };
+    fetch('https://formspree.io/f/xdaoraeo', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (json) {
+        if (json.ok) {
+          window.location.href = 'gracias.html';
+        } else {
+          showToast('warning', json.error || 'Inténtalo de nuevo o escríbenos a info@guardianos.es');
+          btn.disabled = false;
+          btn.innerHTML = origText;
+        }
+      })
+      .catch(function () {
+        showToast('error', 'Error de red. Escríbenos directamente a info@guardianos.es');
+        btn.disabled = false;
+        btn.innerHTML = origText;
+      });
+  });
+});
+
+// ── Enlace activo en el menú ──────────────────────────────────────────────────
+(function () {
   var sects = document.querySelectorAll('section[id]');
   var links = document.querySelectorAll('.nav-links a[href^="#"]');
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
+  if (!sects.length || !links.length) return;
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
       if (e.isIntersecting) {
-        links.forEach(function(a) { a.classList.remove('active'); });
+        links.forEach(function (a) { a.classList.remove('active'); });
         var a = document.querySelector('.nav-links a[href="#' + e.target.id + '"]');
         if (a) a.classList.add('active');
       }
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
-  sects.forEach(function(s) { obs.observe(s); });
+  sects.forEach(function (s) { obs.observe(s); });
 })();
 </script>
 </body>
