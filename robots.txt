@@ -1,5 +1,5 @@
 # robots.txt para guardianos.es
-# Última actualización: febrero 2026
+# Última actualización: noviembre 2026
 
 User-agent: *
 Allow: /
